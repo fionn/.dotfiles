@@ -1,0 +1,4 @@
+.vim/undodir/
+.vim/spell/
+.vim/.netrwhist
+*.jpg

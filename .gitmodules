@@ -1,0 +1,6 @@
+[submodule ".vim/pack/plugins/start/VimCompletesMe"]
+	path = .vim/pack/plugins/start/VimCompletesMe
+	url = git@github.com:ajh17/VimCompletesMe.git
+[submodule ".vim/pack/plugins/start/DidYouMean"]
+	path = .vim/pack/plugins/start/DidYouMean
+	url = git@github.com:EinfachToll/DidYouMean.git
