@@ -1,16 +1,16 @@
 set nocompatible
 
-"set runtimepath=/home/fionn/.vim,$VIMRUNTIME " grb256 for root
-
 noremap <leader>s :source ~/.vimrc<CR>
 nnoremap Q <Nop>
 command Q q
 command W w
 
+set clipboard=unnamed
+
 set nu
-set ts=4
+set tabstop=4
 set shiftwidth=4
-"set softtabstop=4
+set softtabstop=-1
 "set smarttab
 set expandtab
 set shiftround
@@ -20,6 +20,7 @@ set autoindent
 
 set smartcase
 set incsearch
+set hlsearch
 
 "set laststatus=2
 set spelllang=en_gb
@@ -47,7 +48,7 @@ onoremap k gk
 
 set wildmode=longest,list,full
 set wildmenu
-set wildignore+=.git,*.swp,*.o,*.aux,*.toc,*.pdf
+set wildignore+=.git,*.swp,*.o,*.aux,*.toc,*.pdf,*.so
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
@@ -66,14 +67,19 @@ set omnifunc=syntaxcomplete#Complete
 "au FileType css setl ofu=csscomplete#CompleteCSS
 "autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_enabled = 0
+
 set t_Co=256
 set background=dark
 color grb256
-highlight colorcolumn ctermbg=232
 "let &colorcolumn=join(range(81,999),",")
 set colorcolumn=81
+highlight colorcolumn ctermbg=232
 highlight Error ctermbg=red term=reverse
 highlight LineNr ctermfg=darkgrey
+highlight Search ctermbg=Cyan ctermfg=Black cterm=none
+highlight Comment cterm=italic
 
 set undofile
 set undodir=~/.vim/undodir
@@ -83,7 +89,7 @@ set pastetoggle=<F2>
 set showmode
 
 if has('mouse')
-	set mouse=a
+    set mouse=a
 endif
 
 au BufRead /tmp/mutt-* set tw=72
