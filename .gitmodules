@@ -7,3 +7,9 @@
 [submodule ".vim/pack/plugins/start/ale"]
 	path = .vim/pack/plugins/start/ale
 	url = git@github.com:w0rp/ale.git
+[submodule ".vim/pack/plugins/start/gundo.vim"]
+	path = .vim/pack/plugins/start/gundo.vim
+	url = git@github.com:sjl/gundo.vim.git
+[submodule ".vim/pack/plugins/start/ctrlp.vim"]
+	path = .vim/pack/plugins/start/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git

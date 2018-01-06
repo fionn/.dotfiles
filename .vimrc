@@ -2,8 +2,11 @@ set nocompatible
 
 noremap <leader>s :source ~/.vimrc<CR>
 nnoremap Q <Nop>
-command Q q
 command W w
+command Q q
+command Wq wq
+nnoremap <silent><CR> :nohlsearch<CR><CR>
+nnoremap <F5> :GundoToggle<CR>
 
 set clipboard=unnamed
 
