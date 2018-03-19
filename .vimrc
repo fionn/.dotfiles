@@ -46,7 +46,7 @@ set wrap
 set linebreak
 set ttyfast
 
-onoremap j gj 
+onoremap j gj
 onoremap k gk
 
 set wildmode=longest,list,full
@@ -60,7 +60,13 @@ let g:jedi#auto_vim_configuration = 0
 set completeopt=longest,menu,preview
 
 syntax on
-"filetype plugin indent on 
+"whitespace highlighting
+highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
+match ExtraWhitespace /\s\+\%#\@<!$/
+"match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd InsertLeave * redraw!
+"filetype plugin indent on
 filetype indent on
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType python setlocal completeopt-=preview
