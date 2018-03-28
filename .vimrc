@@ -8,7 +8,8 @@ command Wq wq
 nnoremap <silent><CR> :nohlsearch<CR><CR>
 nnoremap <F5> :GundoToggle<CR>
 
-set clipboard=unnamed
+"set to unnamed for mac
+set clipboard=unnamedplus
 
 set nu
 set tabstop=4
@@ -21,6 +22,7 @@ set autoindent
 "set smartindent
 "set shortmess+=I
 
+set ignorecase
 set smartcase
 set incsearch
 set hlsearch
@@ -77,7 +79,7 @@ set omnifunc=syntaxcomplete#Complete
 "autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
 let g:ale_linters = {'python': ['pylint']}
-let g:ale_enabled = 0
+let g:ale_enabled = 1
 
 set t_Co=256
 set background=dark
@@ -101,7 +103,7 @@ if has('mouse')
     set mouse=a
 endif
 
-au BufRead /tmp/mutt-* set tw=72
+au BufRead /tmp/mutt-* set textwidth=72
 
 set cryptmethod=blowfish2
 autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
