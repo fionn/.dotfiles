@@ -5,25 +5,26 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-#PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W ]\$ '
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+alias ls='ls --color=auto'
+# shellcheck source=/home/fionn/.bash_aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
 
-# command not found
 #[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
-source /usr/share/doc/pkgfile/command-not-found.bash
+[[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && \
+    . /usr/share/doc/pkgfile/command-not-found.bash
 
+# shellcheck disable=SC1094
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# Git prompt
-source /usr/share/git/completion/git-prompt.sh
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && \
+    . /usr/share/git/completion/git-prompt.sh
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS="true"
@@ -40,5 +41,5 @@ shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH:$HOME/node_modules/.bin
 
