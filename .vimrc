@@ -1,3 +1,4 @@
+set secure
 set nocompatible
 
 noremap <leader>s :source ~/.vimrc<CR>
@@ -6,12 +7,15 @@ command W w
 command Q q
 command Wq wq
 nnoremap <silent><CR> :nohlsearch<CR><CR>
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>u :GundoToggle<CR>
 
-"set to unnamed for mac
+" set to unnamed for mac
 set clipboard=unnamedplus
 
-set nu
+" mac-specific
+set backspace=indent,eol,start
+
+set number
 set tabstop=4
 set shiftwidth=4
 set softtabstop=-1
@@ -20,6 +24,7 @@ set expandtab
 set shiftround
 set autoindent
 "set smartindent
+set breakindent
 "set shortmess+=I
 
 set ignorecase
@@ -55,6 +60,7 @@ set wildmode=longest,list,full
 set wildmenu
 set wildignore+=.git,*.swp,*.o,*.aux,*.toc,*.pdf,*.so
 
+" vim-jedi is managed by pacman
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#smart_auto_mappings = 0
@@ -66,19 +72,20 @@ syntax on
 highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
 match ExtraWhitespace /\s\+\%#\@<!$/
-"match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertLeave * redraw!
 "filetype plugin indent on
 filetype indent on
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType python setlocal completeopt-=preview
+autocmd BufEnter,BufRead *.conf setf dosini
 
 let b:vcm_tab_complete = 'omni'
 set omnifunc=syntaxcomplete#Complete
 "au FileType css setl ofu=csscomplete#CompleteCSS
 "autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
-let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
+let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
 
 set t_Co=256
@@ -89,8 +96,11 @@ set colorcolumn=81
 highlight colorcolumn ctermbg=232
 highlight Error ctermbg=red term=reverse
 highlight LineNr ctermfg=darkgrey
-highlight Search ctermbg=Cyan ctermfg=Black cterm=none
+highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
+set cursorline
+highlight clear CursorLine
+highlight CursorLineNR ctermfg=gray
 
 set undofile
 set undodir=~/.vim/undodir
