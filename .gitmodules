@@ -16,3 +16,6 @@
 [submodule ".vim/pack/plugins/start/ejs-syntax"]
 	path = .vim/pack/plugins/start/ejs-syntax
 	url = https://github.com/nikvdp/ejs-syntax.git
+[submodule ".vim/pack/plugins/start/vim-ansible-yaml"]
+	path = .vim/pack/plugins/start/vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git

@@ -61,6 +61,7 @@ set wildmenu
 set wildignore+=.git,*.swp,*.o,*.aux,*.toc,*.pdf,*.so
 
 " vim-jedi is managed by pacman
+" requires python-jedi
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#smart_auto_mappings = 0
@@ -84,7 +85,7 @@ set omnifunc=syntaxcomplete#Complete
 "au FileType css setl ofu=csscomplete#CompleteCSS
 "autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
-let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
+let g:ale_linters = {"python": ["pylint"], "tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
 

@@ -7,7 +7,6 @@
 
 #PS1='[\u@\h \W ]\$ '
 
-alias ls='ls --color=auto'
 # shellcheck source=/home/fionn/.bash_aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
