@@ -69,10 +69,8 @@ let g:jedi#auto_vim_configuration = 0
 set completeopt=longest,menu,preview
 
 syntax on
-"whitespace highlighting
-highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
-match ExtraWhitespace /\s\+\%#\@<!$/
+set list listchars=trail:·
+autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
 "filetype plugin indent on
 filetype indent on
@@ -85,14 +83,13 @@ set omnifunc=syntaxcomplete#Complete
 "au FileType css setl ofu=csscomplete#CompleteCSS
 "autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
-let g:ale_linters = {"python": ["pylint"], "tex": ["chktex"]}
+let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
 
 set t_Co=256
 set background=dark
 color grb256
-"let &colorcolumn=join(range(81,999),",")
 set colorcolumn=81
 highlight colorcolumn ctermbg=232
 highlight Error ctermbg=red term=reverse
@@ -101,7 +98,7 @@ highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
 set cursorline
 highlight clear CursorLine
-highlight CursorLineNR ctermfg=gray
+highlight CursorLineNR ctermfg=grey
 
 set undofile
 set undodir=~/.vim/undodir
@@ -121,6 +118,5 @@ autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= noba
 
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 
-"cmap w!! w !sudo tee > /dev/null %
 cabbrev w!! w !sudo tee > /dev/null %
 
