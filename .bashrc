@@ -35,10 +35,12 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export HISTTIMEFORMAT="%F %T "
 
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH:$HOME/node_modules/.bin
+
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
 
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH:$HOME/node_modules/.bin
+tabs -4
 

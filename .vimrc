@@ -3,18 +3,15 @@ set nocompatible
 
 noremap <leader>s :source ~/.vimrc<CR>
 nnoremap Q <Nop>
+nnoremap <silent><CR> :nohlsearch<CR><CR>
+nnoremap <leader>u :GundoToggle<CR>
+onoremap j gj
+onoremap k gk
 command W w
 command Q q
 command Wq wq
-nnoremap <silent><CR> :nohlsearch<CR><CR>
-nnoremap <leader>u :GundoToggle<CR>
 
-" set to unnamed for mac
 set clipboard=unnamedplus
-
-" mac-specific
-set backspace=indent,eol,start
-
 set number
 set tabstop=4
 set shiftwidth=4
@@ -34,8 +31,17 @@ set hlsearch
 
 "set laststatus=2
 set spelllang=en_gb
-"set cursorline " makes errors impossible to read, https://vi.stackexchange.com/q/3288
 set showcmd
+set wrap
+set linebreak
+set ttyfast
+
+set undofile
+set undodir=~/.vim/undodir
+
+set wildmode=longest,list,full
+set wildmenu
+set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so
 
 " Buffers and Netrw
 set hidden
@@ -44,32 +50,23 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
+let g:netrw_special_syntax = 1
+let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$'
 "augroup ProjectDrawer
 "  autocmd!
 "  autocmd VimEnter * :Vexplore
 "augroup END
 
-set wrap
-set linebreak
-set ttyfast
-
-onoremap j gj
-onoremap k gk
-
-set wildmode=longest,list,full
-set wildmenu
-set wildignore+=.git,*.swp,*.o,*.aux,*.toc,*.pdf,*.so
-
 " vim-jedi is managed by pacman
 " requires python-jedi
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 2
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#auto_vim_configuration = 0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#show_call_signatures = 2
+"let g:jedi#smart_auto_mappings = 0
+"let g:jedi#auto_vim_configuration = 0
 set completeopt=longest,menu,preview
 
 syntax on
-set list listchars=trail:·
+set list listchars=tab:\ \ ,trail:·
 autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
 "filetype plugin indent on
@@ -100,15 +97,18 @@ set cursorline
 highlight clear CursorLine
 highlight CursorLineNR ctermfg=grey
 
-set undofile
-set undodir=~/.vim/undodir
-
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
 if has('mouse')
     set mouse=a
+endif
+
+if has("macunix")
+   set backspace=indent,eol,start
+   set clipboard=unnamed
+   highlight Comment cterm=none
 endif
 
 au BufRead /tmp/mutt-* set textwidth=72
