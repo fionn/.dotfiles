@@ -229,6 +229,7 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 # Applications
 bindsym $mod+f exec firefox
 bindsym $mod+p exec pcmanfm
+bindsym $mod+BackSpace exec --no-startup-id i3lock --ignore-empty-password --show-failed-attempts --image ~/.i3/background/huntersinthesnow.png --tiling
 
 # Shutdown (from https://wiki.archlinux.org/index.php/i3#Shutdown.2C_reboot.2C_lock_screen)
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown

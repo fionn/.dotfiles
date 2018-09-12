@@ -1,5 +1,6 @@
 set secure
 set nocompatible
+set encoding=utf-8
 
 noremap <leader>s :source ~/.vimrc<CR>
 nnoremap Q <Nop>
@@ -51,7 +52,7 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
 let g:netrw_special_syntax = 1
-let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$'
+let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$,__pycache__/$,.mypy_cache/$'
 "augroup ProjectDrawer
 "  autocmd!
 "  autocmd VimEnter * :Vexplore
@@ -77,8 +78,6 @@ autocmd BufEnter,BufRead *.conf setf dosini
 
 let b:vcm_tab_complete = 'omni'
 set omnifunc=syntaxcomplete#Complete
-"au FileType css setl ofu=csscomplete#CompleteCSS
-"autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
 let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1

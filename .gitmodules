@@ -19,3 +19,9 @@
 [submodule ".vim/pack/plugins/start/vim-ansible-yaml"]
 	path = .vim/pack/plugins/start/vim-ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
+[submodule ".vim/pack/plugins/start/vim-surround"]
+	path = .vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
