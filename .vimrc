@@ -5,7 +5,7 @@ set encoding=utf-8
 noremap <leader>s :source ~/.vimrc<CR>
 nnoremap Q <Nop>
 nnoremap <silent><CR> :nohlsearch<CR><CR>
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 onoremap j gj
 onoremap k gk
 command W w
