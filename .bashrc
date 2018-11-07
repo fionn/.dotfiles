@@ -5,8 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#PS1='[\u@\h \W ]\$ '
-
 # shellcheck source=/home/fionn/.bash_aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
@@ -22,9 +20,13 @@
     . /usr/share/git/completion/git-prompt.sh
 
 GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWCOLORHINTS=""
 GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_SHOWCOLORHINTS="true"
+#PS1='[\u@\h \W ]\$ '
 PS1='[\u@\h \W $(__git_ps1 "(%s)")]\$ '
+#PROMPT_COMMAND='__git_ps1 "[\u@\h \W"  "]\$ "'
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
@@ -43,4 +45,3 @@ shopt -s dirspell
 shopt -s cdspell
 
 tabs -4
-

@@ -43,6 +43,7 @@ set undodir=~/.vim/undodir
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so
+set tags+=tags;
 
 " Buffers and Netrw
 set hidden
@@ -107,6 +108,7 @@ endif
 if has("macunix")
    set backspace=indent,eol,start
    set clipboard=unnamed
+   set ruler
    highlight Comment cterm=none
 endif
 

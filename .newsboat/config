@@ -1,0 +1,12 @@
+auto-reload yes
+reload-threads 6
+reload-time 5
+browser firefox
+datetime-format "%F %T"
+http-auth-method digest
+
+bind-key k up
+bind-key j down
+bind-key g home
+bind-key G end
+bind-key i quit

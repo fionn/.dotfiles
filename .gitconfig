@@ -1,0 +1,12 @@
+[user]
+	name = Fionn Fitzmaurice
+	email = fionn@github.com
+	signingkey = 18E5CC1778377A29
+[color]
+	ui = auto
+[url "https://aur.archlinux.org/"]
+    insteadOf = aur:
+[diff]
+	algorithm = histogram
+[color "diff"]
+	whitespace = blue
