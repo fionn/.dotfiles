@@ -1,0 +1,67 @@
+# .bash_profile for macos machines in work.
+
+[ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
+[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && . /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion.d/brew ] && . /usr/local/etc/bash_completion.d/brew
+[ -f /usr/local/etc/bash_completion.d/brew-services ] && . /usr/local/etc/bash_completion.d/brew-services
+[ -f /usr/local/etc/bash_completion.d/wg ] && . /usr/local/etc/bash_completion.d/wg
+[ -f /usr/local/etc/bash_completion.d/wg-quick ] && . /usr/local/etc/bash_completion.d/wg-quick
+[ -f /usr/local/etc/bash_completion.d/tmux ] && . /usr/local/etc/bash_completion.d/tmux
+[ -f /usr/local/etc/bash_completion.d/vagrant ] && . /usr/local/etc/bash_completion.d/vagrant
+[ -f /usr/local/etc/bash_completion.d/pass ] && . /usr/local/etc/bash_completion.d/pass
+[ -f /usr/local/etc/bash_completion.d/npm ] && . /usr/local/etc/bash_completion.d/npm
+[ -f /usr/local/etc/bash_completion.d/youtube-dl.bash-completion ] && . /usr/local/etc/bash_completion.d/youtube-dl.bash-completion
+
+# I want this to fail hard; git-prompt.sh needs to exist.
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWCOLORHINTS=1
+#PS1='[\u@\h \W]\$ '
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# General unix options
+export EDITOR=vim
+export VISUAL=$EDITOR
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoreboth
+export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
+export HISTTIMEFORMAT="%F %T "
+
+# Build stuff
+export GOPATH=$HOME/.go
+export THEOS=/usr/local/opt/theos
+export OSX_TOOLCHAIN=xcode
+#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home
+# export JAVA_HOME="$(/usr/libexec/java_home)"
+export CONFIG=Debug
+
+# Package options
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Path
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/python/libexec/bin:$THEOS/bin:/Applications/VMware\ Fusion.app/Contents/Library:$JAVA_HOME/bin:$PATH:$HOME/node_modules/.bin:~/Library/Android/sdk/tools/bin:~/Library/Android/sdk/platform-tools
+
+shopt -s nocaseglob
+shopt -s histappend
+shopt -s cmdhist
+shopt -s dirspell
+shopt -s cdspell
+
+tabs -4
+
+function gr {
+    git branch > /dev/null 2>&1 || return 1
+    cd "$(git rev-parse --show-toplevel)". || return 1
+}
+
+alias yubico-piv-tool='/Applications/YubiKey\ PIV\ Manager.app/Contents/MacOS/yubico-piv-tool'
+alias lsblk="diskutil list"

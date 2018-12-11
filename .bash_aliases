@@ -13,3 +13,5 @@ alias tree='tree -C'
 alias ip='ip -c'
 alias gr='cd $(git rev-parse --show-toplevel)'
 alias view='vim -R'
+alias vi=vim
+alias msfconsole="msfconsole --quiet -x \"db_connect postgres@msf\""

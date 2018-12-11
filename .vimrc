@@ -71,10 +71,11 @@ syntax on
 set list listchars=tab:\ \ ,trail:·
 autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
-"filetype plugin indent on
 filetype indent on
-autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+autocmd FileType make setlocal noexpandtab shiftwidth=4 softtabstop=0
+autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
 autocmd FileType python setlocal completeopt-=preview
+autocmd FileType gitcommit setlocal spell
 autocmd BufEnter,BufRead *.conf setf dosini
 
 let b:vcm_tab_complete = 'omni'
@@ -114,8 +115,10 @@ endif
 
 au BufRead /tmp/mutt-* set textwidth=72
 
-set cryptmethod=blowfish2
-autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
+if exists(":cryptmethod")
+    set cryptmethod=blowfish2
+    autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
+endif
 
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 
