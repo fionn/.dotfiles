@@ -25,7 +25,7 @@ GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWCOLORHINTS=""
 GIT_PS1_SHOWUPSTREAM="auto"
 #PS1='[\u@\h \W ]\$ '
-PS1='[\u@\h \W $(__git_ps1 "(%s)")]\$ '
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 #PROMPT_COMMAND='__git_ps1 "[\u@\h \W"  "]\$ "'
 
 export EDITOR=vim

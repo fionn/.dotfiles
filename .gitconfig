@@ -1,20 +1,26 @@
 [user]
-	name = Fionn Fitzmaurice
-	email = fionn@github.com
-	signingkey = BE7149DD3EEA15D8CD5BD7F618E5CC1778377A29
-
+    name = Fionn Fitzmaurice
+    email = fionn@github.com
+    signingkey = BE7149DD3EEA15D8CD5BD7F618E5CC1778377A29
 [color]
-	ui = auto
+    ui = auto
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [diff]
-	algorithm = histogram
+    algorithm = histogram
 [color "diff"]
-	whitespace = blue
+    whitespace = blue
+    meta = normal normal dim
 [alias]
-	ll = log --oneline --all --graph --decorate --color
+    ll = log --oneline --graph --decorate --color
+    rgrep = ! f(){ git grep "$@" $(git rev-list --all); } f()
+    rrgrep = ! git rev-list --all | xargs git grep
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+[filter "spacify"]
+    clean = expand --tabs=4 --initial
+[filter "tabify"]
+    clean = unexpand --tabs=4 --first-only

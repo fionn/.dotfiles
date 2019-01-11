@@ -53,7 +53,7 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
 let g:netrw_special_syntax = 1
-let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$,__pycache__/$,.mypy_cache/$'
+let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$,__pycache__/$,.mypy_cache/$,venv/$,.git/$'
 "augroup ProjectDrawer
 "  autocmd!
 "  autocmd VimEnter * :Vexplore
@@ -76,6 +76,9 @@ autocmd FileType make setlocal noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit highlight SpellCap ctermbg=none
+autocmd FileType markdown setlocal spell
+autocmd FileType markdown highlight Title cterm=bold
 autocmd BufEnter,BufRead *.conf setf dosini
 
 let b:vcm_tab_complete = 'omni'
@@ -84,8 +87,8 @@ set omnifunc=syntaxcomplete#Complete
 let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
+let g:ale_virtualenv_dir_names = ["venv"]
 
-set t_Co=256
 set background=dark
 color grb256
 set colorcolumn=81
