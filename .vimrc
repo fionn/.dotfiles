@@ -81,6 +81,8 @@ autocmd FileType markdown setlocal spell
 autocmd FileType markdown highlight Title cterm=bold
 autocmd BufEnter,BufRead *.conf setf dosini
 
+let g:tex_flavor = "latex"
+
 let b:vcm_tab_complete = 'omni'
 set omnifunc=syntaxcomplete#Complete
 
@@ -90,7 +92,7 @@ let g:ale_enabled = 1
 let g:ale_virtualenv_dir_names = ["venv"]
 
 set background=dark
-color grb256
+colorscheme grb256
 set colorcolumn=81
 highlight colorcolumn ctermbg=232
 highlight Error ctermbg=red term=reverse

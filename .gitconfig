@@ -15,6 +15,7 @@
     ll = log --oneline --graph --decorate --color
     rgrep = ! f(){ git grep "$@" $(git rev-list --all); } f()
     rrgrep = ! git rev-list --all | xargs git grep
+    reset-file = checkout @ --
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
@@ -24,3 +25,5 @@
     clean = expand --tabs=4 --initial
 [filter "tabify"]
     clean = unexpand --tabs=4 --first-only
+[transfer]
+    fsckObjects = true
