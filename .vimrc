@@ -42,7 +42,7 @@ set undodir=~/.vim/undodir
 
 set wildmode=longest,list,full
 set wildmenu
-set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so
+set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so,*.pyc,*/__pycache__,*/venv
 set tags+=tags;
 
 " Buffers and Netrw
@@ -75,21 +75,24 @@ filetype indent on
 autocmd FileType make setlocal noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
 autocmd FileType python setlocal completeopt-=preview
-autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd FileType gitcommit highlight SpellCap ctermbg=none
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown highlight Title cterm=bold
-autocmd BufEnter,BufRead *.conf setf dosini
+autocmd BufEnter,BufRead *.conf setfiletype dosini
+autocmd BufEnter,BufRead *.asm setfiletype nasm
 
 let g:tex_flavor = "latex"
 
-let b:vcm_tab_complete = 'omni'
+let b:vcm_tab_complete = "omni"
 set omnifunc=syntaxcomplete#Complete
 
 let g:ale_linters = {"python": ["pylint", "mypy"], "tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
 let g:ale_virtualenv_dir_names = ["venv"]
+
+let g:ctrlp_extensions = ["tag", "mixed"]
 
 set background=dark
 colorscheme grb256
@@ -118,7 +121,7 @@ if has("macunix")
    highlight Comment cterm=none
 endif
 
-au BufRead /tmp/mutt-* set textwidth=72
+autocmd BufRead /tmp/mutt-* set textwidth=72
 
 if exists(":cryptmethod")
     set cryptmethod=blowfish2

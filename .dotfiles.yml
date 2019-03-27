@@ -1,0 +1,43 @@
+# vim: set ft=ansible:
+---
+- name: get and deploy dotfiles
+  hosts: fresh_hosts
+  remote_user: fionn
+
+  tasks:
+
+  - name: ensure git, bash and vim are installed
+    become: yes
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - git
+    - bash
+    - vim
+
+  - name: clone .dotfiles repository
+    git:
+      repo: https://github.com/fionn/.dotfiles.git
+      version: master
+      recursive: yes
+      dest: ~/.dotfiles
+
+  - name: backup .bashrc
+    copy:
+      remote_src: yes
+      src: ~/.bashrc
+      dest: ~/.bashrc.backup.{{ ansible_date_time.epoch }}
+
+  - name: make symbolic links
+    file:
+      src: ~/.dotfiles/{{ item }}
+      dest: ~/{{ item }}
+      state: link
+    loop:
+    - .vimrc
+    - .vim
+    - .bashrc
+    - .bash_aliases
+    - .gitconfig
+    - .mypy.ini
