@@ -20,7 +20,7 @@
     . /usr/share/git/completion/git-prompt.sh
 
 GIT_PS1_SHOWDIRTYSTATE=1
-#GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUNTRACKEDFILES=""
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWCOLORHINTS=""
 GIT_PS1_SHOWUPSTREAM="auto"
@@ -37,7 +37,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export HISTTIMEFORMAT="%F %T "
 
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH:$HOME/node_modules/.bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
 shopt -s histappend
 shopt -s cmdhist

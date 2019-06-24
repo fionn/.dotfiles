@@ -25,3 +25,6 @@
 [submodule ".vim/pack/plugins/start/undotree"]
 	path = .vim/pack/plugins/start/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule ".vim/pack/plugins/start/bats.vim"]
+	path = .vim/pack/plugins/start/bats.vim
+	url = https://github.com/aliou/bats.vim.git

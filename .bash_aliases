@@ -15,3 +15,4 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 alias view='vim -R'
 alias vi=vim
 alias msfconsole="msfconsole --quiet -x \"db_connect postgres@msf\""
+alias nse="ls /usr/share/nmap/scripts/ | grep "
