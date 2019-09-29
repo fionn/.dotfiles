@@ -1,7 +1,7 @@
 [user]
     name = Fionn Fitzmaurice
     email = fionn@github.com
-    signingkey = BE7149DD3EEA15D8CD5BD7F618E5CC1778377A29
+    signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [color]
     ui = auto
 [url "https://aur.archlinux.org/"]

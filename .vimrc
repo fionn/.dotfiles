@@ -36,6 +36,7 @@ set showcmd
 set wrap
 set linebreak
 set ttyfast
+set lazyredraw
 
 set undofile
 set undodir=~/.vim/undodir
@@ -69,18 +70,17 @@ set completeopt=longest,menu,preview
 
 syntax on
 set list listchars=tab:\ \ ,trail:·
+filetype indent on
 autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
-filetype indent on
-autocmd FileType make setlocal noexpandtab shiftwidth=4 softtabstop=0
+autocmd FileType make setlocal noexpandtab softtabstop=0
 autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd FileType gitcommit highlight SpellCap ctermbg=none
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown highlight Title cterm=bold
-autocmd BufEnter,BufRead *.conf setfiletype dosini
-autocmd BufEnter,BufRead *.asm setfiletype nasm
+autocmd FileType tf setlocal shiftwidth=2
 
 let g:tex_flavor = "latex"
 
@@ -94,6 +94,8 @@ let g:ale_virtualenv_dir_names = ["venv"]
 
 let g:ctrlp_extensions = ["tag", "mixed"]
 
+let g:terraform_align=1
+
 set background=dark
 colorscheme grb256
 set colorcolumn=81
@@ -104,13 +106,13 @@ highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
 set cursorline
 highlight clear CursorLine
-highlight CursorLineNR ctermfg=grey
+highlight CursorLineNR cterm=none ctermfg=grey
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-if has('mouse')
+if has("mouse")
     set mouse=a
 endif
 
@@ -131,4 +133,3 @@ endif
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 
 cabbrev w!! w !sudo tee > /dev/null %
-
