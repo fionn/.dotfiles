@@ -74,6 +74,7 @@ filetype indent on
 autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
 autocmd FileType make setlocal noexpandtab softtabstop=0
+autocmd FileType csv setlocal noexpandtab softtabstop=0
 autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType gitcommit setlocal spell textwidth=72
