@@ -12,7 +12,6 @@
 [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && \
     . /usr/share/doc/pkgfile/command-not-found.bash
 
-# shellcheck disable=SC1094
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 

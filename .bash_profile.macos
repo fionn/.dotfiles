@@ -1,24 +1,32 @@
 # .bash_profile for macos machines in work.
 
-[ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
-[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && . /usr/local/etc/bash_completion.d/git-completion.bash
-[ -f /usr/local/etc/bash_completion.d/brew ] && . /usr/local/etc/bash_completion.d/brew
+#eval "$(rbenv init init -)"
+
+export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
+[ -r /usr/local/etc/profile.d/bash_completion.sh ] && . /usr/local/etc/profile.d/bash_completion.sh
 [ -f /usr/local/etc/bash_completion.d/brew-services ] && . /usr/local/etc/bash_completion.d/brew-services
-[ -f /usr/local/etc/bash_completion.d/wg ] && . /usr/local/etc/bash_completion.d/wg
-[ -f /usr/local/etc/bash_completion.d/wg-quick ] && . /usr/local/etc/bash_completion.d/wg-quick
-[ -f /usr/local/etc/bash_completion.d/tmux ] && . /usr/local/etc/bash_completion.d/tmux
-[ -f /usr/local/etc/bash_completion.d/vagrant ] && . /usr/local/etc/bash_completion.d/vagrant
-[ -f /usr/local/etc/bash_completion.d/pass ] && . /usr/local/etc/bash_completion.d/pass
-[ -f /usr/local/etc/bash_completion.d/npm ] && . /usr/local/etc/bash_completion.d/npm
-[ -f /usr/local/etc/bash_completion.d/youtube-dl.bash-completion ] && . /usr/local/etc/bash_completion.d/youtube-dl.bash-completion
-[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && . /usr/local/etc/bash_completion.d/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM=auto
-GIT_PS1_SHOWCOLORHINTS=1
-#PS1='[\u@\h \W]\$ '
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#[ -f /usr/local/etc/bash_completion.d/john.bash ] && . /usr/local/etc/bash_completion.d/john.bash
+
+complete -C /usr/local/bin/terraform terraform
+
+# No en_HK locale :(
+base_locale=en_GB.UTF-8
+export LC_NUMERIC=$base_locale
+export LC_TIME=$base_locale
+export LC_COLLATE=$base_locale
+export LC_MONETARY=$base_locale
+export LC_MESSAGES=$base_locale
+
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM=auto
+    GIT_PS1_SHOWCOLORHINTS=1
+    #PS1='[\u@\h \W]\$ '
+    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
 
 # General unix options
 export EDITOR=vim
@@ -30,23 +38,43 @@ export HISTFILESIZE=100000
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export HISTTIMEFORMAT="%F %T "
+export MANPAGER="less -s -M +Gg"
+
+man_colour() {
+    # https://unix.stackexchange.com/a/147
+    LESS_TERMCAP_mb=$(tput bold; tput setaf 2) \
+    LESS_TERMCAP_md=$(tput bold; tput setaf 6) \
+    LESS_TERMCAP_me=$(tput sgr0) \
+    LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) \
+    LESS_TERMCAP_se=$(tput rmso; tput sgr0) \
+    LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) \
+    LESS_TERMCAP_ue=$(tput rmul; tput sgr0) \
+    LESS_TERMCAP_mr=$(tput rev) \
+    LESS_TERMCAP_mh=$(tput dim) \
+    command man "$@"
+}
 
 # Build stuff
 export GOPATH=$HOME/.go
-export THEOS=/usr/local/opt/theos
+#export THEOS=/usr/local/opt/theos
 export OSX_TOOLCHAIN=xcode
-#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
 #export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home
-# export JAVA_HOME="$(/usr/libexec/java_home)"
-export CONFIG=Debug
+#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796/"
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+#export ANDROID_HOME="$HOME/Library/Android/sdk"
+#export CONFIG=Debug
 
-# Package options
+# Brew options
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
+
+# Sec-related variables
+export JOHN=/usr/local/share/john
+export MSFRAMEWORK=/opt/metasploit-framework/embedded/framework
 
 # Path
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/python/libexec/bin:$THEOS/bin:/Applications/VMware\ Fusion.app/Contents/Library:$JAVA_HOME/bin:$PATH:$HOME/node_modules/.bin:~/Library/Android/sdk/tools/bin:~/Library/Android/sdk/platform-tools
+export PATH=/usr/local/sbin:/usr/local/opt/python/libexec/bin:/Applications/VMware\ Fusion.app/Contents/Library:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH:$HOME/node_modules/.bin:$HOME/Library/Android/sdk/tools/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/bin
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 shopt -s nocaseglob
 shopt -s histappend
@@ -61,5 +89,22 @@ function gr {
     cd "$(git rev-parse --show-toplevel)". || return 1
 }
 
-alias yubico-piv-tool='/Applications/YubiKey\ PIV\ Manager.app/Contents/MacOS/yubico-piv-tool'
+function search {
+    grep -FRl "$1" .
+}
+
+# TODO: ~/.bash_aliases
+alias grep="grep --color=auto"
+alias ssh-init-opensc-agent="ssh-add -s /usr/local/lib/opensc-pkcs11.so"
 alias lsblk="diskutil list"
+alias diff=colordiff
+
+function gpg_agent {
+    unset SSH_AGENT_PID
+    if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+        SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+        export SSH_AUTH_SOCK
+    fi
+    gpgconf --launch gpg-agent
+}
+#gpg_agent
