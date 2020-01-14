@@ -13,6 +13,7 @@ command Q q
 command Wq wq
 
 set clipboard=unnamedplus
+
 set number
 set tabstop=4
 set shiftwidth=4
@@ -122,6 +123,10 @@ if has("macunix")
    set clipboard=unnamed
    set ruler
    highlight Comment cterm=none
+endif
+
+if has("X11")
+    autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
 endif
 
 autocmd BufRead /tmp/mutt-* set textwidth=72
