@@ -25,6 +25,7 @@ set autoindent
 "set smartindent
 set breakindent
 "set shortmess+=I
+set nojoinspaces
 
 set ignorecase
 set smartcase
@@ -83,6 +84,8 @@ autocmd FileType gitcommit highlight SpellCap ctermbg=none
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown highlight Title cterm=bold
 autocmd FileType tf setlocal shiftwidth=2
+autocmd BufRead /tmp/mutt-* setlocal spell textwidth=72 fo+=watqc
+autocmd BufRead /tmp/mutt-* match ErrorMsg '\s\+$'
 
 let g:tex_flavor = "latex"
 
@@ -128,8 +131,6 @@ endif
 if has("X11")
     autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
 endif
-
-autocmd BufRead /tmp/mutt-* set textwidth=72
 
 if exists(":cryptmethod")
     set cryptmethod=blowfish2
