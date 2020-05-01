@@ -29,6 +29,7 @@ PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
+export SYSTEMD_EDITOR="$EDITOR"
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
@@ -43,5 +44,6 @@ shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
+shopt -s globstar
 
 tabs -4

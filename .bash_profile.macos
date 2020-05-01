@@ -81,6 +81,7 @@ shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
+shopt -s globstar
 
 tabs -4
 
