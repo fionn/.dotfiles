@@ -1,9 +1,6 @@
 [submodule ".vim/pack/plugins/start/VimCompletesMe"]
 	path = .vim/pack/plugins/start/VimCompletesMe
 	url = https://github.com/ajh17/VimCompletesMe.git
-[submodule ".vim/pack/plugins/start/DidYouMean"]
-	path = .vim/pack/plugins/start/DidYouMean
-	url = https://github.com/EinfachToll/DidYouMean.git
 [submodule ".vim/pack/plugins/start/ale"]
 	path = .vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
