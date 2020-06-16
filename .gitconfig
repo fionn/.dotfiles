@@ -27,3 +27,5 @@
     clean = unexpand --tabs=4 --first-only
 [transfer]
     fsckObjects = true
+[pull]
+    ff = only
