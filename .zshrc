@@ -32,7 +32,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 tabs -4
 
-source ~/.bash_aliases
+[[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
 
 function gr {
     git branch > /dev/null 2>&1 || return 1
