@@ -1,7 +1,6 @@
 # bash aliases created by me
 # run "source ~/.bashrc" to apply changes
 
-alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias dmesg="dmesg --color=auto"
@@ -10,6 +9,10 @@ alias ip="ip -c"
 alias gr="cd \$(git rev-parse --show-toplevel)"
 alias view="vim -R"
 alias vi=vim
+
+if ls --color -d . >/dev/null 2>&1; then
+    alias ls="ls --color=auto"
+fi
 
 if hash startx 2> /dev/null; then
     alias x="cd ~ && startx"
