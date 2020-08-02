@@ -223,9 +223,6 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
 # PrtSc
 #bindsym Print exec --no-startup-id scrot
 
-# Compositor
-exec --no-startup-id compton --config ~/.config/compton.conf -b
-
 # Applications
 bindsym $mod+f exec firefox
 bindsym $mod+p exec pcmanfm
@@ -245,6 +242,6 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $Ctrl+Alt+Del mode "$mode_system"
+#bindsym $Ctrl+Alt+Del mode "$mode_system"
 
 # https://faq.i3wm.org/question/2071/how-can-i-change-look-of-windows/

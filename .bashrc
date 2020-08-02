@@ -39,7 +39,6 @@ export HISTTIMEFORMAT="%F %T "
 
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 
-shopt -s nocaseglob
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
