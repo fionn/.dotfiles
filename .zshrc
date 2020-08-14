@@ -5,10 +5,15 @@ setopt HIST_REDUCE_BLANKS
 setopt CORRECT
 setopt CORRECT_ALL
 setopt PROMPT_SUBST
+setopt COMPLETE_ALIASES
+setopt NOAUTOMENU
+setopt NOMENUCOMPLETE
+setopt BASH_AUTO_LIST
 
 autoload -Uz compinit && compinit
 #autoload -U bashcompinit && bashcompinit
 autoload -Uz vcs_info
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
 
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -21,6 +26,9 @@ zstyle ":vcs_info:git:*" actionformats " (%b %a|%m %u%c)"
 zstyle ":vcs_info:git:*" patch-format " (%10>...>%p%<< %n/%a applied)"
 PROMPT="[%n@%m %1~\$vcs_info_msg_0_]%# "
 
+#zstyle ':completion:*:*:cdr:*:*' menu selection
+
+
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vim
@@ -29,10 +37,17 @@ export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 tabs -4
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
+[[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+    . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+typeset -U PATH path
+[[ -d /usr/local/opt/python/libexec/bin ]] && \
+    path=("/usr/local/opt/python/libexec/bin" "$path[@]" "$HOME/bin")
 
 function gr {
     git branch > /dev/null 2>&1 || return 1
@@ -51,5 +66,6 @@ function gpg_agent {
     fi
     gpgconf --launch gpg-agent
 }
+
 #gpg_agent
 #complete -o nospace -C /usr/local/bin/terraform terraform
