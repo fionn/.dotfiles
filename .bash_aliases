@@ -14,8 +14,10 @@ if ls --color -d . >/dev/null 2>&1; then
     alias ls="ls --color=auto"
 fi
 
-if hash startx 2> /dev/null; then
-    alias x="cd ~ && startx"
+if hash startx 2> /dev/null \
+    && [[ ! $DISPLAY ]] \
+    && systemctl -q is-active graphical.target; then
+    alias x='cd $HOME && startx'
 fi
 
 if hash msfconsole 2> /dev/null; then
