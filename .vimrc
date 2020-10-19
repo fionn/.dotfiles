@@ -114,7 +114,7 @@ highlight LineNr ctermfg=darkgrey
 highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
 highlight CursorLineNR cterm=none ctermfg=grey
-highlight SignColumn ctermbg=black
+highlight SignColumn ctermbg=none
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
