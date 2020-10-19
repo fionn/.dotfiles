@@ -1,13 +1,8 @@
 # .bash_profile for macos machines in work.
 
-#eval "$(rbenv init init -)"
-
 export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
 [ -r /usr/local/etc/profile.d/bash_completion.sh ] && . /usr/local/etc/profile.d/bash_completion.sh
 [ -f /usr/local/etc/bash_completion.d/brew-services ] && . /usr/local/etc/bash_completion.d/brew-services
-#[ -f /usr/local/etc/bash_completion.d/john.bash ] && . /usr/local/etc/bash_completion.d/john.bash
-
-complete -C /usr/local/bin/terraform terraform
 
 # No en_HK locale :(
 base_locale=en_GB.UTF-8
@@ -17,6 +12,7 @@ export LC_COLLATE=$base_locale
 export LC_MONETARY=$base_locale
 export LC_MESSAGES=$base_locale
 
+export PS1='[\u@\h \W]\$ '
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
@@ -24,7 +20,6 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM=auto
     GIT_PS1_SHOWCOLORHINTS=1
-    #PS1='[\u@\h \W]\$ '
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
@@ -54,34 +49,30 @@ man_colour() {
     command man "$@"
 }
 
-# Build stuff
-export GOPATH=$HOME/.go
-#export THEOS=/usr/local/opt/theos
-export OSX_TOOLCHAIN=xcode
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home"
-#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796/"
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
-#export ANDROID_HOME="$HOME/Library/Android/sdk"
-#export CONFIG=Debug
+# Build variables
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+export ANDROID_HOME=$ANDROID_SDK_ROOT
 
-# Brew options
+# shellcheck source=/Users/fionn/.shell_secrets
+[[ -f "$HOME/.shell_secrets" ]] && . "$HOME/.shell_secrets"
+
+# Package options
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-# Sec-related variables
-export JOHN=/usr/local/share/john
-export MSFRAMEWORK=/opt/metasploit-framework/embedded/framework
-
-# Path
-export PATH=/usr/local/sbin:/usr/local/opt/python/libexec/bin:/Applications/VMware\ Fusion.app/Contents/Library:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH:$HOME/node_modules/.bin:$HOME/Library/Android/sdk/tools/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/bin
+export PATH=/usr/local/opt/python@3/libexec/bin:$PATH:/usr/local/sbin:/Applications/VMware\ Fusion.app/Contents/Library:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin/:$HOME/node_modules/.bin:$HOME/Library/Android/sdk/tools/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/bin
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export GOPATH=$HOME/.go
 
 shopt -s nocaseglob
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
-shopt -s globstar
 
 tabs -4
 
@@ -94,13 +85,11 @@ function search {
     grep -FRl "$1" .
 }
 
-# TODO: ~/.bash_aliases
-alias grep="grep --color=auto"
-alias ssh-init-opensc-agent="ssh-add -s /usr/local/lib/opensc-pkcs11.so"
-alias lsblk="diskutil list"
 alias diff=colordiff
 
-function gpg_agent {
+complete -C /usr/local/bin/terraform terraform
+
+function gpg_agent_ssh_auth_sock {
     unset SSH_AGENT_PID
     if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
         SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
@@ -108,4 +97,5 @@ function gpg_agent {
     fi
     gpgconf --launch gpg-agent
 }
-#gpg_agent
+
+#gpg_agent_ssh_auth_sock
