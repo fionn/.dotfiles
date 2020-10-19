@@ -104,13 +104,13 @@ let g:terraform_align=1
 set background=dark
 colorscheme grb256
 set colorcolumn=81
+set cursorline
+highlight clear CursorLine
 highlight colorcolumn ctermbg=232
 highlight Error ctermbg=red term=reverse
 highlight LineNr ctermfg=darkgrey
 highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
-set cursorline
-highlight clear CursorLine
 highlight CursorLineNR cterm=none ctermfg=grey
 
 nnoremap <F2>:set invpaste paste?<CR>
