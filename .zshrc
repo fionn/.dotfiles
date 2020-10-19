@@ -28,7 +28,6 @@ PROMPT="[%n@%m %1~\$vcs_info_msg_0_]%# "
 
 #zstyle ':completion:*:*:cdr:*:*' menu selection
 
-
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vim
@@ -68,4 +67,5 @@ function gpg_agent {
 }
 
 #gpg_agent
-#complete -o nospace -C /usr/local/bin/terraform terraform
+
+#complete -o nospace -C "$(command -v terraform)" terraform
