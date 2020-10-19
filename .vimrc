@@ -39,6 +39,7 @@ set wrap
 set linebreak
 set ttyfast
 set lazyredraw
+set updatetime=100
 
 set undofile
 set undodir=~/.vim/undodir
@@ -103,6 +104,7 @@ let g:terraform_align=1
 
 set background=dark
 colorscheme grb256
+set signcolumn=yes
 set colorcolumn=81
 set cursorline
 highlight clear CursorLine
@@ -112,6 +114,7 @@ highlight LineNr ctermfg=darkgrey
 highlight Search ctermbg=darkcyan ctermfg=white cterm=none
 highlight Comment cterm=italic
 highlight CursorLineNR cterm=none ctermfg=grey
+highlight SignColumn ctermbg=black
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>

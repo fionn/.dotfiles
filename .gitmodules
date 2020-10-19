@@ -28,3 +28,6 @@
 [submodule ".vim/pack/plugins/start/vim-terraform"]
 	path = .vim/pack/plugins/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
