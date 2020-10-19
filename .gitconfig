@@ -13,7 +13,7 @@
     meta = normal normal dim
 [alias]
     ll = log --oneline --graph --decorate --color
-    rgrep = ! f(){ git grep "$@" $(git rev-list --all); } f()
+    rgrep = "! f(){ git grep $@ $(git rev-list --all); }; f"
     rrgrep = ! git rev-list --all | xargs git grep
     reset-file = checkout @ --
 [filter "lfs"]
