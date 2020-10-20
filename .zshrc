@@ -1,9 +1,10 @@
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt CORRECT
-setopt CORRECT_ALL
+#setopt CORRECT_ALL
 setopt PROMPT_SUBST
 setopt COMPLETE_ALIASES
 setopt NOAUTOMENU
@@ -36,7 +37,9 @@ export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
 tabs -4
 
@@ -46,7 +49,8 @@ tabs -4
 
 typeset -U PATH path
 [[ -d /usr/local/opt/python/libexec/bin ]] && \
-    path=("/usr/local/opt/python/libexec/bin" "$path[@]" "$HOME/bin")
+    path=("/usr/local/opt/python/libexec/bin" "$path[@]"
+          "/usr/local/sbin" "$HOME/bin")
 
 function gr {
     git branch > /dev/null 2>&1 || return 1
