@@ -48,8 +48,8 @@ tabs -4
     . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 typeset -U PATH path
-[[ -d /usr/local/opt/python/libexec/bin ]] && \
-    path=("/usr/local/opt/python/libexec/bin" "$path[@]"
+[[ -d /usr/local/opt/python@3/libexec/bin ]] && \
+    path=("/usr/local/opt/python@3/libexec/bin" "$path[@]"
           "/usr/local/sbin" "$HOME/bin")
 
 function gr {
