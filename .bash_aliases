@@ -5,10 +5,13 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias dmesg="dmesg --color=auto"
 alias tree="tree -C"
-alias ip="ip -c"
 alias gr="cd \$(git rev-parse --show-toplevel)"
 alias view="vim -R"
 alias vi=vim
+
+if [[ -f /usr/bin/ip ]]; then
+    alias ip="ip -c"
+fi
 
 if ls --color -d . >/dev/null 2>&1; then
     alias ls="ls --color=auto"
