@@ -1,6 +1,5 @@
-#
 # ~/.bashrc
-#
+# shellcheck disable=SC2034
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

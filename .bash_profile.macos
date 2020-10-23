@@ -1,7 +1,10 @@
 # .bash_profile for macos machines in work.
+# shellcheck disable=SC2034
 
 export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
+# shellcheck source=/dev/null
 [ -r /usr/local/etc/profile.d/bash_completion.sh ] && . /usr/local/etc/profile.d/bash_completion.sh
+# shellcheck source=/dev/null
 [ -f /usr/local/etc/bash_completion.d/brew-services ] && . /usr/local/etc/bash_completion.d/brew-services
 
 # No en_HK locale :(
@@ -14,6 +17,7 @@ export LC_MESSAGES=$base_locale
 
 export PS1='[\[\e[1m\]\u@\h\[\e[0m\] \W]\$ '
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+    # shellcheck source=/dev/null
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
@@ -55,7 +59,7 @@ export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 
-# shellcheck source=/Users/fionn/.shell_secrets
+# shellcheck source=/dev/null
 [[ -f "$HOME/.shell_secrets" ]] && . "$HOME/.shell_secrets"
 
 # Package options
