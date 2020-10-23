@@ -5,16 +5,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# shellcheck source=/home/fionn/.bash_aliases
+# shellcheck source=.bash_aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 #[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
+# shellcheck source=/dev/null
 [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && \
     . /usr/share/doc/pkgfile/command-not-found.bash
 
+# shellcheck source=/dev/null
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+# shellcheck source=/dev/null
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && \
     . /usr/share/git/completion/git-prompt.sh
 
