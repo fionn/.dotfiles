@@ -38,14 +38,10 @@ export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
-export ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
 tabs -4
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
-[[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
-    . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 typeset -U PATH path
 [[ -d /usr/local/opt/python@3/libexec/bin ]] && \
