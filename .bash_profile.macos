@@ -23,8 +23,8 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM=auto
-    GIT_PS1_SHOWCOLORHINTS=""
-    PROMPT_COMMAND='__git_ps1 "[\[\e[1m\]\u@\h\[\e[0m\] \W" "]\$ "'
+    GIT_PS1_SHOWCOLORHINTS=1
+    PS1='[\[\e[1m\]\u@\h\[\e[0m\] \W$(__git_ps1 " (%s)")]\$ '
 fi
 
 # General unix options
