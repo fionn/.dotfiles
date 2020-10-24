@@ -1,0 +1,20 @@
+name: CI
+
+on: push
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install shellcheck
+      run: sudo apt update && sudo apt install shellcheck
+
+    - name: Check
+      run: |
+        ls -lah .bash*
+        shellcheck -s bash -x .bash*
