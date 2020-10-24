@@ -16,18 +16,17 @@
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# shellcheck source=/dev/null
-[[ -f /usr/share/git/completion/git-prompt.sh ]] && \
-    . /usr/share/git/completion/git-prompt.sh
+PS1='[\u@\h \W]\$ '
+if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
+    # shellcheck source=/dev/null
+    source /usr/share/git/completion/git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUPSTREAM="auto"
+    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
 
 #complete -C "$(command -v terraform)" terraform
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=""
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWCOLORHINTS=""
-GIT_PS1_SHOWUPSTREAM="auto"
-PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
