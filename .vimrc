@@ -101,7 +101,7 @@ let g:ale_virtualenv_dir_names = ["venv"]
 
 let g:ctrlp_extensions = ["tag", "mixed"]
 
-let g:terraform_align=1
+let g:terraform_align = 1
 
 let g:ansible_attribute_highlight = "ab"
 let g:ansible_extra_keywords_highlight = 1
