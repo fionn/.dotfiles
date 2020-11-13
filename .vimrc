@@ -84,7 +84,6 @@ autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd FileType gitcommit highlight SpellCap ctermbg=none
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown highlight Title cterm=bold
-autocmd FileType tf setlocal shiftwidth=2
 autocmd BufRead /tmp/mutt-* setlocal spell textwidth=72 fo+=watqc
 autocmd BufRead /tmp/mutt-* match ErrorMsg '\s\+$'
 
