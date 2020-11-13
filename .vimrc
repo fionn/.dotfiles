@@ -92,6 +92,8 @@ let g:tex_flavor = "latex"
 let b:vcm_tab_complete = "omni"
 set omnifunc=syntaxcomplete#Complete
 
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
 let g:ale_linters = {"tex": ["chktex"]}
 let g:ale_lint_on_insert_leave = 1
 let g:ale_enabled = 1
