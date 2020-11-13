@@ -73,7 +73,7 @@ set completeopt=longest,menu,preview
 
 syntax on
 set list listchars=tab:\ \ ,trail:·
-filetype indent on
+filetype plugin indent on
 autocmd ColorScheme * highlight SpecialKey ctermfg=238
 autocmd InsertLeave * redraw!
 autocmd FileType make setlocal noexpandtab softtabstop=0
