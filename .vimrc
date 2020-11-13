@@ -103,6 +103,9 @@ let g:ctrlp_extensions = ["tag", "mixed"]
 
 let g:terraform_align=1
 
+let g:ansible_attribute_highlight = "ab"
+let g:ansible_extra_keywords_highlight = 1
+
 set background=dark
 colorscheme grb256
 set signcolumn=yes

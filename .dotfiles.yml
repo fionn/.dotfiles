@@ -1,4 +1,4 @@
-# vim: set ft=ansible:
+# vim: set ft=yaml.ansible:
 ---
 - name: get and deploy dotfiles
   hosts: fresh_hosts
