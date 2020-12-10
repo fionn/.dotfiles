@@ -60,6 +60,9 @@ export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 
 # shellcheck source=/dev/null
+[[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
+
+# shellcheck source=/dev/null
 [[ -f "$HOME/.shell_secrets" ]] && . "$HOME/.shell_secrets"
 
 # Package options
