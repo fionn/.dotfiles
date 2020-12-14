@@ -12,7 +12,7 @@ setopt NOMENUCOMPLETE
 setopt BASH_AUTO_LIST
 
 autoload -Uz compinit && compinit
-#autoload -U bashcompinit && bashcompinit
+#autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
 
@@ -68,4 +68,4 @@ function gpg_agent {
 
 #gpg_agent
 
-#complete -o nospace -C "$(command -v terraform)" terraform
+#hash terraform > /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
