@@ -42,6 +42,9 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 tabs -4
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
+[[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
+
+alias history="fc -l 0"
 
 typeset -U PATH path
 [[ -d /usr/local/opt/python@3/libexec/bin ]] && \
