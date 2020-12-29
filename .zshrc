@@ -48,7 +48,7 @@ alias history="fc -l 0"
 
 typeset -U PATH path
 [[ -d /usr/local/opt/python3/libexec/bin ]] && \
-    path=(/usr/local/opt/python3/libexec/bin "$path")
+    path=(/usr/local/opt/python3/libexec/bin "$path[@]")
 path+=(/usr/local/sbin "$HOME/bin")
 
 function gr {
