@@ -92,8 +92,6 @@ function search {
     grep -FRl "$1" .
 }
 
-alias diff=colordiff
-
 complete -C /usr/local/bin/terraform terraform
 
 function gpg_agent_ssh_auth_sock {

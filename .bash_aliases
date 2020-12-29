@@ -2,12 +2,17 @@
 # run "source ~/.bashrc" to apply changes
 
 alias grep="grep --color=auto"
-alias diff="diff --color=auto"
 alias dmesg="dmesg --color=auto"
 alias tree="tree -C"
 alias gr="cd \$(git rev-parse --show-toplevel)"
 alias view="vim -R"
 alias vi=vim
+
+if hash colordiff 2> /dev/null; then
+    alias diff=colordiff
+else
+    alias diff="diff --color=auto"
+fi
 
 if [[ -f /usr/bin/ip ]]; then
     alias ip="ip -c"
