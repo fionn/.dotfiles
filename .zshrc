@@ -3,8 +3,6 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
-setopt CORRECT
-#setopt CORRECT_ALL
 setopt PROMPT_SUBST
 setopt COMPLETE_ALIASES
 setopt NOAUTOMENU
@@ -12,7 +10,7 @@ setopt NOMENUCOMPLETE
 setopt BASH_AUTO_LIST
 
 autoload -Uz compinit && compinit
-#autoload -U bashcompinit && bashcompinit # required for terraform completion
+autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
 
@@ -71,4 +69,4 @@ function gpg_agent {
 
 #gpg_agent
 
-#hash terraform > /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
+hash terraform > /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
