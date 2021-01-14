@@ -26,6 +26,7 @@ zstyle ":vcs_info:git:*" patch-format " (%10>...>%p%<< %n/%a applied)"
 PROMPT="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
 
 #zstyle ':completion:*:*:cdr:*:*' menu selection
+zstyle ":completion:*:ssh:*:users" hidden true
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
