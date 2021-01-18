@@ -4,7 +4,8 @@
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color=auto"
 alias tree="tree -C"
-alias gr="cd \$(git rev-parse --show-toplevel)"
+# shellcheck disable=SC2154
+alias gr="_tl=\$(git rev-parse --show-toplevel) && cd \${_tl:?}"
 alias view="vim -R"
 alias vi=vim
 
