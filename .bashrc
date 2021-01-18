@@ -26,7 +26,7 @@ if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
-#complete -C "$(command -v terraform)" terraform
+hash terraform > /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
