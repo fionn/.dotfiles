@@ -38,7 +38,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export HISTTIMEFORMAT="%F %T "
 
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin
 
 shopt -s histappend
 shopt -s cmdhist
