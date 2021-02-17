@@ -50,11 +50,6 @@ typeset -U PATH path
     path=(/usr/local/opt/python3/libexec/bin "$path[@]")
 path+=(/usr/local/sbin "$HOME/bin")
 
-function gr {
-    git branch > /dev/null 2>&1 || return 1
-    cd "$(git rev-parse --show-toplevel)" || return 1
-}
-
 function search {
     grep -FRl "$1" .
 }
