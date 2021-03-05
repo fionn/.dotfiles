@@ -87,7 +87,7 @@ function search {
     grep -FRl "$1" .
 }
 
-complete -C /usr/local/bin/terraform terraform
+hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
 
 function gpg_agent_ssh_auth_sock {
     unset SSH_AGENT_PID

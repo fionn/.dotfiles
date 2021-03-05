@@ -65,4 +65,4 @@ function gpg_agent {
 
 #gpg_agent
 
-hash terraform > /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
+hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
