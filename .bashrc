@@ -16,6 +16,8 @@
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
+
 PS1='[\u@\h \W]\$ '
 if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     # shellcheck source=/dev/null
@@ -25,8 +27,6 @@ if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     GIT_PS1_SHOWUPSTREAM="auto"
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
-
-hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
