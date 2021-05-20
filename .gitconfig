@@ -16,6 +16,8 @@
     rgrep = "! f(){ git grep $@ $(git rev-list --all); }; f"
     rrgrep = ! git rev-list --all | xargs git grep
     reset-file = checkout @ --
+    amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
+                   && git commit --amend --date="$GIT_COMMITTER_DATE"
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
