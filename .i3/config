@@ -202,7 +202,7 @@ for_window [class="Eog"] floating enable
 for_window [class="XMathematica"] floating enable
 
 # Background
-exec --no-startup-id feh --bg-fill ~/.i3/background/huntersinthesnow.jpg
+exec --no-startup-id feh --bg-fill ~/.config/i3/background/huntersinthesnow.jpg
 
 # Border
 hide_edge_borders both
