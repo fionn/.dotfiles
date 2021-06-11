@@ -37,18 +37,20 @@ export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+export GOPATH=$HOME/.go
 
 tabs -4
-
-[[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
-[[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
-
-alias history="fc -l 0"
 
 typeset -U PATH path
 [[ -d /usr/local/opt/python3/libexec/bin ]] && \
     path=(/usr/local/opt/python3/libexec/bin "$path[@]")
-path+=(/usr/local/sbin "$HOME/bin")
+path+=(/usr/local/sbin "$HOME/bin" "$GOPATH/bin")
+
+[[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
+[[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
+[[ -f $HOME/.jobrc ]] && . $HOME/.jobrc
+
+alias history="fc -l 0"
 
 function search {
     grep -FRl "$1" .
