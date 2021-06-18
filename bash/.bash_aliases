@@ -37,7 +37,10 @@ if [[ -d /usr/share/nmap/scripts/ ]]; then
     alias nse="ls /usr/share/nmap/scripts/ | grep -i "
 fi
 
-if hash xclip 2> /dev/null; then
+if hash wl-copy 2> /dev/null; then
+    alias pbcopy="wl-copy"
+    alias pbpaste="wl-paste"
+elif hash xclip 2> /dev/null; then
     alias pbcopy="xclip -selection clipboard"
     alias pbpaste="xclip -selection clipboard -o"
 fi
