@@ -7,7 +7,6 @@
 # shellcheck source=.bash_aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
-#[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 # shellcheck source=/dev/null
 [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && \
     . /usr/share/doc/pkgfile/command-not-found.bash
