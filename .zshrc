@@ -16,7 +16,7 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_rece
 
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:*' enable git
+zstyle ":vcs_info:*" enable git
 zstyle ":vcs_info:git:*" check-for-changes true
 zstyle ":vcs_info:git:*" unstagedstr "*"
 zstyle ":vcs_info:git:*" stagedstr "+"
