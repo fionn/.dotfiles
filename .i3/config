@@ -119,6 +119,16 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $mod+x move workspace to output up
+
+# Put this window on the next output
+bindsym $mod+Shift+x move container to output up
+
+# Start multihead mode
+bindsym XF86LaunchB exec --no-startup-id ~/bin/multihead.sh
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
