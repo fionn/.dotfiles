@@ -23,9 +23,12 @@ zstyle ":vcs_info:git:*" stagedstr "+"
 zstyle ":vcs_info:git:*" formats " (%b%u%c)"
 zstyle ":vcs_info:git:*" actionformats " (%b %a|%m %u%c)"
 zstyle ":vcs_info:git:*" patch-format " (%10>...>%p%<< %n/%a applied)"
-PROMPT="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
+prompt="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
+
+PROMPT_EOL_MARK="%B%S%F{240}%#%f%s%b"
 
 #zstyle ':completion:*:*:cdr:*:*' menu selection
+style ":completion:*" insert-tab false
 zstyle ":completion:*:ssh:*:users" hidden true
 
 export CLICOLOR=1
@@ -41,7 +44,7 @@ export GOPATH=$HOME/.go
 
 tabs -4
 
-typeset -U PATH path
+typeset -gU PATH path
 [[ -d /usr/local/opt/python3/libexec/bin ]] && \
     path=(/usr/local/opt/python3/libexec/bin "$path[@]")
 path+=(/usr/local/sbin "$HOME/bin" "$GOPATH/bin")
