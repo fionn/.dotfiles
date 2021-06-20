@@ -2,7 +2,7 @@ set secure
 set nocompatible
 set encoding=utf-8
 
-noremap <leader>s :source ~/.vimrc<CR>
+noremap <leader>s :source ~/.vim/vimrc<CR>
 nnoremap Q <Nop>
 nnoremap <silent><CR> :nohlsearch<CR><CR>
 nnoremap <leader>u :UndotreeToggle<CR>
