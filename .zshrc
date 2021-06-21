@@ -3,6 +3,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
+setopt HIST_NO_STORE
 setopt PROMPT_SUBST
 setopt COMPLETE_ALIASES
 setopt NOAUTOMENU
@@ -35,7 +36,9 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vim
 export VISUAL=$EDITOR
-export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
+export HISTSIZE=20000
+export SAVEHIST=10000
+export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
 export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
