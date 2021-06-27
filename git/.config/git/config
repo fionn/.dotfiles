@@ -34,4 +34,4 @@
 [init]
     defaultBranch = master
 [commit]
-    verbose = true
+	verbose = true
