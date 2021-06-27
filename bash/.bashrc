@@ -39,6 +39,8 @@ export HISTTIMEFORMAT="%F %T "
 
 export PATH=$PATH:$HOME/bin
 
+export GOPATH=$HOME/.local/share/go
+
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell

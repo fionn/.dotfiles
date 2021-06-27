@@ -43,7 +43,7 @@ export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/.local/share/go
 
 tabs -4
 
