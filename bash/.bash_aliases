@@ -24,7 +24,7 @@ if ls --color -d . >/dev/null 2>&1; then
 fi
 
 if hash startx 2> /dev/null \
-    && [[ ! $DISPLAY ]] \
+    && [[ ! $DISPLAY ]] && [[ ! $WAYLAND_DISPLAY ]] \
     && systemctl -q is-active graphical.target; then
     alias x='cd $HOME && startx'
 fi
