@@ -138,7 +138,9 @@ if has("macunix")
    highlight Comment cterm=none
 endif
 
-if has("X11")
+if exists("$WAYLAND_DISPLAY")
+    "do nothing because we use neovim
+elseif has("x11")
     autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
 endif
 

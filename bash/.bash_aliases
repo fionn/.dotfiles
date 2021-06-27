@@ -29,6 +29,10 @@ if hash startx 2> /dev/null \
     alias x='cd $HOME && startx'
 fi
 
+if [[ -n $WAYLAND_DISPLAY ]] && hash nvim 2> /dev/null; then
+    alias vim=nvim
+fi
+
 if hash msfconsole 2> /dev/null; then
     alias msfconsole="msfconsole --quiet -x \"db_connect postgres@msf\""
 fi
