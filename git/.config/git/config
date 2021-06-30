@@ -2,15 +2,15 @@
     name = Fionn Fitzmaurice
     email = fionn@github.com
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
-[color]
-    ui = auto
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [diff]
     algorithm = histogram
 [color "diff"]
     whitespace = blue
-    meta = normal normal dim
+    meta = dim
+[color "status"]
+    changed = yellow
 [alias]
     ll = log --oneline --graph --decorate --color
     rgrep = "! f(){ git grep $@ $(git rev-list --all); }; f"
