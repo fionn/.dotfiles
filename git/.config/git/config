@@ -4,6 +4,8 @@
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
+[url "git@heroku.com:"]
+	insteadOf = https://git.heroku.com/
 [diff]
     algorithm = histogram
 [color "diff"]
