@@ -32,6 +32,8 @@ PROMPT_EOL_MARK="%B%S%F{240}%#%f%s%b"
 zstyle ":completion:*" insert-tab false
 zstyle ":completion:*:ssh:*:users" hidden true
 
+zle_highlight+=(paste:bg=236)
+
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vim
