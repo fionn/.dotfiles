@@ -1,5 +1,6 @@
 set secure
 set nocompatible
+set modelines=5
 set encoding=utf-8
 
 noremap <leader>s :source ~/.vim/vimrc<CR>
