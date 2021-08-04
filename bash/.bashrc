@@ -23,7 +23,7 @@ if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     source /usr/share/git/completion/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_SHOWUPSTREAM=auto
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
