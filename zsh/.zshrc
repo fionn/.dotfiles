@@ -9,6 +9,7 @@ setopt COMPLETE_ALIASES
 setopt NOAUTOMENU
 setopt NOMENUCOMPLETE
 setopt BASH_AUTO_LIST
+setopt INTERACTIVE_COMMENTS
 
 autoload -Uz compinit && compinit
 autoload -U bashcompinit && bashcompinit # required for terraform completion
