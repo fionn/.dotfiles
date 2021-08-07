@@ -16,6 +16,12 @@
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+function __tf_prompt {
+    [[ -d .terraform/ && -r .terraform/environment ]] || return
+    local -r workspace="$(< .terraform/environment)"
+    echo " ($workspace)"
+}
+
 PS1='[\u@\h \W]\$ '
 if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     # shellcheck source=/dev/null
@@ -23,7 +29,7 @@ if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUPSTREAM=auto
-    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1='[\u@\h \W$(__tf_prompt)$(__git_ps1 " (%s)")]\$ '
 fi
 
 export EDITOR=vim
