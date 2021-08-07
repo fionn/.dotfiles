@@ -43,7 +43,14 @@ zstyle ":vcs_info:git:*" stagedstr "+"
 zstyle ":vcs_info:git:*" formats " (%b%u%c)"
 zstyle ":vcs_info:git:*" actionformats " (%b %a|%m %u%c)"
 zstyle ":vcs_info:git:*" patch-format " (%10>...>%p%<< %n/%a applied)"
-prompt="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
+
+function __tf_prompt {
+    [[ -d .terraform/ && -r .terraform/environment ]] || return
+    local -r workspace="$(< .terraform/environment)"
+    echo " ($workspace)"
+}
+
+prompt="[%B%n@%m%b %1~\$(__tf_prompt)\$vcs_info_msg_0_]%# "
 
 PROMPT_EOL_MARK="%F{240}⏎%f"
 
