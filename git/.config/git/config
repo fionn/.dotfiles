@@ -11,6 +11,11 @@
     meta = dim
 [color "status"]
     changed = yellow
+[color "diff-highlight"]
+    oldNormal = red
+    oldHighlight = red 52
+    newNormal = green
+    newHighlight = green 22
 [alias]
     ll = log --oneline --graph --decorate --color
     rgrep = "! f(){ git grep $@ $(git rev-list --all); }; f"
@@ -36,3 +41,5 @@
     defaultBranch = master
 [commit]
     verbose = true
+[pager]
+    diff = /usr/share/git/diff-highlight/diff-highlight | less
