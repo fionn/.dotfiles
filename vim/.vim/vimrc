@@ -142,14 +142,12 @@ endif
 
 if exists("$WAYLAND_DISPLAY")
     "do nothing because we use neovim
-elseif has("x11")
+elseif has("X11")
     autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
 endif
 
-if exists(":cryptmethod")
-    set cryptmethod=blowfish2
-    autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
-endif
+set cryptmethod=blowfish2
+autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 | endif
 
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 
