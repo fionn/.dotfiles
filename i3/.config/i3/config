@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 #font pango:FreeSans Bold 10
-#font pango:Cantarell 11 
+#font pango:Cantarell 11
 font pango:Droid Sans Bold 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -186,11 +186,11 @@ bar
 #set $txt
 
 # Colors
-# class                  border  backgr. text 
+# class                  border  backgr. text
 #client.focused          #2b6d79 #275c5c #ffffff
 #client.focused_inactive #275c5c #3a4040 #ffffff
 #client.unfocused        #333333 #333333 #ffffff
-#client.urgent           #4f2c2e #4f2c2e #ffffff 
+#client.urgent           #4f2c2e #4f2c2e #ffffff
 
 ###################
 # Custom commands #
@@ -221,7 +221,8 @@ hide_edge_borders both
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+# Only used by accident
+#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 # Backlight controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
@@ -246,7 +247,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"  
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
