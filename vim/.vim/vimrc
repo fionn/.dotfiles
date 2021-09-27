@@ -1,5 +1,4 @@
 set secure
-set nocompatible
 set modelines=5
 set encoding=utf-8
 
