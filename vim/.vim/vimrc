@@ -142,7 +142,7 @@ endif
 
 if exists("$WAYLAND_DISPLAY")
     "do nothing because we use neovim
-elseif has("x11")
+elseif has("X11")
     autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
 endif
 
