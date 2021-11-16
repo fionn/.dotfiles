@@ -231,6 +231,8 @@ bindswitch --reload --locked lid:off output $laptop enable
 
     xwayland disable
 
+    exec --no-startup-id gammastep
+
 #
 # Resizing containers:
 #
