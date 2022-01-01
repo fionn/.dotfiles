@@ -43,5 +43,3 @@
     verbose = true
 [pager]
     diff = /usr/share/git/diff-highlight/diff-highlight | less
-[blame]
-    ignoreRevsFile = .git-blame-ignore-revs
