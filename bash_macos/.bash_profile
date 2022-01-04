@@ -67,11 +67,11 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export PATH=/usr/local/opt/python@3/libexec/bin:$PATH:/usr/local/sbin:$HOME/bin
 export GOPATH=$HOME/.local/share/go
 
-shopt -s nocaseglob
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
+shopt -s failglob
 
 tabs -4
 
