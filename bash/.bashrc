@@ -31,10 +31,10 @@ export EDITOR=vim
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=20000
+export HISTFILESIZE=20000
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
+export HISTIGNORE="&:[ ]*:exit:[bf]g:history *:jrnl *"
 export HISTTIMEFORMAT="%F %T "
 
 export PATH=$PATH:$HOME/bin
