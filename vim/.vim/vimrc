@@ -6,6 +6,7 @@ noremap <leader>s :source ~/.vim/vimrc<CR>
 nnoremap Q <Nop>
 nnoremap <silent><CR> :nohlsearch<CR><CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+inoremap <C-v> <Nop>
 onoremap j gj
 onoremap k gk
 command W w
