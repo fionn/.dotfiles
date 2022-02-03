@@ -46,6 +46,5 @@ shopt -s cmdhist
 shopt -s dirspell
 shopt -s cdspell
 shopt -s globstar
-shopt -s failglob
 
 tabs -4
