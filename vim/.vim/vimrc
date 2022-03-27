@@ -70,7 +70,7 @@ let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*
 "let g:jedi#show_call_signatures = 2
 "let g:jedi#smart_auto_mappings = 0
 "let g:jedi#auto_vim_configuration = 0
-set completeopt=longest,menu,preview
+set completeopt=longest,menu
 
 syntax on
 set list listchars=tab:\ \ ,trail:·
