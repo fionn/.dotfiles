@@ -1,14 +1,9 @@
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-#set editor = "vim -c 'set tw=74'"
-#set editor = "vim \"+setlocal spell tw=74 fo+=aw\" +$ +10"
 set editor = "vim +$ +10"
 
 set edit_headers = yes
-#set autoedit
-
-#set mbox_type = Maildir
 
 # Connection details
 source "~/.config/mutt/connection"
@@ -18,7 +13,6 @@ source "~/.config/mutt/connection"
 # IMAP settings
 set imap_user = fionn
 set spoolfile = +INBOX
-#set record = "~/.local/share/mutt/mail/sent" # No "sent" file
 set record= +INBOX/Sent # wtf?
 set postponed = "~/.local/share/mutt/mail/postponed"
 set header_cache = "~/.local/share/mutt/cache/headers"
@@ -46,20 +40,13 @@ set mark_old = no
 
 # Organize into threads, sorting the threads by date
 set sort = threads
-#set sort_aux=from
 set sort_aux = last-date-received
 
-# https://joeclark.org/ffaq.html
 set text_flowed=yes
-
-#set signature = "~/.gnupg/fingerprint.txt"
 
 # Attempt to decrypt inline PGP
 # Equivalent to "Esc + P"
 set pgp_auto_decode = yes
-
-##############################################################
-# This is from http://blog.sanctum.geek.nz/linux-crypto-email/
 
 # Use GPGME
 set crypt_use_gpgme = yes
@@ -77,16 +64,12 @@ set crypt_replysignencrypted = yes
 # Attempt to verify email signatures automatically
 set crypt_verify_sig = yes
 
-# Sign all sent mail
-# set crypt_autosign = yes
-
-##############################################################
+# Don't sign all sent mail
+set crypt_autosign = no
 
 # Aliases
 set sort_alias = alias
 set reverse_alias = yes
 source "~/.config/mutt/aliases"
 
-# date format
-#set date_format = "%A %F at %T %Z"
 set date_format="!%Y-%m-%d %R%Z"
