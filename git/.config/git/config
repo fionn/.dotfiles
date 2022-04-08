@@ -24,6 +24,8 @@
     amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
                    && git commit --amend --date="$GIT_COMMITTER_DATE"
     diff-path = ! git diff $2:$1 $1 && :
+[branch]
+    sort = -committerdate
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
