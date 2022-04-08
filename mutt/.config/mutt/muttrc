@@ -1,0 +1,92 @@
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+#set editor = "vim -c 'set tw=74'"
+#set editor = "vim \"+setlocal spell tw=74 fo+=aw\" +$ +10"
+set editor = "vim +$ +10"
+
+set edit_headers = yes
+#set autoedit
+
+#set mbox_type = Maildir
+
+# Connection details
+source "~/.config/mutt/connection"
+# This provides my_pw (via pass), folder (imap), realname, from, smtp_url and
+# X-PGP-Key, X-PGP-Fingerprint headers.
+
+# IMAP settings
+set imap_user = fionn
+set spoolfile = +INBOX
+#set record = "~/.local/share/mutt/mail/sent" # No "sent" file
+set record= +INBOX/Sent # wtf?
+set postponed = "~/.local/share/mutt/mail/postponed"
+set header_cache = "~/.local/share/mutt/cache/headers"
+set imap_pass = $my_pw
+
+set imap_keepalive = 200
+set imap_check_subscribed
+set mail_check = 60
+set timeout = 10
+set net_inc = 5
+
+# SMTP settings
+set use_from = yes
+set smtp_pass = $my_pw
+
+bind index g imap-fetch-mail
+
+#for scrolling
+bind pager <up> previous-line
+bind pager <down> next-line
+
+# Only move read emails when they're actually looked at, not simply because we
+# saw them in the list
+set mark_old = no
+
+# Organize into threads, sorting the threads by date
+set sort = threads
+#set sort_aux=from
+set sort_aux = last-date-received
+
+# https://joeclark.org/ffaq.html
+set text_flowed=yes
+
+#set signature = "~/.gnupg/fingerprint.txt"
+
+# Attempt to decrypt inline PGP
+# Equivalent to "Esc + P"
+set pgp_auto_decode = yes
+
+##############################################################
+# This is from http://blog.sanctum.geek.nz/linux-crypto-email/
+
+# Use GPGME
+set crypt_use_gpgme = yes
+# Apparently still necessary to identify addresses with keys
+
+# Sign replies to signed email
+set crypt_replysign = yes
+
+# Encrypt replies to encrypted email
+set crypt_replyencrypt = yes
+
+# Encrypt and sign replies to encrypted and signed email
+set crypt_replysignencrypted = yes
+
+# Attempt to verify email signatures automatically
+set crypt_verify_sig = yes
+
+# Sign all sent mail
+# set crypt_autosign = yes
+
+##############################################################
+
+# Aliases
+set sort_alias = alias
+set reverse_alias = yes
+source "~/.config/mutt/aliases"
+
+# date format
+#set date_format = "%A %F at %T %Z"
+set date_format="!%Y-%m-%d %R%Z"
