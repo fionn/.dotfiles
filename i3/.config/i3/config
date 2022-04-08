@@ -76,9 +76,9 @@ bindsym $mod+v split v
 # I disabled this because I want $mod+f for Firefox and it's the same as F11
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -106,6 +106,10 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+# switch to previous or next workspace (sequentially) except it doesn't work
+#bindsym button8 workspace prev_on_output
+#bindsym button9 workspace next_on_output
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
