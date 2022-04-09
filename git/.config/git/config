@@ -2,6 +2,8 @@
     name = Fionn Fitzmaurice
     email = fionn@github.com
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
+[core]
+    pager = less --mouse
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [diff]
@@ -45,4 +47,4 @@
 [commit]
     verbose = true
 [pager]
-    diff = /usr/share/git/diff-highlight/diff-highlight | less
+    diff = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
