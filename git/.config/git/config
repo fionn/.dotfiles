@@ -6,6 +6,7 @@
     insteadOf = aur:
 [diff]
     algorithm = histogram
+    colorMoved = zebra
 [color "diff"]
     whitespace = blue
     meta = dim
