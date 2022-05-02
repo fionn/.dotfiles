@@ -3,7 +3,7 @@
     email = fionn@github.com
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [core]
-    pager = less --mouse
+    pager = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [diff]
@@ -46,5 +46,3 @@
     defaultBranch = master
 [commit]
     verbose = true
-[pager]
-    diff = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
