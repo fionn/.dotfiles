@@ -28,7 +28,7 @@ zstyle ":vcs_info:git:*" actionformats " (%b %a|%m %u%c)"
 zstyle ":vcs_info:git:*" patch-format " (%10>...>%p%<< %n/%a applied)"
 prompt="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
 
-PROMPT_EOL_MARK="%B%S%F{240}%#%f%s%b"
+PROMPT_EOL_MARK="%F{240}⏎%f"
 
 #zstyle ':completion:*:*:cdr:*:*' menu selection
 zstyle ":completion:*" insert-tab false
