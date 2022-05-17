@@ -64,12 +64,6 @@ let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*
 "  autocmd VimEnter * :Vexplore
 "augroup END
 
-" vim-jedi is managed by pacman
-" requires python-jedi
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#show_call_signatures = 2
-"let g:jedi#smart_auto_mappings = 0
-"let g:jedi#auto_vim_configuration = 0
 set completeopt=longest,menu
 
 syntax on
@@ -96,7 +90,7 @@ set omnifunc=syntaxcomplete#Complete
 
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
-let g:ale_linters = {"tex": ["chktex"]}
+let g:ale_linters = {"tex": ["chktex"], "python": ["pylint", "mypy", "jedils"]}
 let g:ale_fixers = {"*": ["remove_trailing_lines", "trim_whitespace"]}
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
