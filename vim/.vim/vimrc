@@ -1,6 +1,7 @@
 set secure
 set modelines=5
 set encoding=utf-8
+scriptencoding utf-8
 
 noremap <leader>s :source ~/.vim/vimrc<CR>
 nnoremap Q <Nop>
