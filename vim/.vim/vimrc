@@ -70,18 +70,21 @@ set completeopt=longest,menu
 syntax on
 set list listchars=tab:\ \ ,trail:·
 filetype plugin indent on
-autocmd ColorScheme * highlight SpecialKey ctermfg=238
-autocmd InsertLeave * redraw!
-autocmd FileType make setlocal noexpandtab softtabstop=0
-autocmd FileType csv setlocal noexpandtab softtabstop=0
-autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
-autocmd FileType python setlocal completeopt-=preview
-autocmd FileType gitcommit setlocal spell textwidth=72
-autocmd FileType gitcommit highlight SpellCap ctermbg=none
-autocmd FileType markdown setlocal spell
-autocmd FileType markdown highlight Title cterm=bold
-autocmd BufRead /tmp/mutt-* setlocal spell textwidth=72 fo+=watqc
-autocmd BufRead /tmp/mutt-* match ErrorMsg '\s\+$'
+augroup vimrc
+    autocmd!
+    autocmd ColorScheme * highlight SpecialKey ctermfg=238
+    autocmd InsertLeave * redraw!
+    autocmd FileType make setlocal noexpandtab softtabstop=0
+    autocmd FileType csv setlocal noexpandtab softtabstop=0
+    autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
+    autocmd FileType python setlocal completeopt-=preview
+    autocmd FileType gitcommit setlocal spell textwidth=72
+    autocmd FileType gitcommit highlight SpellCap ctermbg=none
+    autocmd FileType markdown setlocal spell
+    autocmd FileType markdown highlight Title cterm=bold
+    autocmd BufRead /tmp/mutt-* setlocal spell textwidth=72 fo+=watqc
+    autocmd BufRead /tmp/mutt-* match ErrorMsg '\s\+$'
+augroup END
 
 let g:tex_flavor = "latex"
 
@@ -141,12 +144,18 @@ endif
 if exists("$WAYLAND_DISPLAY")
     "do nothing because we use neovim
 elseif has("X11")
-    autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
+    augroup x11
+        autocmd!
+        autocmd VimLeave * call system("xclip -selection clipboard -r", getreg("+"))
+    augroup END
 endif
 
 if exists(":cryptmethod")
     set cryptmethod=blowfish2
-    autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
+    augroup encrypted
+        autocmd!
+        autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
+    augroup END
 endif
 
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
