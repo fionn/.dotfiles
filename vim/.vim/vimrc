@@ -92,6 +92,8 @@ let b:vcm_tab_complete = "omni"
 set omnifunc=syntaxcomplete#Complete
 "set omnifunc=ale#completion#OmniFunc
 
+nmap <F8> <Plug>(ale_fix)
+
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_linters = {"tex": ["texlab", "chktex"], "python": ["pylint", "mypy", "jedils"]}
