@@ -4,6 +4,8 @@
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [core]
     pager = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
+[interactive]
+    diffFilter = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
 [diff]
     algorithm = histogram
     colorMoved = zebra
