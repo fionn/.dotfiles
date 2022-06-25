@@ -6,6 +6,8 @@
     pager = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
+[grep]
+    lineNumber = true
 [diff]
     algorithm = histogram
     colorMoved = zebra
