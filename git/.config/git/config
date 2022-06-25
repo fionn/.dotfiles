@@ -4,10 +4,6 @@
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [core]
     pager = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
-[url "https://aur.archlinux.org/"]
-    insteadOf = aur:
-[grep]
-    lineNumber = true
 [diff]
     algorithm = histogram
     colorMoved = zebra
@@ -21,6 +17,18 @@
     oldHighlight = red 52
     newNormal = green
     newHighlight = green 22
+[commit]
+    verbose = true
+[init]
+    defaultBranch = master
+[pull]
+    ff = only
+[branch]
+    sort = -committerdate
+[grep]
+    lineNumber = true
+[transfer]
+    fsckObjects = true
 [alias]
     ll = log --oneline --graph --decorate --color
     rgrep = "! f(){ git grep "$@" $(git rev-list --all); }; f"
@@ -29,8 +37,8 @@
     amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
                    && git commit --amend --date="$GIT_COMMITTER_DATE"
     diff-path = ! git diff $2:$1 $1 && :
-[branch]
-    sort = -committerdate
+[url "https://aur.archlinux.org/"]
+    insteadOf = aur:
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
@@ -40,11 +48,3 @@
     clean = expand --tabs=4 --initial
 [filter "tabify"]
     clean = unexpand --tabs=4 --first-only
-[transfer]
-    fsckObjects = true
-[pull]
-    ff = only
-[init]
-    defaultBranch = master
-[commit]
-    verbose = true
