@@ -48,8 +48,12 @@ set wildmenu
 set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so,*.pyc,*/__pycache__,*/venv
 set tags+=tags;
 
+if empty($XDG_CACHE_HOME)
+    let $XDG_CACHE_HOME = $HOME."/.cache"
+endif
+
 set undofile
-set undodir=~/.cache/vim/undo,~/.vim/undo
+set undodir=$XDG_CACHE_HOME/vim/undo,~/.vim/undo
 
 " Buffers and Netrw
 set hidden
