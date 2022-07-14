@@ -4,6 +4,7 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_NO_STORE
+setopt EXTENDED_HISTORY
 setopt PROMPT_SUBST
 setopt COMPLETE_ALIASES
 setopt NOAUTOMENU
@@ -43,6 +44,7 @@ export VISUAL=$EDITOR
 export HISTSIZE=40000
 export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
+export HISTFILE=${HISTFILE:-$HOME/.zsh_history}
 export MANPAGER="less -s -M +Gg"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
@@ -60,7 +62,7 @@ path+=(/usr/local/sbin "$HOME/bin" "$GOPATH/bin")
 [[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
 [[ -f $HOME/.jobrc ]] && . $HOME/.jobrc
 
-alias history="fc -l 0"
+alias history="fc -li 0"
 
 function search {
     grep -FRl "$1" .
