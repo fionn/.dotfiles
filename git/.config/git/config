@@ -39,6 +39,7 @@
     amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
                    && git commit --amend --date="$GIT_COMMITTER_DATE"
     diff-path = ! git diff $2:$1 $1 && :
+    churn = ! git log --all -M -C --name-only --format="format:" "$@" | sort | grep -v "^$" | uniq -c | sort -n
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [filter "lfs"]
