@@ -65,7 +65,7 @@ path+=(/usr/local/sbin "$HOME/bin" "$GOPATH/bin")
 alias history="fc -li 0"
 
 function search {
-    grep -FRl "$1" .
+    grep -FRl "$@" .
 }
 
 function gpg_agent {
