@@ -31,8 +31,8 @@ export EDITOR=vim
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
-export HISTSIZE=20000
-export HISTFILESIZE=20000
+export HISTSIZE=40000
+export HISTFILESIZE=40000
 export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="&:[ ]*:exit:[bf]g:history *:jrnl *"
 export HISTTIMEFORMAT="%F %T "
