@@ -1,6 +1,6 @@
-augroup filetypedetect
+augroup filetypedetect | autocmd!
     autocmd BufRead,BufNewFile *mutt-* setfiletype mail
-    autocmd BufEnter,BufRead *.conf setfiletype dosini
+    autocmd BufEnter,BufRead *.conf setfiletype confini
     autocmd BufEnter,BufRead *.asm setfiletype nasm
     autocmd BufEnter,BufRead *.tsv setfiletype csv
     autocmd BufEnter,BufRead *.hcl setfiletype terraform
