@@ -127,13 +127,16 @@ set signcolumn=yes
 set colorcolumn=81
 set cursorline
 highlight clear CursorLine
-highlight colorcolumn ctermbg=232
-highlight Error ctermbg=red term=reverse
-highlight LineNr ctermfg=darkgrey
-highlight Search ctermbg=darkcyan ctermfg=white cterm=none
+highlight ColorColumn ctermbg=232
+highlight Error ctermbg=Red term=reverse
+highlight LineNr ctermfg=DarkGrey
+highlight Search ctermbg=DarkCyan ctermfg=White cterm=none
 highlight Comment cterm=italic
-highlight CursorLineNR cterm=none ctermfg=grey
+highlight CursorLineNR cterm=none ctermfg=Grey
 highlight SignColumn ctermbg=none
+highlight Pmenu ctermbg=234
+highlight PmenuSbar ctermbg=0
+highlight PmenuThumb ctermbg=White
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
