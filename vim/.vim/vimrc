@@ -46,7 +46,7 @@ set wildoptions+=fuzzy
 set tags+=tags;
 
 set undofile
-if !has("nvim") && !exists("&undodir")
+if !has("nvim") && &undodir" == "."
     let $XDG_CACHE_HOME = $XDG_CACHE_HOME ?? $HOME . "/.cache"
     set undodir=$XDG_CACHE_HOME/vim/undo/
     if !isdirectory(&undodir)
