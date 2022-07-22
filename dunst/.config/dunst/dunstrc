@@ -1,0 +1,52 @@
+# vim: ft=cfg
+
+[global]
+    follow = keyboard
+
+    width = 300
+    height = 300
+    origin = top-right
+    offset = 15x50
+
+    gap_size = 5
+    min_icon_size = 128
+    max_icon_size = 32
+
+    corner_radius = 12
+    transparency = 20
+
+    layer = top
+
+    font = Monospace 10
+    markup = no
+    format = "<small>%a</small>\n<b>%s</b>\n%b\n%p"
+
+    notification_limit = 8
+
+    idle_threshold = 120
+    show_age_threshold = 60
+
+    sticky_history = true
+    history_length = 200
+
+    icon_theme = Arc, Adwaita, default
+    enable_recursive_icon_lookup = true
+
+    enable_posix_regex = true
+    always_run_script = false
+
+    mouse_left_click = do_action, open_url, close_current
+    mouse_middle_click = close_current
+    mouse_right_click = context
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    timeout = 4
+
+[urgency_normal]
+    timeout = 6
+
+[urgency_critical]
+    timeout = 0
