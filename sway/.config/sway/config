@@ -66,12 +66,22 @@ bindswitch --reload --locked lid:off output $laptop enable
 #
 # See https://man.archlinux.org/man/sway-input.5#LIBINPUT_CONFIGURATION
 
+    input "1452:627:bcm5974" {
+        natural_scroll disabled
+        accel_profile adaptive
+        click_method button_areas
+        # No middle click despite middle_emulation. :(
+        middle_emulation enabled
+        tap_button_map lmr
+        pointer_accel 0.12
+    }
+
     input "1739:0:Synaptics_TM3289-021" {
         dwt enabled
         tap enabled
         tap_button_map lmr
         natural_scroll disabled
-        middle_emulation en
+        middle_emulation enabled
         accel_profile adaptive
         pointer_accel 0.3
         scroll_factor 1.4
