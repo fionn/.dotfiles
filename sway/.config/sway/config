@@ -25,7 +25,7 @@ set $menu dmenu-wl_path | dmenu-wl | xargs swaymsg exec --
 
 ### Output configuration
 #
-set $background ~/.config/sway/background/moonlight_sleepless_wonderland.jpg
+set $background ~/.config/sway/background/background.jpg
 output * bg $background fill
 #
 # Example configuration:
