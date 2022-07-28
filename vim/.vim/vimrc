@@ -42,7 +42,6 @@ set updatetime=100
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so,*.pyc,*/__pycache__,*/venv
-set wildoptions+=fuzzy
 set tags+=tags;
 
 set undofile
