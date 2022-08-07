@@ -51,6 +51,10 @@ if !has("nvim") && &undodir == "."
     if !isdirectory(&undodir)
         call mkdir(&undodir, "p", 0700)
     endif
+    set directory=$XDG_CACHE_HOME/vim/swap//
+    if !isdirectory(&directory)
+        call mkdir(&directory, "p", 0700)
+    endif
 endif
 
 set hidden
