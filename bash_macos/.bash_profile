@@ -39,20 +39,6 @@ export HISTIGNORE="&:[ ]*:exit:bg:fg:history:jrnl *"
 export HISTTIMEFORMAT="%F %T "
 export MANPAGER="less -s -M +Gg"
 
-function man_colour {
-    # https://unix.stackexchange.com/a/147
-    LESS_TERMCAP_mb=$(tput bold; tput setaf 2) \
-    LESS_TERMCAP_md=$(tput bold; tput setaf 6) \
-    LESS_TERMCAP_me=$(tput sgr0) \
-    LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) \
-    LESS_TERMCAP_se=$(tput rmso; tput sgr0) \
-    LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) \
-    LESS_TERMCAP_ue=$(tput rmul; tput sgr0) \
-    LESS_TERMCAP_mr=$(tput rev) \
-    LESS_TERMCAP_mh=$(tput dim) \
-    command man "$@"
-}
-
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash_aliases" ]] && . "$HOME/.bash_aliases"
 # shellcheck source=/dev/null
