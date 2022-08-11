@@ -1,5 +1,5 @@
 # .bash_profile for macos machines in work.
-# shellcheck disable=SC2034
+# shellcheck shell=bash disable=SC2034
 
 export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
 # shellcheck source=/dev/null
