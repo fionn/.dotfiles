@@ -1,4 +1,4 @@
-augroup filetypedetect | autocmd!
+augroup filetypedetect
     autocmd BufRead,BufNewFile *mutt-* setfiletype mail
     autocmd BufEnter,BufRead *.conf setfiletype confini
     autocmd BufEnter,BufRead *.asm setfiletype nasm
