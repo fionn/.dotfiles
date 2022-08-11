@@ -1,4 +1,13 @@
+$include  /etc/inputrc
+
 set colored-stats on
 set mark-symlinked-directories on
 set blink-matching-paren on
+set mark-directories on
 set history-size 20000
+set emacs-mode-string ""
+set show-mode-in-prompt on
+
+# PgUp and PgDn
+"\e[5~": previous-history
+"\e[6~": next-history
