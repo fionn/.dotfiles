@@ -45,10 +45,11 @@ export MANPAGER="less -s -M +Gg"
 [[ -f "$HOME/.shell_secrets" ]] && . "$HOME/.shell_secrets"
 
 # Package options
-export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 export PATH=/usr/local/opt/python@3/libexec/bin:$PATH:/usr/local/sbin:$HOME/bin
 export GOPATH=$HOME/.local/share/go
