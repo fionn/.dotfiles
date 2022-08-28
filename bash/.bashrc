@@ -6,6 +6,8 @@
 
 # shellcheck source=.bash_aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+# shellcheck source=/dev/null
+[[ -f $HOME/.shell_secrets ]] && . ~/.shell_secrets
 
 # shellcheck source=/dev/null
 [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && \
