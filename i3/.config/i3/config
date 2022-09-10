@@ -124,11 +124,10 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # Move the current workspace to the next output
-# (effectively toggles when you only have two outputs)
-bindsym $mod+x move workspace to output up
+bindsym $mod+x move workspace to output next
 
 # Put this window on the next output
-bindsym $mod+Shift+x move container to output up
+bindsym $mod+Shift+x move container to output next
 
 # Start multihead mode
 bindsym XF86LaunchB exec --no-startup-id ~/bin/multihead.sh
