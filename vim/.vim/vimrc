@@ -132,6 +132,7 @@ highlight SignColumn ctermbg=none
 highlight Pmenu ctermbg=234
 highlight PmenuSbar ctermbg=0
 highlight PmenuThumb ctermbg=White
+highlight SpellCap ctermfg=Yellow ctermbg=none cterm=underline
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
