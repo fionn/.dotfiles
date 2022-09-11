@@ -140,6 +140,8 @@ nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+packadd! matchit
+
 if has("mouse")
     set mouse=a
     if !has("nvim")
