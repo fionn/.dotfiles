@@ -35,7 +35,6 @@ set spelllang=en_gb
 set showcmd
 set wrap
 set linebreak
-set ttyfast
 set lazyredraw
 set updatetime=100
 
