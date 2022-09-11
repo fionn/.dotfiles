@@ -124,8 +124,7 @@ highlight clear CursorLine
 highlight ALEErrorSign ctermbg=none ctermfg=Red
 highlight ALEWarningSign ctermfg=Yellow
 highlight ColorColumn ctermbg=232
-highlight clear Error
-highlight Error ctermul=Red cterm=underline
+highlight Error ctermfg=Red ctermbg=none cterm=underline
 highlight LineNr ctermfg=DarkGrey
 highlight Search ctermbg=DarkCyan ctermfg=White cterm=none
 highlight Comment cterm=italic
@@ -134,7 +133,7 @@ highlight SignColumn ctermbg=none
 highlight Pmenu ctermbg=234
 highlight PmenuSbar ctermbg=0
 highlight PmenuThumb ctermbg=White
-highlight SpellCap ctermul=Yellow ctermbg=none cterm=underline
+highlight SpellCap ctermfg=Yellow ctermbg=none cterm=underline
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
