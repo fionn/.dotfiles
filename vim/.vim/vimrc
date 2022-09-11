@@ -139,6 +139,9 @@ set showmode
 
 if has("mouse")
     set mouse=a
+    if !has("nvim")
+        set ttymouse=sgr
+    endif
 endif
 
 if has("macunix")
