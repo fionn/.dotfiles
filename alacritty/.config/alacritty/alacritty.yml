@@ -33,7 +33,8 @@ colors:
     white: "#eeeeec"
 
 cursor:
+  style:
     blinking: On
 
 mouse_bindings:
-  - { mouse: Middle, action: PasteSelection  }
+  - {mouse: Middle, action: PasteSelection}
