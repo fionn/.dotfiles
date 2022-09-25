@@ -1,4 +1,4 @@
-$include  /etc/inputrc
+$include /etc/inputrc
 
 set colored-stats on
 set mark-symlinked-directories on
