@@ -1,5 +1,4 @@
-# bash aliases created by me
-# run "source ~/.bashrc" to apply changes
+# shellcheck shell=bash
 
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color=auto"
