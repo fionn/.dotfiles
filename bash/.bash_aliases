@@ -8,6 +8,7 @@ alias gr="_tl=\$(git rev-parse --show-toplevel) && cd \${_tl:?}"
 alias view="vim -R"
 alias vi=vim
 alias activate="[[ -f venv/bin/activate ]] && source venv/bin/activate"
+alias :q="echo \"Not in Vim\" && return 127"
 
 if hash colordiff 2> /dev/null; then
     alias diff=colordiff
