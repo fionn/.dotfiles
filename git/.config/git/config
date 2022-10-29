@@ -11,7 +11,7 @@
     colorMoved = zebra
 [color "diff"]
     whitespace = blue
-    meta = dim
+    meta = cyan dim italic
 [color "status"]
     changed = yellow
 [color "diff-highlight"]
