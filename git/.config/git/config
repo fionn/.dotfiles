@@ -3,9 +3,9 @@
     email = fionn@github.com
     signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
 [core]
-    pager = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
+    pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -FRX --mouse
 [interactive]
-    diffFilter = /usr/share/git/diff-highlight/diff-highlight | less -FRX --mouse
+    diffFilter = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -FRX --mouse
 [diff]
     algorithm = histogram
     colorMoved = zebra
