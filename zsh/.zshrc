@@ -75,15 +75,4 @@ function search {
     grep -FRl "$@" .
 }
 
-function gpg_agent {
-    unset SSH_AGENT_PID
-    if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-        SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-        export SSH_AUTH_SOCK
-    fi
-    gpgconf --launch gpg-agent
-}
-
-#gpg_agent
-
 hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
