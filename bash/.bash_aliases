@@ -50,12 +50,6 @@ elif hash xclip 2> /dev/null; then
     alias pbpaste="xclip -selection clipboard -o"
 fi
 
-if [[ -f /usr/lib/opensc-pkcs11.so ]]; then
-    alias ssh-init-opensc-agent="ssh-add -s /usr/lib/opensc-pkcs11.so"
-elif [[ -f /usr/local/lib/opensc-pkcs11.so ]]; then
-    alias ssh-init-opensc-agent="ssh-add -s /usr/local/lib/opensc-pkcs11.so"
-fi
-
 if hash diskutil 2> /dev/null; then
     alias lsblk="diskutil list"
 fi
