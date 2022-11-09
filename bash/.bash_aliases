@@ -60,10 +60,6 @@ if hash diskutil 2> /dev/null; then
     alias lsblk="diskutil list"
 fi
 
-if hash mmdbinspect 2> /dev/null && [[ -f ~/.cache/mmdb/GeoIP2-Anonymous-IP.mmdb ]] && [[ -f ~/.cache/mmdb/GeoIP2-City.mmdb ]]; then
-    alias mmdb="mmdbinspect --db ~/.cache/mmdb/GeoIP2-Anonymous-IP.mmdb --db ~/.cache/mmdb/GeoIP2-City.mmdb"
-fi
-
 if id bitcoin > /dev/null 2>&1; then
     alias bitcoin-cli="sudo -u bitcoin bitcoin-cli -datadir=/var/lib/bitcoind/"
 fi
