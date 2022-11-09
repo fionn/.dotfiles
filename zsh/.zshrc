@@ -35,7 +35,6 @@ prompt="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
 
 PROMPT_EOL_MARK="%F{240}⏎%f"
 
-#zstyle ':completion:*:*:cdr:*:*' menu selection
 zstyle ":completion:*" insert-tab false
 zstyle ":completion:*:ssh:*:users" hidden true
 
