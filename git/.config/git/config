@@ -12,6 +12,7 @@
 [color "diff"]
     whitespace = blue
     meta = cyan dim italic
+    func = dim bold
 [color "status"]
     changed = yellow
 [color "diff-highlight"]
