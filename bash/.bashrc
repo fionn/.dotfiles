@@ -16,14 +16,14 @@
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-PS1='[\u@\h \W]\$ '
+PS1='[\u@\h \[\e]8;;file://$(pwd)/\e\\\]\W\[\e]8;;\e\\\]]\$ '
 if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     # shellcheck source=/dev/null
     source /usr/share/git/completion/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUPSTREAM=auto
-    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1='[\u@\h \[\e]8;;file://$(pwd)/\e\\\]\W\[\e]8;;\e\\\]$(__git_ps1 " (%s)")]\$ '
 fi
 
 export EDITOR=vim
