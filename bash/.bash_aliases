@@ -21,7 +21,7 @@ if [[ -f /usr/bin/ip ]]; then
 fi
 
 if ls --color -d . >/dev/null 2>&1; then
-    alias ls="ls --color=auto"
+    alias ls="ls --color=auto --indicator-style=slash"
 fi
 
 if hash startx 2> /dev/null \
