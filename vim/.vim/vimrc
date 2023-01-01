@@ -38,6 +38,9 @@ set linebreak
 set lazyredraw
 set updatetime=100
 
+set splitbelow
+set splitright
+
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so,*.pyc,*/__pycache__,*/venv
@@ -121,6 +124,7 @@ colorscheme grb256
 set signcolumn=yes
 set colorcolumn=81
 set cursorline
+
 highlight clear CursorLine
 highlight ALEErrorSign ctermbg=none ctermfg=Red
 highlight ALEWarningSign ctermfg=Yellow
