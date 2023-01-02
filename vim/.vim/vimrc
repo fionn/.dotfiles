@@ -68,7 +68,7 @@ let g:netrw_altv = 1
 let g:netrw_special_syntax = 1
 let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$,__pycache__/$,.mypy_cache/$,venv/$,.git/$'
 
-set completeopt=longest,menu,noinsert
+set completeopt=longest,menu,preview,noinsert
 
 syntax on
 set list listchars=tab:\ \ ,trail:·
@@ -90,16 +90,13 @@ augroup END
 
 let g:tex_flavor = "latex"
 
-let b:vcm_tab_complete = "omni"
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
 
 nnoremap <leader>] :ALEGoToDefinition<CR>
 
 nmap <F8> <Plug>(ale_fix)
 
 let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
-let g:ale_linters = {"tex": ["texlab", "chktex"], "python": ["pylint", "mypy", "jedils"]}
 let g:ale_fixers = {"*": ["remove_trailing_lines", "trim_whitespace"], "terraform": ["terraform"]}
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
