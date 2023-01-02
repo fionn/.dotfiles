@@ -128,8 +128,8 @@ set cursorline
 highlight clear CursorLine
 highlight ALEErrorSign ctermbg=none ctermfg=Red
 highlight ALEWarningSign ctermfg=Yellow
-highlight ALEVirtualTextError cterm=italic ctermfg=DarkRed
-highlight ALEVirtualTextWarning cterm=italic ctermfg=DarkYellow
+highlight ALEVirtualTextError cterm=italic ctermfg=52
+highlight ALEVirtualTextWarning cterm=italic ctermfg=94
 highlight ColorColumn ctermbg=232
 highlight Error ctermfg=Red ctermbg=none cterm=underline
 highlight LineNr ctermfg=DarkGrey
