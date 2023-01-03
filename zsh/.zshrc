@@ -40,6 +40,8 @@ zstyle ":completion:*:ssh:*:users" hidden true
 
 zle_highlight+=(paste:bg=236)
 
+tabs -4
+
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=vim
@@ -57,12 +59,14 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
-tabs -4
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 typeset -gU PATH path
-[[ -d /usr/local/opt/python3/libexec/bin ]] && \
-    path=(/usr/local/opt/python3/libexec/bin "$path[@]")
-path+=(/usr/local/sbin "$HOME/bin" "$GOPATH/bin")
+path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin")
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
 [[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
