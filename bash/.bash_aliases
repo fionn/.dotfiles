@@ -9,6 +9,7 @@ alias view="vim -R"
 alias vi=vim
 alias activate="[[ -f venv/bin/activate ]] && source venv/bin/activate"
 alias :q="echo \"Not in Vim\" && return 127"
+alias ls="ls --color=auto -p"
 
 if hash colordiff 2> /dev/null; then
     alias diff=colordiff
@@ -18,10 +19,6 @@ fi
 
 if [[ -f /usr/bin/ip ]]; then
     alias ip="ip -c"
-fi
-
-if ls --color -d . >/dev/null 2>&1; then
-    alias ls="ls --color=auto --indicator-style=slash"
 fi
 
 if hash startx 2> /dev/null \
