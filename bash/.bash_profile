@@ -3,4 +3,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 #shellcheck disable=SC2046  # we need word-splitting to parse the list of variables
-export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator 2>/dev/null) 2>/dev/null
+export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator 2>/dev/null) &>/dev/null
