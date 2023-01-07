@@ -52,6 +52,7 @@ export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
 export HISTFILE=${HISTFILE:-$HOME/.zsh_history}
 export MANPAGER="less -s -M +Gg"
 export GOPATH=$HOME/.local/share/go
+export LANG=${LANG:-en_GB.UTF-8}
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
