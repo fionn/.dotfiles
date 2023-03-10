@@ -1,7 +1,7 @@
 [user]
     name = Fionn Fitzmaurice
     email = fionn@github.com
-    signingkey = A0DFF3499910E46658E6E4FFCE043F62435B963B
+    signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
 [core]
     pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -FRX --mouse
 [interactive]
