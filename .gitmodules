@@ -1,31 +1,31 @@
-[submodule ".vim/pack/plugins/start/VimCompletesMe"]
+[submodule "vim/.vim/pack/plugins/start/VimCompletesMe"]
 	path = vim/.vim/pack/plugins/start/VimCompletesMe
 	url = https://git.sr.ht/~ackyshake/VimCompletesMe.vim
-[submodule ".vim/pack/plugins/start/ale"]
+[submodule "vim/.vim/pack/plugins/start/ale"]
 	path = vim/.vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule ".vim/pack/plugins/start/ctrlp.vim"]
+[submodule "vim/.vim/pack/plugins/start/ctrlp.vim"]
 	path = vim/.vim/pack/plugins/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".vim/pack/plugins/start/vim-surround"]
+[submodule "vim/.vim/pack/plugins/start/vim-surround"]
 	path = vim/.vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
+[submodule "vim/.vim/pack/plugins/start/vim-fugitive"]
 	path = vim/.vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/plugins/start/undotree"]
+[submodule "vim/.vim/pack/plugins/start/undotree"]
 	path = vim/.vim/pack/plugins/start/undotree
 	url = https://github.com/mbbill/undotree.git
-[submodule ".vim/pack/plugins/start/vim-terraform"]
+[submodule "vim/.vim/pack/plugins/start/vim-terraform"]
 	path = vim/.vim/pack/plugins/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+[submodule "vim/.vim/pack/plugins/start/vim-gitgutter"]
 	path = vim/.vim/pack/plugins/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/pack/plugins/start/tabular"]
+[submodule "vim/.vim/pack/plugins/start/tabular"]
 	path = vim/.vim/pack/plugins/start/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/pack/plugins/start/ansible-vim"]
+[submodule "vim/.vim/pack/plugins/start/ansible-vim"]
 	path = vim/.vim/pack/plugins/start/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim.git
 [submodule "vim/.vim/pack/plugins/start/vim-python-pep8-indent"]
