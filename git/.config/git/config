@@ -43,6 +43,7 @@
     amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
                    && git commit --amend --date="$GIT_COMMITTER_DATE"
     rebase-hard = rebase --committer-date-is-author-date
+    force-pull = ! git fetch && git reset --hard @{upstream}
     diff-path = ! git diff $2:$1 $1 && :
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
