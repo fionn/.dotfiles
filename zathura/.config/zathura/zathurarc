@@ -1,1 +1,3 @@
 map <C-i> recolor
+map j navigate next
+map k navigate previous
