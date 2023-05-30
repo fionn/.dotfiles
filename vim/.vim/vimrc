@@ -158,6 +158,8 @@ if has("macunix")
    set backspace=indent,eol,start
    set clipboard=unnamed
    set ruler
+   highlight clear NonText
+   highlight link NonText SpecialKey
    highlight Comment cterm=none
 endif
 
