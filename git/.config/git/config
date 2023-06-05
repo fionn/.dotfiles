@@ -10,9 +10,9 @@
     algorithm = histogram
     colorMoved = zebra
 [color "diff"]
-    whitespace = blue
+    whitespace = dim green ul
     meta = cyan dim italic
-    func = dim bold
+    func = dim bold ul
 [color "status"]
     changed = yellow
 [color "diff-highlight"]
