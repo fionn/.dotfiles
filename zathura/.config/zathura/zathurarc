@@ -1,3 +1,7 @@
 map <C-i> recolor
 map j navigate next
 map k navigate previous
+map <Left> navigate previous
+map <Right> navigate next
+map <BackSpace> jumplist backward
+map <S-BackSpace> jumplist forward
