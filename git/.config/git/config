@@ -24,6 +24,8 @@
     verbose = true
 [init]
     defaultBranch = master
+[fetch]
+    prune = true
 [pull]
     ff = only
 [rebase]
