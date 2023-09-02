@@ -17,6 +17,7 @@ autoload -Uz compinit && compinit
 autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
 unalias run-help
 autoload run-help
@@ -41,6 +42,12 @@ zstyle ":completion:*:ssh:*:users" hidden true
 zle_highlight+=(paste:bg=236)
 
 tabs -4
+
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
