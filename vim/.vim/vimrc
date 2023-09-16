@@ -36,6 +36,7 @@ set showcmd
 set wrap
 set linebreak
 set lazyredraw
+set redrawtime=4000
 set updatetime=100
 
 set splitbelow
