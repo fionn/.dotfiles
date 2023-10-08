@@ -40,7 +40,7 @@ set $externalscale 1.4
 #(y = 2160 / $externalscale)
 output $laptop scale 1.4 pos 0 1543
 output DP-2 scale $externalscale pos 0 0
-output "Dell Inc. DELL U2723QE D29LDH3" scale $externalscale pos 800 -1200 transform 270
+output "Dell Inc. DELL U2723QE D29LDH3" scale $externalscale
 output HDMI-A-1 scale $externalscale pos 0 0
 
 # Support multiheaded clamshell mode
