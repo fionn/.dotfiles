@@ -1,4 +1,4 @@
-# shellcheck shell=bash disable=SC2034
+# shellcheck shell=bash disable=SC2034,SC2155
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -39,6 +39,8 @@ export HISTTIMEFORMAT="%F %T "
 export PATH=$PATH:$HOME/bin
 
 export GOPATH=$HOME/.local/share/go
+
+export GPG_TTY="$(tty)"
 
 shopt -s histappend
 shopt -s cmdhist
