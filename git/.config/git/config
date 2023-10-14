@@ -24,6 +24,8 @@
     verbose = true
 [init]
     defaultBranch = master
+[push]
+    useForceIfIncludes = true
 [fetch]
     prune = true
 [pull]
