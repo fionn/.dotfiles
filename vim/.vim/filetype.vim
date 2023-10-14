@@ -7,4 +7,5 @@ augroup filetypedetect
     autocmd BufEnter,BufRead osquery.conf setfiletype json
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
     autocmd FileType go,gomod,gosum set noexpandtab
+    autocmd FileType tex syntax sync maxlines=800 | syntax sync minlines=700 | set spell
 augroup END
