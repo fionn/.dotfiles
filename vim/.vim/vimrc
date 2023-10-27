@@ -69,7 +69,7 @@ let g:netrw_altv = 1
 let g:netrw_special_syntax = 1
 let g:netrw_list_hide = '.*\.swp$,.*\.aux$,.*\.toc$,.*\.pdf$,.\*.sig$,.*\.so$,.*\.o$,__pycache__/$,.mypy_cache/$,venv/$,.git/$'
 
-set completeopt=longest,menu,preview,noinsert
+set completeopt=longest,menu,noinsert
 
 syntax on
 set list listchars=tab:\ \ ,trail:·
