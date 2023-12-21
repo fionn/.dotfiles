@@ -147,6 +147,7 @@ highlight PmenuSbar ctermbg=0
 highlight PmenuThumb ctermbg=White
 highlight SpellCap ctermfg=Yellow ctermbg=none cterm=underline
 highlight SpellLocal ctermfg=Yellow ctermbg=none cterm=underline
+highlight VertSplit ctermfg=DarkGrey ctermbg=DarkGrey
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
