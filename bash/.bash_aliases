@@ -9,6 +9,7 @@ alias vi=vim
 alias activate="[[ -f venv/bin/activate ]] && source venv/bin/activate"
 alias :q="echo \"Not in Vim\" >&2 && false"
 alias ls="ls --color=auto -p"
+alias decolour="perl -pe 's/\e\[?.*?[\@-~]//g'"
 
 if hash colordiff 2> /dev/null; then
     alias diff=colordiff
