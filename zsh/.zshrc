@@ -87,4 +87,5 @@ function search {
     grep -FRl "$@" .
 }
 
+hash aws 2> /dev/null && complete -C aws_completer aws
 hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
