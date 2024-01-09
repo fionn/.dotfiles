@@ -99,7 +99,8 @@ nmap <F8> <Plug>(ale_fix)
 
 let g:ale_completion_enabled = 1
 let g:ale_fixers = {"*": ["remove_trailing_lines", "trim_whitespace"],
-                    \ "terraform": ["terraform", "remove_trailing_lines", "trim_whitespace"]}
+                    \ "terraform": ["terraform", "remove_trailing_lines", "trim_whitespace"],
+                    \ "rust": ["rustfmt", "trim_whitespace", "remove_trailing_lines"]}
 let g:ale_linters_ignore = {"tex": ["lacheck"]}
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
