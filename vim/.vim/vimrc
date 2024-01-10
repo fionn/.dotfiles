@@ -110,6 +110,7 @@ let g:ale_echo_msg_format = "[%linter%] %code: %%s "
 let g:ale_sign_error = "🛇"
 let g:ale_sign_warning = "⚠"
 let g:ale_virtualtext_cursor = "disabled"
+let g:ale_use_neovim_diagnostics_api = 0
 
 let g:ctrlp_extensions = ["tag", "mixed"]
 
