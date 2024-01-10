@@ -13,6 +13,10 @@ setopt BASH_AUTO_LIST
 setopt INTERACTIVE_COMMENTS
 setopt PIPE_FAIL
 
+if type brew &>/dev/null; then
+    FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+fi
+
 autoload -Uz compinit && compinit
 autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
@@ -68,12 +72,6 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f /usr/local/bin/brew ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 typeset -gU PATH path
 path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin")
 
@@ -87,5 +85,4 @@ function search {
     grep -FRl "$@" .
 }
 
-hash aws 2> /dev/null && complete -C aws_completer aws
 hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
