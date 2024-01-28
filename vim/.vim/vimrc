@@ -109,6 +109,7 @@ let g:ale_virtualenv_dir_names = ["venv"]
 let g:ale_echo_msg_format = "[%linter%] %code: %%s "
 let g:ale_sign_error = "🛇"
 let g:ale_sign_warning = "⚠"
+let g:ale_sign_info = "ⓘ"
 let g:ale_virtualtext_cursor = "disabled"
 let g:ale_use_neovim_diagnostics_api = 0
 
@@ -135,6 +136,7 @@ set cursorline
 highlight clear CursorLine
 highlight ALEErrorSign ctermbg=none ctermfg=Red
 highlight ALEWarningSign ctermfg=Yellow
+highlight ALEInfoSign ctermfg=Blue
 highlight ALEVirtualTextError cterm=italic ctermfg=52
 highlight ALEVirtualTextWarning cterm=italic ctermfg=94
 highlight ColorColumn ctermbg=232
