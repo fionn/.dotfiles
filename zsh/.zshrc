@@ -14,7 +14,7 @@ setopt INTERACTIVE_COMMENTS
 setopt PIPE_FAIL
 
 if type brew &>/dev/null; then
-    FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
 fi
 
 autoload -Uz compinit && compinit
