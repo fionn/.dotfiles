@@ -35,6 +35,8 @@
     missingCommitsCheck = warn
 [branch]
     sort = -committerdate
+[tag]
+    sort = -version:refname
 [grep]
     lineNumber = true
 [transfer]
