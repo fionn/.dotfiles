@@ -73,7 +73,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 typeset -gU PATH path
-path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin")
+path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin" "$HOME/.cargo/bin")
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
 [[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
