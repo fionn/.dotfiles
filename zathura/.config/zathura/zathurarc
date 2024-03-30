@@ -2,6 +2,7 @@ set window-title-home-tilde true
 set statusbar-home-tilde true
 set statusbar-page-percent true
 set vertical-center true
+set database sqlite
 
 map <C-i> recolor
 map j navigate next
