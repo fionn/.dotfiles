@@ -37,6 +37,8 @@
     sort = -committerdate
 [tag]
     sort = -version:refname
+[gpg]
+    minTrustLevel = fully
 [grep]
     lineNumber = true
 [transfer]
