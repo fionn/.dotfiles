@@ -56,6 +56,8 @@
     diff-path = ! git diff $2:$1 $1 && :
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
+[advice]
+    detachedHead = false
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
