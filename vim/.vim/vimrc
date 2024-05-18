@@ -128,30 +128,22 @@ let &t_SR = "\e[3 q"
 set ttimeoutlen=1
 
 packadd grb256
+set notermguicolors
 colorscheme ff256
 set signcolumn=yes
 set colorcolumn=81
 set cursorline
 
-highlight clear CursorLine
+
 highlight ALEErrorSign ctermbg=none ctermfg=Red
 highlight ALEWarningSign ctermfg=Yellow
 highlight ALEInfoSign ctermfg=Blue
 highlight ALEVirtualTextError cterm=italic ctermfg=52
 highlight ALEVirtualTextWarning cterm=italic ctermfg=94
-highlight ColorColumn ctermbg=232
-highlight Error ctermfg=Red ctermbg=none cterm=underline
-highlight LineNr ctermfg=DarkGrey
-highlight Search ctermbg=DarkCyan ctermfg=White cterm=none
-highlight Comment cterm=italic
-highlight CursorLineNR cterm=none ctermfg=Grey
-highlight SignColumn ctermbg=none
+
 highlight Pmenu ctermbg=234
 highlight PmenuSbar ctermbg=0
 highlight PmenuThumb ctermbg=White
-highlight SpellCap ctermfg=Yellow ctermbg=none cterm=underline
-highlight SpellLocal ctermfg=Yellow ctermbg=none cterm=underline
-highlight VertSplit ctermfg=DarkGrey ctermbg=DarkGrey
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
