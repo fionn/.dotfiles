@@ -9,6 +9,8 @@
 [diff]
     algorithm = histogram
     colorMoved = zebra
+    mnemonicPrefix = true
+    renames = copies
 [color "diff"]
     whitespace = dim green ul
     meta = cyan dim italic
@@ -28,6 +30,7 @@
     useForceIfIncludes = true
 [fetch]
     prune = true
+    pruneTags = true
 [pull]
     ff = only
 [rebase]
