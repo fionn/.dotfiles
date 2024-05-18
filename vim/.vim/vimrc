@@ -127,8 +127,8 @@ let &t_EI = "\e[1 q"
 let &t_SR = "\e[3 q"
 set ttimeoutlen=1
 
-set background=dark
-colorscheme grb256
+packadd grb256
+colorscheme ff256
 set signcolumn=yes
 set colorcolumn=81
 set cursorline
