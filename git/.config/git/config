@@ -73,10 +73,10 @@
 [trailer]
     ifexists = addIfDifferent
 [trailer "coauthor"]
-    key = "Co-authored-by: "
+    key = "Co-authored-by"
 [trailer "for"]
-    key = "on-behalf-of: "
+    key = "On-behalf-of"
 [trailer "closes"]
-    key = "Closes: "
+    key = "Closes"
 [trailer "fixes"]
-    key = "Fixes: "
+    key = "Fixes"
