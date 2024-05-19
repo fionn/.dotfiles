@@ -134,17 +134,6 @@ set signcolumn=yes
 set colorcolumn=81
 set cursorline
 
-
-highlight ALEErrorSign ctermbg=none ctermfg=Red
-highlight ALEWarningSign ctermfg=Yellow
-highlight ALEInfoSign ctermfg=Blue
-highlight ALEVirtualTextError cterm=italic ctermfg=52
-highlight ALEVirtualTextWarning cterm=italic ctermfg=94
-
-highlight Pmenu ctermbg=234
-highlight PmenuSbar ctermbg=0
-highlight PmenuThumb ctermbg=White
-
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
@@ -160,9 +149,6 @@ if has("macunix")
    set backspace=indent,eol,start
    set clipboard=unnamed
    set ruler
-   highlight clear NonText
-   highlight link NonText SpecialKey
-   highlight Comment cterm=none
 endif
 
 if empty($WAYLAND_DISPLAY) && has("X11")
