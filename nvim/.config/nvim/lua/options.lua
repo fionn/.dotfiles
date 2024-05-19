@@ -1,0 +1,44 @@
+vim.opt.secure = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
+
+vim.opt.number = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = -1
+vim.opt.expandtab = true
+vim.opt.shiftround = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = {"sbr"}
+vim.opt.showbreak = "↳"
+vim.opt.showmatch = false
+vim.opt.matchtime = 1
+vim.opt.smoothscroll = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.spelllang = "en_gb"
+vim.opt.linebreak = true
+vim.opt.redrawtime = 4000
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+vim.opt.undofile = true
+
+vim.opt.title = true
+vim.opt.titlestring = "%F %m%r"
+
+vim.opt.list = true
+vim.opt.listchars = {tab = "  ", trail = "·", extends = "▸", nbsp = "␣"}
+
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = {81}
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = {"number"}
+vim.opt.scrolloff = 1
+
+vim.opt.guicursor:append("i-ci-n:blinkon100")
+
+vim.opt.shellcmdflag = "-ceuo pipefail"
