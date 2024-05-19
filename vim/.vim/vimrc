@@ -77,7 +77,6 @@ syntax on
 set list listchars=tab:\ \ ,trail:·
 filetype plugin indent on
 augroup vimrc | autocmd!
-    autocmd ColorScheme * highlight SpecialKey ctermfg=238
     autocmd InsertLeave * redraw!
     autocmd FileType make setlocal noexpandtab softtabstop=0
     autocmd FileType csv setlocal noexpandtab softtabstop=0
