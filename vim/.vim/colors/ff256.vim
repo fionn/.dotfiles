@@ -44,6 +44,10 @@ hi Identifier guifg=#5ffdff
 hi Special guifg=white
 hi Delimiter guifg=#5ffdff
 
+hi Added ctermfg=2 guifg=#009900
+hi Changed ctermfg=3 guifg=#bbbb00
+hi Removed ctermfg=1 guifg=#ff2222
+
 hi clear Type
 hi link Type Function
 
