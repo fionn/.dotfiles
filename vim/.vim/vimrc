@@ -25,6 +25,8 @@ set shiftround
 set autoindent
 set breakindent
 set nojoinspaces
+set backspace=indent,eol,start
+set ruler
 
 set ignorecase
 set smartcase
@@ -146,9 +148,7 @@ if has("mouse")
 endif
 
 if has("macunix")
-   set backspace=indent,eol,start
-   set clipboard=unnamed
-   set ruler
+    set clipboard=unnamed
 endif
 
 if empty($WAYLAND_DISPLAY) && has("X11")
