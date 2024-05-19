@@ -3,7 +3,7 @@ runtime colors/grb256.vim
 
 let g:colors_name = "ff256"
 
-hi Comment cterm=italic ctermfg=DarkGray
+hi Normal guifg=NONE
 
 hi VertSplit ctermbg=red ctermfg=LightGrey
 
@@ -16,7 +16,7 @@ hi SpellLocal ctermfg=Yellow ctermbg=none cterm=underline
 hi clear CursorLine
 
 hi ColorColumn cterm=None ctermbg=232 guibg=#080808
-hi SignColumn ctermbg=none
+hi SignColumn ctermbg=none guibg=NONE
 
 hi Error ctermfg=Red ctermbg=none cterm=underline
 hi Search ctermbg=DarkCyan ctermfg=White cterm=none
@@ -28,8 +28,24 @@ hi SpecialKey ctermfg=DarkGrey guibg=NONE
 hi NonText term=bold ctermfg=238 guifg=#070707 guibg=black
 
 hi LineNr ctermfg=DarkGrey guifg=#6c6c6c
-hi CursorLineNr cterm=none ctermfg=Grey gui=NONE
+hi CursorLineNr cterm=none ctermfg=Grey gui=NONE guifg=#adadad
 hi StatusLine gui=NONE
+
+hi Visual guibg=#2e2e2e
+
+hi Comment cterm=italic ctermfg=DarkGray gui=italic guifg=#6a6a6a
+hi Function guifg=#fefb67
+hi PreProc guifg=#6871ff
+hi Conditional guifg=#6871ff
+hi Statement guifg=#5fd7ff
+hi Operator guifg=#5fd7ff
+hi String guifg=#5ff967
+hi Identifier guifg=#5ffdff
+hi Special guifg=white
+hi Delimiter guifg=#5ffdff
+
+hi clear Type
+hi link Type Function
 
 hi ALEErrorSign ctermbg=none ctermfg=Red
 hi ALEWarningSign ctermfg=Yellow
