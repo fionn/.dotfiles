@@ -22,6 +22,14 @@ local function bootstrap_paq(packages)
     paq.install()
 end
 
+-- Taken from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
+        sub(col, col):match("%s") == nil
+end
+
 bootstrap_paq {
     "savq/paq-nvim",
     -- List your packages
@@ -30,6 +38,8 @@ bootstrap_paq {
 require "paq" {
     "savq/paq-nvim",
     "neovim/nvim-lspconfig",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "lewis6991/gitsigns.nvim",
@@ -62,13 +72,13 @@ require("nvim-treesitter.configs").setup {
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
-                ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-                ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" }
+                ["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
+                ["as"] = {query = "@scope", query_group = "locals", desc = "Select language scope"}
             },
             selection_modes = {
                 ["@parameter.outer"] = "v", -- charwise
                 ["@function.outer"] = "V", -- linewise
-                ["@class.outer"] = "<c-v>" -- blockwise
+                ["@class.outer"] = "<C-v>" -- blockwise
             },
             include_surrounding_whitespace = true
         }
@@ -95,12 +105,83 @@ require("gitsigns").setup {
     }
 }
 
+local cmp = require("cmp")
+local cmp_lsp = require("cmp_nvim_lsp")
+
+-- This is mostly taken from
+-- https://github.com/hrsh7th/nvim-cmp?tab=readme-ov-file#recommended-configuration,
+-- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
+-- TODO:
+-- * single tab longest completion, menu on second tab,
+-- * don't complete comments,
+-- * dismiss menu somehow.
+cmp.setup {
+
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+
+    mapping = cmp.mapping.preset.insert {
+        -- TODO: remap these.
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        -- TODO: reconsider how tab works.
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                if #cmp.get_entries() == 1 then
+                    cmp.confirm({ select = true })
+                else
+                    cmp.select_next_item()
+                end
+            elseif has_words_before() then
+                cmp.complete()
+                if #cmp.get_entries() == 1 then
+                    cmp.confirm({ select = true })
+                end
+            else
+                fallback()
+            end
+        end, {"i", "s"}),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, {"i", "s"})
+    },
+    sources = cmp.config.sources({
+            {name = "nvim_lsp"},
+            {name = "buffer"},
+        }
+    )
+}
+
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local lspconfig = require("lspconfig")
 
-lspconfig.clangd.setup {}
-lspconfig.rust_analyzer.setup {}
+lspconfig.clangd.setup {
+    capabilities = cmp_lsp.default_capabilities()
+}
+
+lspconfig.rust_analyzer.setup {
+    capabilities = cmp_lsp.default_capabilities()
+}
+
+lspconfig.pylsp.setup {
+    -- TODO: configure this.
+    -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+    capabilities = cmp_lsp.default_capabilities()
+}
 
 lspconfig.lua_ls.setup {
+    capabilities = cmp_lsp.default_capabilities(),
     settings = {
         Lua = {
             completion = {
