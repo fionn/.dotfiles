@@ -22,8 +22,8 @@ local function bootstrap_paq(packages)
     paq.install()
 end
 
--- Taken from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
 local has_words_before = function()
+-- From https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
@@ -108,34 +108,37 @@ require("gitsigns").setup {
 local cmp = require("cmp")
 local cmp_lsp = require("cmp_nvim_lsp")
 
--- This is mostly taken from
--- https://github.com/hrsh7th/nvim-cmp?tab=readme-ov-file#recommended-configuration,
--- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
--- TODO:
--- * single tab longest completion, menu on second tab,
--- * don't complete comments,
--- * dismiss menu somehow.
 cmp.setup {
+    -- TODO: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#disabling-completion-in-certain-contexts-such-as-comments
+    preselect = cmp.PreselectMode.None,
+
+    completion = {
+        autocomplete = false
+    },
 
     window = {
         completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
+
+    experimental = {
+        ghost_text = true
     },
 
     mapping = cmp.mapping.preset.insert {
-        -- TODO: remap these.
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        -- TODO: reconsider how tab works.
+        ["<Esc>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 if #cmp.get_entries() == 1 then
                     cmp.confirm({ select = true })
-                else
+                elseif cmp.get_selected_entry() then
                     cmp.select_next_item()
+                else
+                    --cmp.select_next_item()
+                    cmp.complete_common_string()
                 end
             elseif has_words_before() then
                 cmp.complete()
@@ -146,7 +149,6 @@ cmp.setup {
                 fallback()
             end
         end, {"i", "s"}),
-
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -155,13 +157,16 @@ cmp.setup {
             end
         end, {"i", "s"})
     },
-    sources = cmp.config.sources({
-            {name = "nvim_lsp"},
-            {name = "buffer"},
-        }
-    )
-}
 
+    matching = {
+        disallow_fuzzy_matching = true
+    },
+
+    sources = cmp.config.sources({
+        {name = "nvim_lsp"},
+        {name = "buffer"}
+    })
+}
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local lspconfig = require("lspconfig")

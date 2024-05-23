@@ -46,7 +46,7 @@ vim.opt.guicursor:append("i-ci-n:blinkon100")
 
 vim.opt.shellcmdflag = "-ceuo pipefail"
 
---vim.opt.completeopt = {"longest", "menu", "preview"}
+vim.opt.wildmode = "list:longest"
 
 vim.api.nvim_create_augroup("options", {clear = true})
 
