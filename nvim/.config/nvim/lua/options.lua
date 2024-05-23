@@ -34,11 +34,48 @@ vim.opt.list = true
 vim.opt.listchars = {tab = "  ", trail = "·", extends = "▸", nbsp = "␣"}
 
 vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = {81}
+
+vim.opt.colorcolumn = {80}
+
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = {"number"}
+
 vim.opt.scrolloff = 1
 
 vim.opt.guicursor:append("i-ci-n:blinkon100")
 
 vim.opt.shellcmdflag = "-ceuo pipefail"
+
+--vim.opt.completeopt = {"longest", "menu", "preview"}
+
+vim.api.nvim_create_augroup("options", {clear = true})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    group = "options",
+    desc = "Spellcheck markdown files",
+    callback = function()
+        vim.opt_local.spell = true
+    end
+})
+
+vim.api.nvim_create_autocmd("BufRead", {
+    group = "options",
+    desc = "Set read-only buffers as not modifiable",
+    callback = function()
+        if vim.opt_local.readonly:get() then
+            vim.opt_local.modifiable = false
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd("BufRead", {
+    group = "options",
+    desc = "Only set colorcolumn on modifiable buffers",
+    callback = function()
+        ---@diagnostic disable-next-line: undefined-field
+        if not vim.opt_local.modifiable:get() then
+            vim.opt_local.colorcolumn = ""
+        end
+    end
+})
