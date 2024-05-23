@@ -42,6 +42,22 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
 
+vim.api.nvim_create_augroup("generic_fixers", {clear = true})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "generic_fixers",
+    desc = "Remove trailing whitespace and blank lines",
+    callback = function()
+        -- Partially from neovim/runtime/lua/editorconfig.lua.
+        -- TODO: translate to nvim_cmd.
+        local view = vim.fn.winsaveview()
+        vim.api.nvim_command("silent! undojoin")
+        vim.api.nvim_command("silent keepjumps keeppatterns %s/\\s\\+$//e")
+        vim.api.nvim_command("silent keepjumps keeppatterns %s/\\($\\n\\s*\\)\\+\\%$//e")
+        vim.fn.winrestview(view)
+    end
+})
+
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config {
     signs = {
