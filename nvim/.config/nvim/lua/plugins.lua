@@ -211,5 +211,21 @@ lspconfig.lua_ls.setup {
     }
 }
 
+lspconfig.texlab.setup{
+    -- TODO: https://github.com/latex-lsp/texlab/wiki/Configuration
+    capabilities = cmp_lsp.default_capabilities(),
+    settings = {
+        texlab = {
+            chktex = {
+                onEdit = true,
+                onOpenAndSave = true
+            },
+            completion = {
+                matcher = "prefix"
+            }
+        }
+    }
+}
+
 --vim.cmd.packadd("grb256")
 --vim.cmd.colorscheme("ff256")
