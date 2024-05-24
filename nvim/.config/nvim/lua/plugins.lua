@@ -182,7 +182,16 @@ lspconfig.rust_analyzer.setup {
 lspconfig.pylsp.setup {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-    capabilities = cmp_lsp.default_capabilities()
+    capabilities = cmp_lsp.default_capabilities(),
+    settings = {
+        pylsp = {
+            plugins = {
+                ruff = {
+                    ignore = {"E741"}
+                }
+            }
+        }
+    }
 }
 
 lspconfig.lua_ls.setup {
