@@ -48,6 +48,9 @@ vim.opt.shellcmdflag = "-ceuo pipefail"
 
 vim.opt.wildmode = "list:longest"
 
+vim.opt.winblend = 8
+vim.opt.pumblend = 8
+
 vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
