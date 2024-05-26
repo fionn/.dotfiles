@@ -9,7 +9,7 @@ vim.g.netrw_list_hide = {
     ".mypy_cache/$", "venv/$", ".git/$"
 }
 
-local reload = function()
+local function reload()
     dofile(vim.env.MYVIMRC)
     vim.notify("Reloaded " .. vim.env.MYVIMRC)
 end
@@ -66,6 +66,6 @@ vim.diagnostic.config {
             [vim.diagnostic.severity.WARN] = "⚠",
             [vim.diagnostic.severity.INFO] = "ⓘ",
             [vim.diagnostic.severity.HINT] = "☀"
-        },
+        }
     }
 }
