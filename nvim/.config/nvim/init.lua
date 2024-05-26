@@ -58,6 +58,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
+vim.api.nvim_create_augroup("init", {clear = true})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = "init",
+    desc = "Highlight on yank",
+    callback = function()
+        vim.highlight.on_yank({higroup = "Visual"})
+    end,
+})
+
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config {
     signs = {
