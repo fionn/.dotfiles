@@ -43,6 +43,8 @@ require "paq" {
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "lewis6991/gitsigns.nvim",
+    "godlygeek/tabular",
+    "hashivim/vim-terraform",
     {"fionn/grb256", opt = true}
 }
 
@@ -226,6 +228,13 @@ lspconfig.texlab.setup{
         }
     }
 }
+
+require("lspconfig").terraformls.setup{}
+require("lspconfig").tflint.setup{}
+
+vim.g.terraform_align = 1
+vim.g.hcl_align = 1
+vim.g.terraform_fmt_on_save = 1
 
 --vim.cmd.packadd("grb256")
 --vim.cmd.colorscheme("ff256")
