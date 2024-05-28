@@ -68,6 +68,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})
+
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config {
     signs = {
@@ -77,5 +81,8 @@ vim.diagnostic.config {
             [vim.diagnostic.severity.INFO] = "ⓘ",
             [vim.diagnostic.severity.HINT] = "☀"
         }
+    },
+    float = {
+        border = "rounded"  -- No-op?
     }
 }

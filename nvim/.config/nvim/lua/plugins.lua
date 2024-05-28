@@ -30,6 +30,27 @@ local function has_words_before()
         sub(col, col):match("%s") == nil
 end
 
+---@param text string
+---@param max_length integer
+---@return string
+local function truncate(text, max_length)
+    if text and text:len() > max_length then
+        text = text:sub(1, max_length) .. "⋯"
+    end
+    return text
+end
+
+local kind_icons = {
+    Method = "𝑓",
+    Function = "𝑓",
+    Variable = "𝑥",
+    Snippet = "✂",
+    Constant = "𝜋",
+    TypeParameter = "𝑻",
+    Interface = "ɪ",
+    Module = "▭"
+}
+
 bootstrap_paq {
     "savq/paq-nvim",
     -- List your packages
@@ -118,6 +139,18 @@ cmp.setup {
         autocomplete = false
     },
 
+    formatting = {
+        format = function(_, vim_item)
+            vim_item.abbr = truncate(vim_item.abbr, 30)
+            vim_item.menu = truncate(vim_item.menu, 30)
+            vim_item.info = truncate(vim_item.info, 30)
+
+            vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
+
+            return vim_item
+        end
+    },
+
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
@@ -172,6 +205,7 @@ cmp.setup {
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local lspconfig = require("lspconfig")
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 lspconfig.clangd.setup {
     capabilities = cmp_lsp.default_capabilities()
