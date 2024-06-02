@@ -42,6 +42,27 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})
+
+-- https://neovim.io/doc/user/diagnostic.html
+vim.diagnostic.config {
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "⨯",
+            [vim.diagnostic.severity.WARN] = "⚠",
+            [vim.diagnostic.severity.INFO] = "ⓘ",
+            [vim.diagnostic.severity.HINT] = "☀"
+        }
+    },
+    severity_sort = true,
+    update_in_insert = true,
+    float = {
+        border = "rounded"  -- No-op?
+    }
+}
+
 vim.api.nvim_create_augroup("generic_fixers", {clear = true})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -68,21 +89,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+vim.api.nvim_create_autocmd("InsertEnter", {
+    group = "init",
+    desc = "Hide virtual text in insert mode",
+    callback = function()
+        vim.diagnostic.config({virtual_text = false})
+    end
 })
 
--- https://neovim.io/doc/user/diagnostic.html
-vim.diagnostic.config {
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = "⨯",
-            [vim.diagnostic.severity.WARN] = "⚠",
-            [vim.diagnostic.severity.INFO] = "ⓘ",
-            [vim.diagnostic.severity.HINT] = "☀"
-        }
-    },
-    float = {
-        border = "rounded"  -- No-op?
-    }
-}
+vim.api.nvim_create_autocmd("InsertLeave", {
+    group = "init",
+    desc = "Show virtual text in normal mode",
+    callback = function()
+        vim.diagnostic.config({virtual_text = true})
+    end
+})
