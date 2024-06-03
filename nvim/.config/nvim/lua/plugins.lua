@@ -35,6 +35,7 @@ require "paq" {
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "lewis6991/gitsigns.nvim",
+    "FabijanZulj/blame.nvim",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     {"fionn/grb256", opt = true}
@@ -101,6 +102,12 @@ require("gitsigns").setup {
     diff_opts = {
         algorithm = "histogram"
     }
+}
+
+-- BLAME
+
+require("blame").setup {
+    date_format = "%Y-%m-%d"
 }
 
 -- CMP
