@@ -22,35 +22,6 @@ local function bootstrap_paq(packages)
     paq.install()
 end
 
-local function has_words_before()
-    -- From https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
-        sub(col, col):match("%s") == nil
-end
-
----@param text string
----@param max_length integer
----@return string
-local function truncate(text, max_length)
-    if text and text:len() > max_length then
-        text = text:sub(1, max_length) .. "⋯"
-    end
-    return text
-end
-
-local kind_icons = {
-    Method = "𝑓",
-    Function = "𝑓",
-    Variable = "𝑥",
-    Snippet = "✂",
-    Constant = "𝜋",
-    TypeParameter = "𝑻",
-    Interface = "ɪ",
-    Module = "▭"
-}
-
 bootstrap_paq {
     "savq/paq-nvim",
     -- List your packages
@@ -68,6 +39,8 @@ require "paq" {
     "hashivim/vim-terraform",
     {"fionn/grb256", opt = true}
 }
+
+-- TREESITTER
 
 require("nvim-treesitter.configs").setup {
     ensure_installed = {"c", "lua", "vim", "vimdoc", "query"},
@@ -108,6 +81,8 @@ require("nvim-treesitter.configs").setup {
     }
 }
 
+-- GITSIGNS
+
 require("gitsigns").setup {
     signs = {
         add          = {text = "+"},
@@ -128,8 +103,39 @@ require("gitsigns").setup {
     }
 }
 
+-- CMP
+
 local cmp = require("cmp")
 local cmp_lsp = require("cmp_nvim_lsp")
+
+local kind_icons = {
+    Method = "𝑓",
+    Function = "𝑓",
+    Variable = "𝑥",
+    Snippet = "✂",
+    Constant = "𝜋",
+    TypeParameter = "𝑻",
+    Interface = "ɪ",
+    Module = "▭"
+}
+
+local function has_words_before()
+    -- From https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
+        sub(col, col):match("%s") == nil
+end
+
+---@param text string
+---@param max_length integer
+---@return string
+local function truncate(text, max_length)
+    if text and text:len() > max_length then
+        text = text:sub(1, max_length) .. "⋯"
+    end
+    return text
+end
 
 cmp.setup {
     -- TODO: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#disabling-completion-in-certain-contexts-such-as-comments
@@ -203,6 +209,8 @@ cmp.setup {
     })
 }
 
+-- LSPCONFIG
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local lspconfig = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
@@ -264,13 +272,16 @@ lspconfig.texlab.setup{
 }
 
 require("lspconfig").bashls.setup{}
-
 require("lspconfig").terraformls.setup{}
 require("lspconfig").tflint.setup{}
+
+-- TERRAFORM
 
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
 vim.g.terraform_fmt_on_save = 1
+
+-- COLORS
 
 --vim.cmd.packadd("grb256")
 --vim.cmd.colorscheme("ff256")
