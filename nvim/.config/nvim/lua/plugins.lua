@@ -32,6 +32,7 @@ require "paq" {
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "lewis6991/gitsigns.nvim",
@@ -151,7 +152,17 @@ local function truncate(text, max_length)
 end
 
 cmp.setup {
-    -- TODO: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#disabling-completion-in-certain-contexts-such-as-comments
+    enabled = function()
+        -- disable completion in comments
+        local context = require("cmp.config.context")
+        if vim.api.nvim_get_mode().mode == "c" then
+            return true
+        else
+            return not context.in_treesitter_capture("comment")
+                and not context.in_syntax_group("Comment")
+        end
+    end,
+
     preselect = cmp.PreselectMode.None,
 
     completion = {
@@ -165,6 +176,8 @@ cmp.setup {
             vim_item.info = truncate(vim_item.info, 30)
 
             vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
+
+            vim_item.dup = 0
 
             return vim_item
         end
@@ -182,20 +195,25 @@ cmp.setup {
     mapping = cmp.mapping.preset.insert {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<Esc>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<Esc>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.mapping.confirm({select = false})
+            end
+            cmp.abort()
+            fallback()
+        end, {"i", "s"}),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 if #cmp.get_entries() == 1 then
                     cmp.confirm({ select = true })
                 elseif cmp.get_selected_entry() then
                     cmp.select_next_item()
-                else
-                    --cmp.select_next_item()
-                    cmp.complete_common_string()
+                elseif not cmp.complete_common_string() then
+                    cmp.select_next_item()
                 end
             elseif has_words_before() then
-                cmp.complete()
+                cmp.complete({reason = "manual"})
                 if #cmp.get_entries() == 1 then
                     cmp.confirm({ select = true })
                 end
@@ -212,12 +230,24 @@ cmp.setup {
         end, {"i", "s"})
     },
 
+    sorting = {
+        comparators = {
+            cmp.config.compare.exact,
+            cmp.config.compare.sort_text
+        }
+    },
+
     matching = {
-        disallow_fuzzy_matching = true
+        disallow_fuzzy_matching = true,
+        disallow_fullfuzzy_matching = true,
+        disallow_partial_fuzzy_matching = true,
+        disallow_partial_matching = true,
+        disallow_prefix_unmatching = true
     },
 
     sources = cmp.config.sources({
         {name = "nvim_lsp"},
+        {name = "nvim_lsp_signature_help"},
         {name = "buffer"}
     })
 }
