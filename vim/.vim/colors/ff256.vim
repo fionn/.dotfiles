@@ -3,7 +3,7 @@ runtime colors/grb256.vim
 
 let g:colors_name = "ff256"
 
-hi Normal guifg=NONE
+hi Normal guifg=NONE guibg=NONE
 
 hi VertSplit ctermbg=red ctermfg=LightGrey
 
@@ -37,12 +37,13 @@ hi Comment cterm=italic ctermfg=DarkGray gui=italic guifg=#6a6a6a
 hi Function guifg=#fefb67
 hi PreProc guifg=#6871ff
 hi Conditional guifg=#6871ff
-hi Statement guifg=#5fd7ff
-hi Operator guifg=#5fd7ff
+hi Statement guifg=#5fd7ff cterm=None gui=None
+hi Operator guifg=white
 hi String guifg=#5ff967
 hi Identifier guifg=#5ffdff
-hi Special guifg=white
-hi Delimiter guifg=#5ffdff
+hi clear Special
+hi link Special Function
+hi Delimiter guifg=white
 
 hi Added ctermfg=2 guifg=#009900
 hi Changed ctermfg=3 guifg=#bbbb00
@@ -60,3 +61,10 @@ hi ALEVirtualTextWarning cterm=italic ctermfg=94
 hi Pmenu ctermbg=234
 hi PmenuSbar ctermbg=0
 hi PmenuThumb ctermbg=White
+
+if has("nvim")
+    hi link @keyword.import Include
+    hi link @type.builtin.python Special
+    hi link @function.builtin Function
+    hi link @number Number  " No-op
+endif
