@@ -31,6 +31,11 @@ local function close_floats()
     end
 end
 
+local function toggle_relative_numbers()
+    ---@diagnostic disable-next-line: undefined-field
+    vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
+end
+
 vim.keymap.set("n", "<leader>s", reload)
 --vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
 vim.keymap.set("n", "<F1>", "<Nop>")
@@ -39,6 +44,7 @@ vim.keymap.set("n", "<S-BS>", "<C-i>")
 vim.keymap.set("n", "Q", "<Nop>")
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
 vim.keymap.set("n", "<Esc>", close_floats)
+vim.keymap.set("n", "<leader>r", toggle_relative_numbers)
 vim.keymap.set("", "<leader>w", require("lsp_lines").toggle)
 vim.keymap.set("i", "<C-v>", "<Nop>")
 vim.keymap.set("o", "j", "gj")
