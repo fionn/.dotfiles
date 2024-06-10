@@ -188,6 +188,9 @@ lspconfig.pylsp.setup {
             plugins = {
                 ruff = {
                     ignore = {"E741"}
+                },
+                pylsp_mypy = {
+                    overrides = {true, "--no-pretty"}
                 }
             }
         }
