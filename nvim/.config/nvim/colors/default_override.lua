@@ -16,6 +16,12 @@ local highlights = {
     Changed = {fg = "#bbbb00"},
     Removed = {fg = "Red"},
 
+    diffLine = {fg = "Cyan"},
+    diffFile = {fg = "DarkCyan"},
+    diffOldFile = {fg = "DarkRed"},
+    diffNewFile = {fg = "DarkGreen"},
+    diffIndexLine = {fg = "DarkCyan"},
+
     Comment = {italic = true, fg = "#6a6a6a"},
     Function = {fg = "NvimLightYellow"},
     Special = {link = "Function"},
@@ -53,7 +59,10 @@ local highlights = {
     ["@markup.raw.block.vimdoc"] = {},
     ["@markup.quote"] = {fg = "NvimLightGrey4"},
     ["@markup.list"] = {link = "Number"},
-    ["@tag.attribute"] = {link = "PreProc"}
+    ["@tag.attribute"] = {link = "PreProc"},
+    ["@punctuation.special.diff"] = {link = "Comment"},
+    ["@attribute.diff"] = {link = "diffLine"},
+    ["@string.special.path.diff"] = {link = "diffFile"}
 }
 
 for group, options in pairs(highlights) do
