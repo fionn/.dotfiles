@@ -39,6 +39,7 @@ vim.keymap.set("n", "<S-BS>", "<C-i>")
 vim.keymap.set("n", "Q", "<Nop>")
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
 vim.keymap.set("n", "<Esc>", close_floats)
+vim.keymap.set("", "<leader>w", require("lsp_lines").toggle)
 vim.keymap.set("i", "<C-v>", "<Nop>")
 vim.keymap.set("o", "j", "gj")
 vim.keymap.set("o", "k", "gk")
@@ -67,6 +68,7 @@ vim.diagnostic.config {
     },
     severity_sort = true,
     update_in_insert = true,
+    virtual_lines = false,
     float = {
         border = "rounded"  -- No-op?
     }

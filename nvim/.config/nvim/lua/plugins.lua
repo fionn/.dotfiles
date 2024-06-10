@@ -35,6 +35,7 @@ require "paq" {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",
     "godlygeek/tabular",
@@ -323,6 +324,10 @@ require("lspconfig").tflint.setup{}
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
 vim.g.terraform_fmt_on_save = 1
+
+-- LSP_LINES
+
+require("lsp_lines").setup()
 
 -- COLORS
 
