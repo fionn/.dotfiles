@@ -63,10 +63,8 @@ vim.diagnostic.config {
     }
 }
 
-vim.api.nvim_create_augroup("generic_fixers", {clear = true})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "generic_fixers",
+    group = vim.api.nvim_create_augroup("generic_fixers", {clear = true}),
     desc = "Remove trailing whitespace and blank lines",
     callback = function()
         -- Partially from neovim/runtime/lua/editorconfig.lua.
