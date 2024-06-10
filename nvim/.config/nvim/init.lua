@@ -94,6 +94,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup("terminal", {clear = true}),
+    desc = "Make the terminal more like a terminal",
+    callback = function()
+        vim.opt_local.number = false
+        vim.cmd("startinsert")
+    end
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
     desc = "Close with q",
