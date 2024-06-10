@@ -88,6 +88,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
+    desc = "Close with q",
+    pattern = "help",
+    callback = function(event)
+        vim.keymap.set("n", "q", ":close<CR>", {buffer = event.buf, silent = true})
+    end
+})
+
 vim.api.nvim_create_augroup("init", {clear = true})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
