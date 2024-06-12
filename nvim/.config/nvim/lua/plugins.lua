@@ -331,8 +331,3 @@ vim.g.terraform_fmt_on_save = 1
 -- LSP_LINES
 
 require("lsp_lines").setup()
-
--- COLORS
-
---vim.cmd.packadd("grb256")
---vim.cmd.colorscheme("ff256")
