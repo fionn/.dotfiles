@@ -52,8 +52,7 @@ require("nvim-treesitter.configs").setup {
     highlight = {
         enable = true,
         disable = {
-            "gitcommit",
-            "terraform"
+            "gitcommit"
         },
         additional_vim_regex_highlighting = false
     },
