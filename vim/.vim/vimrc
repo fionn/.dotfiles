@@ -27,6 +27,7 @@ set breakindent
 set nojoinspaces
 set backspace=indent,eol,start
 set ruler
+set smoothscroll
 
 set ignorecase
 set smartcase
