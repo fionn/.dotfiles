@@ -321,6 +321,7 @@ lspconfig.texlab.setup{
 lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
 lspconfig.tflint.setup{}
+lspconfig.gopls.setup{}
 
 -- TERRAFORM
 
