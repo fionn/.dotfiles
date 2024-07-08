@@ -65,6 +65,26 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "gitcommit",
+    group = "options",
+    desc = "Format options for Git commit messages",
+    callback = function()
+        vim.opt_local.formatoptions = {
+            ["1"] = true, -- break before single words
+            j = true, -- merge comments
+            t = true, -- wrap
+            n = true, -- indent lists
+            a = true, -- auto-format
+            q = true, -- format comments with gq
+            w = true, -- use trailing whitespace as hint for paragraph end
+            r = true, -- continue "comments" on new line
+            c = true, -- wrap "comments"
+        }
+        vim.opt_local.spell = true
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
