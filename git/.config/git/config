@@ -46,6 +46,9 @@
     lineNumber = true
 [transfer]
     fsckObjects = true
+[blame]
+    coloring = repeatedLines
+    showEmail = true
 [alias]
     ll = log --oneline --graph --decorate --color
     rgrep = "! f(){ git grep "$@" $(git rev-list --all); }; f"
