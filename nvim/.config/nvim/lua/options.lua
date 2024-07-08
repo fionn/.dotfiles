@@ -58,10 +58,9 @@ vim.api.nvim_create_augroup("options", {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     group = "options",
-    desc = "Spellcheck and conceal markdown",
+    desc = "Spellcheck markdown files",
     callback = function()
         vim.opt_local.spell = true
-        vim.opt_local.conceallevel = 2
     end
 })
 
