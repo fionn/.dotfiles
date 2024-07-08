@@ -39,8 +39,6 @@ vim.opt.colorcolumn = {80}
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = {"number"}
 
-vim.opt.scrolloff = 1
-
 vim.opt.guicursor:append("i-ci-n:blinkon100")
 
 vim.opt.shellcmdflag = "-ceuo pipefail"
