@@ -34,7 +34,7 @@ hi StatusLine gui=NONE
 hi Visual guibg=#2e2e2e
 
 hi Comment cterm=italic ctermfg=DarkGray gui=italic guifg=#6a6a6a
-hi Function guifg=#fefb67
+hi Function guifg=Yellow
 hi PreProc guifg=#6871ff
 hi Conditional guifg=#6871ff
 hi Statement guifg=#5fd7ff cterm=None gui=None
