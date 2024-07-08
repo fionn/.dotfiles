@@ -281,6 +281,8 @@ lspconfig.pylsp.setup {
                     ignore = {"E741"}
                 },
                 pylsp_mypy = {
+                    -- Once https://github.com/python-lsp/pylsp-mypy/pull/83
+                    -- makes it mainstream, we can drop this override.
                     overrides = {true, "--no-pretty"}
                 }
             }
