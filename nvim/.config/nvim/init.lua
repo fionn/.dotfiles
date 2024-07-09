@@ -137,3 +137,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
         vim.diagnostic.config({virtual_text = true})
     end
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = "init",
+    desc = "Clear jumplist",
+    callback = function()
+        vim.cmd("clearjumps")
+    end
+})
