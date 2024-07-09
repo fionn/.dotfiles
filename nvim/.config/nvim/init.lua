@@ -39,8 +39,6 @@ end
 vim.keymap.set("n", "<leader>s", reload)
 --vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
 vim.keymap.set("n", "<F1>", "<Nop>")
-vim.keymap.set("n", "<BS>", "<C-o>")
-vim.keymap.set("n", "<S-BS>", "<C-i>")
 vim.keymap.set("n", "Q", "<Nop>")
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
 vim.keymap.set("n", "<Esc>", close_floats)
