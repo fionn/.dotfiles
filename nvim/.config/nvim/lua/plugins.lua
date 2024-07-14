@@ -52,7 +52,8 @@ require("nvim-treesitter.configs").setup {
     highlight = {
         enable = true,
         disable = {
-            "gitcommit"
+            "gitcommit",
+            "markdown"
         },
         additional_vim_regex_highlighting = false
     },
