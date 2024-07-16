@@ -325,6 +325,8 @@ lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
 lspconfig.tflint.setup{}
 lspconfig.gopls.setup{}
+lspconfig.marksman.setup{}
+lspconfig.yamlls.setup{}
 
 -- TERRAFORM
 
