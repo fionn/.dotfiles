@@ -81,10 +81,10 @@ vim.diagnostic.config {
         }
     },
     severity_sort = true,
-    update_in_insert = true,
-    virtual_lines = false,
+    virtual_lines = false,  -- for lsp_lines
     float = {
-        border = "rounded"  -- No-op?
+        border = "rounded",
+        source = true
     }
 }
 
