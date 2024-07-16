@@ -38,6 +38,7 @@ require "paq" {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",
+    "folke/which-key.nvim",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     {"fionn/grb256", opt = true}
@@ -337,3 +338,9 @@ vim.g.terraform_fmt_on_save = 1
 -- LSP_LINES
 
 require("lsp_lines").setup()
+
+require("which-key").setup {
+    icons = {
+        rules = false
+    }
+}

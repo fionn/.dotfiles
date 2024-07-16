@@ -54,6 +54,7 @@ vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 --vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>s", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>gl", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
