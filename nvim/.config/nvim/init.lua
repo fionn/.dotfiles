@@ -31,24 +31,33 @@ local function close_floats()
     end
 end
 
+local function esc()
+    close_floats()
+    vim.cmd.nohlsearch()
+end
+
 local function toggle_relative_numbers()
     ---@diagnostic disable-next-line: undefined-field
     vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
 end
 
-vim.keymap.set("n", "<leader>s", reload)
---vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
-vim.keymap.set("n", "<F1>", "<Nop>")
-vim.keymap.set("n", "Q", "<Nop>")
+vim.keymap.set("", "<F1>", "<Nop>", {desc = "No-op"})
+vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op"})
+vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op"})
+
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
-vim.keymap.set("n", "<Esc>", close_floats)
-vim.keymap.set("n", "<leader>r", toggle_relative_numbers)
-vim.keymap.set("", "<leader>w", require("lsp_lines").toggle)
-vim.keymap.set("i", "<C-v>", "<Nop>")
+vim.keymap.set("n", "<Esc>", esc, {desc = "Close floats and clear highlighting"})
+
 vim.keymap.set("o", "j", "gj")
 vim.keymap.set("o", "k", "gk")
 vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+--vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>s", reload, {desc = "Reload config"})
+vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
+vim.keymap.set("n", "<leader>gl", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
+vim.keymap.set("n", "<leader>gf", vim.diagnostic.open_float, {desc = "Open floating diagnostics"})
 
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
