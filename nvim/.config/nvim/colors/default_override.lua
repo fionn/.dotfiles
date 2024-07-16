@@ -25,6 +25,8 @@ local highlights = {
 
     gitCommitSummary = {link = "Title"},
 
+    WildMenu = {fg = "NvimLightGrey2", bg = "None"},
+
     Function = {fg = "Yellow2"},
     Type = {fg = "LightGoldenrod"},
     Comment = {italic = true, fg = "#6a6a6a"},

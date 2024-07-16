@@ -43,7 +43,7 @@ vim.opt.guicursor:append("i-ci-n:blinkon100")
 
 vim.opt.shellcmdflag = "-ceuo pipefail"
 
-vim.opt.wildmode = "list:longest"
+vim.opt.wildmode = {"list:longest", "full"}
 
 vim.opt.winblend = 8
 vim.opt.pumblend = 8
