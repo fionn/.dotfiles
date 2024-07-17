@@ -10,7 +10,7 @@ local highlights = {
 
     CursorLineNr = {bold = false, fg="#adadad"},
 
-    Visual = {bg = "#323232"},
+    Visual = {bg = "#323239"},
 
     Added = {fg = "Green"},
     Changed = {fg = "#bbbb00"},
