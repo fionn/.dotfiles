@@ -81,7 +81,19 @@ local highlights = {
     ["@tag.attribute"] = {link = "PreProc"},
     ["@punctuation.special.diff"] = {link = "Comment"},
     ["@attribute.diff"] = {link = "diffLine"},
-    ["@string.special.path.diff"] = {link = "diffFile"}
+    ["@string.special.path.diff"] = {link = "diffFile"},
+
+    TexMathMatcher = {link = "Normal"},
+    texMathZoneX = {link = "TexMathMatcher"},
+    texMathZoneW = {link = "TexMathMatcher"},
+    texRefZone = {link = "@markup.link"},
+
+    ["@markup.math.latex"] = {link = "Normal"},
+    ["@function.macro.latex"] = {link = "Statement"},
+    ["@function.latex"] = {link = "@function.macro.latex"},
+    ["@module.latex"] = {link = "PreProc"},
+    ["@label.latex"] = {link = "Constant"},
+    ["@punctuation.special.latex"] = {link = "Statement"}
 }
 
 for group, options in pairs(highlights) do
