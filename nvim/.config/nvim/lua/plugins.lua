@@ -40,6 +40,7 @@ require "paq" {
     "folke/which-key.nvim",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
+    "fionn/baseline",
     {"fionn/grb256", opt = true}
 }
 
@@ -77,6 +78,8 @@ require("which-key").setup {
         rules = false
     }
 }
+
+require("baseline").setup {}
 
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1

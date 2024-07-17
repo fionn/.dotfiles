@@ -25,7 +25,16 @@ local highlights = {
 
     gitCommitSummary = {link = "Title"},
 
-    WildMenu = {fg = "NvimLightGrey2", bg = "None"},
+    StatusLine = {fg = "Black", bg = "NvimLightGrey4"},
+    StatusLineModeNormal = {fg = "Black", bg = "NvimDarkBlue", bold = true},
+    StatusLineModeInsert = {fg = "Black", bg = "Green", bold = true},
+    StatusLineModeVisual = {fg = "Black", bg = "NvimDarkGrey4", bold = true},
+    StatusLineModeReplace = {fg = "Black", bg = "NvimDarkRed", bold = true},
+    StatusLineModeCommand = {fg = "NvimLightGrey4", bg = "Grey8", bold = true},
+    StatusLineModeTerminal = {link = "StatusLineModeCommand"},
+    StatusLineModeUnknown = {fg = "Black", bg = "DarkOrange3", bold = true},
+
+    WildMenu = {fg = "NvimLightGrey3", bg = "None"},
 
     Function = {fg = "Yellow2"},
     Type = {fg = "LightGoldenrod"},
