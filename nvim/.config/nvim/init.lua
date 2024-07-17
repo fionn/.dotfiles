@@ -34,6 +34,7 @@ end
 local function esc()
     close_floats()
     vim.cmd.nohlsearch()
+    vim.diagnostic.config({virtual_lines = false})
 end
 
 local function toggle_relative_numbers()
@@ -133,15 +134,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("InsertEnter", {
     group = "init",
-    desc = "Hide virtual text in insert mode",
+    desc = "Hide virtual text on insert",
     callback = function()
         vim.diagnostic.config({virtual_text = false})
+        vim.diagnostic.config({virtual_lines = false})
     end
 })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
+vim.api.nvim_create_autocmd({"BufWrite", "InsertLeave"}, {
     group = "init",
-    desc = "Show virtual text in normal mode",
+    desc = "Show virtual text in normal mode and on save",
     callback = function()
         vim.diagnostic.config({virtual_text = true})
     end
