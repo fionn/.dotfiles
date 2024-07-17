@@ -26,6 +26,8 @@ bootstrap_paq {
     "savq/paq-nvim",
 }
 
+-- To fix folke/which-key, which force-updates the stable tag,
+-- git -C ~/.local/share/nvim/site/pack/paqs/start/which-key.nvim fetch --tags --force.
 require "paq" {
     "savq/paq-nvim",
     "neovim/nvim-lspconfig",
