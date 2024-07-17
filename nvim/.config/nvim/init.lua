@@ -1,21 +1,6 @@
 require("options")
 require("plugins")
 
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_special_syntax = true
-vim.g.netrw_list_hide = {
-    ".*\\.swp$", ".*\\.aux$", ".*\\.toc$", "__pycache__/$",
-    ".mypy_cache/$", "venv/$", ".git/$"
-}
-
--- h:ft-python-indent
-vim.g.python_indent = {
-    open_paren = 4,
-    continue = 4,
-    closed_paren_align_last_line = false
-}
-
 local function reload()
     dofile(vim.env.MYVIMRC)
     vim.notify("Reloaded " .. vim.env.MYVIMRC)

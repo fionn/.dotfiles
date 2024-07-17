@@ -52,6 +52,21 @@ vim.opt.pumheight = 40
 
 vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "lua"}
 
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_special_syntax = true
+vim.g.netrw_list_hide = {
+    ".*\\.swp$", ".*\\.aux$", ".*\\.toc$", "__pycache__/$",
+    ".mypy_cache/$", "venv/$", ".git/$"
+}
+
+-- h:ft-python-indent
+vim.g.python_indent = {
+    open_paren = 4,
+    continue = 4,
+    closed_paren_align_last_line = false
+}
+
 vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
