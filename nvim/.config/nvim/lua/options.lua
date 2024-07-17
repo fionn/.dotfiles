@@ -50,6 +50,8 @@ vim.opt.pumblend = 8
 
 vim.opt.pumheight = 40
 
+vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "lua"}
+
 vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
