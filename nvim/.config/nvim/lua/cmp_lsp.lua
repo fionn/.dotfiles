@@ -32,11 +32,11 @@ end
 
 cmp.setup {
     enabled = function()
-        -- disable completion in comments
-        local context = require("cmp.config.context")
         if vim.api.nvim_get_mode().mode == "c" then
             return true
         else
+            -- disable completion in comments
+            local context = require("cmp.config.context")
             return not context.in_treesitter_capture("comment")
                 and not context.in_syntax_group("Comment")
         end
@@ -75,6 +75,14 @@ cmp.setup {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<Esc>"] = cmp.mapping.close(),
+        ["("] = cmp.mapping(function(fallback)
+            cmp.close()
+            fallback()
+        end, {"i", "s"}),
+        ["<BS>"] = cmp.mapping(function(fallback)
+            cmp.close()
+            fallback()
+        end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.mapping.confirm({select = false})
