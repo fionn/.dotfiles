@@ -70,17 +70,17 @@ vim.g.python_indent = {
 vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
     group = "options",
-    desc = "Spellcheck markdown files",
+    pattern = {"markdown", "gitcommit", "tex"},
+    desc = "Spellcheck certain filetypes",
     callback = function()
         vim.opt_local.spell = true
     end
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "gitcommit",
     group = "options",
+    pattern = "gitcommit",
     desc = "Format options for Git commit messages",
     callback = function()
         vim.opt_local.formatoptions = {
@@ -94,7 +94,6 @@ vim.api.nvim_create_autocmd("FileType", {
             r = true, -- continue "comments" on new line
             c = true, -- wrap "comments"
         }
-        vim.opt_local.spell = true
     end
 })
 
