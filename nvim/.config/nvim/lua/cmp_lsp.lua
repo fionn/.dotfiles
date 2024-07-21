@@ -180,6 +180,14 @@ lspconfig.lua_ls.setup {
             },
             diagnostics = {
                 globals = {"vim"}
+            },
+            format = {
+                defaultConfig = {
+                    quote_style = "double",
+                    trailing_table_separator = "never",
+                    space_around_table_field_list = "false",
+                    align_function_params = "true"
+                }
             }
         }
     }
