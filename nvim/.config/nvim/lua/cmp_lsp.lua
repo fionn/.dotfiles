@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local cmp_lsp = require("cmp_nvim_lsp")
 
 local kind_icons = {
     Method = "𝑓",
@@ -167,21 +166,22 @@ cmp.setup {
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 lspconfig.clangd.setup {
-    capabilities = cmp_lsp.default_capabilities()
+    capabilities = capabilities
 }
 
 lspconfig.rust_analyzer.setup {
-    capabilities = cmp_lsp.default_capabilities()
+    capabilities = capabilities
 }
 
 lspconfig.pylsp.setup {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-    capabilities = cmp_lsp.default_capabilities(),
+    capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
@@ -199,7 +199,7 @@ lspconfig.pylsp.setup {
 }
 
 lspconfig.lua_ls.setup {
-    capabilities = cmp_lsp.default_capabilities(),
+    capabilities = capabilities,
     settings = {
         Lua = {
             completion = {
@@ -222,7 +222,7 @@ lspconfig.lua_ls.setup {
 
 lspconfig.texlab.setup {
     -- TODO: https://github.com/latex-lsp/texlab/wiki/Configuration
-    capabilities = cmp_lsp.default_capabilities(),
+    capabilities = capabilities,
     settings = {
         texlab = {
             chktex = {
