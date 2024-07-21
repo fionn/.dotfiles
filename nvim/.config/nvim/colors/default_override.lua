@@ -48,6 +48,8 @@ local highlights = {
     PreProc = {fg = "CornflowerBlue"},
     Statement = {fg = "SteelBlue1"},
 
+    CmpItemAbbrMatch = {bold = true},
+
     DiagnosticError = {fg = "DarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},
     DiagnosticUnderlineError = {undercurl = true, sp = "NvimDarkRed"},
