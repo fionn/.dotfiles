@@ -35,6 +35,7 @@ require "paq" {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lua",
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
