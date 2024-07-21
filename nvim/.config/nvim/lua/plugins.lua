@@ -23,7 +23,7 @@ local function bootstrap_paq(packages)
 end
 
 bootstrap_paq {
-    "savq/paq-nvim",
+    "savq/paq-nvim"
 }
 
 -- To fix folke/which-key, which force-updates the stable tag,

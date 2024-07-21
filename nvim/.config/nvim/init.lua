@@ -53,7 +53,7 @@ vim.api.nvim_create_user_command("Wq", "wq", {})
 vim.cmd.colorscheme("default_override")
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+    border = "rounded"
 })
 
 -- https://neovim.io/doc/user/diagnostic.html
@@ -114,7 +114,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight on yank",
     callback = function()
         vim.highlight.on_yank({higroup = "Visual"})
-    end,
+    end
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
