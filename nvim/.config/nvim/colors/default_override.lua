@@ -23,6 +23,8 @@ local highlights = {
     diffIndexLine = {fg = "DarkCyan"},
     diffSubname = {fg = "Grey", bold = true},
 
+    GitSignsStagedDelete = {link = "DiffOldFile", bold = true},
+
     gitCommitSummary = {link = "Title"},
 
     StatusLine = {fg = "Black", bg = "NvimLightGrey4"},
