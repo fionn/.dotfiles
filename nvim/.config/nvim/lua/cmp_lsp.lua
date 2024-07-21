@@ -30,12 +30,23 @@ local function truncate(text, max_length)
     return text
 end
 
+---@param key string
+local function complete_match_or_abort(key)
+    -- Undocumented API!
+    if cmp.get_selected_entry() or cmp.get_entries()[1].exact then
+        cmp.confirm({select = true})
+    else
+        cmp.abort()
+    end
+    vim.api.nvim_feedkeys(key, "n", false)
+end
+
 cmp.setup {
     enabled = function()
         if vim.api.nvim_get_mode().mode == "c" then
             return true
         else
-            -- disable completion in comments
+            -- Disable completion in comments.
             local context = require("cmp.config.context")
             return not context.in_treesitter_capture("comment")
                 and not context.in_syntax_group("Comment")
@@ -75,34 +86,48 @@ cmp.setup {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<Esc>"] = cmp.mapping.close(),
-        ["("] = cmp.mapping(function(fallback)
-            cmp.close()
+        ["<BS>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and not has_words_before() then
+                cmp.abort()
+            end
             fallback()
         end, {"i", "s"}),
-        ["<BS>"] = cmp.mapping(function(fallback)
-            cmp.close()
-            fallback()
+        ["("] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                complete_match_or_abort("(")
+            else
+                fallback()
+            end
+        end, {"i", "s"}),
+        ["<Space>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                complete_match_or_abort(" ")
+            else
+                fallback()
+            end
         end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.mapping.confirm({select = false})
+            if cmp.visible() and has_words_before() then
+                local cr = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
+                complete_match_or_abort(cr)
+            else
+                cmp.abort()
+                fallback()
             end
-            cmp.abort()
-            fallback()
         end, {"i", "s"}),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 if #cmp.get_entries() == 1 then
-                    cmp.confirm({ select = true })
+                    cmp.confirm({select = true})
                 elseif cmp.get_selected_entry() then
                     cmp.select_next_item()
                 elseif not cmp.complete_common_string() then
                     cmp.select_next_item()
                 end
             elseif has_words_before() then
-                cmp.complete({reason = "manual"})
+                cmp.complete({reason = cmp.ContextReason.Manual})
                 if #cmp.get_entries() == 1 then
-                    cmp.confirm({ select = true })
+                    cmp.confirm({select = true})
                 end
             else
                 fallback()
