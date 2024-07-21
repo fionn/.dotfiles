@@ -141,3 +141,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.cmd("clearjumps")
     end
 })
+
+vim.cmd.inoreabbrev({"seperate", "separate"})
