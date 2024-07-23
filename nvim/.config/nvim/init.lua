@@ -1,5 +1,5 @@
 require("options")
-require("plugins")
+require("plugins/plugins")
 
 local function reload()
     dofile(vim.env.MYVIMRC)

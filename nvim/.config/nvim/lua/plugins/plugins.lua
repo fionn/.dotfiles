@@ -49,8 +49,9 @@ require "paq" {
     {"fionn/grb256", opt = true}
 }
 
-require "treesitter"
-require "cmp_lsp"
+require("plugins/treesitter")
+require("plugins/completion")
+require("plugins/lsp")
 
 require("gitsigns").setup {
     signs = {
