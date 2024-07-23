@@ -93,6 +93,9 @@ wk.setup {
     expand = 1,
     icons = {rules = false}
 }
+wk.add({
+    {"<leader>l", group = "Diagnostics"}
+})
 
 require("baseline").setup {}
 
