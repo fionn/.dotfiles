@@ -87,10 +87,11 @@ require("blame").setup {
 
 require("lsp_lines").setup {}
 
-require("which-key").setup {
-    icons = {
-        rules = false
-    }
+local wk = require("which-key")
+wk.setup {
+    preset = "helix",
+    expand = 1,
+    icons = {rules = false}
 }
 
 require("baseline").setup {}
