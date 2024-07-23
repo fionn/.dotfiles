@@ -2,10 +2,10 @@ local function clone_paq()
     local path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
     local is_installed = vim.fn.empty(vim.fn.glob(path)) == 0
     if not is_installed then
-        vim.fn.system {
+        vim.system({
             "git", "clone", "--depth=1",
             "https://github.com/savq/paq-nvim.git", path
-        }
+        }):wait()
         return true
     end
 end
