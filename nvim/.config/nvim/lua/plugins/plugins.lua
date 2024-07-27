@@ -90,6 +90,7 @@ require("lsp_lines").setup {}
 local wk = require("which-key")
 wk.setup {
     preset = "helix",
+    delay = 600,
     expand = 1,
     icons = {rules = false}
 }
