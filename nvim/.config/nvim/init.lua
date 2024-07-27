@@ -39,12 +39,15 @@ vim.keymap.set("o", "k", "gk")
 vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
+vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "List references"})
+
 --vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>s", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
-vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Open floating diagnostics"})
+vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Open floating diagnostics, like <C-w>d"})
 
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
