@@ -97,6 +97,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Format JSON with jq",
+    pattern = {"json"},
+    callback = function()
+        vim.opt_local.formatprg = "jq --indent 4"
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
