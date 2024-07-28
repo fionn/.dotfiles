@@ -48,6 +48,8 @@ vim.keymap.set("n", "<leader>s", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Open floating diagnostics, like <C-w>d"})
+vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {desc = "Rename word under cursor"})
+vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code action under cursor"})
 
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
