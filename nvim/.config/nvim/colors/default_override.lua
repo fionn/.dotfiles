@@ -50,6 +50,8 @@ local highlights = {
 
     CmpItemAbbrMatch = {bold = true},
 
+    LspReferenceText = {underdotted = true},
+
     DiagnosticError = {fg = "DarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},
     DiagnosticUnderlineError = {undercurl = true, sp = "NvimDarkRed"},

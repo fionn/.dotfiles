@@ -147,4 +147,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
 })
 
+vim.api.nvim_create_augroup("lsp", {clear = true})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = "lsp",
+    desc = "Highlight word",
+    callback = vim.lsp.buf.document_highlight
+})
+
+vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {
+    group = "lsp",
+    desc = "Clear document highlights",
+    callback = vim.lsp.buf.clear_references
+})
+
 vim.cmd.inoreabbrev({"seperate", "separate"})
