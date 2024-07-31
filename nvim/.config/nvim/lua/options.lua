@@ -60,6 +60,11 @@ vim.g.netrw_list_hide = {
     ".mypy_cache/$", "venv/$", ".git/$"
 }
 
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 -- h:ft-python-indent
 vim.g.python_indent = {
     open_paren = 4,
