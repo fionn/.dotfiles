@@ -124,6 +124,19 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+-- Temporary, until v0.10.2 is released.
+-- https://github.com/neovim/neovim/pull/29755
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Set Go defaults",
+    pattern = {"go", "gomod"},
+    callback = function()
+        vim.opt_local.expandtab = false
+        vim.opt_local.softtabstop = 0
+        vim.opt_local.shiftwidth = 0
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
