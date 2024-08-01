@@ -79,7 +79,6 @@ set list listchars=tab:\ \ ,trail:·
 filetype plugin indent on
 augroup vimrc | autocmd!
     autocmd InsertLeave * redraw!
-    autocmd FileType make setlocal noexpandtab softtabstop=0
     autocmd FileType csv setlocal noexpandtab softtabstop=0
     autocmd FileType tags setlocal tabstop=16 shiftwidth=16 softtabstop=16
     autocmd FileType python setlocal completeopt-=preview
