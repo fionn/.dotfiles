@@ -105,15 +105,13 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Format options for Git commit messages",
     callback = function()
         vim.opt_local.formatoptions = {
-            ["1"] = true, -- break before single words
-            j = true, -- merge comments
+            ["1"] = true, -- break before single character words
             t = true, -- wrap
             n = true, -- indent lists
             a = true, -- auto-format
             q = true, -- format comments with gq
             w = true, -- use trailing whitespace as hint for paragraph end
             r = true, -- continue "comments" on new line
-            c = true, -- wrap "comments"
         }
     end
 })
