@@ -94,6 +94,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Meta-level format on save",
+    pattern = "go",
+    group = vim.api.nvim_create_augroup("format_on_save", {clear = true}),
+    callback = function()
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Format on save",
+            group = "format_on_save",
+            callback = function()
+                vim.lsp.buf.format({async = false})
+            end
+        })
+    end,
+})
+
 vim.api.nvim_create_autocmd("TermOpen", {
     group = vim.api.nvim_create_augroup("terminal", {clear = true}),
     desc = "Make the terminal more like a terminal",
