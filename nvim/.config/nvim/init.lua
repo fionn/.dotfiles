@@ -114,7 +114,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     desc = "Make the terminal more like a terminal",
     callback = function()
         vim.opt_local.number = false
-        vim.cmd("startinsert")
+        vim.cmd.startinsert()
     end
 })
 
@@ -158,7 +158,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = "init",
     desc = "Clear jumplist",
     callback = function()
-        vim.cmd("clearjumps")
+        vim.cmd.clearjumps()
     end
 })
 
