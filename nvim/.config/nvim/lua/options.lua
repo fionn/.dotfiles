@@ -50,6 +50,9 @@ vim.opt.pumblend = 8
 
 vim.opt.pumheight = 40
 
+vim.opt.textwidth = 80
+vim.opt.formatoptions:append({c = true})
+
 vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "lua"}
 
 vim.g.netrw_banner = 0
@@ -88,11 +91,11 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     desc = "Keep comment leader in Go",
     callback = function()
-        vim.opt_local.formatoptions = {
+        vim.opt_local.formatoptions:append({
             r = true,
             o = true,
             ["/"] = true
-        }
+        })
     end
 })
 
