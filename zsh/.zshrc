@@ -55,7 +55,7 @@ bindkey "^[[B" down-line-or-beginning-search
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export EDITOR=vim
+export EDITOR=nvim
 export VISUAL=$EDITOR
 export HISTSIZE=40000
 export SAVEHIST=30000

@@ -26,7 +26,7 @@ if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
-export EDITOR=vim
+export EDITOR=nvim
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
