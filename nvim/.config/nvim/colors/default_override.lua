@@ -12,6 +12,8 @@ local highlights = {
 
     Visual = {bg = "#323239"},
 
+    FloatBorder = {fg = "NvimDarkGrey4"},
+
     Added = {fg = "Green"},
     Changed = {fg = "#bbbb00"},
     Removed = {fg = "Red3"},

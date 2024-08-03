@@ -38,6 +38,7 @@ require "paq" {
     "hrsh7th/cmp-nvim-lua",
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",

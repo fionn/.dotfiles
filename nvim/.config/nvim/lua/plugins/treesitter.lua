@@ -57,3 +57,12 @@ require("nvim-treesitter.configs").setup {
         }
     }
 }
+
+require("treesitter-context").setup {
+  max_lines = 2,
+  min_window_height = 3,
+  multiline_threshold = 3,
+  trim_scope = "inner",
+  mode = "cursor",  -- "cursor" or "topline"
+  separator = "‾"
+}
