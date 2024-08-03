@@ -45,7 +45,6 @@ require "paq" {
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "fionn/baseline",
-    "fionn/cmp-unitex",
     {"fionn/grb256", opt = true}
 }
 

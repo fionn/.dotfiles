@@ -159,8 +159,17 @@ cmp.setup {
     sources = cmp.config.sources {
         {name = "nvim_lsp"},
         {name = "nvim_lsp_signature_help"},
-        {name = "nvim_lua"},
-        {name = "buffer"},
-        {name = "unitex"}
+        {name = "nvim_lua"}
     }
 }
+
+local text_like_fts = {"text", "tex", "markdown", "gitcommit", "mail"}
+for _, filetype in ipairs(text_like_fts) do
+    cmp.setup.filetype(filetype, {
+        sources = cmp.config.sources {
+            {name = "nvim_lsp"},
+            {name = "nvim_lsp_signature_help"},
+            {name = "buffer"}
+        }
+    })
+end
