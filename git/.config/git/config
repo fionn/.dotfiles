@@ -36,6 +36,8 @@
 [rebase]
     autoSquash = true
     missingCommitsCheck = warn
+[merge]
+    tool = nvimdiff
 [branch]
     sort = -committerdate
 [tag]
