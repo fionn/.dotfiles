@@ -51,6 +51,7 @@ vim.opt.pumblend = 8
 vim.opt.pumheight = 40
 
 vim.opt.textwidth = 80
+vim.opt.formatoptions:remove("t")
 vim.opt.formatoptions:append({c = true})
 
 vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "lua"}
@@ -83,6 +84,14 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Spellcheck certain filetypes",
     callback = function()
         vim.opt_local.spell = true
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Unset line wrapping in general",
+    callback = function()
+        vim.opt_local.formatoptions:remove("t")
     end
 })
 
