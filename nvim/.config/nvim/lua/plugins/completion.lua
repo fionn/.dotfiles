@@ -169,7 +169,10 @@ for _, filetype in ipairs(text_like_fts) do
         sources = cmp.config.sources {
             {name = "nvim_lsp"},
             {name = "nvim_lsp_signature_help"},
+            {name = "git"},
             {name = "buffer"}
         }
     })
 end
+
+require("cmp_git").setup()
