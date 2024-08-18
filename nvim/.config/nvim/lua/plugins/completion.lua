@@ -124,7 +124,7 @@ cmp.setup {
                     cmp.select_next_item()
                 end
             elseif has_words_before() then
-                cmp.complete({reason = cmp.ContextReason.Manual})
+                cmp.complete({reason = cmp.ContextReason.Auto})
                 if #cmp.get_entries() == 1 then
                     cmp.confirm({select = true})
                 end
@@ -170,7 +170,7 @@ for _, filetype in ipairs(text_like_fts) do
             {name = "nvim_lsp"},
             {name = "nvim_lsp_signature_help"},
             {name = "git"},
-            {name = "buffer"}
+            {name = "buffer", keyword_length = 3}
         }
     })
 end
