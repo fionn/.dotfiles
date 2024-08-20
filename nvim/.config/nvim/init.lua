@@ -27,9 +27,9 @@ local function toggle_relative_numbers()
     vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
 end
 
-vim.keymap.set("", "<F1>", "<Nop>", {desc = "No-op"})
-vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op"})
-vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op"})
+vim.keymap.set("", "<F1>", "<Nop>", {desc = "No-op", unique = true})
+vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op", unique = true})
+vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op", unique = true})
 
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
 vim.keymap.set("n", "<Esc>", esc, {desc = "Close floats and clear highlighting"})
