@@ -37,7 +37,7 @@ require "paq" {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lua",
     "nvim-lua/plenary.nvim",
-    "petertriho/cmp-git",
+    {"fionn/cmp-git", branch = "full-hash"},
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",

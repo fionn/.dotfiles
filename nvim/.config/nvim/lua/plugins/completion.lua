@@ -175,4 +175,10 @@ for _, filetype in ipairs(text_like_fts) do
     })
 end
 
-require("cmp_git").setup()
+require("cmp_git").setup({
+    git = {
+        commits = {
+            sha_length = 40
+        }
+    }
+})
