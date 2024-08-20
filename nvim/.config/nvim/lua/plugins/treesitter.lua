@@ -30,20 +30,23 @@ require("nvim-treesitter.configs").setup {
             enable = true,
             lookahead = true,
             keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ab"] = "@block.outer",
-                ["ib"] = "@block.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
-                ["as"] = {query = "@scope", query_group = "locals", desc = "Select language scope"}
+                ["if"] = {query = "@function.inner", desc = "inner @function"},
+                ["af"] = {query = "@function.outer", desc = "@function"},
+                ["ik"] = {query = "@block.inner", desc = "inner @block"},
+                ["ak"] = {query = "@block.outer", desc = "@block"},
+                ["ic"] = {query = "@class.inner", desc = "inner @class"},
+                ["ac"] = {query = "@class.outer", desc = "@class"},
+                ["as"] = {query = "@scope", query_group = "locals", desc = "@scope"}
             },
             selection_modes = {
-                ["@parameter.outer"] = "v", -- charwise
-                ["@function.outer"] = "V",  -- linewise
-                ["@class.outer"] = "<C-v>"  -- blockwise
+                ["@parameter.outer"] = "v",
+                ["@function.inner"] = "V",
+                ["@function.outer"] = "V",
+                ["@block.inner"] = "V",
+                ["@block.outer"] = "V",
+                ["@class.outer"] = "<C-v>"
             },
-            include_surrounding_whitespace = true
+            include_surrounding_whitespace = false
         },
         swap = {
             enable = true,
