@@ -180,5 +180,14 @@ require("cmp_git").setup({
         commits = {
             sha_length = 40
         }
+    },
+    github = {
+        pull_requests = {
+            state = "all",
+            sort_by = function(pr)
+                return 1 / tonumber(pr.number)
+            end,
+            limit = 40
+        }
     }
 })
