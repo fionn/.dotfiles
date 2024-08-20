@@ -19,6 +19,7 @@ end
 local function esc()
     close_floats()
     vim.cmd.nohlsearch()
+    vim.cmd.echo()
     vim.diagnostic.config({virtual_lines = false})
 end
 
