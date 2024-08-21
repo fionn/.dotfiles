@@ -45,8 +45,7 @@ require("nvim-treesitter.configs").setup {
                 ["@block.inner"] = "V",
                 ["@block.outer"] = "V",
                 ["@class.outer"] = "<C-v>"
-            },
-            include_surrounding_whitespace = false
+            }
         },
         swap = {
             enable = true,
