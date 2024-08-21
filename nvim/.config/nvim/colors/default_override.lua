@@ -51,6 +51,8 @@ local highlights = {
     Statement = {fg = "SteelBlue1"},
 
     CmpItemAbbrMatch = {bold = true},
+    CmpItemAbbrDeprecated = {strikethrough = true},
+    CmpItemKind = {link = "Comment"},
 
     LspReferenceText = {underdotted = true},
 
