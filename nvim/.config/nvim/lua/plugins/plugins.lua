@@ -97,7 +97,8 @@ wk.setup {
     icons = {rules = false}
 }
 wk.add({
-    {"<leader>l", group = "Diagnostics"}
+    {"<leader>l", group = "Diagnostics"},
+    {"<leader>s", group = "Swap"}
 })
 
 require("baseline").setup {}
