@@ -58,6 +58,14 @@ require("nvim-treesitter.configs").setup {
                 ["<leader>sA"] = "@parameter.inner",
                 ["<leader>sF"] = "@function.outer",
             }
+        },
+        lsp_interop = {
+            enable = true,
+            floating_preview_opts = {border = "rounded"},
+            peek_definition_code = {
+                ["<leader>lpf"] = "@function.outer",
+                ["<leader>lpc"] = "@class.outer"
+            }
         }
     }
 }
