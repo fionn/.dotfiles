@@ -50,7 +50,9 @@ vim.opt.pumblend = 8
 
 vim.opt.pumheight = 40
 
-vim.opt.textwidth = 80
+if vim.opt.textwidth == 0 then
+    vim.opt_local.textwidth = 80
+end
 vim.opt.formatoptions:remove("t")
 vim.opt.formatoptions:append({c = true})
 
@@ -92,6 +94,19 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Unset line wrapping in general",
     callback = function()
         vim.opt_local.formatoptions:remove("t")
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Format options for mail",
+    pattern = "mail",
+    callback = function()
+        vim.opt_local.formatoptions:append({
+            t = true,
+            a = true,
+            w = true
+        })
     end
 })
 
