@@ -47,6 +47,7 @@ require "paq" {
     "folke/which-key.nvim",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
+    "mbbill/undotree",
     "fionn/baseline",
     {"fionn/grb256", opt = true}
 }
@@ -106,3 +107,12 @@ require("baseline").setup {}
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
 vim.g.terraform_fmt_on_save = 1
+
+vim.g.undotree_SplitWidth = 30
+vim.g.undotree_DiffCommand = "diff --minimal"
+vim.g.undotree_ShortIndicators = 1
+vim.g.undotree_HighlightChangedText = 0
+vim.g.undotree_TreeNodeShape = "◇"
+vim.g.undotree_TreeReturnShape = "╲"
+vim.g.undotree_TreeVertShape = "│"
+vim.g.undotree_TreeSplitShape ="╱"

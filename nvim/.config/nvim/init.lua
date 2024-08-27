@@ -43,7 +43,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
 vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "List references"})
 
---vim.keymap.set("n", "<leader>u", "UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>e", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})

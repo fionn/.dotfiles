@@ -29,6 +29,9 @@ local highlights = {
 
     gitCommitSummary = {link = "Title"},
 
+    UndotreeTimeStamp = {link = "Normal"},
+    UndotreeNode = {link = "Normal"},
+
     StatusLine = {fg = "Black", bg = "NvimLightGrey4"},
     StatusLineModeNormal = {fg = "Black", bg = "NvimDarkBlue", bold = true},
     StatusLineModeInsert = {fg = "Black", bg = "Green", bold = true},
