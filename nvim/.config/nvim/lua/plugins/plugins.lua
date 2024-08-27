@@ -99,7 +99,8 @@ wk.setup {
 }
 wk.add({
     {"<leader>l", group = "Diagnostics"},
-    {"<leader>s", group = "Swap"}
+    {"<leader>s", group = "Swap"},
+    {"<leader>t", group = "Tabularise"}
 })
 
 require("baseline").setup {}
