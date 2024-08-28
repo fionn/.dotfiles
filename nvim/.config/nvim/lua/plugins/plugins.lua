@@ -45,6 +45,7 @@ require "paq" {
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",
     "folke/which-key.nvim",
+    "Vimjas/vim-python-pep8-indent",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "mbbill/undotree",
