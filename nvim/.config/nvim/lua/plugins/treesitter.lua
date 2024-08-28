@@ -52,13 +52,13 @@ require("nvim-treesitter.configs").setup {
             swap_next = {
                 ["<leader>sn"] = {
                     query = {"@parameter.inner", "@function.outer"},
-                    desc = "swap next @parameter or @function"
+                    desc = "Swap next @parameter or @function"
                 }
             },
             swap_previous = {
                 ["<leader>sp"] = {
                     query = {"@parameter.inner", "@function.outer"},
-                    desc = "swap previous @parameter or @function"
+                    desc = "Swap previous @parameter or @function"
                 }
             }
         },

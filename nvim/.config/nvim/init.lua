@@ -56,6 +56,10 @@ vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code 
 vim.keymap.set("n", "<leader>t=", ":Tabularize /=<CR>", {desc = "Align by ="})
 vim.keymap.set("n", "<leader>t:", ":Tabularize /:/l0l1<CR>", {desc = "Align by :"})
 
+vim.keymap.set("n", "<leader>bt", ":BlameToggle<CR>", {desc = "Toggle blame window"})
+vim.keymap.set("n", "<leader>bl", require("gitsigns").toggle_current_line_blame, {desc = "Toggle blame lines"})
+vim.keymap.set("n", "<leader>bf", require("gitsigns").blame_line, {desc = "Blame in floating window"})
+
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
