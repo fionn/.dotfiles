@@ -37,6 +37,7 @@
     ff = only
 [rebase]
     autoSquash = true
+    abbreviateCommands = true
     missingCommitsCheck = warn
 [merge]
     tool = nvimdiff
