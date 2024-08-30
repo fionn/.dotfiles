@@ -49,8 +49,7 @@ require "paq" {
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "mbbill/undotree",
-    "fionn/baseline",
-    {"fionn/grb256", opt = true}
+    "fionn/baseline"
 }
 
 require("plugins/treesitter")
