@@ -50,7 +50,7 @@ vim.opt.pumblend = 8
 
 vim.opt.pumheight = 40
 
-if vim.opt.textwidth == 0 then
+if vim.opt.textwidth:get() == 0 then
     vim.opt_local.textwidth = 80
 end
 vim.opt.formatoptions:remove("t")
