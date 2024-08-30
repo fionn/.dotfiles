@@ -51,6 +51,7 @@
     lineNumber = true
 [transfer]
     fsckObjects = true
+    credentialsInUrl = die
 [blame]
     coloring = repeatedLines
     showEmail = true
