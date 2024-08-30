@@ -22,6 +22,8 @@
     oldHighlight = red 52
     newNormal = green
     newHighlight = green 22
+[color "advice"]
+    hint = dim
 [commit]
     verbose = true
 [init]
