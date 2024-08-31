@@ -79,6 +79,20 @@ vim.g.python_indent = {
     closed_paren_align_last_line = false
 }
 
+if vim.env.SSH_TTY ~= nil then
+    vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+            ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+            ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+        },
+        paste = {
+            ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+            ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+        }
+    }
+end
+
 vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
