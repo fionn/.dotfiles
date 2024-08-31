@@ -81,7 +81,35 @@ require("gitsigns").setup {
     current_line_blame_formatter = "<abbrev_sha> <author> <author_time> <summary>",
     diff_opts = {
         algorithm = "histogram"
-    }
+    },
+
+    on_attach = function(bufnr)
+        local gitsigns = require("gitsigns")
+
+        local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
+
+        map("n", "]c", function()
+            if vim.wo.diff then
+                vim.cmd.normal({"]c", bang = true})
+            else
+                gitsigns.nav_hunk("next")
+            end
+        end, {desc = "Next hunk"})
+
+        map("n", "[c", function()
+            if vim.wo.diff then
+                vim.cmd.normal({"[c", bang = true})
+            else
+                gitsigns.nav_hunk("prev")
+            end
+        end, {desc = "Previous hunk"})
+
+        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", {desc = "inner hunk"})
+    end
 }
 
 require("blame").setup {
