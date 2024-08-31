@@ -114,12 +114,7 @@ let g:ale_sign_info = "ⓘ"
 let g:ale_virtualtext_cursor = "disabled"
 let g:ale_use_neovim_diagnostics_api = 0
 
-let g:ctrlp_extensions = ["tag", "mixed"]
-
 let g:terraform_align = 1
-
-let g:ansible_attribute_highlight = "ab"
-let g:ansible_extra_keywords_highlight = 1
 
 let g:markdown_fenced_languages = ["python", "bash"]
 
