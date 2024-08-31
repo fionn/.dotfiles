@@ -63,6 +63,25 @@ if !has("nvim") && &undodir == "."
     endif
 endif
 
+if !has("nvim")
+    let $XDG_DATA_HOME = $XDG_DATA_HOME ?? $HOME . "/.local/share"
+    set packpath^=$XDG_DATA_HOME/vim/site
+
+    " To install minpack for the first time:
+    " mkdir -p ~/.local/share/vim/site/pack/minpac/opt
+    " git clone https://github.com/k-takata/minpac.git ~/.local/share/vim/site/pack/minpac/opt/minpac
+
+    function! PackInit() abort
+        packadd minpac
+        call minpac#init()
+        call minpac#add("k-takata/minpac", {"type": "opt"})
+    endfunction
+
+    command! PackUpdate call PackInit() | call minpac#update()
+    command! PackClean  call PackInit() | call minpac#clean()
+    command! PackStatus packadd minpac  | call minpac#status()
+endif
+
 set hidden
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
