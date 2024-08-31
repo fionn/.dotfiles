@@ -75,6 +75,15 @@ if !has("nvim")
         packadd minpac
         call minpac#init()
         call minpac#add("k-takata/minpac", {"type": "opt"})
+        call minpac#add("fionn/grb256", {"type": "opt"})
+        call minpac#add("dense-analysis/ale")
+        call minpac#add("tpope/vim-fugitive")
+        call minpac#add("airblade/vim-gitgutter")
+        call minpac#add("mbbill/undotree")
+        call minpac#add("godlygeek/tabular")
+        call minpac#add("hashivim/vim-terraform")
+        call minpac#add("Vimjas/vim-python-pep8-indent")
+        call minpac#add("https://git.sr.ht/~ackyshake/VimCompletesMe.vim")
     endfunction
 
     command! PackUpdate call PackInit() | call minpac#update()
