@@ -6,6 +6,7 @@ require("nvim-treesitter.configs").setup {
         enable = true,
         disable = {
             "gitcommit",
+            "diff",
             "markdown"
         },
         additional_vim_regex_highlighting = false
