@@ -35,6 +35,15 @@ vim.opt.listchars = {tab = "  ", trail = "·", extends = "▸", nbsp = "␣"}
 
 vim.opt.signcolumn = "yes"
 
+vim.opt.foldenable = false
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 4
+
+vim.opt.fillchars = {foldopen = "", foldclose = "", foldsep = " ", fold = "‹"}
+
 vim.opt.colorcolumn = {80}
 
 vim.opt.cursorline = true
