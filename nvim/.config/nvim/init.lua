@@ -54,7 +54,7 @@ vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {desc = "Rename word under
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code action under cursor"})
 
 vim.keymap.set("n", "<leader>t=", ":Tabularize /=<CR>", {desc = "Align by ="})
-vim.keymap.set("n", "<leader>t:", ":Tabularize /:/l0l1<CR>", {desc = "Align by :"})
+vim.keymap.set("n", "<leader>t:", ":Tabularize /:\\zs<CR>", {desc = "Align by :"})
 
 vim.keymap.set("n", "<leader>bt", ":BlameToggle<CR>", {desc = "Toggle blame window"})
 vim.keymap.set("n", "<leader>bl", require("gitsigns").toggle_current_line_blame, {desc = "Toggle blame lines"})
