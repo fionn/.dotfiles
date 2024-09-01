@@ -58,6 +58,7 @@ local highlights = {
     CmpItemKind = {link = "Comment"},
 
     LspReferenceText = {underdotted = true},
+    LspInlayHint = {fg = "#6a6a6a"},
 
     DiagnosticError = {fg = "DarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},

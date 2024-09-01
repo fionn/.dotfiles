@@ -21,11 +21,17 @@ local function esc()
     vim.cmd.nohlsearch()
     vim.cmd.echo()
     vim.diagnostic.config({virtual_lines = false})
+    vim.lsp.inlay_hint.enable(false)
 end
 
 local function toggle_relative_numbers()
     ---@diagnostic disable-next-line: undefined-field
     vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
+end
+
+
+local function toggle_inlay_hint()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
 
 vim.keymap.set("", "<F1>", "<Nop>", {desc = "No-op", unique = true})
@@ -48,8 +54,10 @@ vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keym
 vim.keymap.set("n", "<leader>e", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
+
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Open floating diagnostics, like <C-w>d"})
+vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {desc = "Rename word under cursor"})
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code action under cursor"})
 

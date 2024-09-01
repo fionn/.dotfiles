@@ -41,6 +41,7 @@ lspconfig.lua_ls.setup {
             diagnostics = {
                 globals = {"vim"}
             },
+            hint = {enable = true},
             format = {
                 defaultConfig = {
                     quote_style = "double",
@@ -74,9 +75,25 @@ lspconfig.texlab.setup {
     }
 }
 
+lspconfig.gopls.setup {
+    capabilities = capabilities,
+    settings = {
+        gopls = {
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true
+            }
+        }
+    }
+}
+
 lspconfig.bashls.setup {}
 lspconfig.terraformls.setup {}
 lspconfig.tflint.setup {}
-lspconfig.gopls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.yamlls.setup {}
