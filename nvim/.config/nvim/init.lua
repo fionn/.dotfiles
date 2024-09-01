@@ -39,7 +39,7 @@ vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op", unique = true})
 
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
-vim.keymap.set("n", "<Esc>", esc, {desc = "Close floats and clear highlighting"})
+vim.keymap.set("n", "<Esc>", esc, {desc = "Close and clear"})
 
 vim.keymap.set("o", "j", "gj")
 vim.keymap.set("o", "k", "gk")
