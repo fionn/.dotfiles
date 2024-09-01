@@ -48,6 +48,11 @@ lspconfig.lua_ls.setup {
                     space_around_table_field_list = "false",
                     align_function_params = "true"
                 }
+            },
+            runtime = {version = "LuaJIT"},
+            workspace = {
+                checkThirdParty = false,
+                library = {vim.env.VIMRUNTIME}
             }
         }
     }
