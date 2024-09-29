@@ -49,6 +49,7 @@ require "paq" {
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "mbbill/undotree",
+    "davidgranstrom/scnvim",
     "fionn/baseline"
 }
 
@@ -133,6 +134,39 @@ wk.add({
 })
 
 require("baseline").setup {}
+
+local scn = require("scnvim")
+
+scn.setup {
+    keymaps = {
+        ["<leader>cs"] = scn.map("sclang.start"),
+        ["<leader>cr"] = scn.map("sclang.recompile"),
+        ["<C-b>"] = scn.map_expr("s.boot"),
+        ["<F2>"] = scn.map_expr("s.meter"),
+
+        ["<S-CR>"] = scn.map("editor.send_line", {"i", "n"}),
+        ["<M-CR>"] = {
+            scn.map("editor.send_block", {"i", "n"}),
+            scn.map("editor.send_selection", {"x", "v"})
+        },
+
+        ["<leader>ct"] = scn.map("postwin.toggle"),
+        ["<M-L>"] = scn.map("postwin.clear", {"n", "i"}),
+
+        ["<F12>"] = scn.map("sclang.hard_stop", {"n", "x", "i"}),
+        ["<C-k>"] = scn.map("sclang.hard_stop", {"n", "x", "i"})
+    },
+    editor = {
+        highlight = {
+            color = "IncSearch"
+        }
+    },
+    postwin = {
+        float = {
+            enabled = true
+        }
+    }
+}
 
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
