@@ -1,2 +1,12 @@
 .bash*  diff=bash
 .zshrc  diff=bash
+
+**/aerc/*.conf           linguist-language=ini
+**/dunst/dunstrc         linguist-language=ini
+**/environment.d/*.conf  linguist-language=ini
+**/mypy/config           linguist-language=ini
+**/curl/curlrc           linguist-language=curlrc
+**/fontconfig/fonts.conf linguist-language=xml
+**/git/attributes        linguist-language=gitattributes
+**/git/config            linguist-language=gitconfig
+**/git/ignore            linguist-language=gitignore
