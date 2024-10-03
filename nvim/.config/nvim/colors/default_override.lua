@@ -27,7 +27,7 @@ local highlights = {
 
     GitSignsStagedDelete = {link = "DiffOldFile", bold = true},
 
-    gitCommitSummary = {link = "Title"},
+    gitcommitSummary = {link = "Title"},
 
     UndotreeTimeStamp = {link = "Normal"},
     UndotreeNode = {link = "Normal"},

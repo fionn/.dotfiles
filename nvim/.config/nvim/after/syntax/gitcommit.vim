@@ -3,4 +3,4 @@ syntax match gitcommitUsername "\(^\|\s\|(\)\zs@\(\w\|\d\|\.\|-\)\{1,15}\>"
 syntax match gitcommitAbbreviatedHash "\<\x\{7,39}\>"
 
 highlight def link gitcommitIssue Underlined
-highlight def link gitcommitUsername Title
+highlight def link gitcommitUsername @markup.strong
