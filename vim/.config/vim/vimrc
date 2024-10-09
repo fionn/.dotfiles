@@ -50,9 +50,15 @@ set wildmenu
 set wildignore+=*.swp,*.o,*.aux,*.toc,*.pdf,*.so,*.pyc,*/__pycache__,*/venv
 set tags+=tags;
 
+
+let $XDG_CACHE_HOME = $XDG_CACHE_HOME ?? $HOME . "/.cache"
+
+if empty(&viminfofile)
+    set viminfofile=$XDG_CACHE_HOME/viminfo
+endif
+
 set undofile
 if !has("nvim") && &undodir == "."
-    let $XDG_CACHE_HOME = $XDG_CACHE_HOME ?? $HOME . "/.cache"
     set undodir=$XDG_CACHE_HOME/vim/undo/
     if !isdirectory(&undodir)
         call mkdir(&undodir, "p", 0700)
