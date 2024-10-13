@@ -50,6 +50,8 @@
     sort = -version:refname
 [gpg]
     minTrustLevel = fully
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
 [grep]
     lineNumber = true
 [transfer]
