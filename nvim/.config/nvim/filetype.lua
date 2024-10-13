@@ -6,6 +6,7 @@ vim.filetype.add {
 
 vim.filetype.add {
     pattern = {
-        ["osquery.conf"] = "jsonc"
+        ["osquery.conf"] = "jsonc",
+        [".kube/config"] = "yaml"
     }
 }
