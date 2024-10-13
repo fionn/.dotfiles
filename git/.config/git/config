@@ -41,6 +41,7 @@
 [pull]
     ff = only
 [rebase]
+    stat = true
     autoSquash = true
     abbreviateCommands = true
     missingCommitsCheck = warn
