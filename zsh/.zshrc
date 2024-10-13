@@ -76,7 +76,6 @@ typeset -gU PATH path
 path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin" "$HOME/.cargo/bin")
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
-[[ -f $HOME/.shell_secrets ]] && . $HOME/.shell_secrets
 [[ -f $HOME/.jobrc ]] && . $HOME/.jobrc
 
 alias history="fc -li 0"
