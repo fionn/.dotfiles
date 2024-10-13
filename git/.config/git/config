@@ -4,6 +4,7 @@
     signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
 [core]
     pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
+    whitespace = tabwidth=4
 [interactive]
     diffFilter = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
 [diff]
@@ -26,6 +27,8 @@
     hint = dim
 [commit]
     verbose = true
+[apply]
+    whitespace = error-all
 [init]
     defaultBranch = master
 [push]
