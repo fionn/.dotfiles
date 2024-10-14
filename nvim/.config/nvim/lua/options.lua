@@ -66,7 +66,7 @@ end
 vim.opt.formatoptions:remove("t")
 vim.opt.formatoptions:append({c = true})
 
-vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "lua"}
+vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "json", "lua"}
 
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
