@@ -10,3 +10,4 @@
 **/git/attributes        linguist-language=gitattributes
 **/git/config            linguist-language=gitconfig
 **/git/ignore            linguist-language=gitignore
+**/shellcheckrc          linguist-language=shellcheckrc
