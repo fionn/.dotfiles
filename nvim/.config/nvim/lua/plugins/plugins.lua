@@ -44,6 +44,7 @@ require "paq" {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",
+    "linrongbin16/gitlinker.nvim",
     "folke/which-key.nvim",
     "Vimjas/vim-python-pep8-indent",
     "godlygeek/tabular",
@@ -115,6 +116,8 @@ require("gitsigns").setup {
 require("blame").setup {
     date_format = "%Y-%m-%d"
 }
+
+require("gitlinker").setup {}
 
 require("lsp_lines").setup {}
 
