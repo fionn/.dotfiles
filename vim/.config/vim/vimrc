@@ -90,6 +90,7 @@ if !has("nvim")
         call minpac#add("hashivim/vim-terraform")
         call minpac#add("Vimjas/vim-python-pep8-indent")
         call minpac#add("https://git.sr.ht/~ackyshake/VimCompletesMe.vim")
+        call minpac#add("https://dev.sanctum.geek.nz/code/vim-redact-pass.git", {"rev": "master"})
     endfunction
 
     command! PackUpdate call PackInit() | call minpac#update()
