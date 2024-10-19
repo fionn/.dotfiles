@@ -46,8 +46,8 @@ lspconfig.lua_ls.setup {
                 defaultConfig = {
                     quote_style = "double",
                     trailing_table_separator = "never",
-                    space_around_table_field_list = "false",
-                    align_function_params = "true"
+                    space_around_table_field_list = false,
+                    align_function_params = true
                 }
             },
             runtime = {version = "LuaJIT"},
