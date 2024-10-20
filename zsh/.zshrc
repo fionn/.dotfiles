@@ -17,7 +17,10 @@ if type brew &>/dev/null; then
     fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
 fi
 
-autoload -Uz compinit && compinit
+[[ -d "${XDG_CACHE_HOME:=$HOME/.cache}/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
+[[ -d "${XDG_STATE_HOME:=$HOME/.local/state}/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
+
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
@@ -41,7 +44,10 @@ prompt="[%B%n@%m%b %1~\$vcs_info_msg_0_]%# "
 PROMPT_EOL_MARK="%F{240}⏎%f"
 
 zstyle ":completion:*" insert-tab false
+zstyle ":completion:*" cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 zstyle ":completion:*:ssh:*:users" hidden true
+
+zstyle ":chpwd:*" recent-dirs-file "$XDG_STATE_HOME/zsh/chpwd-recent-dirs"
 
 zle_highlight+=(paste:bg=236)
 
@@ -60,7 +66,7 @@ export VISUAL=$EDITOR
 export HISTSIZE=40000
 export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
-export HISTFILE=${HISTFILE:-$HOME/.zsh_history}
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export MANPAGER="nvim +Man!"
 export GOPATH=$HOME/.local/share/go
 export LANG=${LANG:-en_GB.UTF-8}
