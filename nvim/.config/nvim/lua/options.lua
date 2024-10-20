@@ -159,6 +159,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Remove status line for man pages",
+    pattern = "man",
+    callback = function()
+        vim.opt_local.laststatus = 0
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",

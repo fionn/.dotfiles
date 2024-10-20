@@ -53,6 +53,8 @@ local highlights = {
     PreProc = {fg = "CornflowerBlue"},
     Statement = {fg = "SteelBlue1"},
 
+    manSubHeading = {link = "manSectionHeading"},
+
     CmpItemAbbrMatch = {bold = true},
     CmpItemAbbrDeprecated = {strikethrough = true},
     CmpItemKind = {link = "Comment"},
