@@ -92,8 +92,8 @@ vim.api.nvim_create_augroup("options", {clear = true})
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
+    desc = "Spellcheck text-like filetypes",
     pattern = {"markdown", "gitcommit", "tex"},
-    desc = "Spellcheck certain filetypes",
     callback = function()
         vim.opt_local.spell = true
     end
@@ -122,8 +122,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    pattern = "go",
     desc = "Keep comment leader in Go",
+    pattern = "go",
     callback = function()
         vim.opt_local.formatoptions:append({
             r = true,
@@ -135,8 +135,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    pattern = "gitcommit",
     desc = "Format options for Git commit messages",
+    pattern = "gitcommit",
     callback = function()
         vim.opt_local.formatoptions = {
             ["1"] = true, -- break before single character words
@@ -153,7 +153,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
     desc = "Format JSON with jq",
-    pattern = {"json"},
+    pattern = "json",
     callback = function()
         vim.opt_local.formatprg = "jq --indent 4"
     end
