@@ -43,6 +43,10 @@ vim.keymap.set("n", "<Esc>", esc, {desc = "Close and clear"})
 
 vim.keymap.set("o", "j", "gj")
 vim.keymap.set("o", "k", "gk")
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selected lines up"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected lines down"})
+
 vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
@@ -53,6 +57,7 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>e", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
 
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
