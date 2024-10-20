@@ -136,8 +136,6 @@ wk.add({
     {"<leader>b", group = "Git blame"}
 })
 
-require("baseline").setup {}
-
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
 vim.g.terraform_fmt_on_save = 1
