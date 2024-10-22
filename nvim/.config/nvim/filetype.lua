@@ -1,12 +1,11 @@
 vim.filetype.add {
     extension = {
         hujson = "jsonc"
-    }
-}
-
-vim.filetype.add {
-    pattern = {
+    },
+    filename = {
         ["osquery.conf"] = "jsonc",
-        [".kube/config"] = "yaml"
+    },
+    pattern = {
+        ["${HOME}/.kube/config"] = "yaml"
     }
 }
