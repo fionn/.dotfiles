@@ -6,7 +6,6 @@ ignore = [
     "FA", "EM", "PT",
     "ANN", "PTH",
     "ERA001",
-    "PGH003",
     "COM812",
     "TRY003",
     "PERF203",
@@ -19,3 +18,6 @@ ignore = [
     "PLW2901",
     "PLR2004"
 ]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F403"]
