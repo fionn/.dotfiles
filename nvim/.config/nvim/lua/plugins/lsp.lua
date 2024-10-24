@@ -18,9 +18,9 @@ lspconfig.pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
-                ruff = {
-                    ignore = {"E741"}
-                },
+                mccabe = {enabled = false},
+                pycodestyle = {enabled = false},
+                pyflakes = {enabled = false},
                 pylsp_mypy = {
                     -- Once https://github.com/python-lsp/pylsp-mypy/pull/83
                     -- makes it mainstream (0.6.9), we can drop this override.
