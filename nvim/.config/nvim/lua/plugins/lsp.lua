@@ -60,10 +60,13 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.texlab.setup {
-    -- TODO: https://github.com/latex-lsp/texlab/wiki/Configuration
     capabilities = capabilities,
     settings = {
         texlab = {
+            forwardSearch = {
+                executable = "zathura",
+                args = {"--synctex-forward", "%l:1:%f", "%p"}
+            },
             chktex = {
                 onEdit = true,
                 onOpenAndSave = true
