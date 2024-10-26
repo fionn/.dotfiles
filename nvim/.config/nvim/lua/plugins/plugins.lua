@@ -50,6 +50,7 @@ require "paq" {
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "mbbill/undotree",
+    "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
     "fionn/baseline"
 }
