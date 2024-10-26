@@ -13,10 +13,6 @@ setopt BASH_AUTO_LIST
 setopt INTERACTIVE_COMMENTS
 setopt PIPE_FAIL
 
-if type brew &>/dev/null; then
-    fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
-fi
-
 [[ -d "${XDG_CACHE_HOME:=$HOME/.cache}/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 [[ -d "${XDG_STATE_HOME:=$HOME/.local/state}/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
 
@@ -56,6 +52,7 @@ tabs -4
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+bindkey -e
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
@@ -68,18 +65,24 @@ export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export MANPAGER="nvim +Man!"
-export GOPATH=$HOME/.local/share/go
+export GOPATH=${XDG_DATA_HOME:-$HOME/.local/share}/go
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_INSTALL_CLEANUP=1
-export HOMEBREW_NO_INSECURE_REDIRECT=1
-export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
-
 typeset -gU PATH path
-path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$path[@]" "$HOME/bin" "$GOPATH/bin" "$HOME/.cargo/bin")
+path=("$path[@]" "$HOME/bin" "$HOME/.cargo/bin" "$GOPATH/bin")
+
+if [[ -v HOMEBREW_PREFIX ]]; then
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_INSTALL_CLEANUP=1
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+    export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+
+    path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$HOMEBREW_PREFIX/opt/ruby/bin" "$path[@]")
+
+    hash terraform 2>/dev/null && complete -o nospace -C "$(command -v terraform)" terraform
+fi
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
 [[ -f $HOME/.jobrc ]] && . $HOME/.jobrc
@@ -89,5 +92,3 @@ alias history="fc -li 0"
 function search {
     grep -FRl "$@" .
 }
-
-hash terraform 2> /dev/null && complete -o nospace -C "$(command -v terraform)" terraform
