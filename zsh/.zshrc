@@ -13,6 +13,9 @@ setopt BASH_AUTO_LIST
 setopt INTERACTIVE_COMMENTS
 setopt PIPE_FAIL
 
+# Disable XON/XOFF so we can send ^S for forward search
+stty -ixon
+
 [[ -d "${XDG_CACHE_HOME:=$HOME/.cache}/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 [[ -d "${XDG_STATE_HOME:=$HOME/.local/state}/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
 
