@@ -31,10 +31,6 @@ if hash nvim 2> /dev/null; then
     alias vim=nvim
 fi
 
-if hash msfconsole 2> /dev/null; then
-    alias msfconsole="msfconsole --quiet -x \"db_connect postgres@msf\""
-fi
-
 if [[ -d /usr/share/nmap/scripts/ ]]; then
     alias nse="ls /usr/share/nmap/scripts/ | grep -i "
 fi
