@@ -109,6 +109,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
+    desc = "Don't wrap comments",
+    pattern = "markdown",
+    callback = function()
+        vim.opt.formatoptions:remove("c")
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
     desc = "Format options for mail",
     pattern = "mail",
     callback = function()
