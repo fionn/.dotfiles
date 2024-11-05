@@ -49,6 +49,7 @@ require "paq" {
     "Vimjas/vim-python-pep8-indent",
     "godlygeek/tabular",
     "hashivim/vim-terraform",
+    "lukas-reineke/indent-blankline.nvim",
     "mbbill/undotree",
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
@@ -122,6 +123,19 @@ require("blame").setup {
 require("gitlinker").setup {}
 
 require("lsp_lines").setup {}
+
+local hooks = require("ibl.hooks")
+hooks.register(hooks.type.ACTIVE, function(bufnr)
+    return vim.lsp.util.get_effective_tabstop(bufnr) < 4
+end)
+
+require("ibl").setup {
+    indent = {
+        char = "▏",
+        smart_indent_cap = false
+    },
+    scope = {enabled = false}
+}
 
 local wk = require("which-key")
 wk.setup {
