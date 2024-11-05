@@ -34,7 +34,7 @@ local function toggle_inlay_hint()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
 
-vim.keymap.set("", "<F1>", "<Nop>", {desc = "No-op", unique = true})
+vim.keymap.set({"n", "v", "i"}, "<F1>", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op", unique = true})
 
