@@ -77,6 +77,8 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
 
+vim.api.nvim_create_user_command("X", "!%:p", {desc = "Execute current file"})
+
 vim.cmd.colorscheme("default_override")
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
