@@ -157,6 +157,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     group = "init",
     desc = "Highlight on yank",
     callback = function()
+        -- Deprecated in https://github.com/neovim/neovim/pull/30840 / v0.10.3.
         vim.highlight.on_yank({higroup = "Visual"})
     end
 })
