@@ -124,18 +124,25 @@ require("gitlinker").setup {}
 
 require("lsp_lines").setup {}
 
-local hooks = require("ibl.hooks")
-hooks.register(hooks.type.ACTIVE, function(bufnr)
-    return vim.lsp.util.get_effective_tabstop(bufnr) < 4
-end)
-
-require("ibl").setup {
+local ibl = require("ibl")
+ibl.setup {
+    enabled = false,
     indent = {
         char = "▏",
         smart_indent_cap = false
     },
     scope = {enabled = false}
 }
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    desc = "Enable indent guides",
+    group = vim.api.nvim_create_augroup("ibl", {clear = true}),
+    callback = function()
+        if vim.lsp.util.get_effective_tabstop(0) < 4 then
+            ibl.setup_buffer(0, {enabled = true})
+        end
+    end,
+})
 
 local wk = require("which-key")
 wk.setup {
