@@ -140,7 +140,9 @@ require("ibl").setup {
 local wk = require("which-key")
 wk.setup {
     preset = "helix",
-    delay = 600,
+    delay = function(ctx)
+        return ctx.plugin and 0 or 600
+    end,
     expand = 1,
     icons = {rules = false}
 }
