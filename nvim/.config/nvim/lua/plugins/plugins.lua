@@ -112,6 +112,12 @@ require("gitsigns").setup {
             end
         end, {desc = "Previous hunk"})
 
+        map("n", "<leader>hs", gitsigns.stage_hunk, {desc = "Stage"})
+        map("n", "<leader>hr", gitsigns.reset_hunk, {desc = "Reset"})
+        map("n", "<leader>hu", gitsigns.undo_stage_hunk, {desc = "Unstage"})
+        map("n", "<leader>hp", gitsigns.preview_hunk, {desc = "Preview"})
+        map("n", "<leader>hd", gitsigns.diffthis, {desc = "Diff"})
+
         map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", {desc = "inner hunk"})
     end
 }
@@ -157,7 +163,8 @@ wk.add({
     {"<leader>l", group = "Diagnostics"},
     {"<leader>s", group = "Swap"},
     {"<leader>t", group = "Tabularise"},
-    {"<leader>b", group = "Git blame"}
+    {"<leader>b", group = "Git blame"},
+    {"<leader>h", group = "Git hunk"}
 })
 
 vim.g.terraform_align = 1
