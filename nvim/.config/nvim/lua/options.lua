@@ -187,6 +187,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
+    desc = "Make DAP REPL more like a terminal",
+    pattern = "dap-repl",
+    callback = function()
+        vim.opt_local.number = false
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",

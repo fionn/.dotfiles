@@ -43,6 +43,8 @@ require "paq" {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "mfussenegger/nvim-dap",
+    "theHamsta/nvim-dap-virtual-text",
     "lewis6991/gitsigns.nvim",
     "FabijanZulj/blame.nvim",
     "linrongbin16/gitlinker.nvim",
@@ -60,6 +62,7 @@ require "paq" {
 require("plugins/treesitter")
 require("plugins/completion")
 require("plugins/lsp")
+require("plugins/dap")
 
 require("gitsigns").setup {
     signs = {
@@ -164,7 +167,8 @@ wk.add({
     {"<leader>s", group = "Swap"},
     {"<leader>t", group = "Tabularise"},
     {"<leader>b", group = "Git blame"},
-    {"<leader>h", group = "Git hunk"}
+    {"<leader>h", group = "Git hunk"},
+    {"<leader>d", group = "Debug"}
 })
 
 vim.g.terraform_align = 1
