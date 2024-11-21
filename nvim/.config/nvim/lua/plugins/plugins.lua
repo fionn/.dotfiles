@@ -35,6 +35,7 @@ require "paq" {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-omni",
     "hrsh7th/cmp-nvim-lua",
     "nvim-lua/plenary.nvim",
     "petertriho/cmp-git",
