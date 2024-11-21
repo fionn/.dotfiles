@@ -3,6 +3,8 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+
 lspconfig.clangd.setup {
     capabilities = capabilities
 }
