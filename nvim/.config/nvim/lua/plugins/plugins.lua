@@ -141,14 +141,13 @@ ibl.setup {
     scope = {enabled = false}
 }
 
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("FileType", {
     desc = "Enable indent guides",
+    pattern = "yaml",
     group = vim.api.nvim_create_augroup("ibl", {clear = true}),
     callback = function()
-        if vim.lsp.util.get_effective_tabstop(0) < 4 then
-            ibl.setup_buffer(0, {enabled = true})
-        end
-    end,
+        ibl.setup_buffer(0, {enabled = true})
+    end
 })
 
 local wk = require("which-key")
