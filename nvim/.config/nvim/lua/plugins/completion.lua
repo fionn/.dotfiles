@@ -164,13 +164,20 @@ cmp.setup {
     }
 }
 
-local text_like_fts = {"text", "tex", "markdown", "gitcommit", "mail"}
-for _, filetype in ipairs(text_like_fts) do
+cmp.setup.filetype("gitcommit", {
+    sources = cmp.config.sources {
+        {name = "git"},
+        {name = "buffer", keyword_length = 3}
+    }
+})
+
+-- Filetypes that I want to use buffer completion in -- typically text-heavy or
+-- less structured than normal code.
+local buffer_fts = {"text", "tex", "markdown", "mail", "dot", "yaml"}
+for _, filetype in ipairs(buffer_fts) do
     cmp.setup.filetype(filetype, {
         sources = cmp.config.sources {
             {name = "nvim_lsp"},
-            {name = "nvim_lsp_signature_help"},
-            {name = "git"},
             {name = "buffer", keyword_length = 3}
         }
     })
