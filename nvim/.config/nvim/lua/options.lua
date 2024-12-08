@@ -1,6 +1,7 @@
 vim.opt.secure = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
+vim.opt.mousemodel = "extend"
 vim.opt.termguicolors = true
 
 vim.opt.number = true
