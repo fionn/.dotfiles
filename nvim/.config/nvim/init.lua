@@ -110,11 +110,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         if vim.bo.filetype ~= "diff" and vim.bo.filetype ~= "mail" then
             -- Partially from neovim/runtime/lua/editorconfig.lua.
-            -- TODO: translate to nvim_cmd.
             local view = vim.fn.winsaveview()
-            vim.api.nvim_command("silent! undojoin")
-            vim.api.nvim_command("silent keepjumps keeppatterns %s/\\s\\+$//e")
-            vim.api.nvim_command("silent keepjumps keeppatterns %s/\\($\\n\\s*\\)\\+\\%$//e")
+            vim.cmd("silent! undojoin")
+            vim.cmd("silent keepjumps keeppatterns %s/\\s\\+$//e")
+            vim.cmd("silent keepjumps keeppatterns %s/\\($\\n\\s*\\)\\+\\%$//e")
             vim.fn.winrestview(view)
         end
     end
