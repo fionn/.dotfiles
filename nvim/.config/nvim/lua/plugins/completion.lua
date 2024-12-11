@@ -6,6 +6,7 @@ local kind_icons = {
     Variable = "𝑥",
     Snippet = "✂",
     Constant = "𝜋",
+    Text = "a",
     TypeParameter = "𝑻",
     Interface = "ɪ",
     Module = "▭"
@@ -167,7 +168,7 @@ cmp.setup {
 cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources {
         {name = "git"},
-        {name = "buffer", keyword_length = 3}
+        {name = "buffer", keyword_length = 2}
     }
 })
 
@@ -178,7 +179,8 @@ for _, filetype in ipairs(buffer_fts) do
     cmp.setup.filetype(filetype, {
         sources = cmp.config.sources {
             {name = "nvim_lsp"},
-            {name = "buffer", keyword_length = 3}
+            {name = "omni"},
+            {name = "buffer", keyword_length = 2}
         }
     })
 end
