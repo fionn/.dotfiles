@@ -57,6 +57,7 @@ zle -N down-line-or-beginning-search
 
 bindkey -e
 bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[1;2A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 export CLICOLOR=1
