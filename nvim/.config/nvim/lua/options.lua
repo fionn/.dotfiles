@@ -132,14 +132,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Keep comment leader in Go",
+    desc = "Set Go-specific options",
     pattern = "go",
     callback = function()
+        vim.opt_local.colorcolumn = {80, 100}
         vim.opt_local.formatoptions:append({
             r = true,
             o = true,
             ["/"] = true
-        })
+        }) -- Keep comment leader
     end
 })
 
