@@ -44,6 +44,11 @@ vim.keymap.set("n", "<Esc>", esc, {desc = "Close and clear"})
 vim.keymap.set("o", "j", "gj")
 vim.keymap.set("o", "k", "gk")
 
+vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "Go to the left window"})
+vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Go to the down window"})
+vim.keymap.set("n", "<C-k>", "<C-w>k", {desc = "Go to the up window"})
+vim.keymap.set("n", "<C-l>", "<C-w>l", {desc = "Go to the right window"})
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selected lines up"})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected lines down"})
 
@@ -202,6 +207,17 @@ vim.api.nvim_create_autocmd("WinScrolled", {
                 end
             end
         end
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = "init",
+    desc = "Prevent netrw from overriding <C-l> keymap",
+    pattern = "netrw",
+    callback = function()
+        -- We use a protected call because the keymap might not exist (for
+        -- excample, we might have already deleted it).
+        pcall(function() vim.api.nvim_buf_del_keymap(0, "n", "<C-l>") end)
     end
 })
 
