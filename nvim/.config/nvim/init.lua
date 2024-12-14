@@ -188,4 +188,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
 })
 
+vim.api.nvim_create_autocmd("WinScrolled", {
+    group = "init",
+    desc = "Force mouse events to respect scrollbinding",
+    -- Translated from https://github.com/vim/vim/issues/15447#issuecomment-2274438813.
+    callback = function()
+        if vim.wo.scrollbind then
+            local initial_win = vim.api.nvim_get_current_win()
+            for win_str, delta in pairs(vim.v.event) do
+                local win = tonumber(win_str)
+                if win ~= nil and vim.wo[win].scrollbind
+                   and (delta.topline ~= 0 or delta.topfill ~= 0) then
+                    vim.fn.execute(vim.api.nvim_win_get_number(win) .. "windo :")
+                    vim.api.nvim_set_current_win(initial_win)
+                    return
+                end
+            end
+        end
+    end
+})
+
 vim.cmd.inoreabbrev({"seperate", "separate"})
