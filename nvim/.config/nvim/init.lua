@@ -69,10 +69,6 @@ vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code 
 vim.keymap.set("n", "<leader>t=", ":Tabularize /=<CR>", {desc = "Align by ="})
 vim.keymap.set("n", "<leader>t:", ":Tabularize /:\\zs<CR>", {desc = "Align by :"})
 
-vim.keymap.set("n", "<leader>bt", ":BlameToggle<CR>", {desc = "Toggle blame window"})
-vim.keymap.set("n", "<leader>bl", require("gitsigns").toggle_current_line_blame, {desc = "Toggle blame lines"})
-vim.keymap.set("n", "<leader>bf", require("gitsigns").blame_line, {desc = "Blame in floating window"})
-
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
@@ -146,7 +142,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
     desc = "Close with q",
-    pattern = {"help", "checkhealth", "qf", "netrw"},
+    pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame"},
     callback = function(event)
         vim.keymap.set("n", "q", ":close<CR>", {buffer = event.buf, silent = true})
     end

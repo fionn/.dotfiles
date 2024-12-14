@@ -44,7 +44,6 @@ require "paq" {
     "nvim-treesitter/nvim-treesitter-context",
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     "lewis6991/gitsigns.nvim",
-    "FabijanZulj/blame.nvim",
     "linrongbin16/gitlinker.nvim",
     "folke/which-key.nvim",
     "Vimjas/vim-python-pep8-indent",
@@ -61,7 +60,8 @@ require("plugins/treesitter")
 require("plugins/completion")
 require("plugins/lsp")
 
-require("gitsigns").setup {
+local gitsigns = require("gitsigns")
+gitsigns.setup {
     signs = {
         add          = {text = "+"},
         change       = {text = "~"},
@@ -89,8 +89,6 @@ require("gitsigns").setup {
     },
 
     on_attach = function(bufnr)
-        local gitsigns = require("gitsigns")
-
         local function map(mode, l, r, opts)
             opts = opts or {}
             opts.buffer = bufnr
@@ -119,12 +117,13 @@ require("gitsigns").setup {
         map("n", "<leader>hp", gitsigns.preview_hunk, {desc = "Preview"})
         map("n", "<leader>hd", gitsigns.diffthis, {desc = "Diff"})
 
-        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", {desc = "inner hunk"})
-    end
-}
+        map("n", "<leader>bl", gitsigns.toggle_current_line_blame, {desc = "Toggle blame lines"})
+        map("n", "<leader>bf", gitsigns.blame_line, {desc = "Blame in floating window"})
 
-require("blame").setup {
-    date_format = "%Y-%m-%d"
+        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", {desc = "inner hunk"})
+
+        vim.api.nvim_create_user_command("Blame", function(_) gitsigns.blame() end, {})
+    end
 }
 
 require("gitlinker").setup {}
