@@ -51,6 +51,7 @@ vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation"})
 vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "List references"})
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
