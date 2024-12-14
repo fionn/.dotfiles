@@ -32,6 +32,9 @@ local highlights = {
     UndotreeTimeStamp = {link = "Normal"},
     UndotreeNode = {link = "Normal"},
 
+    NetrwClassify = {link = "Normal"},
+    NetrwTreeBar = {fg = "NvimDarkGrey3"},
+
     StatusLine = {fg = "Black", bg = "NvimLightGrey4"},
     StatusLineModeNormal = {fg = "Black", bg = "NvimDarkBlue", bold = true},
     StatusLineModeInsert = {fg = "Black", bg = "Green", bold = true},

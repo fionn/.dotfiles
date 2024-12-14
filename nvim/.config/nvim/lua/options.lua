@@ -71,6 +71,7 @@ vim.g.markdown_fenced_languages = {"python", "bash", "yaml", "json", "lua"}
 
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
+vim.g.netrw_winsize = 24
 vim.g.netrw_special_syntax = true
 vim.g.netrw_list_hide = {
     ".*\\.swp$", ".*\\.aux$", ".*\\.toc$", "__pycache__/$",
