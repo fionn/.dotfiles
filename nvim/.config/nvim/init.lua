@@ -191,6 +191,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
 })
 
+vim.api.nvim_create_autocmd("WinEnter", {
+    group = "init",
+    desc = "Close quickfix on quit",
+    callback = function()
+        if vim.bo.buftype == "quickfix" and vim.fn.winnr("$") == 1 then
+            vim.cmd.quit()
+        end
+    end
+})
+
 vim.api.nvim_create_autocmd("WinScrolled", {
     group = "init",
     desc = "Force mouse events to respect scrollbinding",
