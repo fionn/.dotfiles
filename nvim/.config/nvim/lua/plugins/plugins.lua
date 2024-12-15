@@ -128,8 +128,6 @@ gitsigns.setup {
 
 require("gitlinker").setup {}
 
-require("lsp_lines").setup {}
-
 local ibl = require("ibl")
 ibl.setup {
     enabled = false,
