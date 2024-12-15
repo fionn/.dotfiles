@@ -1,15 +1,34 @@
 local cmp = require("cmp")
 
 local kind_icons = {
+    Snippet = "✂",
+    File = "⎘",
+    Module = "▭",
+    Namespace = "◲",
+    Package  = "❒",
+    Class  = "▤",
     Method = "𝑓",
+    Property  = "𝑝",
+    Field = "𝑥",
+    Constructor  = "⛭",
+    Enum = "ℤ",
+    Interface = "ɪ",
     Function = "𝑓",
     Variable = "𝑥",
-    Snippet = "✂",
     Constant = "𝜋",
-    Text = "a",
-    TypeParameter = "𝑻",
-    Interface = "ɪ",
-    Module = "▭"
+    String = "⎁",
+    Number  = "ℝ",
+    Boolean  = "⏻",
+    Array  = "[]",
+    Object  = "▣",
+    Key  = "⚿",
+    Null  = "∅",
+    EnumMember = "ℤ",
+    Struct = "{}",
+    Event  = "↯",
+    Text = "𝔞",
+    Operator  = "⋆",
+    TypeParameter = "𝑻"
 }
 
 local function has_words_before()
