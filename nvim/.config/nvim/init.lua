@@ -65,6 +65,7 @@ vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, {desc = "Show signature
 vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Show diagnostics, like <C-w>d"})
 vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
+vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
