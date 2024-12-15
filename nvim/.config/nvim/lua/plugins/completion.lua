@@ -44,7 +44,7 @@ end
 ---@return string
 local function truncate(text, max_length)
     if text and text:len() > max_length then
-        text = text:sub(1, max_length) .. "⋯"
+        return text:sub(1, max_length) .. "⋯"
     end
     return text
 end
