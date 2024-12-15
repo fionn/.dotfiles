@@ -163,7 +163,8 @@ wk.add({
     {"<leader>s", group = "Swap"},
     {"<leader>t", group = "Tabularise"},
     {"<leader>b", group = "Git blame"},
-    {"<leader>h", group = "Git hunk"}
+    {"<leader>h", group = "Git hunk"},
+    {"gr", group = "LSP"}
 })
 
 vim.g.terraform_align = 1

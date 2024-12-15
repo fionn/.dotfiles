@@ -29,7 +29,6 @@ local function toggle_relative_numbers()
     vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
 end
 
-
 local function toggle_inlay_hint()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
@@ -56,8 +55,16 @@ vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation"})
-vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "List references"})
+vim.keymap.set("n", "grn", vim.lsp.buf.rename, {desc = "Rename symbol"})
+vim.keymap.set("n", "gra", vim.lsp.buf.code_action, {desc = "Select code action"})
+vim.keymap.set("n", "grr", vim.lsp.buf.references, {desc = "List references"})
+vim.keymap.set("n", "gri", vim.lsp.buf.implementation, {desc = "Go to implementation"})
+vim.keymap.set("n", "gO", vim.lsp.buf.document_symbol, {desc = "List symbols"})
+vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, {desc = "Show signature"})
+
+vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
+vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Show diagnostics, like <C-w>d"})
+vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
@@ -65,12 +72,6 @@ vim.keymap.set("n", "<leader>e", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
-
-vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
-vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Open floating diagnostics, like <C-w>d"})
-vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
-vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {desc = "Rename word under cursor"})
-vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "Select code action under cursor"})
 
 vim.keymap.set("n", "<leader>t=", ":Tabularize /=<CR>", {desc = "Align by ="})
 vim.keymap.set("n", "<leader>t:", ":Tabularize /:\\zs<CR>", {desc = "Align by :"})
