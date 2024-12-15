@@ -35,6 +35,10 @@ local highlights = {
     NetrwClassify = {link = "Normal"},
     NetrwTreeBar = {fg = "NvimDarkGrey3"},
 
+    QuickFixLine = {bg = "NvimDarkGrey2", bold = true},
+    qfFileName = {link = "Identifier"},
+    qfLineNr = {fg = "NvimLightGreen"},
+
     StatusLine = {fg = "Black", bg = "NvimLightGrey4"},
     StatusLineModeNormal = {fg = "Black", bg = "NvimDarkBlue", bold = true},
     StatusLineModeInsert = {fg = "Black", bg = "Green", bold = true},
