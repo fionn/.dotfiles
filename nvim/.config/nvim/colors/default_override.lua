@@ -64,7 +64,8 @@ local highlights = {
 
     CmpItemAbbrMatch = {bold = true},
     CmpItemAbbrDeprecated = {strikethrough = true},
-    CmpItemKind = {link = "Comment"},
+    CmpItemKind = {link = "Identifier"},
+    CmpItemMenu = {link = "Comment"},
 
     LspReferenceText = {underdotted = true},
     LspInlayHint = {fg = "#6a6a6a"},

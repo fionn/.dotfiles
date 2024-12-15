@@ -79,9 +79,13 @@ cmp.setup {
     },
 
     formatting = {
-        format = function(_, vim_item)
+        format = function(entry, vim_item)
+            local sources = {
+                nvim_lsp = "lsp",
+                nvim_lua = "nvim"
+            }
             vim_item.abbr = truncate(vim_item.abbr, 30)
-            vim_item.menu = truncate(vim_item.menu, 30)
+            vim_item.menu = sources[entry.source.name] or entry.source.name
             vim_item.info = truncate(vim_item.info, 30)
 
             vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
