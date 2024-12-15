@@ -183,10 +183,17 @@ cmp.setup {
     sources = cmp.config.sources {
         {name = "nvim_lsp"},
         {name = "nvim_lsp_signature_help"},
-        {name = "nvim_lua"},
         {name = "omni"}
     }
 }
+
+cmp.setup.filetype("lua", {
+    sources = cmp.config.sources {
+        {name = "nvim_lsp"},
+        {name = "nvim_lsp_signature_help"},
+        {name = "nvim_lua"}
+    }
+})
 
 cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources {
