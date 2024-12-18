@@ -213,7 +213,7 @@ vim.api.nvim_create_autocmd("WinScrolled", {
                 local win = tonumber(win_str)
                 if win ~= nil and vim.wo[win].scrollbind
                    and (delta.topline ~= 0 or delta.topfill ~= 0) then
-                    vim.fn.execute(vim.api.nvim_win_get_number(win) .. "windo :")
+                    vim.cmd(vim.api.nvim_win_get_number(win) .. "windo :")
                     vim.api.nvim_set_current_win(initial_win)
                     return
                 end
