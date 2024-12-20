@@ -26,6 +26,8 @@
     oldHighlight = red 52
     newNormal = green
     newHighlight = green 22
+[color "branch"]
+    current = bold
 [color "advice"]
     hint = dim
 [commit]
