@@ -49,6 +49,7 @@
     abbreviateCommands = true
     missingCommitsCheck = warn
 [merge]
+    conflictStyle = diff3
     tool = nvimdiff
 [branch]
     sort = -committerdate
