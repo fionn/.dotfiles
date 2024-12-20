@@ -20,6 +20,7 @@
     func = dim bold ul
 [color "status"]
     changed = yellow
+    untracked = dim brightyellow
 [color "diff-highlight"]
     oldNormal = red
     oldHighlight = red 52
