@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local context = require("cmp.config.context")
 
 local kind_icons = {
     Text = "𝔞",
@@ -27,6 +28,8 @@ local kind_icons = {
     Operator  = "⋆",
     TypeParameter = "𝑻"
 }
+
+local termcode_cr = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
 
 local function has_words_before()
     -- From https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
@@ -61,19 +64,15 @@ cmp.setup {
     enabled = function()
         if vim.api.nvim_get_mode().mode == "c" then
             return true
-        else
-            -- Disable completion in comments.
-            local context = require("cmp.config.context")
-            return not context.in_treesitter_capture("comment")
-                and not context.in_syntax_group("Comment")
         end
+        -- Disable completion in comments.
+        return not context.in_treesitter_capture("comment")
+            and not context.in_syntax_group("Comment")
     end,
 
     preselect = cmp.PreselectMode.None,
 
-    completion = {
-        autocomplete = false
-    },
+    completion = {autocomplete = false},
 
     formatting = {
         format = function(entry, vim_item)
@@ -84,7 +83,6 @@ cmp.setup {
             vim_item.abbr = truncate(vim_item.abbr, 30)
             vim_item.menu = sources[entry.source.name] or entry.source.name
             vim_item.info = truncate(vim_item.info, 30)
-
             vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
 
             vim_item.dup = 0
@@ -108,7 +106,7 @@ cmp.setup {
         ["<Esc>"] = cmp.mapping.close(),
         ["<BS>"] = cmp.mapping(function(fallback)
             if cmp.visible() and not has_words_before() then
-                cmp.abort()
+                cmp.close()
             end
             fallback()
         end, {"i", "s"}),
@@ -128,8 +126,7 @@ cmp.setup {
         end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and has_words_before() then
-                local cr = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
-                complete_match_or_abort(cr)
+                complete_match_or_abort(termcode_cr)
             else
                 cmp.abort()
                 fallback()
@@ -139,15 +136,17 @@ cmp.setup {
             if cmp.visible() then
                 if #cmp.get_entries() == 1 then
                     cmp.confirm({select = true})
-                elseif cmp.get_selected_entry() then
-                    cmp.select_next_item()
-                elseif not cmp.complete_common_string() then
+                elseif cmp.get_selected_entry()
+                       or not cmp.complete_common_string() then
                     cmp.select_next_item()
                 end
             elseif has_words_before() then
                 cmp.complete({reason = cmp.ContextReason.Auto})
-                if #cmp.get_entries() == 1 then
+                local entry_count = #cmp.get_entries()
+                if entry_count == 1 then
                     cmp.confirm({select = true})
+                elseif entry_count > 1 then
+                    cmp.complete_common_string()
                 end
             else
                 fallback()
