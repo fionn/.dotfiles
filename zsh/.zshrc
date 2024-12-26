@@ -60,6 +60,8 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[1;2A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+bindkey -M viins "^?" backward-delete-char
+
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=nvim
