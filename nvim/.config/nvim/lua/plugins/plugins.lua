@@ -157,12 +157,17 @@ wk.setup {
     icons = {rules = false}
 }
 wk.add({
-    {"<leader>l", group = "Diagnostics"},
-    {"<leader>s", group = "Swap"},
-    {"<leader>t", group = "Tabularise"},
-    {"<leader>b", group = "Git blame"},
-    {"<leader>h", group = "Git hunk"},
-    {"gr", group = "LSP"}
+    {"[", group = "previous"},
+    {"]", group = "next"},
+    {"gr", group = "lsp"},
+    {"<leader>", group = "leader", mode = {"n", "v"}},
+    {"<leader>l", group = "diagnostics"},
+    {"<leader>lp", group = "peek", mode = {"n", "v"}},
+    {"<leader>v", group = "incremental selection", mode = "v"},
+    {"<leader>s", group = "swap"},
+    {"<leader>t", group = "tabularise"},
+    {"<leader>b", group = "git blame"},
+    {"<leader>h", group = "git hunk"}
 })
 
 vim.g.terraform_align = 1
