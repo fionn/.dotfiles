@@ -1,6 +1,9 @@
 require("options")
 require("plugins/plugins")
 
+-- Fix for 0.10.3 regression: https://github.com/neovim/neovim/issues/31675.
+vim.hl = vim.highlight
+
 local function reload()
     dofile(vim.env.MYVIMRC)
     vim.notify("Reloaded " .. vim.env.MYVIMRC)
