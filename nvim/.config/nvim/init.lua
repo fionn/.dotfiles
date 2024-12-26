@@ -103,7 +103,6 @@ for method, handler in pairs(lsp_handlers) do
     vim.lsp.handlers[method] = handler
 end
 
--- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config {
     signs = {
         text = {
@@ -149,13 +148,15 @@ vim.api.nvim_create_autocmd("FileType", {
                 vim.lsp.buf.format({async = false})
             end
         })
-    end,
+    end
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
     group = vim.api.nvim_create_augroup("terminal", {clear = true}),
     desc = "Make the terminal more like a terminal",
     callback = function()
+        -- number can be unset in v0.11.
+        -- https://github.com/neovim/neovim/pull/31443
         vim.opt_local.number = false
         vim.cmd.startinsert()
     end
@@ -176,7 +177,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     group = "init",
     desc = "Highlight on yank",
     callback = function()
-        -- Deprecated in https://github.com/neovim/neovim/pull/30840 / v0.10.3.
+        -- Deprecated in https://github.com/neovim/neovim/pull/30840 / v0.11.
         vim.highlight.on_yank({higroup = "Visual"})
     end
 })
@@ -242,7 +243,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "netrw",
     callback = function()
         -- We use a protected call because the keymap might not exist (for
-        -- excample, we might have already deleted it).
+        -- example, we might have already deleted it).
         pcall(function() vim.api.nvim_buf_del_keymap(0, "n", "<C-l>") end)
     end
 })

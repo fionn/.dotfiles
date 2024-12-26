@@ -79,6 +79,6 @@ require("treesitter-context").setup {
   min_window_height = 3,
   multiline_threshold = 3,
   trim_scope = "inner",
-  mode = "cursor",  -- "cursor" or "topline"
+  mode = "cursor",
   separator = "‾"
 }
