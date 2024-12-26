@@ -58,6 +58,7 @@ vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
+vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, {desc = "Go to type definition"})
 vim.keymap.set("n", "grn", vim.lsp.buf.rename, {desc = "Rename symbol"})
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, {desc = "Select code action"})
 vim.keymap.set("n", "grr", vim.lsp.buf.references, {desc = "List references"})
