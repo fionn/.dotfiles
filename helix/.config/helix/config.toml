@@ -1,0 +1,27 @@
+theme = "ayu_dark"
+
+[editor]
+rulers = [80]
+bufferline = "multiple"
+color-modes = true
+text-width = 120
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+snippets = false
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "file-name", "read-only-indicator",
+        "file-modification-indicator", "version-control"]
+right = ["diagnostics", "spinner", "file-type", "file-encoding", "spacer",
+         "selections", "register", "position", "total-line-numbers",
+         "position-percentage"]
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
