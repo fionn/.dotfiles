@@ -31,6 +31,8 @@ vim.opt.undofile = true
 vim.opt.title = true
 vim.opt.titlestring = "%F %m%r"
 
+vim.opt.laststatus = 3
+
 vim.opt.list = true
 vim.opt.listchars = {tab = "  ", trail = "·", extends = "▸", nbsp = "␣"}
 
