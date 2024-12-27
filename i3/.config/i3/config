@@ -213,6 +213,7 @@ for_window [class="^Pidgin$"] floating enable
 for_window [class="Bitmessagemain.py"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="XMathematica"] floating enable
+for_window [class="ghostty"] border none
 
 # Background
 set $background ~/.config/i3/background/background.jpg
