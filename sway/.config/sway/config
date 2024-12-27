@@ -273,6 +273,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+for_window [app_id="com.mitchellh.ghostty"] border none
+
 #
 # Status Bar:
 #
