@@ -12,3 +12,7 @@ set match-hidden-files off
 # PgUp and PgDn
 "\e[5~": previous-history
 "\e[6~": next-history
+
+# Up and Down arrows
+"\e[A": history-search-backward
+"\e[B": history-search-forward
