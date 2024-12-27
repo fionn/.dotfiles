@@ -20,7 +20,7 @@ font-thicken = true
 bold-is-bright = true
 minimum-contrast = 1.1
 
-theme = iTerm2 Dark Background
+theme = Deep
 foreground = d7d7d7
 selection-background = ffffff
 unfocused-split-opacity = 0.85
