@@ -29,6 +29,11 @@ gtk-single-instance = true
 gtk-titlebar = false
 gtk-adwaita = false
 
+keybind = alt+right=goto_split:right
+keybind = alt+down=goto_split:bottom
+keybind = alt+left=goto_split:left
+keybind = alt+up=goto_split:top
+
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
 macos-titlebar-style = tabs
