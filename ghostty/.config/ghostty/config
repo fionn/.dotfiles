@@ -25,6 +25,10 @@ foreground = d7d7d7
 selection-background = ffffff
 unfocused-split-opacity = 0.85
 
+gtk-single-instance = true
+gtk-titlebar = false
+gtk-adwaita = false
+
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
 macos-titlebar-style = tabs
