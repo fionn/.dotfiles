@@ -21,6 +21,9 @@ bold-is-bright = true
 theme = fterm
 unfocused-split-opacity = 0.85
 
+# https://github.com/ghostty-org/ghostty/issues/3424
+background = #0d0d0d
+
 gtk-single-instance = true
 gtk-titlebar = false
 gtk-adwaita = false
@@ -32,6 +35,7 @@ keybind = alt+up=goto_split:top
 
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
-macos-titlebar-style = tabs
+macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = left
 macos-secure-input-indication = false
