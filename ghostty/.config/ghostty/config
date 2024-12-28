@@ -18,7 +18,6 @@ adjust-underline-position = 2
 font-family = Fira Code
 font-thicken = true
 bold-is-bright = true
-minimum-contrast = 1.1
 
 theme = fterm
 unfocused-split-opacity = 0.85
