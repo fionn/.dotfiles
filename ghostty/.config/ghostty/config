@@ -1,15 +1,14 @@
 # vim: ft=conf
 
 shell-integration-features = no-cursor
-
 focus-follows-mouse = true
 
+window-step-resize = true
+window-padding-balance = true
 window-height = 26
 window-width = 84
 window-padding-x = 4
 window-padding-y = 0
-window-padding-balance = true
-window-step-resize = true
 
 adjust-cell-height = 4
 adjust-underline-position = 2
@@ -19,22 +18,22 @@ font-thicken = true
 bold-is-bright = true
 
 theme = fterm
-unfocused-split-opacity = 0.85
-
 # https://github.com/ghostty-org/ghostty/issues/3424
 background = #0d0d0d
-
-gtk-single-instance = true
-gtk-titlebar = false
-gtk-adwaita = false
+unfocused-split-opacity = 0.85
 
 keybind = alt+right=goto_split:right
 keybind = alt+down=goto_split:bottom
 keybind = alt+left=goto_split:left
 keybind = alt+up=goto_split:top
 
+gtk-single-instance = true
+gtk-titlebar = false
+gtk-adwaita = false
+
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
+
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = left
