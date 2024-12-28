@@ -10,7 +10,6 @@ window-padding-x = 4
 window-padding-y = 0
 window-padding-balance = true
 window-step-resize = true
-window-theme = ghostty
 
 adjust-cell-height = 4
 adjust-underline-position = 2
