@@ -1,6 +1,7 @@
 # vim: ft=conf
 
 shell-integration-features = no-cursor
+window-inherit-working-directory = false
 focus-follows-mouse = true
 
 window-step-resize = true
