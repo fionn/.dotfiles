@@ -1,5 +1,3 @@
-# vim: ft=conf
-
 shell-integration-features = no-cursor
 window-inherit-working-directory = false
 focus-follows-mouse = true
@@ -24,13 +22,13 @@ background = #0d0d0d
 unfocused-split-opacity = 0.85
 
 keybind = alt+left=goto_split:left
-keybind = alt+down=goto_split:bottom
-keybind = alt+up=goto_split:top
+keybind = alt+down=goto_split:down
+keybind = alt+up=goto_split:up
 keybind = alt+right=goto_split:right
 
 keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:bottom
-keybind = alt+k=goto_split:top
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
 keybind = alt+l=goto_split:right
 
 gtk-single-instance = true
