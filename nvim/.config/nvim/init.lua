@@ -35,6 +35,8 @@ end
 
 vim.keymap.set({"n", "v", "i"}, "<F1>", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op", unique = true})
+vim.keymap.set("n", "<S-Up>", "<Nop>", {desc = "No-op", unique = true})
+vim.keymap.set("n", "<S-Down>", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("i", "<C-v>", "<Nop>", {desc = "No-op", unique = true})
 
 vim.keymap.set("n", "<CR>", ":nohlsearch<CR><CR>", {silent = true})
