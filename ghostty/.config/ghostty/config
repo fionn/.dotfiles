@@ -31,12 +31,16 @@ keybind = alt+j=goto_split:down
 keybind = alt+k=goto_split:up
 keybind = alt+l=goto_split:right
 
+keybind = performable:super+c=copy_to_clipboard
+keybind = performable:ctrl+c=copy_to_clipboard
+
 gtk-single-instance = true
 gtk-titlebar = false
 gtk-adwaita = false
 
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
+mouse-hide-while-typing = true
 
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
