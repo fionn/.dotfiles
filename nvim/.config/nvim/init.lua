@@ -33,6 +33,12 @@ local function toggle_inlay_hint()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
 
+local function toggle_virtual_lines()
+    require("lsp_lines").toggle()
+    -- Replace with the below after v0.11 is released (#31959).
+    -- vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})
+end
+
 vim.keymap.set({"n", "v", "i"}, "<F1>", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("n", "Q", "<Nop>", {desc = "No-op", unique = true})
 vim.keymap.set("n", "<S-Up>", "<Nop>", {desc = "No-op", unique = true})
@@ -66,7 +72,7 @@ vim.keymap.set("n", "gri", vim.lsp.buf.implementation, {desc = "Go to implementa
 vim.keymap.set("n", "gO", vim.lsp.buf.document_symbol, {desc = "List symbols"})
 vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, {desc = "Show signature"})
 
-vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, {desc = "Toggle LSP lines"})
+vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Show diagnostics, like <C-w>d"})
 vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
@@ -115,7 +121,7 @@ vim.diagnostic.config {
     },
     severity_sort = true,
     update_in_insert = true,
-    virtual_lines = false,  -- for lsp_lines
+    virtual_lines = false,  -- for lsp_lines, can be removed after #31959.
     float = {
         border = "rounded",
         source = true

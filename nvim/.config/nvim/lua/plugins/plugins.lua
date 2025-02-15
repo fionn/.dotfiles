@@ -42,7 +42,7 @@ require "paq" {
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- Remove after #31959.
     "lewis6991/gitsigns.nvim",
     "linrongbin16/gitlinker.nvim",
     "folke/which-key.nvim",
