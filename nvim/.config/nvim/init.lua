@@ -137,9 +137,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     group = vim.api.nvim_create_augroup("terminal", {clear = true}),
     desc = "Make the terminal more like a terminal",
     callback = function()
-        -- number can be unset in v0.11.
-        -- https://github.com/neovim/neovim/pull/31443
-        vim.opt_local.number = false
         vim.cmd.startinsert()
     end
 })
