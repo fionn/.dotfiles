@@ -93,21 +93,6 @@ vim.api.nvim_create_user_command("X", "!%:p", {desc = "Execute current file"})
 
 vim.cmd.colorscheme("default_override")
 
-local lsp_handlers = {
-    ["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {border = "rounded"}
-    ),
-    ["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        {border = "rounded"}
-    )
-}
-
-for method, handler in pairs(lsp_handlers) do
-    vim.lsp.handlers[method] = handler
-end
-
 vim.diagnostic.config {
     signs = {
         text = {
@@ -120,7 +105,6 @@ vim.diagnostic.config {
     severity_sort = true,
     update_in_insert = true,
     float = {
-        border = "rounded",
         source = true
     }
 }

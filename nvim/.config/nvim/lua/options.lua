@@ -58,6 +58,8 @@ vim.opt.shellcmdflag = "-ceuo pipefail"
 
 vim.opt.wildmode = {"list:longest", "full"}
 
+vim.opt.winborder = "rounded"
+
 vim.opt.winblend = 8
 vim.opt.pumblend = 8
 

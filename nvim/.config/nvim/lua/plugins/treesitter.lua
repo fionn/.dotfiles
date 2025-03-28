@@ -65,7 +65,6 @@ require("nvim-treesitter.configs").setup {
         },
         lsp_interop = {
             enable = true,
-            floating_preview_opts = {border = "rounded"},
             peek_definition_code = {
                 ["<leader>lpf"] = "@function.outer",
                 ["<leader>lpc"] = "@class.outer"
