@@ -34,9 +34,7 @@ local function toggle_inlay_hint()
 end
 
 local function toggle_virtual_lines()
-    require("lsp_lines").toggle()
-    -- Replace with the below after v0.11 is released (#31959).
-    -- vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})
+    vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})
 end
 
 vim.keymap.set({"n", "v", "i"}, "<F1>", "<Nop>", {desc = "No-op", unique = true})
@@ -121,7 +119,6 @@ vim.diagnostic.config {
     },
     severity_sort = true,
     update_in_insert = true,
-    virtual_lines = false,  -- for lsp_lines, can be removed after #31959.
     float = {
         border = "rounded",
         source = true
