@@ -84,6 +84,7 @@ if [[ -v HOMEBREW_PREFIX ]]; then
     export HOMEBREW_NO_INSTALL_CLEANUP=1
     export HOMEBREW_NO_INSECURE_REDIRECT=1
     export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+    export HOMEBREW_VERIFY_ATTESTATIONS=1
 
     path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" "$HOMEBREW_PREFIX/opt/ruby/bin" "$path[@]")
 
