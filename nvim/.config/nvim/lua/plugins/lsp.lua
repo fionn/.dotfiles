@@ -98,6 +98,7 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.golangci_lint_ls.setup {}
+lspconfig.hls.setup {}
 lspconfig.bashls.setup {}
 lspconfig.terraformls.setup {}
 lspconfig.tflint.setup {}
