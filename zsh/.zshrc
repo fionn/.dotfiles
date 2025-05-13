@@ -70,7 +70,6 @@ export HISTSIZE=40000
 export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export MANPAGER="nvim +Man!"
 export GOPATH=${XDG_DATA_HOME:-$HOME/.local/share}/go
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
