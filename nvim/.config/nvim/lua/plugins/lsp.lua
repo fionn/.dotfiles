@@ -1,21 +1,25 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require("lspconfig")
 
 capabilities.textDocument.completion.completionItem.snippetSupport = false
 
-lspconfig.clangd.setup {
-    capabilities = capabilities
-}
+vim.lsp.enable("bashls")
+vim.lsp.enable("pylsp")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("gopls")
+vim.lsp.enable("golangci_lint_ls")
+vim.lsp.enable("hls")
+vim.lsp.enable("clangd")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("terraformls")
+vim.lsp.enable("tflint")
+vim.lsp.enable("marksman")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("texlab")
 
-lspconfig.rust_analyzer.setup {
-    capabilities = capabilities
-}
-
-lspconfig.pylsp.setup {
+vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-    capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
@@ -31,17 +35,13 @@ lspconfig.pylsp.setup {
             }
         }
     }
-}
+})
 
-lspconfig.lua_ls.setup {
-    capabilities = capabilities,
+vim.lsp.config("lua_ls",  {
     settings = {
         Lua = {
             completion = {
                 keywordSnippet = "Disable"
-            },
-            diagnostics = {
-                globals = {"vim"}
             },
             hint = {enable = true},
             format = {
@@ -59,10 +59,9 @@ lspconfig.lua_ls.setup {
             }
         }
     }
-}
+})
 
-lspconfig.texlab.setup {
-    capabilities = capabilities,
+vim.lsp.config("texlab", {
     settings = {
         texlab = {
             forwardSearch = {
@@ -78,10 +77,9 @@ lspconfig.texlab.setup {
             }
         }
     }
-}
+})
 
-lspconfig.gopls.setup {
-    capabilities = capabilities,
+vim.lsp.config("gopls", {
     settings = {
         gopls = {
             hints = {
@@ -95,12 +93,8 @@ lspconfig.gopls.setup {
             }
         }
     }
-}
+})
 
-lspconfig.golangci_lint_ls.setup {}
-lspconfig.hls.setup {}
-lspconfig.bashls.setup {}
-lspconfig.terraformls.setup {}
-lspconfig.tflint.setup {}
-lspconfig.marksman.setup {}
-lspconfig.yamlls.setup {}
+vim.lsp.config("*", {
+    capabilities = capabilities
+})
