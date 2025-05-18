@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Spellcheck text-like filetypes",
     pattern = {"markdown", "gitcommit", "tex"},
     callback = function()
-        vim.opt_local.spell = true
+        vim.opt_local.spell = vim.opt.modifiable:get()
     end
 })
 
