@@ -26,6 +26,7 @@ vim.lsp.config("pylsp", {
                 mccabe = {enabled = false},
                 pycodestyle = {enabled = false},
                 pyflakes = {enabled = false},
+                preload = {enabled = false},
                 rope = {save_objectdb = false},
                 pylsp_mypy = {
                     -- Once https://github.com/python-lsp/pylsp-mypy/pull/83
