@@ -4,6 +4,11 @@ vim.opt.mouse = "a"
 vim.opt.mousemodel = "extend"
 vim.opt.termguicolors = true
 
+if vim.env.TERM == "xterm-ghostty" then
+    -- Ghostty scrolls 5 lines per notch instead of one.
+    vim.opt.mousescroll = "ver:1"
+end
+
 vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
