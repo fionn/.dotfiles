@@ -49,6 +49,7 @@ require "paq" {
     "godlygeek/tabular",
     "hashivim/vim-terraform",
     "lukas-reineke/indent-blankline.nvim",
+    "rxbn/kube-schema.nvim",
     "mbbill/undotree",
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
@@ -126,6 +127,7 @@ gitsigns.setup {
 }
 
 require("gitlinker").setup {}
+require("kube-schema").setup {}
 
 local ibl = require("ibl")
 ibl.setup {
