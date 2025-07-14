@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 
 alias grep="grep --color=auto"
-alias tree="tree -C -I .git --gitignore"
+alias tree="tree -I .git --gitignore"
 # shellcheck disable=SC2154
 alias gr="_tl=\$(git rev-parse --show-toplevel) && cd \${_tl:?}"
 alias view="vim -R"
