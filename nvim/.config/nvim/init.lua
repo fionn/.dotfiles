@@ -61,7 +61,6 @@ vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
-vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, {desc = "Go to type definition"})
 vim.keymap.set("n", "grf", vim.lsp.buf.format, {desc = "Format"})
 
 vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
