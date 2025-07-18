@@ -102,3 +102,7 @@
     key = "Closes"
 [trailer "fixes"]
     key = "Fixes"
+[trailer "followup"]
+    key = "Follow-up-to"
+[trailer "fixup"]
+    key = "Fixup-for"
