@@ -25,7 +25,7 @@ autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
-unalias run-help
+unalias run-help 2>/dev/null
 autoload run-help
 alias help=run-help
 
