@@ -16,8 +16,13 @@ setopt PIPE_FAIL
 # Disable XON/XOFF so we can send ^S for forward search
 stty -ixon
 
-[[ -d "${XDG_CACHE_HOME:=$HOME/.cache}/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
-[[ -d "${XDG_STATE_HOME:=$HOME/.local/state}/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+[[ -d "$XDG_STATE_HOME/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
+[[ -d "$XDG_CACHE_HOME/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -U bashcompinit && bashcompinit # required for terraform completion
@@ -71,7 +76,7 @@ export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *|jrnl *)"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export MANPAGER="nvim +Man!"
-export GOPATH=${XDG_DATA_HOME:-$HOME/.local/share}/go
+export GOPATH="$XDG_DATA_HOME/go"
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
