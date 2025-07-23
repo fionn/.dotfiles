@@ -6,6 +6,7 @@ vim.filetype.add {
         ["osquery.conf"] = "jsonc",
     },
     pattern = {
-        ["${HOME}/.kube/config"] = "yaml"
+        ["${HOME}/.kube/config"] = "yaml",
+        ["${XDG_STATE_HOME}/zsh/history"] = "zsh"
     }
 }
