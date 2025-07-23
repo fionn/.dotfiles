@@ -100,9 +100,11 @@
     key = "On-behalf-of"
 [trailer "closes"]
     key = "Closes"
-[trailer "fixes"]
-    key = "Fixes"
+[trailer "counterpart"]
+    key = "Counterpart-to"
 [trailer "followup"]
     key = "Follow-up-to"
+[trailer "fixes"]
+    key = "Fixes"
 [trailer "fixup"]
     key = "Fixup-for"
