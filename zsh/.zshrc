@@ -94,9 +94,6 @@ if [[ -v HOMEBREW_PREFIX ]]; then
     path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" \
           "$HOMEBREW_PREFIX/opt/ruby/bin" "$HOMEBREW_PREFIX/opt/libpq/bin" "$path[@]")
 
-    # Move homebrew's prepended site-functions to the end.
-    fpath=(${fpath[@]:1} $fpath[1])
-
     hash terraform 2>/dev/null && complete -o nospace -C "$(command -v terraform)" terraform
 fi
 
