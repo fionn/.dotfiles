@@ -132,9 +132,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Format options for mail",
+    desc = "Options for mail",
     pattern = "mail",
     callback = function()
+        vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
         vim.opt_local.formatoptions:append({
             t = true,
             a = true,
@@ -159,9 +160,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Format options for Git commit messages",
+    desc = "Options for Git commit messages",
     pattern = "gitcommit",
     callback = function()
+        vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
         vim.opt_local.formatoptions = {
             ["1"] = true, -- break before single character words
             t = true, -- wrap
