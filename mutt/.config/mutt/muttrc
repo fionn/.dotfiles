@@ -10,27 +10,26 @@ source "~/.config/mutt/connection"
 # This provides my_pw (via pass), folder (imap), realname, from, smtp_url and
 # X-PGP-Key, X-PGP-Fingerprint headers.
 
-# IMAP settings
+set mbox_type = Maildir
+set ts_enabled = yes
+
 set imap_user = fionn
 set spoolfile = +INBOX
-set record= +INBOX/Sent # wtf?
-set postponed = "~/.local/share/mutt/mail/postponed"
-set header_cache = "~/.local/share/mutt/cache/headers"
+set record = +INBOX/Sent
+set trash = +INBOX/Trash
+set postponed = +INBOX/Drafts
+set header_cache = "~/.cache/mutt/headers/"
+
 set imap_pass = $my_pw
-
-set imap_keepalive = 200
-set imap_check_subscribed
-set mail_check = 60
-set timeout = 10
-set net_inc = 5
-
-# SMTP settings
-set use_from = yes
 set smtp_pass = $my_pw
 
-bind index g imap-fetch-mail
+set mail_check = 60
+set timeout = 10
+set net_inc = 1
 
-#for scrolling
+set maildir_trash = yes
+
+bind index g imap-fetch-mail
 bind pager <up> previous-line
 bind pager <down> next-line
 
@@ -42,7 +41,8 @@ set mark_old = no
 set sort = threads
 set sort_aux = last-date-received
 
-set text_flowed=yes
+set text_flowed = yes
+set send_charset = utf-8
 
 # Attempt to decrypt inline PGP
 # Equivalent to "Esc + P"
@@ -73,3 +73,5 @@ set reverse_alias = yes
 source "~/.config/mutt/aliases"
 
 set date_format="!%Y-%m-%d %R%Z"
+
+set include = yes
