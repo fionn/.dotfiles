@@ -36,7 +36,6 @@ keybind = performable:ctrl+c=copy_to_clipboard
 
 gtk-single-instance = true
 gtk-titlebar = false
-gtk-adwaita = false
 
 quick-terminal-animation-duration = 0.1
 quit-after-last-window-closed = true
