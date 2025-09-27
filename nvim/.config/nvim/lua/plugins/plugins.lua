@@ -87,6 +87,7 @@ gitsigns.setup {
     diff_opts = {
         algorithm = "histogram"
     },
+    gh = true,
 
     on_attach = function(bufnr)
         local function map(mode, l, r, opts)
