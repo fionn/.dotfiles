@@ -21,7 +21,6 @@ local function esc()
     vim.cmd.nohlsearch()
     vim.cmd.echo()
     vim.diagnostic.config({virtual_lines = false})
-    vim.lsp.inlay_hint.enable(false)
 end
 
 local function toggle_relative_numbers()
