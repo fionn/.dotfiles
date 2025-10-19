@@ -106,6 +106,7 @@ local highlights = {
     ["@punctuation.special.diff"] = {link = "Comment"},
     ["@attribute.diff"] = {link = "diffLine"},
     ["@string.special.path.diff"] = {link = "diffFile"},
+    ["@constant.builtin.go"] = {link = "Identifier"},
 
     TexMathMatcher = {link = "Normal"},
     texMathZoneX = {link = "TexMathMatcher"},
