@@ -14,7 +14,7 @@ adjust-underline-position = 2
 
 font-family = Fira Code
 font-thicken = true
-bold-is-bright = true
+bold-color = bright
 
 theme = fterm
 # https://github.com/ghostty-org/ghostty/issues/3424
