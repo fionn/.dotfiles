@@ -102,6 +102,7 @@ if [[ -v HOMEBREW_PREFIX ]]; then
           "$HOMEBREW_PREFIX/opt/ruby/bin" "$HOMEBREW_PREFIX/opt/libpq/bin" "$path[@]")
 
     hash terraform 2>/dev/null && complete -o nospace -C "$(command -v terraform)" terraform
+    hash tofu 2>/dev/null && complete -o nospace -C "$(command -v tofu)" tofu
 fi
 
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
