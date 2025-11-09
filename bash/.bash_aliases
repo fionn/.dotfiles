@@ -17,7 +17,7 @@ else
     alias diff="diff --color=auto"
 fi
 
-if [[ -f /usr/bin/ip ]]; then
+if hash ip 2> /dev/null; then
     alias ip="ip -c"
 fi
 
