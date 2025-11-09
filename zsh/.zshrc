@@ -87,6 +87,9 @@ export GOPATH="$XDG_DATA_HOME/go"
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
+[[ -d "$XDG_STATE_HOME/python" ]] || mkdir -p "$XDG_STATE_HOME/python"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+
 typeset -gU PATH path
 path=("$path[@]" "$HOME/bin" "$HOME/.cargo/bin" "$GOPATH/bin")
 
