@@ -51,6 +51,9 @@
 [merge]
     conflictStyle = diff3
     tool = nvimdiff
+[mergetool]
+    hideResolved = true
+    keepBackup = false
 [branch]
     sort = -committerdate
 [tag]
