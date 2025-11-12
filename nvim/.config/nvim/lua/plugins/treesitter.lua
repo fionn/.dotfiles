@@ -73,6 +73,31 @@ require("nvim-treesitter.configs").setup {
     }
 }
 
+-- require("ts-install").setup {
+--     ensure_install = {"lua", "query"},
+--     auto_install = true,
+--     auto_update = false
+-- }
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--     desc = "Start Treesitter",
+--     callback = function()
+--         local no_hl = {"gitcommit", "diff", "markdown"}
+--         local no_indent = {"python"}
+--
+--         if ~vim.tbl_contains(no_hl, vim.bo.filetype) then
+--             if pcall(vim.treesitter.start) then
+--                 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+--                 if ~vim.tbl_contains(no_indent, vim.bo.filetype) then
+--                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+--                 end
+--             else
+--                 vim.notify("Missing treesitter parser for " .. vim.bo.filetype, vim.log.levels.WARN)
+--             end
+--         end
+--     end
+-- })
+
 require("treesitter-context").setup {
   max_lines = 2,
   min_window_height = 3,
