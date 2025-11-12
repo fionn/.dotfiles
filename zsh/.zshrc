@@ -72,6 +72,9 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[1;2A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+bindkey "${terminfo[kpp]}" beginning-of-buffer-or-history
+bindkey "${terminfo[knp]}" end-of-buffer-or-history
+
 bindkey -M viins "^?" backward-delete-char
 
 export CLICOLOR=1
