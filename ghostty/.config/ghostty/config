@@ -17,8 +17,6 @@ font-thicken = true
 bold-color = bright
 
 theme = fterm
-# https://github.com/ghostty-org/ghostty/issues/3424
-background = #0d0d0d
 unfocused-split-opacity = 0.85
 
 keybind = alt+left=goto_split:left
