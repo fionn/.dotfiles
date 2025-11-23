@@ -21,8 +21,8 @@ if hash ip 2> /dev/null; then
     alias ip="ip -c"
 fi
 
-if hash startx 2> /dev/null \
-    && [[ ! $DISPLAY ]] && [[ ! $WAYLAND_DISPLAY ]] \
+if [[ -z $DISPLAY ]] && [[ -z $WAYLAND_DISPLAY ]] \
+    && hash startx 2> /dev/null \
     && systemctl -q is-active graphical.target; then
     alias x='cd $HOME && startx'
 fi
