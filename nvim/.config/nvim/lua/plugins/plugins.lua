@@ -128,7 +128,10 @@ gitsigns.setup {
 }
 
 require("gitlinker").setup {}
-require("kube-schema").setup {}
+
+require("kube-schema").setup {
+    notifications = false
+}
 
 local ibl = require("ibl")
 ibl.setup {
