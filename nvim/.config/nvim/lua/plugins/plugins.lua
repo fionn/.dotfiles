@@ -140,7 +140,12 @@ ibl.setup {
         char = "▏",
         smart_indent_cap = false
     },
-    scope = {enabled = false}
+    scope = {
+        enabled = true,
+        show_start = false,
+        show_end = false,
+        char = "▎"
+    }
 }
 
 vim.api.nvim_create_autocmd("FileType", {
