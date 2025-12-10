@@ -4,7 +4,7 @@ vim.g.colors_name = "default_override"
 -- https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c.
 
 local highlights = {
-    Normal = {bg = "#0c0c0f"},
+    Normal = {bg = "#0b0c0f"},
 
     ColorColumn = {bg = "#121212"},
 
