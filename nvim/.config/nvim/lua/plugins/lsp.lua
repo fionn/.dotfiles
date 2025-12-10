@@ -17,6 +17,7 @@ vim.lsp.enable("marksman")
 vim.lsp.enable("yamlls")
 vim.lsp.enable("texlab")
 vim.lsp.enable("helm_ls")
+vim.lsp.enable("ts_ls")
 
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
