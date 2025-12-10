@@ -47,6 +47,7 @@
     stat = true
     autoSquash = true
     abbreviateCommands = true
+    updateRefs = true
     missingCommitsCheck = warn
 [merge]
     conflictStyle = diff3
