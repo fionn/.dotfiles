@@ -50,6 +50,7 @@ require "paq" {
     "hashivim/vim-terraform",
     "lukas-reineke/indent-blankline.nvim",
     "rxbn/kube-schema.nvim",
+    "towolf/vim-helm",
     "mbbill/undotree",
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",

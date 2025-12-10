@@ -16,6 +16,7 @@ vim.lsp.enable("tflint")
 vim.lsp.enable("marksman")
 vim.lsp.enable("yamlls")
 vim.lsp.enable("texlab")
+vim.lsp.enable("helm_ls")
 
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
@@ -92,6 +93,14 @@ vim.lsp.config("gopls", {
                 parameterNames = true,
                 rangeVariableTypes = true
             }
+        }
+    }
+})
+
+vim.lsp.config("helm_ls", {
+    settings = {
+        ["helm-ls"] = {
+            yamlls = {showDiagnosticsDirectly = true}
         }
     }
 })
