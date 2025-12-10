@@ -108,6 +108,10 @@ local highlights = {
     ["@string.special.path.diff"] = {link = "diffFile"},
     ["@constant.builtin.go"] = {link = "Identifier"},
 
+    -- Remove when https://github.com/chrisbra/vim-zsh/pull/60 is upstramed.
+    zshOperator = {link = "Operator"},
+    zshKSHFunction = {link = "Function"},
+
     TexMathMatcher = {link = "Normal"},
     texMathZoneX = {link = "TexMathMatcher"},
     texMathZoneW = {link = "TexMathMatcher"},
