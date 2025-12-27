@@ -29,6 +29,7 @@ autoload -U bashcompinit && bashcompinit # required for terraform completion
 autoload -Uz vcs_info
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook && add-zsh-hook chpwd chpwd_recent_dirs
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+autoload edit-command-line && zle -N edit-command-line
 
 unalias run-help 2>/dev/null
 autoload run-help
@@ -76,6 +77,8 @@ bindkey "${terminfo[kpp]}" beginning-of-buffer-or-history
 bindkey "${terminfo[knp]}" end-of-buffer-or-history
 
 bindkey -M viins "^?" backward-delete-char
+
+bindkey "^X^E" edit-command-line
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
