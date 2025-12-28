@@ -185,9 +185,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 vim.api.nvim_create_autocmd("WinEnter", {
     group = "init",
-    desc = "Close quickfix on quit",
+    desc = "Close unwritable buffers on quit",
     callback = function()
-        if vim.bo.buftype == "quickfix" and vim.fn.winnr("$") == 1 then
+        if vim.list_contains({"quickfix", "nofile", "nowrite"}, vim.bo.buftype) and vim.fn.winnr("$") == 1 then
             vim.cmd.quit()
         end
     end
