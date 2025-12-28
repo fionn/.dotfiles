@@ -52,7 +52,7 @@ require "paq" {
     "lukas-reineke/indent-blankline.nvim",
     "rxbn/kube-schema.nvim",
     "towolf/vim-helm",
-    "mbbill/undotree",
+    "mbbill/undotree",  -- Can remove in v0.12 (neovim/neovim#35627).
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
     "fionn/baseline"
