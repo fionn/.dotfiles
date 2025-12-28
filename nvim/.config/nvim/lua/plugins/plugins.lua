@@ -123,7 +123,8 @@ gitsigns.setup {
         map("n", "<leader>bl", gitsigns.toggle_current_line_blame, {desc = "Toggle blame lines"})
         map("n", "<leader>bf", gitsigns.blame_line, {desc = "Blame in floating window"})
 
-        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", {desc = "inner hunk"})
+        map({"o", "x"}, "ih", function() gitsigns.select_hunk({greedy = false}) end, {desc = "inner hunk"})
+        map({"o", "x"}, "ah", gitsigns.select_hunk, {desc = "outer hunk"})
 
         vim.api.nvim_create_user_command("Blame", function(_) gitsigns.blame() end, {})
     end
