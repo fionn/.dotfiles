@@ -114,6 +114,12 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Start Treesitter",
     group = vim.api.nvim_create_augroup("TreeSitter", {clear = true}),
     callback = function(event)
+        if not vim.list_contains(require("nvim-treesitter").get_available(),
+               vim.treesitter.language.get_lang(event.match))
+        then
+            return
+        end
+
         local no_indent = {"python"}
         if not vim.tbl_contains(no_indent, event.match) then
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
