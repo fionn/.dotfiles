@@ -20,6 +20,7 @@ vim.opt.breakindentopt = {"list:-1"}
 vim.opt.showmatch = false
 vim.opt.matchtime = 1
 vim.opt.smoothscroll = true
+vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
