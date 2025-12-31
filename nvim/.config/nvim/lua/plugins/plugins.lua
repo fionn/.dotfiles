@@ -42,7 +42,6 @@ require "paq" {
     {"nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate"},
     {"nvim-treesitter/nvim-treesitter-textobjects", branch = "main"},
     "nvim-treesitter/nvim-treesitter-context",
-    "lewis6991/ts-install.nvim",
     "lewis6991/gitsigns.nvim",
     "linrongbin16/gitlinker.nvim",
     "folke/which-key.nvim",

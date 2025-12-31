@@ -1,9 +1,3 @@
-require("ts-install").setup {
-    ensure_install = {"lua", "query"},
-    auto_install = true,
-    auto_update = false
-}
-
 require("treesitter-context").setup {
     max_lines = 2,
     min_window_height = 3,
@@ -114,11 +108,14 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Start Treesitter",
     group = vim.api.nvim_create_augroup("TreeSitter", {clear = true}),
     callback = function(event)
-        if not vim.list_contains(require("nvim-treesitter").get_available(),
-               vim.treesitter.language.get_lang(event.match))
-        then
+        local ts = require("nvim-treesitter")
+        local language = vim.treesitter.language.get_lang(event.match)
+
+        if not vim.list_contains(ts.get_available(), language) then
             return
         end
+
+        ts.install(language):wait()
 
         local no_indent = {"python"}
         if not vim.tbl_contains(no_indent, event.match) then
