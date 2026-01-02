@@ -122,3 +122,7 @@ alias history="fc -li 0"
 function search {
     grep -FRl "$@" .
 }
+
+if hash fzf 2>/dev/null; then
+    FZF_CTRL_T_COMMAND="" FZF_ALT_C_COMMAND="" source <(fzf --zsh)
+fi
