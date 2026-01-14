@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
         ts.install(language):wait()
 
-        local no_indent = {"python"}
+        local no_indent = {"python", "gitconfig"}
         if not vim.tbl_contains(no_indent, event.match) then
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
