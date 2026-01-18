@@ -85,6 +85,7 @@ vim.lsp.config("texlab", {
 vim.lsp.config("gopls", {
     settings = {
         gopls = {
+            matcher = "caseSensitive",
             hints = {
                 assignVariableTypes = true,
                 compositeLiteralFields = true,
