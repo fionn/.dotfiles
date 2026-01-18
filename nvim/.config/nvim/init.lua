@@ -117,8 +117,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    desc = "Meta-level Go format on save",
-    pattern = "go",
+    desc = "Meta-level format on save",
+    pattern = {"go", "terraform"},
     group = vim.api.nvim_create_augroup("format_on_save", {clear = true}),
     callback = function()
         vim.api.nvim_create_autocmd("BufWritePre", {
