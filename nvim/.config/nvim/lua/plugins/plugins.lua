@@ -53,8 +53,13 @@ require "paq" {
     "towolf/vim-helm",
     "mbbill/undotree",  -- Can remove in v0.12 (neovim/neovim#35627).
     "bullets-vim/bullets.vim",
+    "Julian/lean.nvim",
     "fionn/nvim-redact-pass",
     "fionn/baseline"
+}
+
+require("lean").setup{
+    mappings = true
 }
 
 require("plugins/treesitter")
