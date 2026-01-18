@@ -98,7 +98,7 @@ local highlights = {
     ["@keyword.directive"] = {fg = "SteelBlue4"},
     ["@constructor"] = {link = "Type"},
     ["@constructor.lua"] = {link = "Delimiter"},
-    ["@markup.raw"] = {bg = "NvimDarkGrey3"},
+    ["@markup.raw.markdown_inline"] = {fg = "NvimLightGrey2"},
     ["@markup.raw.block.vimdoc"] = {},
     ["@markup.quote"] = {fg = "NvimLightGrey4"},
     ["@markup.list"] = {link = "Number"},

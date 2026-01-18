@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd("FileType", {
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
 
-        local no_hl = {"gitcommit", "diff", "markdown"}
+        local no_hl = {"gitcommit", "diff"}
         if vim.tbl_contains(no_hl, event.match) then
             return
         end
