@@ -53,7 +53,7 @@ local highlights = {
     Function = {fg = "Yellow2"},
     Type = {fg = "LightGoldenrod"},
     Comment = {italic = true, fg = "#6a6a6a"},
-    Special = {link = "Function"},
+    Special = {fg = "DarkOrange"},
     Number = {fg = "Violet"},
     Boolean = {link = "Number"},
     Constant= {fg = "Peru"},
@@ -88,6 +88,9 @@ local highlights = {
 
     DiagnosticUnnecessary = {},
 
+    markdownCode = {fg = "NvimLightGrey2"},
+    markdownCodeBlock = {link = "markdownCode"},
+
     ["@function.builtin"] = {link = "Function"},
     ["@function.call"] = {link = "Function"},
     ["@function.method.call"] = {link = "@function.call"},
@@ -98,7 +101,8 @@ local highlights = {
     ["@keyword.directive"] = {fg = "SteelBlue4"},
     ["@constructor"] = {link = "Type"},
     ["@constructor.lua"] = {link = "Delimiter"},
-    ["@markup.raw.markdown_inline"] = {fg = "NvimLightGrey2"},
+    ["@markup.raw.markdown_inline"] = {link = "markdownCode"},
+    ["@markup.raw.block.markdown"] = {link = "markdownCodeBlock"},
     ["@markup.raw.block.vimdoc"] = {},
     ["@markup.quote"] = {fg = "NvimLightGrey4"},
     ["@markup.list"] = {link = "Number"},
