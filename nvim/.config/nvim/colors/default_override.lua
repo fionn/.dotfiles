@@ -90,7 +90,8 @@ local highlights = {
 
     DiagnosticUnnecessary = {},
 
-    markdownCode = {fg = "NvimLightGrey2"},
+    ["@text.literal"] = {fg = "NvimLightGrey2"},
+    markdownCode = {link = "@text.literal"},
     markdownCodeBlock = {link = "markdownCode"},
 
     ["@tag.delimiter"] = {link = "Delimiter"},
@@ -105,6 +106,7 @@ local highlights = {
     ["@keyword.directive"] = {fg = "SteelBlue4"},
     ["@constructor"] = {link = "Type"},
     ["@constructor.lua"] = {link = "Delimiter"},
+    ["@markup.raw"] = {link = "@text.literal"},
     ["@markup.raw.markdown_inline"] = {link = "markdownCode"},
     ["@markup.raw.block.markdown"] = {link = "markdownCodeBlock"},
     ["@markup.raw.block.vimdoc"] = {},
