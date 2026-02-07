@@ -60,6 +60,8 @@ local highlights = {
     PreProc = {fg = "CornflowerBlue"},
     Statement = {fg = "SteelBlue1"},
 
+    Tag = {link = "Identifier"},
+
     manSubHeading = {link = "manSectionHeading"},
 
     CmpItemAbbrMatch = {bold = true},
@@ -90,6 +92,8 @@ local highlights = {
 
     markdownCode = {fg = "NvimLightGrey2"},
     markdownCodeBlock = {link = "markdownCode"},
+
+    ["@tag.delimiter"] = {link = "Delimiter"},
 
     ["@function.builtin"] = {link = "Function"},
     ["@function.call"] = {link = "Function"},
