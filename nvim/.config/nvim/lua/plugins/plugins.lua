@@ -54,6 +54,7 @@ require "paq" {
     "mbbill/undotree",  -- Can remove in v0.12 (neovim/neovim#35627).
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
+    "fionn/nvim-hujson",
     "fionn/baseline"
 }
 

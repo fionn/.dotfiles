@@ -1,7 +1,4 @@
 vim.filetype.add {
-    extension = {
-        hujson = "jsonc"
-    },
     filename = {
         ["osquery.conf"] = "jsonc",
     },
