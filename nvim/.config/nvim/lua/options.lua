@@ -167,6 +167,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "gitcommit",
     callback = function()
         vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
+        vim.opt_local.tabstop = 4
         vim.opt_local.formatoptions = {
             ["1"] = true, -- break before single character words
             t = true, -- wrap
