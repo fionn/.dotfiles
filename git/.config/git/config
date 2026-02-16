@@ -103,6 +103,7 @@
     ifexists = addIfDifferent
 [trailer "coauthor"]
     key = "Co-authored-by"
+    cmd = test -n "$1" && git log --author="$1" --pretty='%an <%ae>' -1 || true
 [trailer "for"]
     key = "On-behalf-of"
 [trailer "closes"]
