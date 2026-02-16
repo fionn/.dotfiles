@@ -35,7 +35,6 @@ set hlsearch
 set spelllang=en_gb
 set wrap
 set linebreak
-set lazyredraw
 set redrawtime=4000
 set updatetime=100
 
