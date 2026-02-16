@@ -6,7 +6,7 @@
     path = work.gitconfig
 [core]
     pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
-    whitespace = tabwidth=4
+    whitespace = tabwidth=4,incomplete-line
 [interactive]
     diffFilter = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
 [diff]
