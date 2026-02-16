@@ -115,3 +115,6 @@
     key = "Fixes"
 [trailer "fixup"]
     key = "Fixup-for"
+[trailer "skip-checks"]
+    key = "skip-checks"
+    cmd = echo true
