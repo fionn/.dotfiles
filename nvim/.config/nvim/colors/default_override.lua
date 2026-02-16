@@ -101,7 +101,7 @@ local highlights = {
     ["@function.method.call"] = {link = "@function.call"},
     ["@type.builtin"] = {link = "Type"},
     ["@variable.builtin"] = {link = "Keyword"},
-    ["@variable.builtin.python"] = {fg = "NvimLightBlue"},
+    ["@variable.builtin.python"] = {link = "Identifier"},
     ["@keyword.import"] = {link = "Include"},
     ["@keyword.directive"] = {fg = "SteelBlue4"},
     ["@constructor"] = {link = "Type"},
@@ -115,7 +115,7 @@ local highlights = {
     ["@tag.attribute"] = {link = "PreProc"},
     ["@attribute.diff"] = {link = "diffLine"},
     ["@string.special.path.diff"] = {link = "diffFile"},
-    ["@constant.builtin.go"] = {link = "Identifier"},
+    ["@constant.builtin"] = {link = "Identifier"},
 
     -- Remove when https://github.com/chrisbra/vim-zsh/pull/60 is upstramed.
     zshOperator = {link = "Operator"},
