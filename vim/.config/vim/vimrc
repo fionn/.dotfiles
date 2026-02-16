@@ -1,5 +1,4 @@
 set secure
-set modelines=5
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -18,7 +17,7 @@ set clipboard=unnamedplus
 
 set number
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=0
 set softtabstop=-1
 set expandtab
 set shiftround
@@ -33,7 +32,6 @@ set incsearch
 set hlsearch
 
 set spelllang=en_gb
-set wrap
 set linebreak
 set redrawtime=4000
 set updatetime=100
@@ -164,7 +162,6 @@ set cursorline
 
 nnoremap <F2>:set invpaste paste?<CR>
 set pastetoggle=<F2>
-set showmode
 
 if has("mouse")
     set mouse=a
