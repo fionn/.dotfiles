@@ -1,3 +1,4 @@
 *.py    diff=python
 *.tex   diff=tex
 *.md    diff=markdown
+*.go    diff=golang
