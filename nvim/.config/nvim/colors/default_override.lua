@@ -126,12 +126,9 @@ local highlights = {
     texMathZoneW = {link = "TexMathMatcher"},
     texRefZone = {link = "@markup.link"},
 
-    ["@markup.math.latex"] = {link = "Normal"},
+    ["@markup.math.latex"] = {link = "Identifier"},
     ["@function.macro.latex"] = {link = "Statement"},
     ["@function.latex"] = {link = "@function.macro.latex"},
-    ["@module.latex"] = {link = "PreProc"},
-    ["@label.latex"] = {link = "Constant"},
-    ["@punctuation.special.latex"] = {link = "Statement"}
 }
 
 for group, options in pairs(highlights) do
