@@ -113,7 +113,6 @@ local highlights = {
     ["@markup.quote"] = {fg = "NvimLightGrey4"},
     ["@markup.list"] = {link = "Number"},
     ["@tag.attribute"] = {link = "PreProc"},
-    ["@punctuation.special.diff"] = {link = "Comment"},
     ["@attribute.diff"] = {link = "diffLine"},
     ["@string.special.path.diff"] = {link = "diffFile"},
     ["@constant.builtin.go"] = {link = "Identifier"},
