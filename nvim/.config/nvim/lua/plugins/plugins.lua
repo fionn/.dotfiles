@@ -44,6 +44,7 @@ require "paq" {
     "nvim-treesitter/nvim-treesitter-context",
     "lewis6991/gitsigns.nvim",
     "linrongbin16/gitlinker.nvim",
+    "akinsho/git-conflict.nvim",
     "folke/which-key.nvim",
     "Vimjas/vim-python-pep8-indent",
     "godlygeek/tabular",
@@ -131,6 +132,10 @@ gitsigns.setup {
 }
 
 require("gitlinker").setup {}
+
+require("git-conflict").setup {
+    disable_diagnostics = true
+}
 
 require("kube-schema").setup {
     notifications = false

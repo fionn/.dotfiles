@@ -29,6 +29,14 @@ local highlights = {
 
     gitcommitSummary = {link = "Title"},
 
+    GitConflictCurrent = {bg = "#041e15"},
+    GitConflictAncestor = {bg = "#1a1b1c"},
+    GitConflictIncoming = {bg = "#002a3c"},
+
+    GitConflictCurrentLabel = {fg = "#0b0c0f", bg = "NvimDarkGreen", bold = true},
+    GitConflictAncestorLabel = {fg = "#0b0c0f", bg = "NvimDarkGrey4", bold = true},
+    GitConflictIncomingLabel = {fg = "#0b0c0f", bg = "NvimDarkBlue", bold = true},
+
     UndotreeTimeStamp = {link = "Normal"},
     UndotreeNode = {link = "Normal"},
 
