@@ -19,6 +19,33 @@ vim.lsp.enable("texlab")
 vim.lsp.enable("helm_ls")
 vim.lsp.enable("ts_ls")
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Meta-level codelens support",
+    group = vim.api.nvim_create_augroup("codelens", {clear = true}),
+    pattern = {"*.go", "go.mod"},
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client:supports_method("textDocument/codeLens") then
+            vim.lsp.codelens.refresh()
+            vim.api.nvim_create_autocmd({"BufEnter", "CursorHold", "InsertLeave"}, {
+                desc = "Refresh codelenses",
+                group = "codelens",
+                buffer = bufnr,
+                callback = vim.lsp.codelens.refresh
+            })
+            vim.api.nvim_create_autocmd("InsertEnter", {
+                desc = "Clear codelenses",
+                group = "codelens",
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.codelens.clear(nil, 0)
+                end
+            })
+        end
+    end,
+})
+
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
@@ -50,6 +77,7 @@ vim.lsp.config("lua_ls",  {
                 keywordSnippet = "Disable"
             },
             hint = {enable = true},
+            codeLens = {enable = false},
             format = {
                 defaultConfig = {
                     quote_style = "double",
@@ -104,6 +132,12 @@ vim.lsp.config("gopls", {
                 functionTypeParameters = true,
                 parameterNames = true,
                 rangeVariableTypes = true
+            },
+            codelenses = {
+                regenerate_cgo = false,
+                test = true,
+                vendor = false,
+                tidy = false
             }
         }
     }

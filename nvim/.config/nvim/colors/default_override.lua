@@ -80,6 +80,8 @@ local highlights = {
     LspReferenceText = {bg = "#272114"},
     LspReferenceWrite = {bg = "#272114", bold = true},
     LspInlayHint = {fg = "#7ba1ba", bg = "#0c1012", italic = true},
+    LspCodeLens = {link = "LspInlayHint"},
+    LspCodeLensSeparator = {fg = "#6a6a6a"},
 
     DiagnosticError = {fg = "DarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},
