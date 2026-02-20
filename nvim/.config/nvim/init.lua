@@ -105,7 +105,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     group = vim.api.nvim_create_augroup("generic_fixers", {clear = true}),
     desc = "Remove trailing whitespace and blank lines",
     callback = function()
-        if vim.bo.filetype ~= "diff" and vim.bo.filetype ~= "mail" then
+        local leave_whitespace_fts = {"diff", "mail", "gitcommit"}
+        if not vim.tbl_contains(leave_whitespace_fts, vim.bo.filetype) then
             -- Partially from neovim/runtime/lua/editorconfig.lua.
             local view = vim.fn.winsaveview()
             vim.cmd("silent! undojoin")
