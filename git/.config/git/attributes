@@ -2,3 +2,6 @@
 *.tex   diff=tex
 *.md    diff=markdown
 *.go    diff=golang
+*.css   diff=css
+*.html  diff=html
+*.php   diff=php
