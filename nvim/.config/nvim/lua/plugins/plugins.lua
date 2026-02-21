@@ -56,6 +56,7 @@ require "paq" {
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
     "fionn/nvim-hujson",
+    "fionn/nvim-cycle-boolean",
     "fionn/baseline"
 }
 
