@@ -145,7 +145,7 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Close with q",
     pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame"},
     callback = function(event)
-        vim.keymap.set("n", "q", ":close<CR>", {buffer = event.buf, silent = true})
+        vim.keymap.set("n", "q", vim.cmd.close, {buffer = event.buf, silent = true})
     end
 })
 
