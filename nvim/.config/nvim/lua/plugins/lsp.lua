@@ -100,13 +100,6 @@ vim.lsp.config("gopls", {
     }
 })
 
-vim.lsp.config("golangci_lint_ls", {
-    -- This can be removed once the language server gets a release that
-    -- includes https://github.com/nametake/golangci-lint-langserver/pull/55
-    -- (see https://github.com/nametake/golangci-lint-langserver/issues/64).
-    filetypes = {"go"}
-})
-
 vim.lsp.config("helm_ls", {
     settings = {
         ["helm-ls"] = {
