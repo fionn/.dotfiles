@@ -110,8 +110,7 @@ if [[ -v HOMEBREW_PREFIX ]]; then
     path=("$HOMEBREW_PREFIX/opt/python3/libexec/bin" \
           "$HOMEBREW_PREFIX/opt/ruby/bin" \
           "$path[@]" \
-          "$HOMEBREW_PREFIX/opt/libpq/bin" \
-          "$HOMEBREW_PREFIX/share/git-core/contrib/git-jump")
+          "$HOMEBREW_PREFIX/opt/libpq/bin")
 
     hash terraform 2>/dev/null && complete -o nospace -C "$(command -v terraform)" terraform
     hash tofu 2>/dev/null && complete -o nospace -C "$(command -v tofu)" tofu
