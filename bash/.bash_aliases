@@ -5,7 +5,6 @@ alias tree="tree -I .git --gitignore"
 # shellcheck disable=SC2154
 alias gr="_tl=\$(git rev-parse --show-toplevel) && cd \${_tl:?}"
 alias view="vim -R"
-alias vi=vim
 alias activate="[[ -f venv/bin/activate ]] && source venv/bin/activate"
 alias :q="echo \"Not in Vim\" >&2 && false"
 alias ls="ls --color=auto -p"
