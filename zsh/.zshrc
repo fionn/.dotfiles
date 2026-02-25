@@ -35,8 +35,7 @@ unalias run-help 2>/dev/null
 autoload run-help
 alias help=run-help
 
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
+precmd_functions+=( vcs_info )
 zstyle ":vcs_info:*" enable git
 zstyle ":vcs_info:git:*" check-for-changes true
 zstyle ":vcs_info:git:*" unstagedstr "*"
