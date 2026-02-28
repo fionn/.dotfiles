@@ -216,15 +216,4 @@ vim.api.nvim_create_autocmd("WinScrolled", {
     end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    group = "init",
-    desc = "Prevent netrw from overriding <C-l> keymap",
-    pattern = "netrw",
-    callback = function()
-        -- We use a protected call because the keymap might not exist (for
-        -- example, we might have already deleted it).
-        pcall(function() vim.api.nvim_buf_del_keymap(0, "n", "<C-l>") end)
-    end
-})
-
 vim.cmd.inoreabbrev({"seperate", "separate"})

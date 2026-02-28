@@ -126,68 +126,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Don't wrap comments and other Markdown options",
-    pattern = "markdown",
-    callback = function()
-        vim.opt_local.formatoptions:remove("c")
-        vim.opt_local.formatoptions:remove("t")
-        vim.opt_local.tabstop = 2
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.winblend = 0
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
-    desc = "Options for mail",
-    pattern = "mail",
-    callback = function()
-        vim.opt_local.formatoptions:append({
-            t = true,
-            a = true,
-            w = true
-        })
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
-    desc = "Options for Git commit messages",
-    pattern = "gitcommit",
-    callback = function()
-        vim.opt_local.tabstop = 4
-        vim.opt_local.formatoptions = {
-            ["1"] = true, -- break before single character words
-            t = true, -- wrap
-            n = true, -- indent lists
-            a = true, -- auto-format
-            q = true, -- format comments with gq
-            w = true, -- use trailing whitespace as hint for paragraph end
-            r = true, -- continue "comments" on new line
-        }
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
-    desc = "Format JSON with jq",
-    pattern = "json",
-    callback = function()
-        vim.opt_local.formatprg = "jq --indent 4"
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
-    desc = "Remove status line for man pages",
-    pattern = "man",
-    callback = function()
-        vim.opt_local.laststatus = 0
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
     desc = "Comment C and C++ files with //",
 	pattern = {"c", "cpp"},
 	callback = function()
