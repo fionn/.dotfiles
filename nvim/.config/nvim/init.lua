@@ -143,9 +143,11 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
     desc = "Close with q",
-    pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame"},
+    pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame", "git"},
     callback = function(event)
-        vim.keymap.set("n", "q", vim.cmd.close, {buffer = event.buf, silent = true})
+        if not vim.opt.modifiable:get() then
+            vim.keymap.set("n", "q", vim.cmd.close, {buffer = event.buf, silent = true})
+        end
     end
 })
 
