@@ -115,18 +115,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Unset line wrapping in general",
-    callback = function()
-        vim.opt_local.formatoptions:remove("t")
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
     desc = "Don't wrap comments and other Markdown options",
     pattern = "markdown",
     callback = function()
         vim.opt_local.formatoptions:remove("c")
+        vim.opt_local.formatoptions:remove("t")
         vim.opt_local.tabstop = 2
         vim.opt_local.shiftwidth = 2
         vim.opt_local.winblend = 0
