@@ -55,8 +55,6 @@ vim.opt.foldnestmax = 4
 
 vim.opt.fillchars = {foldopen = "", foldclose = "", foldsep = " ", fold = "‹"}
 
-vim.opt.colorcolumn = {80}
-
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = {"number"}
 
@@ -73,9 +71,11 @@ vim.opt.pumblend = 8
 
 vim.opt.pumheight = 40
 
+vim.opt.colorcolumn = {80}
 if vim.opt.textwidth:get() == 0 then
     vim.opt_local.textwidth = 80
 end
+
 vim.opt.formatoptions:remove("t")
 vim.opt.formatoptions:append({c = true})
 
@@ -115,6 +115,17 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
+    desc = "Set colorcolumn",
+    callback = function()
+        if vim.opt.textwidth:get() ~= 80
+            and vim.deep_equal(vim.opt.colorcolumn:get(), {"80"}) then
+            vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = "options",
     desc = "Don't wrap comments and other Markdown options",
     pattern = "markdown",
     callback = function()
@@ -131,7 +142,6 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Options for mail",
     pattern = "mail",
     callback = function()
-        vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
         vim.opt_local.formatoptions:append({
             t = true,
             a = true,
@@ -145,7 +155,6 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Options for Git commit messages",
     pattern = "gitcommit",
     callback = function()
-        vim.opt_local.colorcolumn = {vim.opt.textwidth:get()}
         vim.opt_local.tabstop = 4
         vim.opt_local.formatoptions = {
             ["1"] = true, -- break before single character words
