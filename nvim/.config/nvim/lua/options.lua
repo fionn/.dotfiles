@@ -149,20 +149,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
-    desc = "Set Go-specific options",
-    pattern = "go",
-    callback = function()
-        vim.opt_local.colorcolumn = {80, 100}
-        vim.opt_local.formatoptions:append({
-            r = true,
-            o = true,
-            ["/"] = true
-        }) -- Keep comment leader
-    end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
     desc = "Options for Git commit messages",
     pattern = "gitcommit",
     callback = function()
