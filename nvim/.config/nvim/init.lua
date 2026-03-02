@@ -53,6 +53,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "Go to the down window"})
 vim.keymap.set("n", "<C-k>", "<C-w>k", {desc = "Go to the up window"})
 vim.keymap.set("n", "<C-l>", "<C-w>l", {desc = "Go to the right window"})
 
+vim.keymap.set("n", "<C-p>", vim.cmd.bprevious, {desc = "Go to the previous buffer"})
+vim.keymap.set("n", "<C-n>", vim.cmd.bnext, {desc = "Go to the next buffer"})
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selected lines up"})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected lines down"})
 
