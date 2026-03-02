@@ -87,6 +87,10 @@ vim.lsp.config("gopls", {
     settings = {
         gopls = {
             matcher = "caseSensitive",
+            semanticTokens = true,
+            semanticTokenTypes = {
+                variable = false,
+            },
             hints = {
                 assignVariableTypes = true,
                 compositeLiteralFields = true,
