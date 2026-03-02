@@ -98,6 +98,10 @@ local highlights = {
 
     DiagnosticUnnecessary = {},
 
+    ["@branch.gitcommit"] = {link = "gitcommitBranch"},
+    ["@comment.error.gitcommit"] = { link = "@none"},
+    ["@string.special.path.gitcommit"] = {link = "Constant"},
+
     ["@text.literal"] = {fg = "NvimLightGrey2"},
     markdownCode = {link = "@text.literal"},
     markdownCodeBlock = {link = "markdownCode"},
