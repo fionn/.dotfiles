@@ -77,7 +77,8 @@ local highlights = {
     CmpItemKind = {link = "Identifier"},
     CmpItemMenu = {link = "Comment"},
 
-    LspReferenceText = {underdotted = true},
+    LspReferenceText = {bg = "#272114"},
+    LspReferenceWrite = {bg = "#272114", bold = true},
     LspInlayHint = {fg = "#7ba1ba", italic = true},
 
     DiagnosticError = {fg = "DarkRed"},
