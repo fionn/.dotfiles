@@ -1,6 +1,9 @@
 shell-integration-features = no-cursor
-window-inherit-working-directory = false
 focus-follows-mouse = true
+
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = false
 
 window-step-resize = true
 window-padding-balance = true
