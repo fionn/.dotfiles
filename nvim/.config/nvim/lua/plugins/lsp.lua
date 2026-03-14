@@ -42,6 +42,7 @@ vim.lsp.config("pylsp", {
 })
 
 vim.lsp.config("lua_ls",  {
+    ---@type lspconfig.settings.lua_ls
     settings = {
         Lua = {
             completion = {
@@ -59,7 +60,10 @@ vim.lsp.config("lua_ls",  {
             runtime = {version = "LuaJIT"},
             workspace = {
                 checkThirdParty = false,
-                library = {vim.env.VIMRUNTIME}
+                library = {
+                    vim.env.VIMRUNTIME,
+                    vim.fn.stdpath("data") .. "/site/pack/paqs/start/nvim-lspconfig/lua/lspconfig"
+                }
             }
         }
     }
