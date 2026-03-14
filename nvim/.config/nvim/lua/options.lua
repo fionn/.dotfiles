@@ -58,7 +58,7 @@ vim.opt.fillchars = {foldopen = "", foldclose = "", foldsep = " ", fold = 
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = {"number"}
 
-vim.opt.guicursor:append("i-ci-n:blinkon100")
+vim.opt.guicursor:append("i-c-ci:blinkon100-blinkoff100")
 
 vim.opt.shellcmdflag = "-ceuo pipefail"
 
