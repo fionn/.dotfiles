@@ -90,7 +90,7 @@ local highlights = {
     DiagnosticUnderlineWarn = {undercurl = true, sp = "NvimDarkYellow"},
 
     DiagnosticInfo = {fg = "SteelBlue"},
-    DiagnosticVirtualTextInfo = {fg = "NvimDarkBlue", bg = "#00001a"},
+    DiagnosticVirtualTextInfo = {fg = "NvimDarkBlue", bg = "#001024"},
     DiagnosticUnderlineInfo = {undercurl = true, sp = "NvimDarkBlue"},
 
     DiagnosticHint = {fg = "DarkGreen"},
