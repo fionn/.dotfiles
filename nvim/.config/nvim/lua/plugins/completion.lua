@@ -101,8 +101,6 @@ cmp.setup {
     },
 
     mapping = cmp.mapping.preset.insert {
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<Esc>"] = cmp.mapping.close(),
         ["<BS>"] = cmp.mapping(function(fallback)
             if cmp.visible() and not has_words_before() then
