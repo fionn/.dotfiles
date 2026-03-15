@@ -115,13 +115,6 @@ cmp.setup {
                 fallback()
             end
         end, {"i", "s"}),
-        ["<Space>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                complete_match_or_abort(" ")
-            else
-                fallback()
-            end
-        end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and has_words_before() then
                 complete_match_or_abort(termcode_cr)
