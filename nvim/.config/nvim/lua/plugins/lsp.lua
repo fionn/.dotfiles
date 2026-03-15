@@ -22,6 +22,7 @@ vim.lsp.enable("ts_ls")
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+    ---@type lspconfig.settings.pylsp
     settings = {
         pylsp = {
             plugins = {
