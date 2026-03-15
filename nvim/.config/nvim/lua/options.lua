@@ -147,8 +147,7 @@ vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Only set colorcolumn on modifiable buffers",
     callback = function()
-        ---@diagnostic disable-next-line: undefined-field
-        if not vim.opt_local.modifiable:get() then
+        if not vim.opt.modifiable:get() then
             vim.opt_local.colorcolumn = ""
         end
     end
@@ -158,8 +157,7 @@ vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Use syntax completion when other sources are unavailable",
     callback = function()
-        ---@diagnostic disable-next-line: undefined-field
-        if vim.opt_local.omnifunc:get() == "" then
+        if vim.opt.omnifunc:get() == "" then
             vim.opt_local.omnifunc = "syntaxcomplete#Complete"
         end
     end
@@ -169,7 +167,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = "options",
     desc = "Force LSP to override omnifunc",
     callback = function()
-        ---@diagnostic disable-next-line: undefined-field
         vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
     end
 })

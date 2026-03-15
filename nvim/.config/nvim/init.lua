@@ -30,8 +30,7 @@ local function hover()
 end
 
 local function toggle_relative_numbers()
-    ---@diagnostic disable-next-line: undefined-field
-    vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()
+    vim.opt_local.relativenumber = not vim.opt.relativenumber:get()
 end
 
 local function toggle_inlay_hint()
