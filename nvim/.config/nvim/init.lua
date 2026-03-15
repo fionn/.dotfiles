@@ -226,5 +226,23 @@ vim.api.nvim_create_autocmd({"CursorMoved", "InsertEnter"}, {
     callback = vim.lsp.buf.clear_references
 })
 
+vim.api.nvim_create_autocmd("InsertEnter", {
+    group = vim.api.nvim_create_augroup("inlay_hints", {clear = true}),
+    desc = "Disable inlay hints",
+    callback = function()
+        if vim.lsp.inlay_hint.is_enabled() then
+            vim.lsp.inlay_hint.enable(false)
+            vim.api.nvim_create_autocmd("InsertLeave", {
+                group = "inlay_hints",
+                desc = "Re-enable inlay hints",
+                once = true,
+                callback = function()
+                    vim.lsp.inlay_hint.enable()
+                end
+            })
+        end
+    end
+})
+
 vim.cmd.inoreabbrev({"seperate", "separate"})
 vim.cmd.inoreabbrev({"desireable", "desirable"})
