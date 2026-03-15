@@ -72,6 +72,7 @@ vim.keymap.set("n", "K", hover, {desc = "Hover"})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
 vim.keymap.set("n", "grf", vim.lsp.buf.format, {desc = "Format"})
 vim.keymap.set("n", "grl", vim.lsp.codelens.run, {desc = "Run codelens"})
+vim.keymap.set("n", "gr/", vim.lsp.buf.workspace_symbol, {desc = "Query symbols"})
 
 vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Show diagnostics, like <C-w>d"})
