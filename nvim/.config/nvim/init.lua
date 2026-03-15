@@ -69,7 +69,6 @@ vim.keymap.set("n", "grl", vim.lsp.codelens.run, {desc = "Run codelens"})
 vim.keymap.set("n", "gr/", vim.lsp.buf.workspace_symbol, {desc = "Query symbols"})
 
 vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
-vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, {desc = "Show diagnostics, like <C-w>d"})
 vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
 
