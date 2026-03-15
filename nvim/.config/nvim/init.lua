@@ -1,11 +1,6 @@
 require("options")
 require("plugins/plugins")
 
-local function reload()
-    dofile(vim.env.MYVIMRC)
-    vim.notify("Reloaded " .. vim.env.MYVIMRC)
-end
-
 local function close_floats()
     -- https://github.com/lettertwo/config/blob/main/nvim/lua/util/init.lua
     for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -80,7 +75,6 @@ vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagno
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
-vim.keymap.set("n", "<leader>e", reload, {desc = "Reload config"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
