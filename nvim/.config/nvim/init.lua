@@ -156,9 +156,9 @@ vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
     desc = "Close with q",
     pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame", "git"},
-    callback = function(event)
-        if not vim.opt.modifiable:get() then
-            vim.keymap.set("n", "q", vim.cmd.close, {buffer = event.buf, silent = true})
+    callback = function(args)
+        if not vim.opt.modifiable:get() or args.match == "qf" then
+            vim.keymap.set("n", "q", vim.cmd.close, {buffer = args.buf, silent = true})
         end
     end
 })
