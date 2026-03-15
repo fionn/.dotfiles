@@ -233,3 +233,4 @@ vim.api.nvim_create_autocmd({"CursorMoved", "InsertEnter"}, {
 })
 
 vim.cmd.inoreabbrev({"seperate", "separate"})
+vim.cmd.inoreabbrev({"desireable", "desirable"})
