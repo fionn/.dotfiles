@@ -86,6 +86,7 @@
     force-pull = ! git fetch && git reset --hard @{upstream}
     diff-path = ! git diff $2:$1 $1 && :
     authors = "! git shortlog -se | awk '{$1=\"\"; print $0}'  | sed \"s/^ //g\""
+    user = "! echo $(git config get user.name) \"<$(git config get user.email)>\""
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
 [advice]
