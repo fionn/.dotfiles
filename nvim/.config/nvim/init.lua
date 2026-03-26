@@ -16,12 +16,6 @@ local function esc()
     vim.cmd.nohlsearch()
     vim.cmd.echo()
     vim.diagnostic.config({virtual_lines = false})
-    vim.lsp.buf.clear_references()
-end
-
-local function hover()
-    vim.lsp.buf.hover()
-    vim.lsp.buf.document_highlight()
 end
 
 local function toggle_relative_numbers()
@@ -62,7 +56,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected lines down"}
 vim.keymap.set("c", "<C-a>", "<Home>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
-vim.keymap.set("n", "K", hover, {desc = "Hover"})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
 vim.keymap.set("n", "grf", vim.lsp.buf.format, {desc = "Format"})
 vim.keymap.set("n", "grx", vim.lsp.codelens.run, {desc = "Run codelens"})
@@ -218,12 +211,6 @@ vim.api.nvim_create_autocmd("WinScrolled", {
             end
         end
     end
-})
-
-vim.api.nvim_create_autocmd({"CursorMoved", "InsertEnter"}, {
-    group = "init",
-    desc = "Clear source and reference highlights",
-    callback = vim.lsp.buf.clear_references
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
