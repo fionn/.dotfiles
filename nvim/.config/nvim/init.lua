@@ -16,6 +16,7 @@ local function esc()
     vim.cmd.nohlsearch()
     vim.cmd.echo()
     vim.diagnostic.config({virtual_lines = false})
+    vim.lsp.buf.clear_references()
 end
 
 local function toggle_relative_numbers()

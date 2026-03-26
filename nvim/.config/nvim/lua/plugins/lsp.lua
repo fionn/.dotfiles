@@ -46,6 +46,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("highlight_on_hover", {clear = true}),
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
+           and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
+            vim.keymap.set("n", "K",
+                function()
+                    vim.lsp.buf.hover()
+                    vim.lsp.buf.document_highlight()
+                end,
+                {desc = "Hover", buffer = ev.buf})
+
+            vim.api.nvim_create_autocmd({"CursorMoved", "InsertEnter"}, {
+                group = "highlight_on_hover",
+                desc = "Clear source and reference highlights",
+                buffer = ev.buf,
+                callback = vim.lsp.buf.clear_references
+            })
+        end
+    end
+})
+
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
