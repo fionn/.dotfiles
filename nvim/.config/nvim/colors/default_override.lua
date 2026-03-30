@@ -82,7 +82,7 @@ local highlights = {
     Function = {fg = "Yellow2"},
     Type = {fg = "LightGoldenrod"},
     Comment = {italic = true, fg = "#6a6a6a"},
-    Special = {fg = "DarkOrange"},
+    Special = {fg = "#008cb3"},
     Number = {fg = "Violet"},
     Boolean = {link = "Number"},
     Constant= {fg = "Peru"},
