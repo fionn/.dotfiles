@@ -4,7 +4,7 @@ local function add_struct_tags()
             diagnostics = {},
             only = {"refactor.rewrite"},
         },
-        filter = function(action)
+        filter = function(action, _)
             return action.kind == "refactor.rewrite.addTags"
         end,
         apply = true
