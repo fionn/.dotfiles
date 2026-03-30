@@ -29,7 +29,7 @@ local highlights = {
 
     ColorColumn = {bg = "#121212"},
 
-    CursorLineNr = {bold = false, fg="#adadad"},
+    CursorLineNr = {fg="#adadad"},
 
     Visual = {bg = "#323239"},
 
