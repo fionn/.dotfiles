@@ -52,7 +52,6 @@ require "paq" {
     "lukas-reineke/indent-blankline.nvim",
     "rxbn/kube-schema.nvim",
     "towolf/vim-helm",
-    "mbbill/undotree",  -- Can remove in v0.12 (neovim/neovim#35627).
     "bullets-vim/bullets.vim",
     "fionn/nvim-redact-pass",
     "fionn/nvim-hujson",
@@ -63,6 +62,8 @@ require "paq" {
 require("plugins/treesitter")
 require("plugins/completion")
 require("plugins/lsp")
+
+vim.cmd.packadd("nvim.undotree")
 
 local gitsigns = require("gitsigns")
 gitsigns.setup {
@@ -192,12 +193,3 @@ wk.add({
 
 vim.g.terraform_align = 1
 vim.g.hcl_align = 1
-
-vim.g.undotree_SplitWidth = 30
-vim.g.undotree_DiffCommand = "diff --minimal"
-vim.g.undotree_ShortIndicators = 1
-vim.g.undotree_HighlightChangedText = 0
-vim.g.undotree_TreeNodeShape = "◇"
-vim.g.undotree_TreeReturnShape = "╲"
-vim.g.undotree_TreeVertShape = "│"
-vim.g.undotree_TreeSplitShape ="╱"

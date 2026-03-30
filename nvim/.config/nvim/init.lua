@@ -66,7 +66,6 @@ vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnost
 vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
 
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", {desc = "Toggle undotree"})
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
@@ -141,7 +140,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
     desc = "Close with q",
-    pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame", "git"},
+    pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame", "git", "nvim-undotree"},
     callback = function(args)
         if not vim.opt.modifiable:get() or args.match == "qf" then
             vim.keymap.set("n", "q", vim.cmd.close, {buffer = args.buf, silent = true})
