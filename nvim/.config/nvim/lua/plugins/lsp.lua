@@ -127,7 +127,7 @@ vim.lsp.config("lua_ls",  {
                 checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME,
-                    vim.fn.stdpath("data") .. "/site/pack/paqs/start/nvim-lspconfig/lua/lspconfig"
+                    vim.fn.stdpath("data") .. "/site/pack/core/opt/nvim-lspconfig/lua/lspconfig"
                 }
             }
         }

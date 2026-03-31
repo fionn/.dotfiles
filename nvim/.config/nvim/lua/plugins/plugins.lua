@@ -1,63 +1,47 @@
-local function clone_paq()
-    local path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
-    local is_installed = vim.fn.empty(vim.fn.glob(path)) == 0
-    if not is_installed then
-        vim.system({
-            "git", "clone", "--depth=1",
-            "https://github.com/savq/paq-nvim.git", path
-        }):wait()
-        return true
+vim.api.nvim_create_autocmd('PackChanged', {
+    -- Adapted from https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack#hooks.
+    group = vim.api.nvim_create_augroup("build_packages", {clear = true}),
+    desc = "Build packages",
+    callback = function(ev)
+        local name, kind = ev.data.spec.name, ev.data.kind
+        if name == "nvim-treesitter" and kind == "update" then
+            if not ev.data.active then
+                vim.cmd.packadd("nvim-treesitter")
+            end
+            vim.cmd.TSUpdate()
+        end
     end
-end
+})
 
-local function bootstrap_paq(packages)
-    local first_install = clone_paq()
-    vim.cmd.packadd("paq-nvim")
-    local paq = require("paq")
-    if first_install then
-        vim.notify("Installing plugins... If prompted, hit Enter to continue.")
-    end
-    if #paq.query("to_install") < 1 then return end
-    paq(packages)
-    paq.install()
-end
-
-bootstrap_paq {
-    "savq/paq-nvim"
-}
-
--- To fix folke/which-key, which force-updates the stable tag,
--- git -C ~/.local/share/nvim/site/pack/paqs/start/which-key.nvim fetch --tags --force.
-require "paq" {
-    "savq/paq-nvim",
-    "neovim/nvim-lspconfig",
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-omni",
-    "hrsh7th/cmp-nvim-lua",
-    "nvim-lua/plenary.nvim",
-    "petertriho/cmp-git",
-    {"nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate"},
-    {"nvim-treesitter/nvim-treesitter-textobjects", branch = "main"},
-    "nvim-treesitter/nvim-treesitter-context",
-    "lewis6991/gitsigns.nvim",
-    "linrongbin16/gitlinker.nvim",
-    "fionn/git-conflict.nvim",
-    "folke/which-key.nvim",
-    "Vimjas/vim-python-pep8-indent",
-    "godlygeek/tabular",
-    "hashivim/vim-terraform",
-    "lukas-reineke/indent-blankline.nvim",
-    "rxbn/kube-schema.nvim",
-    "towolf/vim-helm",
-    "bullets-vim/bullets.vim",
-    "fionn/nvim-redact-pass",
-    "fionn/nvim-hujson",
-    "fionn/nvim-cycle-boolean",
-    "fionn/baseline"
-}
+vim.pack.add({
+    "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/hrsh7th/nvim-cmp",
+    "https://github.com/hrsh7th/cmp-nvim-lsp",
+    "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
+    "https://github.com/hrsh7th/cmp-buffer",
+    "https://github.com/hrsh7th/cmp-omni",
+    "https://github.com/hrsh7th/cmp-nvim-lua",
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/petertriho/cmp-git",
+    "https://github.com/nvim-treesitter/nvim-treesitter",
+    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+    "https://github.com/nvim-treesitter/nvim-treesitter-context",
+    "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/linrongbin16/gitlinker.nvim",
+    "https://github.com/fionn/git-conflict.nvim",
+    "https://github.com/folke/which-key.nvim",
+    "https://github.com/Vimjas/vim-python-pep8-indent",
+    "https://github.com/godlygeek/tabular",
+    "https://github.com/hashivim/vim-terraform",
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
+    "https://github.com/rxbn/kube-schema.nvim",
+    "https://github.com/towolf/vim-helm",
+    "https://github.com/bullets-vim/bullets.vim",
+    "https://github.com/fionn/nvim-redact-pass",
+    "https://github.com/fionn/nvim-hujson",
+    "https://github.com/fionn/nvim-cycle-boolean",
+    "https://github.com/fionn/baseline"
+})
 
 require("plugins/treesitter")
 require("plugins/completion")
