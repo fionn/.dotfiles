@@ -71,6 +71,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Configure document color",
+    group = vim.api.nvim_create_augroup("document_color", {clear = true}),
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client:supports_method("textDocument/documentColor") then
+            vim.lsp.document_color.enable(true, {client_id = client.id}, {style = "virtual"})
+        end
+    end,
+})
+
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
