@@ -44,7 +44,7 @@ require "paq" {
     "nvim-treesitter/nvim-treesitter-context",
     "lewis6991/gitsigns.nvim",
     "linrongbin16/gitlinker.nvim",
-    "akinsho/git-conflict.nvim",
+    "fionn/git-conflict.nvim",
     "folke/which-key.nvim",
     "Vimjas/vim-python-pep8-indent",
     "godlygeek/tabular",
