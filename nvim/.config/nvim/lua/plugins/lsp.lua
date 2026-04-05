@@ -73,6 +73,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Format on type",
+    group = vim.api.nvim_create_augroup("Format on type", {clear = true}),
+    pattern = {"*.lua"},
+    callback = function(ev)
+        local client_id = ev.data.client_id
+        local client = assert(vim.lsp.get_client_by_id(client_id))
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_onTypeFormatting) then
+            vim.lsp.on_type_formatting.enable(true, {client_id = client_id})
+        end
+    end
+})
+
+
+vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Configure document color",
     group = vim.api.nvim_create_augroup("document_color", {clear = true}),
     callback = function(args)
