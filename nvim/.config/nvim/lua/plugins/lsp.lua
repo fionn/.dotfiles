@@ -130,11 +130,12 @@ vim.lsp.config("lua_ls",  {
             hint = {enable = true},
             codeLens = {enable = false},
             format = {
+                ---@type { [string]: string }
                 defaultConfig = {
                     quote_style = "double",
                     trailing_table_separator = "never",
-                    space_around_table_field_list = false,
-                    align_function_params = true
+                    space_around_table_field_list = "false",
+                    align_function_params = "true"
                 }
             },
             runtime = {version = "LuaJIT"},
