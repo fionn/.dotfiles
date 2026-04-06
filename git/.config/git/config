@@ -74,6 +74,7 @@
 [blame]
     coloring = repeatedLines
     showEmail = true
+    ignoreRevsFile = :(optional).git-blame-ignore-revs
 [alias]
     ll = log --oneline --graph --decorate --color
     rgrep = "! f(){ git grep "$@" $(git rev-list --all); }; f"
