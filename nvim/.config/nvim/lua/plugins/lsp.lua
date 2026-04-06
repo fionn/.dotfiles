@@ -2,10 +2,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Meta-level codelens support",
     group = vim.api.nvim_create_augroup("codelens", {clear = true}),
     pattern = {"*.go", "go.mod"},
-    callback = function(args)
-        local bufnr = args.buf
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client:supports_method("textDocument/codeLens") then
+    callback = function(ev)
+        local bufnr = ev.buf
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method("textDocument/codeLens") then
             vim.lsp.codelens.enable(true, {bufnr = bufnr})
             vim.api.nvim_create_autocmd({"BufEnter", "CursorHold", "InsertLeave"}, {
                 desc = "Refresh codelenses",
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end
             })
         end
-    end,
+    end
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -54,12 +54,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Configure document color",
     group = vim.api.nvim_create_augroup("document_color", {clear = true}),
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client:supports_method("textDocument/documentColor") then
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method("textDocument/documentColor") then
             vim.lsp.document_color.enable(true, {client_id = client.id}, {style = "virtual"})
         end
-    end,
+    end
 })
 
 vim.lsp.enable("pylsp")
