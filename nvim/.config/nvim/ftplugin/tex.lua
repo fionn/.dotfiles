@@ -6,7 +6,7 @@ vim.cmd.compiler("tex")
 -- really do what I want, it expects a parameter and produces DVI output. For
 -- non-serious documents (i.e. ones without a Makefile), I generally want to
 -- compile with pdflatex and the source is the document I'm editing, so replace
--- makeprg th have :make with no arguments compile the current buffer to a PDF.
+-- makeprg to have :make with no arguments compile the current buffer to a PDF.
 if vim.split(vim.opt.makeprg:get(), " ")[1] == "latex" then
     vim.opt_local.makeprg = "pdflatex -no-shell-escape -interaction=nonstopmode %"
 end
