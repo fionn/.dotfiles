@@ -120,10 +120,15 @@ vim.lsp.config("pylsp", {
     }
 })
 
-vim.lsp.config("lua_ls",  {
+vim.lsp.config("lua_ls", {
     ---@type lspconfig.settings.lua_ls
     settings = {
         Lua = {
+            diagnostics = {
+                neededFileStatus = {
+                    ["name-style-check"] = "Opened"
+                }
+            },
             completion = {
                 keywordSnippet = "Disable"
             },
@@ -135,7 +140,27 @@ vim.lsp.config("lua_ls",  {
                     quote_style = "double",
                     trailing_table_separator = "never",
                     space_around_table_field_list = "false",
-                    align_function_params = "true"
+                    align_call_args = "false",
+                    align_function_params = "true",
+                    align_continuous_line_space = "1",
+                    align_continuous_assign_statement = "true",  -- Set to "always" to align.
+                    end_statement_with_semicolon = "same_line"
+                }
+            },
+            nameStyle = {
+                config = {
+                    local_name_style = {
+                        "snake_case",
+                        {type = "ignore", param = "M"}
+                    },
+                    function_param_name_style = {"snake_case", {type = "ignore", param = "_"}},
+                    function_name_style = "snake_case",
+                    local_function_name_style = "snake_case",
+                    table_field_name_style = {"snake_case", "camel_case", "pascal_case"},
+                    global_variable_name_style = "pascal_case",
+                    module_name_style = "pascal_case",
+                    require_module_name_style = "snake_case",
+                    class_name_style = "pascal_case"
                 }
             },
             runtime = {version = "LuaJIT"},
