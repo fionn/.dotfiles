@@ -1,24 +1,3 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-capabilities.textDocument.completion.completionItem.snippetSupport = false
-
-vim.lsp.enable("bashls")
-vim.lsp.enable("pylsp")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("gopls")
-vim.lsp.enable("golangci_lint_ls")
-vim.lsp.enable("hls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("terraformls")
-vim.lsp.enable("tflint")
-vim.lsp.enable("marksman")
-vim.lsp.enable("yamlls")
-vim.lsp.enable("texlab")
-vim.lsp.enable("helm_ls")
-vim.lsp.enable("ts_ls")
-
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Meta-level codelens support",
     group = vim.api.nvim_create_augroup("codelens", {clear = true}),
@@ -83,6 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+vim.lsp.enable("pylsp")
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
     -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
@@ -106,6 +86,7 @@ vim.lsp.config("pylsp", {
     }
 })
 
+vim.lsp.enable("lua_ls")
 vim.lsp.config("lua_ls", {
     ---@type lspconfig.settings.lua_ls
     settings = {
@@ -161,6 +142,7 @@ vim.lsp.config("lua_ls", {
     }
 })
 
+vim.lsp.enable("texlab")
 vim.lsp.config("texlab", {
     settings = {
         texlab = {
@@ -179,6 +161,7 @@ vim.lsp.config("texlab", {
     }
 })
 
+vim.lsp.enable("gopls")
 vim.lsp.config("gopls", {
     settings = {
         gopls = {
@@ -206,6 +189,7 @@ vim.lsp.config("gopls", {
     }
 })
 
+vim.lsp.enable("helm_ls")
 vim.lsp.config("helm_ls", {
     settings = {
         ["helm-ls"] = {
@@ -213,6 +197,20 @@ vim.lsp.config("helm_ls", {
         }
     }
 })
+
+vim.lsp.enable("bashls")
+vim.lsp.enable("golangci_lint_ls")
+vim.lsp.enable("hls")
+vim.lsp.enable("clangd")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("terraformls")
+vim.lsp.enable("tflint")
+vim.lsp.enable("marksman")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("ts_ls")
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 vim.lsp.config("*", {
     capabilities = capabilities
