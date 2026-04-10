@@ -5,6 +5,8 @@ window-inherit-working-directory = false
 tab-inherit-working-directory = false
 split-inherit-working-directory = false
 
+scrollback-limit = 100000000
+
 window-step-resize = true
 window-padding-balance = true
 window-height = 26
