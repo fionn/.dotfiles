@@ -4,6 +4,8 @@ vim.filetype.add {
     },
     pattern = {
         ["${HOME}/.kube/config"] = "yaml",
-        ["${XDG_STATE_HOME}/zsh/history"] = "zsh"
+        ["${XDG_STATE_HOME}/zsh/history"] = "zsh",
+        ["playbook.ya?ml"] = "yaml.ansible",
+        ["roles/[%a_]+/[%a_]+/[%a_]+.ya?ml"] = "yaml.ansible"
     }
 }

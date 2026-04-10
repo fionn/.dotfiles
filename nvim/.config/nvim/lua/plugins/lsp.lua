@@ -194,6 +194,7 @@ vim.lsp.config("helm_ls", {
     }
 })
 
+vim.lsp.enable("ansiblels")
 vim.lsp.enable("bashls")
 vim.lsp.enable("golangci_lint_ls")
 vim.lsp.enable("hls")
