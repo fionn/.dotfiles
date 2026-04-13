@@ -206,6 +206,9 @@ vim.lsp.enable("marksman")
 vim.lsp.enable("yamlls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("zizmor")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = false
