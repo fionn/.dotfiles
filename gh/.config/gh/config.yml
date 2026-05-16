@@ -1,0 +1,6 @@
+version: "1"
+git_protocol: ssh
+color_labels: enabled
+aliases:
+  co: pr checkout
+telemetry: disabled
