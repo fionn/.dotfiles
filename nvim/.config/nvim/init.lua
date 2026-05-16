@@ -239,3 +239,4 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 
 vim.cmd.inoreabbrev({"seperate", "separate"})
 vim.cmd.inoreabbrev({"desireable", "desirable"})
+vim.cmd.inoreabbrev({"Supercedes", "Supersedes"})
