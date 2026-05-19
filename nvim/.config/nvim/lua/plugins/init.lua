@@ -21,7 +21,6 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-omni",
     "https://github.com/hrsh7th/cmp-nvim-lua",
-    "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/petertriho/cmp-git",
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
