@@ -106,21 +106,21 @@ local highlights = {
 
     DiagnosticError = {fg = "DarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},
-    DiagnosticUnderlineError = {undercurl = true, sp = "NvimDarkRed"},
+    DiagnosticUnderlineError = {undercurl = true, sp = "DarkRed"},
 
     DiagnosticWarn = {fg = "DarkYellow"},
     DiagnosticVirtualTextWarn = {fg = "NvimDarkYellow", bg = "#0f0f00"},
-    DiagnosticUnderlineWarn = {undercurl = true, sp = "NvimDarkYellow"},
+    DiagnosticUnderlineWarn = {undercurl = true, sp = "DarkYellow"},
 
     DiagnosticInfo = {fg = "SteelBlue"},
     DiagnosticVirtualTextInfo = {fg = "NvimDarkBlue", bg = "#001024"},
-    DiagnosticUnderlineInfo = {undercurl = true, sp = "NvimDarkBlue"},
+    DiagnosticUnderlineInfo = {undercurl = true, sp = "SteelBlue"},
 
     DiagnosticHint = {fg = "DarkGreen"},
     DiagnosticVirtualTextHint = {fg = "NvimDarkGreen", bg = "#001a00"},
-    DiagnosticUnderlineHint = {undercurl = true, sp = "NvimDarkGreen"},
+    DiagnosticUnderlineHint = {undercurl = true, sp = "DarkGreen"},
 
-    DiagnosticUnnecessary = {},
+    DiagnosticUnnecessary = {undercurl = true},
 
     ["@branch.gitcommit"] = {link = "gitcommitBranch"},
     ["@comment.error.gitcommit"] = { link = "@none"},
