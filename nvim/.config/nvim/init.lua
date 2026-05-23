@@ -87,7 +87,7 @@ vim.api.nvim_create_user_command("X", "!%:p", {desc = "Execute current file"})
 vim.cmd.colorscheme("default_override")
 
 ---@type table<vim.diagnostic.Severity,string>
-local diagnostic_map = {
+local diagnostic_sign_map = {
     [vim.diagnostic.severity.ERROR] = "⨯",
     [vim.diagnostic.severity.WARN] = "⚠",
     [vim.diagnostic.severity.INFO] = "ℹ",
@@ -95,8 +95,27 @@ local diagnostic_map = {
 }
 
 vim.diagnostic.config {
-    signs = {text = diagnostic_map},
-    status = {format = diagnostic_map},
+    signs = {text = diagnostic_sign_map},
+    status = {
+        format = function(counts)
+            local diagnostic_hl_map = {
+                [vim.diagnostic.severity.ERROR] = "DiagnosticStatusError",
+                [vim.diagnostic.severity.WARN] = "DiagnosticStatusWarn",
+                [vim.diagnostic.severity.INFO] = "DiagnosticStatusInfo",
+                [vim.diagnostic.severity.HINT] = "DiagnosticStatusHint"
+            }
+            local items = {}
+            for severity in ipairs(vim.diagnostic.severity) do
+                local count = counts[severity]
+                if count then
+                    table.insert(items,
+                        ("%%#%s#%s:%s"):format(diagnostic_hl_map[severity],
+                                               diagnostic_sign_map[severity], count))
+                end
+            end
+            return table.concat(items, " ")
+        end
+    },
     severity_sort = true,
     update_in_insert = true,
     float = {

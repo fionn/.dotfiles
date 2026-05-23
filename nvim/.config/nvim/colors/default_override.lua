@@ -105,18 +105,22 @@ local highlights = {
     LspCodeLensSeparator = {fg = "#6a6a6a"},
 
     DiagnosticError = {fg = "DarkRed"},
+    DiagnosticStatusError = {fg = "NvimDarkRed"},
     DiagnosticVirtualTextError = {fg = "NvimDarkRed", bg = "#1a0000"},
     DiagnosticUnderlineError = {undercurl = true, sp = "DarkRed"},
 
     DiagnosticWarn = {fg = "DarkYellow"},
+    DiagnosticStatusWarn = {fg = "NvimDarkYellow"},
     DiagnosticVirtualTextWarn = {fg = "NvimDarkYellow", bg = "#0f0f00"},
     DiagnosticUnderlineWarn = {undercurl = true, sp = "DarkYellow"},
 
     DiagnosticInfo = {fg = "SteelBlue"},
+    DiagnosticStatusInfo = {fg = "NvimDarkBlue"},
     DiagnosticVirtualTextInfo = {fg = "NvimDarkBlue", bg = "#001024"},
     DiagnosticUnderlineInfo = {undercurl = true, sp = "SteelBlue"},
 
     DiagnosticHint = {fg = "DarkGreen"},
+    DiagnosticStatusHint = {fg = "NvimDarkGreen"},
     DiagnosticVirtualTextHint = {fg = "NvimDarkGreen", bg = "#001a00"},
     DiagnosticUnderlineHint = {undercurl = true, sp = "DarkGreen"},
 
