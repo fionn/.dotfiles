@@ -1,0 +1,2 @@
+((line) @comment
+  (#match? @comment "^;"))
