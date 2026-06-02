@@ -59,7 +59,7 @@ local function complete_match_or_abort(key)
     vim.api.nvim_feedkeys(key, "n", false)
 end
 
-cmp.setup {
+cmp.setup({
     enabled = function()
         if vim.api.nvim_get_mode().mode == "c" then
             return true
@@ -69,6 +69,10 @@ cmp.setup {
             and not context.in_syntax_group("Comment")
     end,
 
+    -- cmp claims that cmp.PreselectMode.None's type is an enum for string
+    -- "None", but is actually an enum for "none" (lowercase), causing a type
+    -- error.
+    ---@diagnostic disable-next-line: assign-type-mismatch
     preselect = cmp.PreselectMode.None,
 
     completion = {autocomplete = false},
@@ -81,10 +85,9 @@ cmp.setup {
             }
             vim_item.abbr = truncate(vim_item.abbr, 30)
             vim_item.menu = sources[entry.source.name] or entry.source.name
-            vim_item.info = truncate(vim_item.info, 30)
             vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
 
-            vim_item.dup = 0
+            vim_item.dup = nil
 
             return vim_item
         end
@@ -155,7 +158,8 @@ cmp.setup {
         comparators = {
             cmp.config.compare.exact,
             cmp.config.compare.sort_text
-        }
+        },
+        priority_weight = 2
     },
 
     matching = {
@@ -163,7 +167,8 @@ cmp.setup {
         disallow_fullfuzzy_matching = true,
         disallow_partial_fuzzy_matching = true,
         disallow_partial_matching = true,
-        disallow_prefix_unmatching = true
+        disallow_prefix_unmatching = true,
+        disallow_symbol_nonprefix_matching = true
     },
 
     sources = cmp.config.sources {
@@ -171,9 +176,10 @@ cmp.setup {
         {name = "nvim_lsp_signature_help"},
         {name = "omni"}
     }
-}
+} --[[@as cmp.ConfigSchema]])
 
 cmp.setup.filetype("lua", {
+    ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
         {name = "nvim_lsp"},
         {name = "nvim_lsp_signature_help"},
@@ -182,6 +188,7 @@ cmp.setup.filetype("lua", {
 })
 
 cmp.setup.filetype("haskell", {
+    ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
         {name = "nvim_lsp"},
         {name = "nvim_lsp_signature_help"},
@@ -191,6 +198,7 @@ cmp.setup.filetype("haskell", {
 })
 
 cmp.setup.filetype("gitcommit", {
+    ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
         {name = "git"},
         {name = "buffer", keyword_length = 2}
@@ -202,6 +210,7 @@ cmp.setup.filetype("gitcommit", {
 local buffer_fts = {"text", "tex", "markdown", "mail", "dot", "yaml"}
 for _, filetype in ipairs(buffer_fts) do
     cmp.setup.filetype(filetype, {
+        ---@type cmp.SourceConfig[]
         sources = cmp.config.sources {
             {name = "nvim_lsp"},
             {name = "omni"},
