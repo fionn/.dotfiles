@@ -127,6 +127,9 @@ vim.api.nvim_create_autocmd("FileType", {
             return
         end
 
-        pcall(vim.treesitter.start, event.buf, language)
+        local status, err = pcall(vim.treesitter.start, event.buf, language)
+        if not status and err then
+            vim.notify(err, vim.log.levels.WARN)
+        end
     end
 })
