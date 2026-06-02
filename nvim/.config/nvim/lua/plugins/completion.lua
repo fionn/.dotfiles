@@ -65,8 +65,8 @@ cmp.setup({
             return true
         end
         -- Disable completion in comments.
-        return not context.in_treesitter_capture("comment")
-            and not context.in_syntax_group("Comment")
+        return not (context.in_treesitter_capture("comment")
+            or context.in_syntax_group("Comment"))
     end,
 
     -- cmp claims that cmp.PreselectMode.None's type is an enum for string
