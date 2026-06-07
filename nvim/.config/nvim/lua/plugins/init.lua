@@ -157,6 +157,7 @@ vim.api.nvim_create_autocmd("FileType", {
 local wk = require("which-key")
 wk.setup {
     preset = "helix",
+    ---@type fun(ctx: {keys: string, mode: string, plugin?: string}): number
     delay = function(ctx)
         return ctx.plugin and 0 or 600
     end,
