@@ -118,8 +118,6 @@ gitsigns.setup {
     end
 }
 
-require("gitlinker").setup {}
-
 require("git-conflict").setup {
     disable_diagnostics = true
 }
