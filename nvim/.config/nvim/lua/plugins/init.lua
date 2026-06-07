@@ -78,12 +78,16 @@ gitsigns.setup {
     },
     gh = true,
 
+    ---@type fun(bufnr: integer)
     on_attach = function(bufnr)
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
+        ---@param modes string|string[]
+        ---@param l string
+        ---@param r string|function
+        ---@param opts vim.keymap.set.Opts
+        local function map(modes, l, r, opts)
+            opts.buf = bufnr
             opts.unique = true
-            vim.keymap.set(mode, l, r, opts)
+            vim.keymap.set(modes, l, r, opts)
         end
 
         map("n", "]c", function()
