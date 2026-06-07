@@ -149,8 +149,8 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Enable indent guides",
     pattern = {"yaml", "yaml.*"},
     group = vim.api.nvim_create_augroup("ibl", {clear = true}),
-    callback = function()
-        ibl.setup_buffer(0, {enabled = true})
+    callback = function(ev)
+        ibl.setup_buffer(ev.buf, {enabled = true})
     end
 })
 
