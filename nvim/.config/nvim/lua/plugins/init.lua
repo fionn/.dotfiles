@@ -172,8 +172,6 @@ wk.add({
     {"gr", group = "lsp"},
     {"<leader>", group = "leader", mode = {"n", "v"}},
     {"<leader>l", group = "diagnostics"},
-    {"<leader>lp", group = "peek", mode = {"n", "v"}},
-    {"<leader>v", group = "incremental selection", mode = "v"},
     {"<leader>s", group = "swap"},
     {"<leader>t", group = "tabularise"},
     {"<leader>b", group = "git blame"},
