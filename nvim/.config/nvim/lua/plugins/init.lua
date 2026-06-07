@@ -110,7 +110,9 @@ gitsigns.setup {
         map("n", "<leader>hr", gitsigns.reset_hunk, {desc = "Reset"})
         map("n", "<leader>hu", gitsigns.undo_stage_hunk, {desc = "Unstage"})
         map("n", "<leader>hp", gitsigns.preview_hunk, {desc = "Preview"})
+        map("n", "<leader>hi", gitsigns.preview_hunk_inline, {desc = "Preview inline"})
         map("n", "<leader>hd", gitsigns.diffthis, {desc = "Diff"})
+        map("n", "<leader>hq", gitsigns.setqflist, {desc = "Populate quickfix list"})
 
         map("n", "<leader>bl", gitsigns.toggle_current_line_blame, {desc = "Toggle blame lines"})
         map("n", "<leader>bf", gitsigns.blame_line, {desc = "Blame in floating window"})
