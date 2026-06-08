@@ -173,10 +173,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
-vim.api.nvim_create_augroup("init", {clear = true})
+local init_augroup = vim.api.nvim_create_augroup("init", {clear = true})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = "init",
+    group = init_augroup,
     desc = "Highlight on yank",
     callback = function()
         vim.hl.on_yank({higroup = "Visual"})
@@ -184,7 +184,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
-    group = "init",
+    group = init_augroup,
     desc = "Hide virtual text on insert",
     callback = function()
         vim.diagnostic.config({virtual_text = false})
@@ -193,7 +193,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 })
 
 vim.api.nvim_create_autocmd({"BufWrite", "InsertLeave"}, {
-    group = "init",
+    group = init_augroup,
     desc = "Show virtual text in normal mode and on save",
     callback = function()
         vim.diagnostic.config({virtual_text = true})
@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd({"BufWrite", "InsertLeave"}, {
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
-    group = "init",
+    group = init_augroup,
     desc = "Clear jumplist",
     callback = function()
         vim.cmd.clearjumps()
@@ -209,7 +209,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("WinEnter", {
-    group = "init",
+    group = init_augroup,
     desc = "Close unwritable buffers on quit",
     callback = function()
         if vim.list_contains({"quickfix", "nofile", "nowrite"}, vim.bo.buftype) and vim.fn.winnr("$") == 1 then
@@ -219,7 +219,7 @@ vim.api.nvim_create_autocmd("WinEnter", {
 })
 
 vim.api.nvim_create_autocmd("WinScrolled", {
-    group = "init",
+    group = init_augroup,
     desc = "Force mouse events to respect scrollbinding",
     -- Translated from https://github.com/vim/vim/issues/15447#issuecomment-2274438813.
     callback = function()
