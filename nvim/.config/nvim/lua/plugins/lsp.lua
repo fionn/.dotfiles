@@ -1,3 +1,18 @@
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Meta-level format on save",
+    pattern = {"go", "gomod", "terraform", "rust"},
+    group = vim.api.nvim_create_augroup("format_on_save", {clear = true}),
+    callback = function()
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Format on save",
+            group = "format_on_save",
+            callback = function()
+                vim.lsp.buf.format({async = false})
+            end
+        })
+    end
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Meta-level codelens support",
     group = vim.api.nvim_create_augroup("codelens", {clear = true}),
