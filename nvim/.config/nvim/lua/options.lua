@@ -83,10 +83,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 24
 vim.g.netrw_special_syntax = true
-vim.g.netrw_list_hide = {
-    ".*\\.swp$", ".*\\.aux$", ".*\\.toc$", "__pycache__/$",
-    ".mypy_cache/$", "venv/$", ".git/$"
-}
+vim.g.netrw_list_hide = table.concat(
+    {".*\\.swp$", ".*\\.aux$", ".*\\.toc$", "__pycache__/$", "\\.mypy_cache/$",
+     "venv/$", "\\.git/$"}, ",")
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
