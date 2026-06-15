@@ -95,6 +95,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Fold via LSP",
+    group = vim.api.nvim_create_augroup("lsp_fold", {clear = true}),
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_foldingRange) then
+            vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
+        end
+    end
+})
+
 vim.lsp.enable("pylsp")
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
