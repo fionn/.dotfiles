@@ -40,7 +40,7 @@ export SYSTEMD_EDITOR="$EDITOR"
 export HISTSIZE=40000
 export HISTFILESIZE=40000
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="&:[ ]*:exit:[bf]g:history *:jrnl *"
+export HISTIGNORE="&:[ ]*:exit:[bf]g:history *"
 export HISTTIMEFORMAT="%F %T "
 
 export PATH=$PATH:$HOME/bin
