@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local bufnr = ev.buf
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method("textDocument/codeLens") then
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
             vim.lsp.codelens.enable(true, {bufnr = bufnr})
             vim.api.nvim_create_autocmd({"BufEnter", "InsertLeave"}, {
                 desc = "Enable codelenses",
@@ -89,7 +89,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("document_color", {clear = true}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method("textDocument/documentColor") then
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
             vim.lsp.document_color.enable(true, {client_id = client.id}, {style = "virtual"})
         end
     end
