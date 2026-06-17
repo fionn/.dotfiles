@@ -1,126 +1,126 @@
 [user]
-    name = Fionn Fitzmaurice
-    email = fionn@github.com
-    signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
+	name = Fionn Fitzmaurice
+	email = fionn@github.com
+	signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
 [include]
-    path = work.gitconfig
+	path = work.gitconfig
 [core]
-    pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
-    whitespace = tabwidth=4,incomplete-line
-    commentChar = ";"
+	pager = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
+	whitespace = tabwidth=4,incomplete-line
+	commentChar = ";"
 [interactive]
-    diffFilter = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
+	diffFilter = diffr --colors refine-added:background:0x03,0x3a,0x16:foreground:10:nobold --colors refine-removed:background:52:foreground:9:nobold | less -U --proc-tab -x1,5 --mouse
 [diff]
-    algorithm = histogram
-    colorMoved = zebra
-    mnemonicPrefix = true
-    renames = copies
+	algorithm = histogram
+	colorMoved = zebra
+	mnemonicPrefix = true
+	renames = copies
 [color "diff"]
-    whitespace = dim green ul
-    meta = cyan dim italic
-    func = dim bold ul
+	whitespace = dim green ul
+	meta = cyan dim italic
+	func = dim bold ul
 [color "status"]
-    changed = yellow
-    untracked = dim brightyellow
+	changed = yellow
+	untracked = dim brightyellow
 [color "diff-highlight"]
-    oldNormal = red
-    oldHighlight = red 52
-    newNormal = green
-    newHighlight = green 22
+	oldNormal = red
+	oldHighlight = red 52
+	newNormal = green
+	newHighlight = green 22
 [color "branch"]
-    current = bold
+	current = bold
 [color "advice"]
-    hint = dim
+	hint = dim
 [commit]
-    verbose = true
+	verbose = true
 [apply]
-    whitespace = error-all
+	whitespace = error-all
 [init]
-    defaultBranch = master
+	defaultBranch = master
 [push]
-    useForceIfIncludes = true
+	useForceIfIncludes = true
 [fetch]
-    prune = true
-    pruneTags = true
+	prune = true
+	pruneTags = true
 [pull]
-    ff = only
+	ff = only
 [rebase]
-    stat = true
-    autoSquash = true
-    abbreviateCommands = true
-    updateRefs = true
-    missingCommitsCheck = warn
+	stat = true
+	autoSquash = true
+	abbreviateCommands = true
+	updateRefs = true
+	missingCommitsCheck = warn
 [merge]
-    conflictStyle = diff3
-    tool = nvimdiff
+	conflictStyle = diff3
+	tool = nvimdiff
 [merge "mergiraf"]
-    name = mergiraf
-    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 [mergetool]
-    hideResolved = true
-    keepBackup = false
+	hideResolved = true
+	keepBackup = false
 [branch]
-    sort = -committerdate
+	sort = -committerdate
 [tag]
-    sort = -version:refname
+	sort = -version:refname
 [gpg]
-    minTrustLevel = fully
+	minTrustLevel = fully
 [gpg "ssh"]
-    allowedSignersFile = ~/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
 [grep]
-    lineNumber = true
+	lineNumber = true
 [transfer]
-    fsckObjects = true
-    credentialsInUrl = die
+	fsckObjects = true
+	credentialsInUrl = die
 [blame]
-    coloring = repeatedLines
-    showEmail = true
-    ignoreRevsFile = :(optional).git-blame-ignore-revs
-    markUnblamableLines = true
-    markIgnoredLines = true
+	coloring = repeatedLines
+	showEmail = true
+	ignoreRevsFile = :(optional).git-blame-ignore-revs
+	markUnblamableLines = true
+	markIgnoredLines = true
 [alias]
-    ll = log --oneline --graph --decorate --color
-    rgrep = "! f(){ git grep "$@" $(git rev-list --all); }; f"
-    rrgrep = ! git rev-list --all | xargs git grep
-    find-replace = "! git grep -l \"$1\" | xargs sed -i \"\" -e \"s/$1/$2/g\" #"
-    reset-file = checkout @ --
-    amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
-                   && git commit --amend --date="$GIT_COMMITTER_DATE"
-    rebase-hard = rebase --committer-date-is-author-date
-    force-pull = ! git fetch && git reset --hard @{upstream}
-    diff-path = ! git diff $2:$1 $1 && :
-    authors = "! git shortlog -se | awk '{$1=\"\"; print $0}'  | sed \"s/^ //g\""
-    user = "! echo $(git config get user.name) \"<$(git config get user.email)>\""
+	ll = log --oneline --graph --decorate --color
+	rgrep = "! f(){ git grep "$@" $(git rev-list --all); }; f"
+	rrgrep = ! git rev-list --all | xargs git grep
+	find-replace = "! git grep -l \"$1\" | xargs sed -i \"\" -e \"s/$1/$2/g\" #"
+	reset-file = checkout @ --
+	amend-hard = ! export GIT_COMMITTER_DATE="$(git log -1 --date=unix --format=%ad)" \
+		&& git commit --amend --date="$GIT_COMMITTER_DATE"
+	rebase-hard = rebase --committer-date-is-author-date
+	force-pull = ! git fetch && git reset --hard @{upstream}
+	diff-path = ! git diff $2:$1 $1 && :
+	authors = "! git shortlog -se | awk '{$1=\"\"; print $0}'  | sed \"s/^ //g\""
+	user = "! echo $(git config get user.name) \"<$(git config get user.email)>\""
 [url "https://aur.archlinux.org/"]
-    insteadOf = aur:
+	insteadOf = aur:
 [advice]
-    detachedHead = false
+	detachedHead = false
 [filter "lfs"]
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [filter "spacify"]
-    clean = expand --tabs=4 --initial
+	clean = expand --tabs=4 --initial
 [filter "tabify"]
-    clean = unexpand --tabs=4 --first-only
+	clean = unexpand --tabs=4 --first-only
 [trailer]
-    ifexists = addIfDifferent
+	ifexists = addIfDifferent
 [trailer "coauthor"]
-    key = "Co-authored-by"
-    cmd = test -n "$1" && git log --author="$1" --pretty='%an <%ae>' -1 || true
+	key = "Co-authored-by"
+	cmd = test -n "$1" && git log --author="$1" --pretty='%an <%ae>' -1 || true
 [trailer "for"]
-    key = "On-behalf-of"
+	key = "On-behalf-of"
 [trailer "closes"]
-    key = "Closes"
+	key = "Closes"
 [trailer "counterpart"]
-    key = "Counterpart-to"
+	key = "Counterpart-to"
 [trailer "followup"]
-    key = "Follow-up-to"
+	key = "Follow-up-to"
 [trailer "fixes"]
-    key = "Fixes"
+	key = "Fixes"
 [trailer "fixup"]
-    key = "Fixup-for"
+	key = "Fixup-for"
 [trailer "skip-checks"]
-    key = "skip-checks"
-    cmd = echo true
+	key = "skip-checks"
+	cmd = echo true
