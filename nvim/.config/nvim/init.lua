@@ -123,7 +123,7 @@ vim.diagnostic.config {
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("generic_fixers", {clear = true}),
+    group = vim.api.nvim_create_augroup("generic_fixers", {}),
     desc = "Remove trailing whitespace and blank lines",
     callback = function()
         local leave_whitespace_fts = {"diff", "mail", "gitcommit"}
@@ -139,7 +139,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
-    group = vim.api.nvim_create_augroup("terminal", {clear = true}),
+    group = vim.api.nvim_create_augroup("terminal", {}),
     desc = "Make the terminal more like a terminal",
     callback = function()
         vim.cmd.startinsert()
@@ -147,7 +147,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("quick_close", {clear = true}),
+    group = vim.api.nvim_create_augroup("quick_close", {}),
     desc = "Close with q",
     pattern = {"help", "checkhealth", "qf", "netrw", "gitsigns-blame", "git", "nvim-undotree"},
     callback = function(args)
@@ -157,7 +157,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
-local init_augroup = vim.api.nvim_create_augroup("init", {clear = true})
+local init_augroup = vim.api.nvim_create_augroup("init", {})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = init_augroup,

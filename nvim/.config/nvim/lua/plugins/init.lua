@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd('PackChanged', {
     -- Adapted from https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack#hooks.
-    group = vim.api.nvim_create_augroup("build_packages", {clear = true}),
+    group = vim.api.nvim_create_augroup("build_packages", {}),
     desc = "Build packages",
     callback = function(ev)
         local name, kind = ev.data.spec.name, ev.data.kind
@@ -151,7 +151,7 @@ ibl.setup {
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Enable indent guides",
     pattern = {"yaml", "yaml.*"},
-    group = vim.api.nvim_create_augroup("ibl", {clear = true}),
+    group = vim.api.nvim_create_augroup("ibl", {}),
     callback = function(ev)
         ibl.setup_buffer(ev.buf, {enabled = true})
     end

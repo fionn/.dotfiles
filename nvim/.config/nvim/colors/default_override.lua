@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd({"UIEnter", "ColorScheme"}, {
     -- Adapted from
     -- https://github.com/neovim/neovim/issues/16572#issuecomment-1954420136
     -- to let the background fill to the edges of an OSC-11-supporting terminal.
-    group = vim.api.nvim_create_augroup("osc11", {clear = true}),
+    group = vim.api.nvim_create_augroup("osc11", {}),
     desc = "Extend background to terminal",
     callback = function()
         local normal = vim.api.nvim_get_hl(0, {name = "Normal"})

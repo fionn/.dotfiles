@@ -106,7 +106,7 @@ vim.keymap.set({"n", "x", "o"}, "]z", move.next_start("@fold", "folds"), {desc =
 
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Start Treesitter",
-    group = vim.api.nvim_create_augroup("TreeSitter", {clear = true}),
+    group = vim.api.nvim_create_augroup("TreeSitter", {}),
     callback = function(event)
         local ts = require("nvim-treesitter")
         local language = vim.treesitter.language.get_lang(event.match)

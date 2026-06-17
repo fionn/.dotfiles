@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Meta-level format on save",
     pattern = {"go", "gomod", "terraform", "rust"},
-    group = vim.api.nvim_create_augroup("format_on_save", {clear = true}),
+    group = vim.api.nvim_create_augroup("format_on_save", {}),
     callback = function()
         vim.api.nvim_create_autocmd("BufWritePre", {
             desc = "Format on save",
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
-    group = vim.api.nvim_create_augroup("inlay_hints", {clear = true}),
+    group = vim.api.nvim_create_augroup("inlay_hints", {}),
     desc = "Disable inlay hints",
     callback = function()
         if vim.lsp.inlay_hint.is_enabled() then
@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Meta-level codelens support",
-    group = vim.api.nvim_create_augroup("codelens", {clear = true}),
+    group = vim.api.nvim_create_augroup("codelens", {}),
     pattern = {"*.go", "go.mod"},
     callback = function(ev)
         local bufnr = ev.buf
@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Highlight source and references on hover",
-    group = vim.api.nvim_create_augroup("highlight_on_hover", {clear = true}),
+    group = vim.api.nvim_create_augroup("highlight_on_hover", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
@@ -86,7 +86,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Configure document color",
-    group = vim.api.nvim_create_augroup("document_color", {clear = true}),
+    group = vim.api.nvim_create_augroup("document_color", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Fold via LSP",
-    group = vim.api.nvim_create_augroup("lsp_fold", {clear = true}),
+    group = vim.api.nvim_create_augroup("lsp_fold", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_foldingRange) then

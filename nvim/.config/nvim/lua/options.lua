@@ -99,7 +99,7 @@ vim.g.python_indent = {
     closed_paren_align_last_line = false
 }
 
-vim.api.nvim_create_augroup("options", {clear = true})
+vim.api.nvim_create_augroup("options", {})
 
 vim.api.nvim_create_autocmd("FileType", {
     group = "options",
