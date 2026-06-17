@@ -106,6 +106,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Workaround for hashicorp/terraform-ls#2039",
+    group = vim.api.nvim_create_augroup("terraformls", {}),
+    pattern = {"*.tf", "*.tfvars"},
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client.name ~= "terraformls" then
+            return
+        end
+
+        local root_dir = client.config.root_dir
+        if not root_dir then
+            return
+        end
+
+        if vim.fs.dirname(ev.file) ~= root_dir then
+            vim.schedule(function()
+                local root_level_file = vim.fn.glob(vim.fs.joinpath(root_dir, "*.tf"), true, true)[1]
+                if root_level_file then
+                    vim.fn.bufload(vim.fn.bufadd(root_level_file))
+                end
+            end)
+        end
+    end
+})
+
 vim.lsp.enable("pylsp")
 vim.lsp.config("pylsp", {
     -- TODO: configure this.
