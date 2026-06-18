@@ -222,6 +222,15 @@ vim.api.nvim_create_autocmd("WinScrolled", {
     end
 })
 
+-- https://github.com/hashivim/vim-terraform/pull/182
+vim.api.nvim_create_autocmd("BufEnter", {
+    desc = "Set terraform-vars filetype",
+    pattern = {"*.tfvars"},
+    callback = function()
+        vim.opt_local.filetype = "terraform-vars"
+    end
+})
+
 vim.cmd.inoreabbrev({"seperate", "separate"})
 vim.cmd.inoreabbrev({"desireable", "desirable"})
 vim.cmd.inoreabbrev({"Supercedes", "Supersedes"})
