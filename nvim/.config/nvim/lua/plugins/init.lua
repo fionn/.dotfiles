@@ -30,8 +30,6 @@ vim.pack.add({
     "https://github.com/fionn/git-conflict.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/Vimjas/vim-python-pep8-indent",
-    "https://github.com/godlygeek/tabular",
-    "https://github.com/hashivim/vim-terraform",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/rxbn/kube-schema.nvim",
     "https://github.com/towolf/vim-helm",
@@ -175,10 +173,6 @@ wk.add({
     {"<leader>", group = "leader", mode = {"n", "v"}},
     {"<leader>l", group = "diagnostics"},
     {"<leader>s", group = "swap"},
-    {"<leader>t", group = "tabularise"},
     {"<leader>b", group = "git blame"},
     {"<leader>h", group = "git hunk"}
 })
-
-vim.g.terraform_align = 1
-vim.g.hcl_align = 1
