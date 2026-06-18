@@ -39,6 +39,7 @@ vim.pack.add({
     "https://github.com/fionn/nvim-redact-pass",
     "https://github.com/fionn/nvim-hujson",
     "https://github.com/fionn/nvim-packer",
+    "https://github.com/fionn/nvim-gitrevlist",
     "https://github.com/fionn/nvim-cycle-boolean",
     "https://github.com/fionn/vim-syntax-ssh",
     "https://github.com/fionn/baseline"
