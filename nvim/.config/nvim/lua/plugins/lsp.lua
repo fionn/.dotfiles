@@ -117,18 +117,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         local root_dir = client.config.root_dir
-        if not root_dir then
+        if not root_dir or vim.fs.dirname(ev.file) == root_dir then
             return
         end
 
-        if vim.fs.dirname(ev.file) ~= root_dir then
-            vim.schedule(function()
-                local root_level_file = vim.fn.glob(vim.fs.joinpath(root_dir, "*.tf"), true, true)[1]
-                if root_level_file then
-                    vim.fn.bufload(vim.fn.bufadd(root_level_file))
-                end
-            end)
-        end
+        vim.schedule(function()
+            local root_level_file = vim.fn.glob(vim.fs.joinpath(root_dir, "*.tf"), true, true)[1]
+            if root_level_file then
+                vim.fn.bufload(vim.fn.bufadd(root_level_file))
+            end
+        end)
     end
 })
 
