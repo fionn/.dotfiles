@@ -268,7 +268,12 @@ vim.lsp.config("helm_ls", {
 
 vim.lsp.enable("terraformls")
 vim.lsp.config("terraformls", {
-    cmd = {"terraform-ls", "serve", "-log-file=/tmp/terraform-ls-{{timestamp}}.log"}
+    cmd = {"terraform-ls", "serve", "-log-file=/tmp/terraform-ls-{{timestamp}}.log"},
+    capabilities = {
+        experimental = {
+            showReferencesCommandId = false
+        }
+    }
 })
 
 vim.lsp.enable("ansiblels")
