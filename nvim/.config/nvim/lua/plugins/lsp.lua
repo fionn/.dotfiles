@@ -266,13 +266,17 @@ vim.lsp.config("helm_ls", {
     }
 })
 
+vim.lsp.enable("terraformls")
+vim.lsp.config("terraformls", {
+    cmd = {"terraform-ls", "serve", "-log-file=/tmp/terraform-ls-{{timestamp}}.log"}
+})
+
 vim.lsp.enable("ansiblels")
 vim.lsp.enable("bashls")
 vim.lsp.enable("golangci_lint_ls")
 vim.lsp.enable("hls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("terraformls")
 vim.lsp.enable("tflint")
 vim.lsp.enable("marksman")
 vim.lsp.enable("yamlls")
