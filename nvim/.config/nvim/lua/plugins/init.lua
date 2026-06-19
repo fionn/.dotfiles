@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd('PackChanged', {
+vim.api.nvim_create_autocmd("PackChanged", {
     -- Adapted from https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack#hooks.
     group = vim.api.nvim_create_augroup("build_packages", {}),
     desc = "Build packages",
