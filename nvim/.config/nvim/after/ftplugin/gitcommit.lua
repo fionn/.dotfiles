@@ -1,4 +1,5 @@
 vim.opt_local.commentstring = "; %s"
+vim.opt_local.comments = "b:;"
 vim.opt_local.tabstop = 4
 vim.opt_local.formatoptions = {
     ["1"] = true, -- break before single character words
