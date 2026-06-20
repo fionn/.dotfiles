@@ -158,7 +158,8 @@ cmp.setup({
     sorting = {
         comparators = {
             cmp.config.compare.exact,
-            cmp.config.compare.sort_text
+            cmp.config.compare.sort_text,
+            cmp.config.compare.score
         },
         priority_weight = 2
     },
