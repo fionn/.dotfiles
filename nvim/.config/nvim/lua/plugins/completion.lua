@@ -81,7 +81,6 @@ cmp.setup({
         format = function(entry, vim_item)
             local sources = {
                 nvim_lsp = "lsp",
-                nvim_lua = "nvim",
                 nvim_lsp_signature_help = "lsp-sig"
             }
             vim_item.abbr = truncate(vim_item.abbr, 30)
@@ -185,7 +184,6 @@ cmp.setup.filetype("lua", {
     sources = cmp.config.sources {
         {name = "nvim_lsp"},
         {name = "nvim_lsp_signature_help"},
-        {name = "nvim_lua"}
     }
 })
 

@@ -23,7 +23,6 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-omni",
-    "https://github.com/hrsh7th/cmp-nvim-lua",
     "https://github.com/petertriho/cmp-git",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/linrongbin16/gitlinker.nvim",
