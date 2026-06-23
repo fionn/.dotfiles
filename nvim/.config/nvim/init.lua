@@ -80,7 +80,7 @@ vim.api.nvim_create_user_command("PackUpdate", function(_) vim.pack.update() end
 
 vim.cmd.colorscheme("default_override")
 
----@type table<vim.diagnostic.Severity,string>
+---@type { [vim.diagnostic.Severity]: string }
 local diagnostic_sign_map = {
     [vim.diagnostic.severity.ERROR] = "⨯",
     [vim.diagnostic.severity.WARN] = "⚠",
@@ -92,12 +92,14 @@ vim.diagnostic.config {
     signs = {text = diagnostic_sign_map},
     status = {
         format = function(counts)
+            ---@type { [vim.diagnostic.Severity]: string }
             local diagnostic_hl_map = {
                 [vim.diagnostic.severity.ERROR] = "DiagnosticStatusError",
                 [vim.diagnostic.severity.WARN] = "DiagnosticStatusWarn",
                 [vim.diagnostic.severity.INFO] = "DiagnosticStatusInfo",
                 [vim.diagnostic.severity.HINT] = "DiagnosticStatusHint"
             }
+            ---@type string[]
             local items = {}
             for severity in ipairs(vim.diagnostic.severity) do
                 local count = counts[severity]
