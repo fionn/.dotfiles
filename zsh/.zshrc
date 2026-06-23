@@ -79,18 +79,19 @@ bindkey -M viins "^?" backward-delete-char
 
 bindkey "^X^E" edit-command-line
 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export HISTSIZE=40000
 export SAVEHIST=30000
 export HISTORY_IGNORE="(exit|[bf]g|history *)"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export MANPAGER="nvim +Man!"
-export GOPATH="$XDG_DATA_HOME/go"
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export MANPAGER="nvim +Man!"
+export GOPATH="$XDG_DATA_HOME/go"
 
 [[ -d "$XDG_STATE_HOME/python" ]] || mkdir -p "$XDG_STATE_HOME/python"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
