@@ -78,8 +78,6 @@ vim.api.nvim_create_user_command("Wq", "wq", {})
 
 vim.api.nvim_create_user_command("PackUpdate", function(_) vim.pack.update() end, {desc = "Update plugins"})
 
-vim.api.nvim_create_user_command("X", "!%:p", {desc = "Execute current file"})
-
 vim.cmd.colorscheme("default_override")
 
 ---@type table<vim.diagnostic.Severity,string>
