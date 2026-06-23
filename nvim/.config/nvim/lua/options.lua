@@ -124,15 +124,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    group = "options",
-    desc = "Comment C and C++ files with //",
-	pattern = {"c", "cpp"},
-	callback = function()
-		vim.opt_local.commentstring = "// %s"
-	end,
-})
-
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
