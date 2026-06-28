@@ -105,8 +105,16 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert {
         ["<Esc>"] = cmp.mapping.close(),
         ["<BS>"] = cmp.mapping(function(fallback)
-            if cmp.visible() and not has_words_before() then
-                cmp.close()
+            if cmp.visible() then
+                if not has_words_before() then
+                    cmp.close()
+                else
+                    -- The menu must be refreshed, since previous completions
+                    -- were restricted to the prefix, which is now one character
+                    -- shorter. cmp.ContextReason.Manual causes context.changed
+                    -- to return true, regenerating the completion list.
+                    cmp.complete({reason = cmp.ContextReason.Manual})
+                end
             end
             fallback()
         end, {"i", "s"}),
