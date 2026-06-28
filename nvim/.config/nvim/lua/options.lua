@@ -127,10 +127,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("BufEnter", {
     group = "options",
-    desc = "Show tabs when the filetype expects them expanded",
+    desc = "Show unexpected tabs or spaces",
     callback = function()
         if vim.bo.expandtab then
             vim.opt_local.listchars:append({tab = "␉—⇥"})
+        else
+            vim.opt_local.listchars:append({lead = "·"})
         end
     end
 })
