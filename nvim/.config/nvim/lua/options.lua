@@ -45,8 +45,7 @@ vim.opt.listchars = {tab = "  ", trail = "·", extends = "▸", nbsp = "␣"}
 vim.opt.signcolumn = "yes"
 
 vim.opt.foldenable = false
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "indent"
 vim.opt.foldtext = ""
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
