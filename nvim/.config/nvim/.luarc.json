@@ -6,7 +6,8 @@
         "library": [
             "$VIMRUNTIME",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua/lspconfig",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-cmp/lua/cmp"
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-cmp/lua/cmp",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter-textobjects/lua/nvim-treesitter-textobjects"
         ]
     }
 }
