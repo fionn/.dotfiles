@@ -29,8 +29,6 @@ local kind_icons = {
     TypeParameter = "𝑻"
 }
 
-local termcode_cr = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
-
 local function has_words_before()
     -- Adapted from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -48,15 +46,12 @@ local function truncate(text, max_length)
     return text
 end
 
----@param key string
-local function complete_match_or_abort(key)
-    -- Undocumented API!
+local function complete_match_or_abort()
     if cmp.get_selected_entry() or cmp.get_entries()[1].exact then
         cmp.confirm({select = true})
     else
         cmp.abort()
     end
-    vim.api.nvim_feedkeys(key, "n", false)
 end
 
 cmp.setup({
@@ -118,18 +113,16 @@ cmp.setup({
             end
             fallback()
         end, {"i", "s"}),
-        ["("] = cmp.mapping(function(fallback)
+        ["("] = cmp.mapping(function(_)
             if cmp.visible() then
-                complete_match_or_abort("(")
-            else
-                fallback()
+                complete_match_or_abort()
             end
+            vim.api.nvim_feedkeys("(", "n", false)
         end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and has_words_before() then
-                complete_match_or_abort(termcode_cr)
+                complete_match_or_abort()
             else
-                cmp.abort()
                 fallback()
             end
         end, {"i", "s"}),
