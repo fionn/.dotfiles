@@ -46,11 +46,11 @@ local function truncate(text, max_length)
     return text
 end
 
-local function complete_match_or_abort()
+-- Complete by inserting the selected entry, if there is one. Else, complete if
+-- the text is an exact match against the top entry. Otherwise, do nothing.
+local function complete_exact_match()
     if cmp.get_selected_entry() or cmp.get_entries()[1].exact then
         cmp.confirm({select = true})
-    else
-        cmp.abort()
     end
 end
 
@@ -115,19 +115,19 @@ cmp.setup({
         end, {"i", "s"}),
         ["("] = cmp.mapping(function(_)
             if cmp.visible() then
-                complete_match_or_abort()
+                complete_exact_match()
             end
             vim.api.nvim_feedkeys("(", "n", false)
         end, {"i", "s"}),
         ["."] = cmp.mapping(function(_)
             if cmp.visible() then
-                complete_match_or_abort()
+                complete_exact_match()
             end
             vim.api.nvim_feedkeys(".", "n", false)
         end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and has_words_before() then
-                complete_match_or_abort()
+                complete_exact_match()
             else
                 fallback()
             end
