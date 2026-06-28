@@ -123,6 +123,16 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = "options",
+    desc = "Show tabs when the filetype expects them expanded",
+    callback = function()
+        if vim.bo.expandtab then
+            vim.opt_local.listchars:append({tab = "␉—⇥"})
+        end
+    end
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
