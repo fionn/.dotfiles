@@ -119,6 +119,12 @@ cmp.setup({
             end
             vim.api.nvim_feedkeys("(", "n", false)
         end, {"i", "s"}),
+        ["."] = cmp.mapping(function(_)
+            if cmp.visible() then
+                complete_match_or_abort()
+            end
+            vim.api.nvim_feedkeys(".", "n", false)
+        end, {"i", "s"}),
         ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() and has_words_before() then
                 complete_match_or_abort()
