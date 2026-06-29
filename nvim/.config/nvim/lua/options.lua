@@ -129,6 +129,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
     group = "options",
     desc = "Show unexpected tabs or spaces",
     callback = function()
+        local ignore_fts = {"gitcommit", "diff"}
+        if not vim.bo.modifiable or vim.tbl_contains(ignore_fts, vim.bo.filetype) then
+            return
+        end
         if vim.bo.expandtab then
             vim.opt_local.listchars:append({tab = "␉—⇥"})
         else
