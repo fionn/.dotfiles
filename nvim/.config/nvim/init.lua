@@ -2,6 +2,7 @@ vim.loader.enable()
 
 require("options")
 require("plugins")
+require("lsp")
 
 local function close_floats()
     -- https://github.com/lettertwo/config/blob/main/nvim/lua/util/init.lua

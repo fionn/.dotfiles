@@ -44,7 +44,6 @@ vim.pack.add({
 
 require("plugins/treesitter")
 require("plugins/completion")
-require("plugins/lsp")
 
 vim.cmd.packadd("nvim.undotree")
 
