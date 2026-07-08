@@ -123,12 +123,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
         local no_indent = {"python", "gitconfig"}
-        if not vim.tbl_contains(no_indent, event.match) then
+        if not vim.list_contains(no_indent, event.match) then
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
 
         local no_hl = {"gitcommit", "gitrebase", "diff"}
-        if vim.tbl_contains(no_hl, event.match) then
+        if vim.list_contains(no_hl, event.match) then
             return
         end
 

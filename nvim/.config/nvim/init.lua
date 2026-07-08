@@ -125,7 +125,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Remove trailing whitespace and blank lines",
     callback = function()
         local leave_whitespace_fts = {"diff", "mail", "gitcommit"}
-        if not vim.tbl_contains(leave_whitespace_fts, vim.bo.filetype) then
+        if not vim.list_contains(leave_whitespace_fts, vim.bo.filetype) then
             -- Partially from neovim/runtime/lua/editorconfig.lua.
             local view = vim.fn.winsaveview()
             vim.cmd("silent! undojoin")
@@ -194,7 +194,8 @@ vim.api.nvim_create_autocmd("WinEnter", {
     group = init_augroup,
     desc = "Close unwritable buffers on quit",
     callback = function()
-        if vim.list_contains({"quickfix", "nofile", "nowrite"}, vim.bo.buftype) and vim.fn.winnr("$") == 1 then
+        local ignore_fts = {"quickfix", "nofile", "nowrite"}
+        if vim.list_contains(ignore_fts, vim.bo.buftype) and vim.fn.winnr("$") == 1 then
             vim.cmd.quit()
         end
     end
