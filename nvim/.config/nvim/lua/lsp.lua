@@ -227,10 +227,6 @@ vim.lsp.config("texlab", {
 
 vim.lsp.enable("gopls")
 vim.lsp.config("gopls", {
-    ---@type lsp.LSPObject
-    init_options = {
-        semanticTokens = true
-    },
     ---@type lspconfig.settings.gopls
     settings = {
         gopls = {
