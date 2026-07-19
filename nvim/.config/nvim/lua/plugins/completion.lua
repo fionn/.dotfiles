@@ -97,7 +97,7 @@ cmp.setup({
         ghost_text = true
     },
 
-    mapping = cmp.mapping.preset.insert {
+    mapping = cmp.mapping.preset.insert({
         ["<Esc>"] = cmp.mapping.close(),
         ["<BS>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -159,7 +159,7 @@ cmp.setup({
                 fallback()
             end
         end, {"i", "s"})
-    },
+    }),
 
     sorting = {
         comparators = {

@@ -1,13 +1,13 @@
-require("treesitter-context").setup {
+require("treesitter-context").setup({
     max_lines = 2,
     min_window_height = 3,
     multiline_threshold = 3,
     trim_scope = "inner",
     mode = "cursor",
     separator = "‾"
-}
+})
 
-require("nvim-treesitter-textobjects").setup {
+require("nvim-treesitter-textobjects").setup({
     select = {
         lookahead = true,
         selection_modes = {
@@ -20,7 +20,7 @@ require("nvim-treesitter-textobjects").setup {
         }
     },
     set_jumps = true
-}
+})
 
 local ts_to_select = require("nvim-treesitter-textobjects.select")
 local ts_to_swap = require("nvim-treesitter-textobjects.swap")

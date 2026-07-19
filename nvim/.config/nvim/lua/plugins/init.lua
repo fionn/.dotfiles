@@ -48,7 +48,7 @@ require("plugins/completion")
 vim.cmd.packadd("nvim.undotree")
 
 local gitsigns = require("gitsigns")
-gitsigns.setup {
+gitsigns.setup({
     signs = {
         add          = {text = "+"},
         change       = {text = "~"},
@@ -120,18 +120,18 @@ gitsigns.setup {
 
         vim.api.nvim_create_user_command("Blame", function(_) gitsigns.blame() end, {})
     end
-}
+})
 
-require("git-conflict").setup {
+require("git-conflict").setup({
     disable_diagnostics = true
-}
+})
 
-require("kube-schema").setup {
+require("kube-schema").setup({
     notifications = false
-}
+})
 
 local ibl = require("ibl")
-ibl.setup {
+ibl.setup({
     enabled = false,
     indent = {
         char = "▏",
@@ -143,7 +143,7 @@ ibl.setup {
         show_end = false,
         char = "▎"
     }
-}
+})
 
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Enable indent guides",
@@ -155,7 +155,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local wk = require("which-key")
-wk.setup {
+wk.setup({
     preset = "helix",
     ---@type fun(ctx: {keys: string, mode: string, plugin?: string}): number
     delay = function(ctx)
@@ -163,7 +163,7 @@ wk.setup {
     end,
     expand = 1,
     icons = {rules = false}
-}
+})
 wk.add({
     {"[", group = "previous"},
     {"]", group = "next"},
