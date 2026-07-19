@@ -48,7 +48,6 @@ local swap = {}
 ---@param query_group? string
 function swap.next(query_strings, query_group)
     return function()
-        ---@diagnostic disable-next-line: param-type-mismatch
         ts_to_swap.swap_next(query_strings, query_group or "textobjects")
     end
 end
@@ -57,7 +56,6 @@ end
 ---@param query_group? string
 function swap.previous(query_strings, query_group)
     return function()
-        ---@diagnostic disable-next-line: param-type-mismatch
         ts_to_swap.swap_previous(query_strings, query_group or "textobjects")
     end
 end
