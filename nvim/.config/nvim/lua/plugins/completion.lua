@@ -108,7 +108,14 @@ cmp.setup({
                     -- were restricted to the prefix, which is now one character
                     -- shorter. cmp.ContextReason.Manual causes context.changed
                     -- to return true, regenerating the completion list.
-                    cmp.complete({reason = cmp.ContextReason.Manual})
+                    vim.schedule(function()
+                        -- We schedule this in an attempt to take some of the
+                        -- pressure off when holding <BS>, which causes rapid
+                        -- regenerations of the completion list and visible
+                        -- delays. Scheduling helps but doesn't solve the
+                        -- problem.
+                        cmp.complete({reason = cmp.ContextReason.Manual})
+                    end)
                 end
             end
             fallback()
