@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Meta-level format on save",
-    pattern = {"go", "gomod", "terraform", "rust"},
+    pattern = {"go", "gomod", "terraform", "rust", "zig"},
     group = vim.api.nvim_create_augroup("format_on_save", {}),
     callback = function()
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -286,6 +286,7 @@ vim.lsp.enable("zizmor")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
+vim.lsp.enable("zls")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = false
