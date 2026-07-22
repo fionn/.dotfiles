@@ -1,6 +1,6 @@
 [user]
 	name = Fionn Fitzmaurice
-	email = fionn@github.com
+	email = git@fionn.computer
 	signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
 [include]
 	path = work.gitconfig
