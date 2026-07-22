@@ -41,6 +41,7 @@
 	useForceIfIncludes = true
 [fetch]
 	prune = true
+	parallel = 0
 [pull]
 	ff = only
 [rebase]
