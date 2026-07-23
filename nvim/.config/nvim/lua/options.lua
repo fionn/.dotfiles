@@ -134,7 +134,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
             return
         end
         if vim.bo.expandtab then
-            vim.opt_local.listchars:append({tab = "␉—⇥"})
+            vim.opt_local.listchars:append({tab = "——⇥"})
         end
     end
 })
