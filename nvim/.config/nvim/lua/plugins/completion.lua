@@ -99,27 +99,6 @@ cmp.setup({
 
     mapping = cmp.mapping.preset.insert({
         ["<Esc>"] = cmp.mapping.close(),
-        ["<BS>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                if not has_words_before() then
-                    cmp.close()
-                else
-                    -- The menu must be refreshed, since previous completions
-                    -- were restricted to the prefix, which is now one character
-                    -- shorter. cmp.ContextReason.Manual causes context.changed
-                    -- to return true, regenerating the completion list.
-                    vim.schedule(function()
-                        -- We schedule this in an attempt to take some of the
-                        -- pressure off when holding <BS>, which causes rapid
-                        -- regenerations of the completion list and visible
-                        -- delays. Scheduling helps but doesn't solve the
-                        -- problem.
-                        cmp.complete({reason = cmp.ContextReason.Manual})
-                    end)
-                end
-            end
-            fallback()
-        end, {"i", "s"}),
         ["("] = cmp.mapping(function(_)
             if cmp.visible() then
                 complete_exact_match()
