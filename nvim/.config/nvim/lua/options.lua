@@ -176,3 +176,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
     end
 })
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+    group = vim.api.nvim_create_augroup("relative_numbers", {}),
+    callback = function(ev)
+        if not vim.opt.modifiable:get() then
+            return
+        end
+
+        local pending_modes = {"v", "V", "\22", "no"}
+        local mode = vim.split(ev.match, ":")[2]
+        vim.opt_local.relativenumber = vim.list_contains(pending_modes, mode)
+    end
+})
