@@ -169,6 +169,9 @@ local highlights = {
     ["@markup.math.latex"] = {link = "Identifier"},
     ["@function.macro.latex"] = {link = "Statement"},
     ["@function.latex"] = {link = "@function.macro.latex"},
+
+    -- https://github.com/LuaLS/lua-language-server/issues/1809
+    ["@lsp.type.comment"] = {},
 }
 
 for group, options in pairs(highlights) do
