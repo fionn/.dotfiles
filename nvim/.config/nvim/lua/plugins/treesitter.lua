@@ -117,9 +117,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
         ts.install(language):wait()
 
-        vim.wo.foldmethod = "expr"
-        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
         local no_indent = {"python", "gitconfig", "zig"}
         if not vim.list_contains(no_indent, event.match) then
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
@@ -133,7 +130,11 @@ vim.api.nvim_create_autocmd("FileType", {
         local status, err = pcall(vim.treesitter.start, event.buf, language)
         if not status and err then
             vim.notify(err, vim.log.levels.WARN)
+            return
         end
+
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end
 })
 
