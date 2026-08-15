@@ -137,7 +137,3 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end
 })
-
--- This is a no-op for already installed parsers and is equivalent to the old
--- ensure_enstalled call.
-require("nvim-treesitter").install({"diff", "comment"})
