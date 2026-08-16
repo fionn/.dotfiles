@@ -86,7 +86,7 @@ vim.cmd.colorscheme("default_override")
 local diagnostic_sign_map = {
     [vim.diagnostic.severity.ERROR] = "⨯",
     [vim.diagnostic.severity.WARN] = "⚠",
-    [vim.diagnostic.severity.INFO] = "ℹ",
+    [vim.diagnostic.severity.INFO] = "𝑖",
     [vim.diagnostic.severity.HINT] = "☞"
 }
 
