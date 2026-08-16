@@ -166,7 +166,8 @@ vim.lsp.config("lua_ls", {
                 }
             },
             completion = {
-                keywordSnippet = "Disable"
+                keywordSnippet = "Disable",
+                showWord = "Disable"
             },
             hint = {enable = true},
             codeLens = {enable = false},
