@@ -209,6 +209,8 @@ vim.api.nvim_create_autocmd("WinScrolled", {
     callback = function()
         if vim.wo.scrollbind then
             local initial_win = vim.api.nvim_get_current_win()
+            ---@param win_str string
+            ---@param delta table<string, integer>
             for win_str, delta in pairs(vim.v.event) do
                 local win = tonumber(win_str)
                 if win ~= nil and vim.wo[win].scrollbind
