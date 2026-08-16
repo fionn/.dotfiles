@@ -63,10 +63,10 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition, like <C-]>"})
 vim.keymap.set("n", "grf", vim.lsp.buf.format, {desc = "Format"})
+vim.keymap.set("n", "grh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "gr/", vim.lsp.buf.workspace_symbol, {desc = "Query symbols"})
 
 vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
-vim.keymap.set("n", "<leader>lh", toggle_inlay_hint, {desc = "Toggle inlay hints"})
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
 
 vim.keymap.set("n", "<leader>?", require("which-key").show, {desc = "Global keymappings"})
