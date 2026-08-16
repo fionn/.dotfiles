@@ -83,11 +83,11 @@ HISTSIZE=40000
 SAVEHIST=30000
 HISTORY_IGNORE="(exit|[bf]g|history *)"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
+ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export LANG=${LANG:-en_GB.UTF-8}
-export ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
