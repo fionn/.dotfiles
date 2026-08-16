@@ -79,12 +79,13 @@ bindkey -M viins "^?" backward-delete-char
 
 bindkey "^X^E" edit-command-line
 
+HISTSIZE=40000
+SAVEHIST=30000
+HISTORY_IGNORE="(exit|[bf]g|history *)"
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+
 export EDITOR=nvim
 export VISUAL=$EDITOR
-export HISTSIZE=40000
-export SAVEHIST=30000
-export HISTORY_IGNORE="(exit|[bf]g|history *)"
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export LANG=${LANG:-en_GB.UTF-8}
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
