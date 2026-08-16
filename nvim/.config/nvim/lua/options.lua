@@ -143,7 +143,7 @@ vim.api.nvim_create_autocmd("BufRead", {
     group = "options",
     desc = "Set read-only buffers as not modifiable",
     callback = function()
-        if vim.opt_local.readonly:get() then
+        if vim.opt.readonly:get() then
             vim.opt_local.modifiable = false
         end
     end
