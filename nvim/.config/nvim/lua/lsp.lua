@@ -185,10 +185,7 @@ vim.lsp.config("lua_ls", {
             },
             nameStyle = {
                 config = {
-                    local_name_style = {
-                        "snake_case",
-                        {type = "ignore", param = "M"}
-                    },
+                    local_name_style = {"snake_case", {type = "ignore", param = "M"}},
                     function_param_name_style = {"snake_case", {type = "ignore", param = "_"}},
                     function_name_style = "snake_case",
                     local_function_name_style = "snake_case",
