@@ -3,6 +3,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
     group = vim.api.nvim_create_augroup("build_packages", {}),
     desc = "Build packages",
     callback = function(ev)
+        ---@type string?, string
         local name, kind = ev.data.spec.name, ev.data.kind
         if name == "nvim-treesitter" and kind == "update" then
             if not ev.data.active then
