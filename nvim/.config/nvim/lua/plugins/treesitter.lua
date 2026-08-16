@@ -28,6 +28,7 @@ local ts_to_move = require("nvim-treesitter-textobjects.move")
 
 ---@param query_string string
 ---@param query_group? string
+---@return fun()
 local function select(query_string, query_group)
     return function()
         ts_to_select.select_textobject(query_string, query_group or "textobjects")
@@ -46,6 +47,7 @@ local swap = {}
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function swap.next(query_strings, query_group)
     return function()
         ts_to_swap.swap_next(query_strings, query_group or "textobjects")
@@ -54,6 +56,7 @@ end
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function swap.previous(query_strings, query_group)
     return function()
         ts_to_swap.swap_previous(query_strings, query_group or "textobjects")
@@ -67,6 +70,7 @@ local move = {}
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function move.next_start(query_strings, query_group)
     return function()
         ts_to_move.goto_next_start(query_strings, query_group)
@@ -75,6 +79,7 @@ end
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function move.previous_start(query_strings, query_group)
     return function()
         ts_to_move.goto_previous_start(query_strings, query_group)
@@ -83,6 +88,7 @@ end
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function move.next_end(query_strings, query_group)
     return function()
         ts_to_move.goto_next_end(query_strings, query_group)
@@ -91,6 +97,7 @@ end
 
 ---@param query_strings string | string[]
 ---@param query_group? string
+---@return fun()
 function move.previous_end(query_strings, query_group)
     return function()
         ts_to_move.goto_previous_end(query_strings, query_group)
