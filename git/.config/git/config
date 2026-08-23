@@ -95,11 +95,6 @@
 	insteadOf = aur:
 [advice]
 	detachedHead = false
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 [filter "spacify"]
 	clean = expand --tabs=4 --initial
 [filter "tabify"]
