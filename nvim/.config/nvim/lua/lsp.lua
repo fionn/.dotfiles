@@ -162,7 +162,11 @@ vim.lsp.config("lua_ls", {
         Lua = {
             diagnostics = {
                 neededFileStatus = {
-                    ["name-style-check"] = "Opened"
+                    ["name-style-check"] = "Opened",
+                    ["incomplete-signature-doc"] = "Opened",
+                    ["missing-global-doc"] = "Opened",
+                    ["missing-local-export-doc"] = "Opened",
+                    ["no-unknown"] = "Opened"
                 }
             },
             completion = {
