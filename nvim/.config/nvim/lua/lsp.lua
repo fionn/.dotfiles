@@ -209,7 +209,7 @@ vim.lsp.config("lua_ls", {
             },
             runtime = {version = "LuaJIT"},
             workspace = {
-                checkThirdParty = false,
+                checkThirdParty = false
             }
         }
     }
