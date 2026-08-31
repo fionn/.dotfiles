@@ -167,7 +167,8 @@ vim.lsp.config("lua_ls", {
                     ["missing-global-doc"] = "Opened",
                     ["missing-local-export-doc"] = "Opened",
                     ["no-unknown"] = "Opened",
-                    ["global-element"] = "Opened"
+                    ["global-element"] = "Opened",
+                    ["not-yieldable"] = "Opened"
                 }
             },
             completion = {
