@@ -197,6 +197,9 @@ vim.lsp.config("lua_ls", {
                     class_name_style = "pascal_case"
                 }
             },
+            type = {
+                checkTableShape = true
+            },
             runtime = {version = "LuaJIT"},
             workspace = {
                 checkThirdParty = false,
