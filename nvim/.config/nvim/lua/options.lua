@@ -194,27 +194,30 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function(ev)
         local previous_buf = vim.fn.bufnr("#")
         if previous_buf < 1 then return end
+
         local root = nil
 
         -- Try to find the project root by (ab?)using the LSP root markers.
         -- Update once https://github.com/neovim/neovim/issues/34622 is closed.
-        local client = vim.lsp.get_clients({bufnr = previous_buf})[1]
-        if client then
+        for _, client in ipairs(vim.lsp.get_clients({bufnr = previous_buf})) do
             root = client.root_dir
+            if root ~= nil then
+                break
+            end
         end
 
         -- If the LSP trick didn't work, fall back to using the root of the Git
         -- repository.
-        root = root or vim.fs.root(vim.api.nvim_buf_get_name(previous_buf), ".git")
-
         -- Or, if not in a Git repository, use the current working directory.
         -- This isn't ideal, so might remove this fallback, however one nice
         -- feature is it forces root to be non-optional, removing a possible
         -- error condition.
-        root = root or vim.fn.getcwd()
+        if root == nil then
+            root = vim.fs.root(vim.api.nvim_buf_get_name(previous_buf), ".git")
+                   or vim.fn.getcwd()
+        end
 
-        local buf_dir = vim.api.nvim_buf_get_name(ev.buf)
-        if not vim.fs.relpath(root, buf_dir) then
+        if not vim.fs.relpath(root, vim.api.nvim_buf_get_name(ev.buf)) then
             vim.opt_local.readonly = true
             vim.opt_local.modifiable = false
         end
