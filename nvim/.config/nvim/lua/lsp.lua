@@ -166,7 +166,8 @@ vim.lsp.config("lua_ls", {
                     ["incomplete-signature-doc"] = "Opened",
                     ["missing-global-doc"] = "Opened",
                     ["missing-local-export-doc"] = "Opened",
-                    ["no-unknown"] = "Opened"
+                    ["no-unknown"] = "Opened",
+                    ["global-element"] = "Opened"
                 }
             },
             completion = {
