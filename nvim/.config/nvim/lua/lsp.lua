@@ -198,7 +198,8 @@ vim.lsp.config("lua_ls", {
                 }
             },
             type = {
-                checkTableShape = true
+                checkTableShape = true,
+                inferParamType = true
             },
             runtime = {version = "LuaJIT"},
             workspace = {
