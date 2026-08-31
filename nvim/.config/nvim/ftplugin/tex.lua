@@ -11,7 +11,6 @@ if vim.split(vim.opt.makeprg:get(), " ")[1] == "latex" then
     vim.opt_local.makeprg = "pdflatex -no-shell-escape -interaction=nonstopmode %"
 end
 
-
 -- Conceal everything except superscripts and subscripts (when conceal is
 -- enabled). We omit superscripts and subscripts because they can contain
 -- contents that can't be rendered as superscript or subscript, which looks
