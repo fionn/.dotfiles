@@ -6,8 +6,13 @@
         "library": [
             "$VIMRUNTIME",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua/lspconfig",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua/nvim-treesitter",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter-textobjects/lua/nvim-treesitter-textobjects",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-cmp/lua/cmp",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter-textobjects/lua/nvim-treesitter-textobjects"
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/cmp-nvim-lsp/lua/cmp_nvim_lsp",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/which-key.nvim/lua/which-key",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/indent-blankline.nvim/lua/ibl"
         ]
     }
 }
