@@ -107,7 +107,6 @@ gitsigns.setup({
 
         map("n", "<leader>hs", gitsigns.stage_hunk, {desc = "Stage"})
         map("n", "<leader>hr", gitsigns.reset_hunk, {desc = "Reset"})
-        map("n", "<leader>hu", gitsigns.undo_stage_hunk, {desc = "Unstage"})
         map("n", "<leader>hp", gitsigns.preview_hunk, {desc = "Preview"})
         map("n", "<leader>hi", gitsigns.preview_hunk_inline, {desc = "Preview inline"})
         map("n", "<leader>hd", gitsigns.diffthis, {desc = "Diff"})
