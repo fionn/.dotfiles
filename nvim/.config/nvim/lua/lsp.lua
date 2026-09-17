@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
                 once = true,
                 callback = function()
                     vim.lsp.inlay_hint.enable()
+                    return true
                 end
             })
         end
