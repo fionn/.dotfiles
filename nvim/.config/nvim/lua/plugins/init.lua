@@ -1,13 +1,13 @@
 vim.api.nvim_create_autocmd("PackChanged", {
     -- Adapted from https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack#hooks.
-    group = vim.api.nvim_create_augroup("build_packages", {}),
-    desc = "Build packages",
+    group = vim.api.nvim_create_augroup("build_treesitter_parsers", {}),
+    desc = "Build tree-sitter parsers",
     callback = function(ev)
         ---@type string?, string
-        local name, kind = ev.data.spec.name, ev.data.kind
-        if name == "nvim-treesitter" and kind == "update" then
+        local name = "nvim-treesitter"
+        if ev.data.spec.name == name and ev.data.kind == "update" then
             if not ev.data.active then
-                vim.cmd.packadd("nvim-treesitter")
+                vim.cmd.packadd(name)
             end
             vim.cmd.TSUpdate()
         end
