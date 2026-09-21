@@ -174,3 +174,5 @@ wk.add({
     {"<leader>b", group = "git blame"},
     {"<leader>h", group = "git hunk"}
 })
+
+vim.keymap.set("n", "<leader>?", wk.show, {desc = "Global keymappings"})

@@ -69,7 +69,6 @@ vim.keymap.set("n", "gr/", vim.lsp.buf.workspace_symbol, {desc = "Query symbols"
 vim.keymap.set("n", "<leader>ll", toggle_virtual_lines, {desc = "Toggle diagnostic lines"})
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagnostics"})
 
-vim.keymap.set("n", "<leader>?", function() require("which-key").show() end, {desc = "Global keymappings"})
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
