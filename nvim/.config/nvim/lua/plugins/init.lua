@@ -26,6 +26,7 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-omni",
     "https://github.com/petertriho/cmp-git",
     "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/lewis6991/fileline.nvim",
     "https://github.com/linrongbin16/gitlinker.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/Vimjas/vim-python-pep8-indent",
