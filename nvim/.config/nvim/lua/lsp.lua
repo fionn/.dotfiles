@@ -297,6 +297,7 @@ vim.lsp.enable("jsonls")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 vim.lsp.enable("zls")
+vim.lsp.enable("leanls")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = false
