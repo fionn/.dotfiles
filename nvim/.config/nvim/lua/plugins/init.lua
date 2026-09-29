@@ -34,6 +34,7 @@ vim.pack.add({
     "https://github.com/Vimjas/vim-python-pep8-indent",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/bullets-vim/bullets.vim",
+    "https://github.com/Julian/lean.nvim",
     "https://github.com/fionn/git-conflict.nvim",
     "https://github.com/fionn/nvim-redact-pass",
     "https://github.com/fionn/nvim-hujson",
@@ -51,6 +52,8 @@ require("plugins/treesitter")
 require("plugins/completion")
 
 vim.cmd.packadd("nvim.undotree")
+
+vim.g.lean_config = {mappings = true}
 
 local gitsigns = require("gitsigns")
 gitsigns.setup({
