@@ -222,7 +222,7 @@ require("cmp_git").setup({
         pull_requests = {
             state = "all",
             sort_by = function(pr)
-                return 1 / tonumber(pr.number)
+                return 1 / assert(tonumber(pr.number))
             end,
             limit = 40
         }

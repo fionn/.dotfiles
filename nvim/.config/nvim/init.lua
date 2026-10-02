@@ -31,8 +31,8 @@ local function toggle_inlay_hint()
 end
 
 local function toggle_virtual_lines()
-    vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines})
-    vim.diagnostic.config({virtual_text = not vim.diagnostic.config().virtual_lines})
+    vim.diagnostic.config({virtual_lines = not assert(vim.diagnostic.config()).virtual_lines})
+    vim.diagnostic.config({virtual_text = not assert(vim.diagnostic.config()).virtual_lines})
 end
 
 vim.keymap.set({"n", "v", "i"}, "<F1>", "<Nop>", {desc = "No-op", unique = true})
