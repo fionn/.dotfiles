@@ -81,33 +81,35 @@ vim.api.nvim_create_user_command("PackUpdate", function(_) vim.pack.update() end
 
 vim.cmd.colorscheme("default_override")
 
----@type { [vim.diagnostic.Severity]: string }
-local diagnostic_sign_map = {
-    [vim.diagnostic.severity.ERROR] = "⨯",
-    [vim.diagnostic.severity.WARN] = "⚠",
-    [vim.diagnostic.severity.INFO] = "𝑖",
-    [vim.diagnostic.severity.HINT] = "☞"
+local diagnostic_map = {
+    ---@type { [vim.diagnostic.Severity]: string }
+    sign = {
+        [vim.diagnostic.severity.ERROR] = "⨯",
+        [vim.diagnostic.severity.WARN] = "⚠",
+        [vim.diagnostic.severity.INFO] = "𝑖",
+        [vim.diagnostic.severity.HINT] = "☞"
+    },
+    ---@type { [vim.diagnostic.Severity]: string }
+    hl = {
+        [vim.diagnostic.severity.ERROR] = "DiagnosticStatusError",
+        [vim.diagnostic.severity.WARN] = "DiagnosticStatusWarn",
+        [vim.diagnostic.severity.INFO] = "DiagnosticStatusInfo",
+        [vim.diagnostic.severity.HINT] = "DiagnosticStatusHint"
+    }
 }
 
-vim.diagnostic.config {
-    signs = {text = diagnostic_sign_map},
+vim.diagnostic.config({
+    signs = {text = diagnostic_map.sign},
     status = {
         format = function(counts)
-            ---@type { [vim.diagnostic.Severity]: string }
-            local diagnostic_hl_map = {
-                [vim.diagnostic.severity.ERROR] = "DiagnosticStatusError",
-                [vim.diagnostic.severity.WARN] = "DiagnosticStatusWarn",
-                [vim.diagnostic.severity.INFO] = "DiagnosticStatusInfo",
-                [vim.diagnostic.severity.HINT] = "DiagnosticStatusHint"
-            }
             ---@type string[]
             local items = {}
             for severity in ipairs(vim.diagnostic.severity) do
                 local count = counts[severity]
-                if count then
+                if count ~= nil then
                     table.insert(items,
-                        ("%%#%s#%s:%s"):format(diagnostic_hl_map[severity],
-                                               diagnostic_sign_map[severity], count))
+                        ("%%#%s#%s:%s"):format(diagnostic_map.hl[severity],
+                                               diagnostic_map.sign[severity], count))
                 end
             end
             return table.concat(items, " ")
@@ -118,7 +120,7 @@ vim.diagnostic.config {
     float = {
         source = true
     }
-}
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = vim.api.nvim_create_augroup("generic_fixers", {}),
