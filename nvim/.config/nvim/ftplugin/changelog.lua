@@ -10,7 +10,7 @@ local function set_username()
         return
     end
 
-    vim.g.changelog_username = vim.trim(name.stdout) .. " <" .. vim.trim(email.stdout) .. ">"
+    vim.g.changelog_username = vim.trim(assert(name.stdout)) .. " <" .. vim.trim(assert(email.stdout)) .. ">"
 end
 
 set_username()
