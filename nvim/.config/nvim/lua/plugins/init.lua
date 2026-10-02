@@ -21,7 +21,11 @@ vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/hrsh7th/cmp-nvim-lsp",
-    "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
+    {
+        -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/issues/55
+        src = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
+        version = "465a7b9db5bc82ec270bdf5e5741d9aa9a792c87"
+    },
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-omni",
     "https://github.com/petertriho/cmp-git",
