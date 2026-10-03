@@ -145,7 +145,7 @@ cmp.setup({
                 fallback()
             end
         end, {"i", "s"})
-    }),
+    } --[[@as table<string, cmp.Mapping>]]),
 
     sorting = {
         comparators = {
