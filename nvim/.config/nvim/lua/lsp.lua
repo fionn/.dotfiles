@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local bufnr = ev.buf
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
+        if client:supports_method("textDocument/codeLens") then
             vim.lsp.codelens.enable(true, {bufnr = bufnr})
             vim.api.nvim_create_autocmd({"BufEnter", "InsertLeave"}, {
                 desc = "Enable codelenses",
@@ -66,8 +66,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("highlight_on_hover", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
-           and client:supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
+        if client:supports_method("textDocument/documentHighlight")
+           and client:supports_method("textDocument/hover") then
             vim.keymap.set("n", "K",
                 function()
                     vim.lsp.buf.hover()
@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("document_color", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
+        if client:supports_method("textDocument/documentColor") then
             vim.lsp.document_color.enable(true, {client_id = client.id}, {style = "virtual"})
         end
     end
@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp_fold", {}),
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method(vim.lsp.protocol.Methods.textDocument_foldingRange) then
+        if client:supports_method("textDocument/foldingRange") then
             vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
         end
     end
