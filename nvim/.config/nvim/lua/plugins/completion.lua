@@ -29,6 +29,8 @@ local kind_icons = {
     TypeParameter = "𝑻"
 }
 
+---@return boolean
+---@nodiscard
 local function has_words_before()
     -- Adapted from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings.
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -39,6 +41,7 @@ end
 ---@param text string
 ---@param max_length integer
 ---@return string
+---@nodiscard
 local function truncate(text, max_length)
     if text and text:len() > max_length then
         return text:sub(1, max_length) .. "⋯"
