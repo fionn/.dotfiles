@@ -71,7 +71,6 @@ vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {desc = "List diagno
 
 vim.keymap.set("n", "<leader>nr", toggle_relative_numbers, {desc = "Toggle relative numbers"})
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {desc = "Set executable bit", silent = true})
-vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "Paste without register"})
 
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
