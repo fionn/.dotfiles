@@ -66,7 +66,7 @@ cmp.setup({
 
     -- cmp claims that cmp.PreselectMode.None's type is an enum for string
     -- "None", but is actually an enum for "none" (lowercase), causing a type
-    -- error.
+    -- error. See https://github.com/hrsh7th/nvim-cmp/pull/2230.
     ---@diagnostic disable-next-line: assign-type-mismatch
     preselect = cmp.PreselectMode.None,
 
