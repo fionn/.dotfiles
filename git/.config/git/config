@@ -67,6 +67,7 @@
 	sort = -version:refname
 [gpg]
 	minTrustLevel = fully
+	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
 [grep]
