@@ -49,6 +49,10 @@ export GOPATH=$HOME/.local/share/go
 
 export GPG_TTY="$(tty)"
 
+if [[ -n "$SSH_TTY" ]]; then
+    export NVIM_NOTTYFAST=1
+fi
+
 shopt -s histappend
 shopt -s cmdhist
 shopt -s dirspell
