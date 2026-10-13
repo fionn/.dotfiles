@@ -230,6 +230,9 @@ vim.lsp.config("texlab", {
             },
             completion = {
                 matcher = "prefix"
+            },
+            diagnostics = {
+                ignoredPatterns = {"Unused label"}
             }
         }
     }
