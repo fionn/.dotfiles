@@ -63,9 +63,7 @@ vim.opt.wildmode = {"list:longest", "full"}
 
 vim.opt.winborder = "rounded"
 
-vim.opt.winblend = 8
 vim.opt.pumblend = 8
-
 vim.opt.pumheight = 40
 
 vim.opt.colorcolumn = {80}
