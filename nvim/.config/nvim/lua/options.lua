@@ -133,9 +133,14 @@ vim.api.nvim_create_autocmd("FileType", {
         if not vim.bo.modifiable or vim.list_contains(ignore_fts, vim.bo.filetype) then
             return
         end
-        if vim.bo.expandtab then
-            vim.opt_local.listchars:append({tab = "——⇥"})
-        end
+        -- This is racy. For example, editorconfig can set this and we'll be
+        -- incorrectly firing unless we're slower. We wrap in vim.schedule in
+        -- order to reduce our chances of winning the race.
+        vim.schedule(function()
+            if vim.bo.expandtab then
+                vim.opt_local.listchars:append({tab = "——⇥"})
+            end
+        end)
     end
 })
 
