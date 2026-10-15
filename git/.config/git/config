@@ -1,7 +1,7 @@
 [user]
 	name = Fionn Fitzmaurice
 	email = git@fionn.computer
-	signingkey = 6C86F0B067929AA94154C5EAF0E611F6C01EA600
+	signingKey = ~/.ssh/id_ed25519
 [include]
 	path = work.gitconfig
 [core]
