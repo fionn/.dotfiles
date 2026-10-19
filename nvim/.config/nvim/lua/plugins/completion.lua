@@ -197,6 +197,7 @@ cmp.setup.filetype("gitcommit", {
     ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
         {name = "git"},
+        {name = "git_trailers"},
         {name = "buffer", keyword_length = 2}
     }
 })

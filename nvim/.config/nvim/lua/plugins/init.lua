@@ -45,6 +45,7 @@ vim.pack.add({
     "https://github.com/fionn/nvim-gitrevlist",
     "https://github.com/fionn/nvim-cycle-boolean",
     "https://github.com/fionn/vim-syntax-ssh",
+    "https://github.com/fionn/cmp-git-trailers",
     "https://github.com/fionn/baseline"
 })
 
