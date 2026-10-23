@@ -220,9 +220,6 @@ require("cmp_git").setup({
     git = {
         commits = {
             sha_length = 40
-        },
-        trailers = {
-            filetypes = {}
         }
     },
     github = {
