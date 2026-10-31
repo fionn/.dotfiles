@@ -159,6 +159,10 @@ local highlights = {
     ["@string.special.path.diff"] = {link = "diffFile"},
     ["@constant.builtin"] = {link = "Identifier"},
 
+    -- gopls is the only language server that sends the "format" modifier token,
+    -- so restrict the highlight to Go.
+    ["@lsp.mod.format.go"] = {link = "@string.special"},
+
     zshKSHFunction = {link = "Function"},
 
     TexMathMatcher = {link = "Normal"},

@@ -263,6 +263,19 @@ vim.lsp.config("gopls", {
                 tidy = false
             }
         }
+    },
+    capabilities = {
+        textDocument = {
+            semanticTokens = {
+                tokenModifiers = {
+                    -- This is the default list of token modifiers, plus
+                    -- "format".
+                    "declaration", "definition", "readonly", "static",
+                    "deprecated", "abstract", "async", "modification",
+                    "documentation", "defaultLibrary", "format"
+                }
+            }
+        }
     }
 })
 
