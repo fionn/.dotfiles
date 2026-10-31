@@ -82,7 +82,7 @@ local highlights = {
     WildMenu = {fg = "NvimLightGrey3", bg = "None"},
 
     Function = {fg = "Yellow2"},
-    Type = {fg = "LightGoldenrod"},
+    Type = {fg = "#decd92"},
     Comment = {italic = true, fg = "#6a6a6a"},
     Special = {fg = "#008cb3"},
     Number = {fg = "Violet"},
