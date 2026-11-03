@@ -40,7 +40,6 @@ vim.pack.add({
     "https://github.com/folke/which-key.nvim",
     "https://github.com/Vimjas/vim-python-pep8-indent",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
-    "https://github.com/towolf/vim-helm",
     "https://github.com/bullets-vim/bullets.vim",
     "https://github.com/fionn/git-conflict.nvim",
     "https://github.com/fionn/nvim-redact-pass",

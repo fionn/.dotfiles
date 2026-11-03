@@ -279,15 +279,6 @@ vim.lsp.config("gopls", {
     }
 })
 
-vim.lsp.enable("helm_ls")
-vim.lsp.config("helm_ls", {
-    settings = {
-        ["helm-ls"] = {
-            yamlls = {showDiagnosticsDirectly = true}
-        }
-    }
-})
-
 vim.lsp.enable("terraformls")
 vim.lsp.config("terraformls", {
     cmd = {"terraform-ls", "serve", "-log-file=/tmp/terraform-ls-{{timestamp}}.log"},
