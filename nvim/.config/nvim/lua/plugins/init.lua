@@ -40,7 +40,6 @@ vim.pack.add({
     "https://github.com/folke/which-key.nvim",
     "https://github.com/Vimjas/vim-python-pep8-indent",
     "https://github.com/lukas-reineke/indent-blankline.nvim",
-    "https://github.com/rxbn/kube-schema.nvim",
     "https://github.com/towolf/vim-helm",
     "https://github.com/bullets-vim/bullets.vim",
     "https://github.com/fionn/git-conflict.nvim",
@@ -135,10 +134,6 @@ gitsigns.setup({
 
 require("git-conflict").setup({
     disable_diagnostics = true
-})
-
-require("kube-schema").setup({
-    notifications = false
 })
 
 local ibl = require("ibl")
