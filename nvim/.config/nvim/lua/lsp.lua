@@ -178,6 +178,7 @@ vim.lsp.config("lua_ls", {
             },
             hint = {enable = true},
             codeLens = {enable = false},
+            hover = {enumsLimit = 24},
             format = {
                 ---@type { [string]: string }
                 defaultConfig = {
