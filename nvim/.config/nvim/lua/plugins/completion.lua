@@ -183,16 +183,6 @@ cmp.setup.filetype("lua", {
     }
 })
 
-cmp.setup.filetype("haskell", {
-    ---@type cmp.SourceConfig[]
-    sources = cmp.config.sources {
-        {name = "nvim_lsp"},
-        {name = "nvim_lsp_signature_help"},
-        {name = "omni"},
-        {name = "buffer", keyword_length = 2}
-    }
-})
-
 cmp.setup.filetype("gitcommit", {
     ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
