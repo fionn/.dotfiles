@@ -198,6 +198,7 @@ cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources {
         {name = "git"},
         {name = "git_trailers"},
+        {name = "github"},
         {name = "buffer", keyword_length = 2}
     }
 })
@@ -215,20 +216,3 @@ for _, filetype in ipairs(buffer_fts) do
         }
     })
 end
-
-require("cmp_git").setup({
-    git = {
-        commits = {
-            sha_length = 40
-        }
-    },
-    github = {
-        pull_requests = {
-            state = "all",
-            sort_by = function(pr)
-                return 1 / assert(tonumber(pr.number))
-            end,
-            limit = 40
-        }
-    }
-})

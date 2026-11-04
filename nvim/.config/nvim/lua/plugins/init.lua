@@ -28,12 +28,6 @@ vim.pack.add({
     },
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-omni",
-    {
-        -- Pin to the version prior to Blink support (which we don't need).
-        -- Subsequent changes seem to be all made by an LLM.
-        src = "https://github.com/petertriho/cmp-git",
-        version = "e2dffc91f369b69dfca30e333e892044478720c3"
-    },
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/lewis6991/fileline.nvim",
     "https://github.com/linrongbin16/gitlinker.nvim",
@@ -48,7 +42,9 @@ vim.pack.add({
     "https://github.com/fionn/nvim-gitrevlist",
     "https://github.com/fionn/nvim-cycle-boolean",
     "https://github.com/fionn/vim-syntax-ssh",
+    "https://github.com/fionn/cmp-git",
     "https://github.com/fionn/cmp-git-trailers",
+    "https://github.com/fionn/cmp-github",
     "https://github.com/fionn/baseline"
 })
 
