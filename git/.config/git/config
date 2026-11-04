@@ -33,6 +33,7 @@
 	hint = dim
 [commit]
 	verbose = true
+	gpgSign = true
 [apply]
 	whitespace = error-all
 [init]
