@@ -196,7 +196,7 @@ cmp.setup.filetype("haskell", {
 cmp.setup.filetype("gitcommit", {
     ---@type cmp.SourceConfig[]
     sources = cmp.config.sources {
-        {name = "git"},
+        {name = "git", keyword_length = 4},
         {name = "git_trailers"},
         {name = "github"},
         {name = "buffer", keyword_length = 2}
