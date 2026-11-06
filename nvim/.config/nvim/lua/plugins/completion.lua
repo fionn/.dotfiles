@@ -82,7 +82,8 @@ cmp.setup({
                 nvim_lsp_signature_help = "lsp-sig"
             }
             vim_item.abbr = truncate(vim_item.abbr, 30)
-            vim_item.menu = sources[entry.source.name] or entry.source.name
+            vim_item.menu = sources[entry.source.name]
+                            or entry.source.name:gsub("_", "-")
             vim_item.kind = kind_icons[vim_item.kind] or vim_item.kind
 
             vim_item.dup = nil
