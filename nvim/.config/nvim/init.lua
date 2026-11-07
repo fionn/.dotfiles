@@ -227,3 +227,5 @@ vim.api.nvim_create_autocmd("WinScrolled", {
 vim.cmd.inoreabbrev({"seperate", "separate"})
 vim.cmd.inoreabbrev({"desireable", "desirable"})
 vim.cmd.inoreabbrev({"Supercedes", "Supersedes"})
+
+vim.cmd.digraph({"em", 8212})
