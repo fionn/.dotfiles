@@ -47,6 +47,7 @@ local highlights = {
     diffNewFile = {fg = "DarkGreen"},
     diffIndexLine = {fg = "DarkCyan"},
     diffSubname = {fg = "Grey", bold = true},
+    diffNoEol = {link = "WarningMsg"},
 
     GitSignsStagedDelete = {link = "DiffOldFile", bold = true},
 
