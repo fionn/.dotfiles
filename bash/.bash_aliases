@@ -41,3 +41,7 @@ fi
 if hash diskutil 2> /dev/null; then
     alias lsblk="diskutil list"
 fi
+
+if hash rdap 2> /dev/null; then
+    alias whois="rdap --log-level warn -O gtld-whois"
+fi
