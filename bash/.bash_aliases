@@ -30,10 +30,6 @@ if hash nvim 2> /dev/null; then
     alias vim=nvim
 fi
 
-if [[ -d /usr/share/nmap/scripts/ ]]; then
-    alias nse="ls /usr/share/nmap/scripts/ | grep -i "
-fi
-
 if hash wl-copy 2> /dev/null; then
     alias pbcopy="wl-copy"
     alias pbpaste="wl-paste"
